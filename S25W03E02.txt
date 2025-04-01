@@ -1,0 +1,818 @@
+so where did we leave off we had a way
+to uh have a child view update the state
+of a parent view um and we we'll see
+this everywhere in Swift UI so uh child
+view some has to update a parent view
+bindings are one way uh to do
+that but as you pointed out there are
+some limitations to this uh if you want
+if we want to pass um some State down
+15 Sub sub views in uh this is not a
+very good uh way to do it so we'll see
+some other other things uh a little bit
+later that allow us to do that but for
+now the the the apps that we're going to
+be building in the next couple of weeks
+uh this is this is
+enough um all right so next next uh
+let's let's take a look at
+our uh where's my iPad let's take a look
+at our iPad again
+so next thing we wanted to do is uh have
+a button well so I guess first of all we
+can uh hard code um a tip amount uh in
+there so let's have um tip um let's have
+it be a double and then the easiest way
+to um represent percentages in my
+opinion is just to to use um the
+percentage divided by um 100 100 so 0.2
+as
+20% um there's I think there's actually
+a it's not called a percentage at this
+point maybe one of you guys knows um
+it's uh has a different name when you're
+not when you're not multiplying by the
+the 100 uh but yeah so let's let's uh
+set the tip uh amount oh yeah let's set
+let's set the tip to uh
+20% and let's see if we can
+um add a
+button that will calculate our tip by
+taking whatever is
+inside uh our meal amount and uh then
+displaying it in our uh in our total tip
+label here that we have co-opted right
+now um for just displaying the
+amount so let's add that button first so
+I'll go up here again I could also type
+button but uh let's drag that here oh
+there we go we have a button and we'll
+just say
+calculate and what what are we trying to
+do here so we have the user typing in
+the meal
+amount we now want to do some math with
+this so we have to take the meal amount
+multiply it by the tip here and then
+display it
+uh to uh to um our our output label here
+actually I think we had that should have
+that on the other
+side all right so let's see shouldn't be
+that difficult some foreshadowing here
+um because we're going to run into a
+very New Concept
+um as we're as we're going here okay so
+let's just let's just try so we have the
+me amount someone is typing in something
+uh as the meal amount uh let's multiply
+that by the
+tip and let's maybe for now just store
+that as a uh calculated tip okay
+well okay so we have some compiler
+errors uh what is going on and so here
+we don't need the canvas for a while
+let's just turn that
+off uh so uh we we'll read this in a
+second here but um what's going on why
+do we have a compiler error we trying
+to uh multiply the meal amount by the
+tip what's going on why can't we compile
+this yes am Str meal amount is a string
+okay so what can we do let's see if we
+can turn that string into well we have a
+double so let's turn that into a double
+uh doubles have a nice uh initializer
+that take take strings very
+nice uh and let's see what happens now
+and's see if we can compile
+that uh oh okay so uh oh yeah first of
+all maybe let's go back real quick so
+what was the compar error we had before
+binary op operator multiply cannot be
+applied to operant of type type string
+and double so very you very correctly
+pointed that out let's see what this
+changes to now uh value of optional type
+double question mark must be unwrapped
+to a value of type double so uh that
+might sound like absolute
+incomprehensible word salad to you um
+but it is somehow related to the error
+that we had just gotten so somehow these
+are incompatible types so somehow the
+tip double here is incompatible with the
+double that we get when we pass an a
+string into the into that initializer so
+somehow they're
+incompatible uh let's see if we can kind
+of figure out what is going on here so
+if
+um any any ideas so far any
+yeah very good yeah so what happens
+we've done it all uh
+evening what should this mean as a as a
+double um in some languages you will get
+something uh that will be garbage so you
+you you might get um negative one um
+because it's it can't be converted very
+frustrating because then uh you might be
+doing some math with negative 1 and
+maybe you end up with a tip amount
+of2 or something like that I don't know
+uh what what else could happen um so if
+you type in something that can not
+cannot be convert into a double uh what
+what else might a language decide to do
+so if it can't be converted what have
+you seen
+elsewhere exception yeah so and
+exceptions um so maybe some languages
+will uh so so yeah maybe uh some
+languages might force you to catch them
+some might not
+so if an exception is not caught and
+someone types this in what happens to
+your app crashes so what kind of an
+error is that so we have runtime errors
+oh sorry we have we have runtime errors
+and we have compile time errors a crash
+is
+a uh so yeah between the two a runtime
+error or a compile time
+error uh yeah I think you're you're
+overthinking it so we um at compile ter
+we can have an error or at
+runtime this is compile time so what we
+have here is compile time if the app uh
+if you have an exception that it does
+not get caught what kind of an error is
+that that one would be a a runtime error
+so um do we like which ones do we like
+better do we like what compile time
+errors why do we like compile time
+errors
+better yeah so as we're trying to build
+it we can't build it if it's if it's
+wrong so if we're going to make a
+mistake it' be nice to catch it before
+we send this to a user so um the
+compiler figured out oh you are doing
+something dangerous here um unless you
+show me that you've that you did your
+work here and uh you're not making a
+mistake you need to show me that you
+didn't make didn't make a mistake or I
+won't let you ship this which might seem
+a little heavy-handed um if you're
+coming from JavaScript or other
+non-type safe languages uh but it's it's
+really useful in writing code that does
+not crash or doesn't have unexpected
+behaviors so this is one of my favorite
+or this is one reason why I really enjoy
+um writing apps in Swift um it just
+helps me not make mistakes uh which I
+would do plenty for
+otherwise okay so as you said we should
+probably check this since there could be
+an an issue here and the compiler
+figured out that we did something wrong
+here all right so what's going on here
+uh let me so I brought some props uh
+these are so we have a three-year-old
+son these are his bath toys so I have to
+uh return these um so we have some
+numbers and some letters uh I have some
+some cups um and uh some tape and uh
+some some
+uh post post not what are these called
+um index cards very good thank you all
+right so if I do the following here so
+let let's bring maybe up
+uh uh not simulator I want
+the file new
+playround and then so yeah what I like
+to do with the playgrounds I said that
+before switch it to Mac OS it just
+builds a little bit faster the initial
+the first
+time okay all right so we have
+value a
+maybe and let's say value a is uh
+9.0 and then we have value what what do
+I have so I guess this my might be
+nine oh yeah I guess could be
+nine
+um and then I have the one here as
+well all
+right um so what type is value a so this
+might sound like I'm going to ask very
+stupid questions here for the next
+couple of minutes they're they're going
+to sound very obvious and then um at
+some point they become maybe a little
+bit less obvious so what type is value a
+double okay so how does the compiler
+know this we put a double here if we did
+this the compiler wouldn't know that we
+we're talking about a double so let's
+see uh what we actually get here so
+value a if I option so command uh
+clicking goes to where something is
+defined option will give me more
+information uh so if I hover over it and
+click it'll give me more information
+about the thing that I have there so
+actually value a was an integer so uh if
+I don't have the point zero it thinks
+it's an integer uh now it thinks it's a
+double so the compiler deciding that
+this is a double uh is called type
+inference so we have something that
+can uh that the compiler can figure out
+what the type is so it infir
+the type of the value that we have here
+so we can have the compiler infer the
+type or we can also be explicit about
+the type and just say this is a double
+and then now if we did something like
+this where we don't have the dot zero
+afterwards um we still end up with a
+double here so now the the compiler does
+it the other way around we're saying we
+want a double this is a valid double it
+just doesn't have the zero uh so it'll
+turn that into a double which is nice uh
+but we wouldn't be able to put so let's
+say we have an an integer here int value
+and then we'll be explicit about that
+int maybe eight so if we try try to
+assign int value to our
+double that doesn't work anymore so
+cannot convert value of type int to
+specified type double again the same
+compiler error we got here so we we're
+on to something here and then again just
+to prove that the compiler want it
+decides this is an
+integer uh We complain so um this is an
+integer even even though I didn't say it
+was an
+integer because the compiler thinks an
+eight without a a decimal place uh is an
+integer all right
+so we have two values here value a and
+value B they're both doubles uh what's
+what's value B what's that type again
+stupid questions on my end please humor
+me what is the type of value b double
+very good thank
+you uh okay so we
+have uh
+nine there we go
+uh I'm uh getting confused with uh here
+here we go nine and
+one so we have nine and one if we want
+to multiply them
+um can any go anything go wrong here
+multiplying nine and one okay so that
+that seems to work we have nine and one
+see if that
+works okay value a times value B what is
+the type of result one that we have
+here double so if we have two doubles
+we're multiplying them um
+we get a double
+okay all right so um the
+concept that um or the the mechanism in
+which the
+compiler uh will uh help us figuring out
+that we've made a mistake
+um uh it's in my opinion very clever um
+so we have we don't really have the
+concept yet that um so if we have nine
+here if I want to save nothing in our in
+our value a uh constant here if I want
+to save nothing in there not nil but
+nothing so we maybe we couldn't do
+something or uh it hasn't been defined
+uh how how would we do that so with just
+a double um I think I've heard you say
+not a number or um maybe we could have
+Infinity uh but that's slightly
+different from from nothing like
+um uh nothing means like maybe we didn't
+initialize it or uh I guess not not a
+number could mean that um that we that
+we made a mistake somewhere but then um
+the compiler wouldn't be able to help us
+if the result is not a number we would
+still then we would have to check um the
+comper would be able to help us uh with
+that
+um so what the what the compiler does is
+whenever there's something
+unsafe uh it'll give
+us a little
+container uh and it'll say this might
+contain a
+double so there's there's maybe a I'm
+missing an
+e there is maybe a double here um I'm G
+to and but I don't know so putting a
+question mark there so let's uh label
+this
+container with uh so we have this this
+container
+here this might contain a double so if
+this was
+opaque um maybe we haven't checked yet
+uh we don't know uh so there might be
+something in here that is a double or
+not we'll have to check we have to look
+inside so it's opaque so we can actually
+see what's inside um um okay so we we
+have this uh so let's say um we have our
+meal
+amount
+oh and we have double and then we have a
+string that goes in there and maybe we
+have the string that says uh
+100
+um so this is where we we had that issue
+right where um we had had the meal
+amount that took a string
+in uh but then we didn't quite
+know uh like the compiler was saying hey
+you need to do some due diligence here
+so we don't know if this if this is
+actually a double so what the compiler
+does is with with stuff like this so if
+we inspect with with
+option we have me amount double question
+mark so we we're getting a container
+back so this this initializer the double
+that takes a string doesn't give us just
+the the value 100 it doesn't just give
+us a number instead is it gives us a
+container and so if we haven't checked
+yet it's opaque we don't know what's in
+there and then it might have put a value
+in there or not but to do math with it
+we have to like unwrap this we have to
+check what's inside so
+um if we so let's maybe yeah I'll put
+I'll make it opaque so let's I don't
+know did I put put it in or not we don't
+know so if I try to multiply container
+with we don't know what's in it with one
+uh so that's what the compiler is doing
+sorry that's what the compiler is doing
+uh to us here where um we have maybe a
+double and a double so it doesn't it's
+not defined to do math with those to so
+how do we how do we check how do we
+check so if the compiler puts something
+in there um we'll we we'll look inside
+what's in there and then to be able to
+do math with it so this is just the
+container it contain it can contain
+nothing or a double so we have to get
+rid of this container take out
+whatever's in there if we have a double
+now we can do math
+if nothing is in it then we shouldn't
+continue to do to do the math so uh the
+concept of of these containers where
+maybe there's something in it or not or
+not maybe there's a double in it or not
+they're called optionals so we have a
+special kind of type that can hold
+nothing or a double so those are those
+are optionals and to do math with an
+optional double we have to it's called
+unwrap you have to unwrap the optional
+which means taking out the double if
+there's one in there or
+uh if we can't take something out then
+not continuing yes
+question yes very good so if we look at
+uh what this returns here uh so again
+I'm going to go to um I think this one
+will oh nope not
+helpful uh okay yeah uh not a quick way
+for me to look that up right
+now or to like demonstrate but uh yeah
+so there's doubles for every everything
+so if you create a type you can turn
+that into a double your sorry an
+optional your type um any type can can
+be an optional so optionals you can
+think of as little containers where you
+want to do something with it but you
+have to check if there's something in
+there first so you don't know you have
+to you have to check it first so how do
+we
+check uh this is so ingrained in the
+language this uh checking if there's
+something inside a double or not that we
+have some special Syntax for that that
+makes it really easy so uh so here we
+have maybe something in there so
+um so this this statement you can think
+of as truthy so uh truthy means uh it
+can evaluate as successful so there's
+there's some there's something in here
+then this I could think of this as
+success and true or there's nothing in
+there then that EV it could evaluate as
+false so this is a truthy statement
+there's something to it that kind of
+makes sense to look at as the outcome of
+this is true or false so since it has
+this truthy nature to it we can just
+treat it like a Boolean um in Swift
+which is very nice so we can say
+if we can make this assignment and uh
+there's no issue with this
+then we want to do our thing here or if
+that is not true then we do something
+else so let's let's play around with
+that for a second so let's say if this
+is true then I want the
+total uh I want the
+result to be meal
+amount times our 0.2 tip and else I want
+uh maybe uh I want to print something to
+the
+console um and we want to say not a
+number
+okay let me move this
+also
+yes you're saying uh
+so EV so everything is an expression are
+you saying is every
+initialization a truthy
+initialization or could you put any uh
+initialization in here is that is that
+what you're asking yeah or is it just
+for it's just for this so here we have
+so the this ass this initialization here
+or this assignment um has something
+truthy to it so it could fail
+because uh depending on the string that
+we put in here it might not succeed so
+so the if let and then assignment uh is
+only available if we're dealing with
+optionals so it's like a
+special a special Syntax for dealing
+with these types of of optionals so
+let's let's play around with this for a
+second and then uh maybe we we uh we'll
+see if that answers all your questions
+uh let's let's run this let's see what
+happens and I guess so the console is
+going to come up here in a second so we
+the where there are values we'll get
+them in the gutter as
+well and that is taking a long time why
+is that taking oh here we go so okay so
+we have something in the gutter and I
+guess we can print something out here
+too so
+print uh the result
+is result okay let's run that
+again so we're printing out the result
+is 20 because we
+took uh so we were able to take the
+string 100 one0 0 was uh we were able to
+turn that into a double and then we were
+able to multiply that
+by2 so the result is 20 so let's see
+what happens if we add an a afterwards
+and let's run this
+again
+so 100 a is not a number so uh in this
+case uh this this assignment failed so
+we weren't able to assign a double to
+meal amount so we skipped this block of
+code and we executed the else we don't
+have to have an else block so if we
+remove this uh we just won't
+get any output so this was unsuccessful
+nothing prints this was
+successful something
+prints okay so let's see if uh any any
+questions
+here let's see if um let's let's see if
+we're where where your understanding is
+with this so here we have this meal
+amount
+assignment um I'm going to uh so I'm
+going to comment this out for now to
+have the compiler not give anything away
+uh what if in line so I've I've done
+this whole thing here in lines 13 uh to
+16 what if in line
+19 I now want to double result so maybe
+uh I want to say let result two
+equals
+uh um oh not not result meal amount I
+want to
+um I want to
+double meal
+amount um what are you guys' thoughts so
+I I'm unwrapping meal amount in line
+13 and maybe let's have this be
+successful and then in line 19 I'm
+trying to assign a new variable where
+I'm doubling me amount what are what are
+you guys' thoughts
+uh so yeah you're saying it it'll
+it'll um double it and assign it to
+result two is that what you're saying
+okay any other
+thoughts okay so what is the type of U
+meal
+amount so uh okay so it might be an
+optional okay so we we have there might
+be a a type mismatch because uh me
+amount might be an optional um we have
+one thought that maybe this uh works
+correctly uh any other
+thoughts say again does yeah 100 in this
+case just stays the same yeah any other
+thoughts so so neither of you so no one
+has quite cracked it yet so we we mostly
+there but uh some of
+reasoning uh is is not quite there so
+any other thoughts
+yes
+okay yeah okay yeah any other thoughts
+all right I think at this point we
+should just then uncomment this and see
+what the compiler tells us or if there's
+a if we can can run it let's see if we
+can run it okay so cannot find meal
+amount in
+scope um any thoughts about that what
+what does scope mean uh does anyone
+remember what scope means yes so
+basically
+yes very good yes so uh so you were very
+close um uh that it wouldn't run uh but
+so we me amount if this uh assignment
+succeeds we don't we're not dealing with
+an optional anymore because we are doing
+some math with it here so the type here
+is actually
+double so this will return an optional
+double but the assignment of this the if
+this is successful would be a double the
+problem is it's only defined for the
+duration of our if block so if we're
+trying to access me amount uh outside of
+this F block we're outside of the scope
+of this assignment so at this point it
+is again unsafe so first of all this
+this doesn't exist anymore but um since
+we're outside of this block it would be
+unsafe again whatever whatever we've uh
+we don't know exactly but yeah so in
+this case we didn't actually the
+assignment is not is over outside of
+scope any any questions here does that
+make sense okay good um
+uh yeah so there is another way to write
+this that doesn't work in the um in the
+playground as nicely but um the I think
+you I think you were saying there should
+be a way that we're saying hey we've
+checked this now so from now on let's
+just say that we we've checked this and
+we want to deal with it as checked uh
+and we don't want to have all of this
+happen inside this this block so there's
+a way to do that as well um we'll see
+that a little bit later but the way that
+we've written it right
+now uh me amount is
+only defined for the for this uh for
+this if block here and same same here so
+if we have an else
+block
+so let's see what the compiler says
+here so we are we're trying to access
+something that is inside the if and
+we're accessing it inside the else so
+it's not defined it's not uh it's not in
+scope okay so we
+have something that is dangerous the
+compiler says hey you're trying to
+convert uh a string into a double I'm
+going to give you this cup here uh you
+can put whatever you you have in there
+in there and then so from now on if
+someone wants to do something with this
+dangerous thing that you did there um
+I'm going to going to require you
+to to check inside and look look what's
+inside um so I guess we haven't really
+talked about what is in here in this cup
+when there's nothing in there so um we
+would say there's there's nil in there
+so n i l nil there not the concept of
+nothing in the in the concept of a of a
+Boolean or of a um of an optional is nil
+so there's if there's nil nil in it um
+the assignment
+failed any questions
+yeah so we we can have nil uh but
+um uh we the so nil in itself is not
+unsafe um but doing things to nil that
+were intended to be done to other things
+is unsafe so um it's perfectly fine to
+say hey this resulted in nil as long as
+you're not doing math with that that's
+fine so it's it's a very there no safety
+yes so there's um uh yeah we we have to
+check we have to check that we don't
+have
+no um does that answer your
+question you can have nil yes you can
+pass nil uh around but you're not
+allowed to do math with n so that's the
+Forbidden thing so we have to the
+compiler says hey uh well so nil and
+double are not the same type so we we
+can't do math with nil and double uh the
+nil can exist in the nil can only exist
+when you have a d an optional so it can
+be the nothing part of an optional
+otherwise it mil cannot exist in
+script uh very good question okay so now
+we are maybe able to do a little bit
+more here so we're doing something
+dangerous so let's do the only let's
+only do the the dangerous thing so here
+let's say maybe uh meal value um instead
+of meal amount uh so what type is meal
+value in this
+case optional double very good so how do
+we unwrap so that's the terminology here
+we are unwrapping the optional uh how do
+we unwrap
+it I'm hearing it yeah if okay so then
+inside this if block we can do uh things
+with it if it if it was successful so
+let's say
+total uh me value times tip okay so see
+no compiler errors nope very very good
+and then else now we can do something uh
+when it's not successful so if it's not
+successful uh maybe here add a little
+to-do let user know that they
+gave uh not a number
+okay all right so we have our
+total uh
+so right now we only have a way for the
+user to
+enter a meal amount uh and uh we want to
+be able
+to show this total to the user somehow
+so we want to update this text field so
+we we need
+another uh we need another property here
+and this might be um uh to Total
+tip what should total tip what should be
+the type uh be for total tip dou double
+okay and uh so
+then um so yeah I guess uh so we have to
+we have to initialize this so in this
+case I guess we would have to U give a a
+default value so we we'll just give a a
+default value of of zero and then um so
+instead of assigning it to Total we can
+just assign it to Total
+tip and then here we can update total
+tip
+and our text field will update it will
+will uh show it our
+text all right let's see what
+happens okay so we have a little bit of
+a formatting issue we'll address that in
+a second um so uh let's type in
+something let's type in 100 let's hit
+calculate and it gave us 20 which is
+very nice um so let's Ty Tye in
+something that cannot be
+converted and so we don't have a nice W
+for showing that yet but um uh so maybe
+we can we can change something here in a
+second uh to to make that uh a little
+bit easier but yeah so at least this
+didn't crash we so it didn't crash the
+app we could go back to 100 itut U I
+guess maybe let's do something else 1,00
+200 so our app did not
+crash okay so yeah maybe uh how could we
+make it so that we can also uh show a
+failure case and the total tip uh so
+maybe our our total tip here maybe we
+could just format that as um so this
+could maybe be a
+string uh and maybe we won't call it
+total tip but maybe we'll call it output
+or result or
+maybe
+output and then um we can we can update
+the output in the else case
+with uh not a number and then
+here we can
+now maybe we'll do actually do this
+okay so what what did I change um
+instead of having the number uh the
+calculate number uh we're just updating
+an output string so that is a little bit
+easier to to display in this uh text
+where we might have not a number
+displayed or or the total tip so let's
+see what that does
+okay so let's add something that we
+can't convert calculate not a number
+very good uh and then let's do 100 again
+and we have our total of
+20 okay any any questions
+here cool um so we have um what
+so I guess that yeah go
+ahead uh so I think it did some
+inferring here but um so it's still for
+like an a dollar amount it's still not
+quite correct right so there's still we
+we would expect two right so um I think
+it just the way I'm not sure why it's
+now showing one decimal place and not
+and not 50 not sure what is going on
+there but yeah so
+let's maybe change that next next so
+let's do let's do that um so there's an
+old way and a new way um I will uh show
+you both so the old way that is a little
+bit more clunky I will need uh notes for
+that one again I
+think yeah there we go okay all right so
+um let's think about
+uh our app uh and who might use it so uh
+tipping is a very American thing uh it's
+a it's very much uh ingrained in the
+culture uh that we because we're not
+paying the weight staff enough money to
+survive uh so they're reliant on the uh
+graciousness of the patrons which um I
+find slightly troubling but so there are
+other uh countries that um uh maybe
+don't do that but like there's still you
+might still tip so there's tipping is
+not just only an American thing but it
+might happen in other countries as well
+so this app might be downloaded if you
+put this in the in the App Store it
+might be downloaded by uh so I'm
+originally from Germany uh it might be
+downloaded by someone in Germany um how
+would that
+influence your
+uh so so here how would that influence
+your decisions for how to write this
+this UI so um how would we so so one it
+might be nice to for so for the English
+or for the US users it might be nice to
+show a dollar sign in front so
+100 so $20 great um in Germany I would
+using the Euro which has a different uh
+sign in front of it or actually it's
+afterwards um so I might find this
+annoying uh if I if I um downloaded an
+app and it showed me the wrong
+currency uh how would we How would how
+would you approach this uh as you're as
+you're writing an app is that something
+simple to solve or something difficult
+to
+solve simple okay so now we add maybe
+this ad can app can also be downloaded
+in China uh and maybe in maybe we just
+enable all uh app to us that we uh that
+we can sell this in uh does that is that
+still simple or how what what what
+happened
+now uh yeah so maybe we have to select
+the country first so now let me throw
+another wrench uh in this here so um
+uh so this might look really weird to
+you uh in
+Germany
+this would be and then I actually don't
+know not good please stay

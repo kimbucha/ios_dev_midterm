@@ -1,0 +1,964 @@
+um okay I think we're back all right so
+yeah so the question was about uh spring
+break H sorry not spring break about the
+the midterm uh so yeah looking at the AC
+academic calendar so our relevant uh
+spring break day would be March 25th
+which is in two weeks um so I would say
+um we will have the midterm April first
+um so that's uh I guess so right now we
+have seven 8
+uh I guess it'll that'll be 10 weeks
+in um with six weeks left I think that's
+still that's still okay uh with uh
+having missed that one week I think
+that's that makes the most sense I kind
+normally like having the Spring Break um
+empty I like having being being done
+before the break but then so that people
+are not thinking about it but I think
+just with um not having had lecture last
+week I think it makes sense to uh to
+have it April 1st um and I'll also post
+it as an announcement on uh on
+canvas um yeah so I don't think that
+that'll change but uh that that'll be
+that's I think that makes the most sense
+uh okay I think there were other were
+the other questions I think it was just
+all
+midterm great
+yes uh sample midterm um so I will
+create quizzes uh as as examples so you
+guys can uh do those earn credit for
+them if you want to you don't have to uh
+and then uh they should prepare you um
+and then yeah the other thing um it
+bothered me that I couldn't remember the
+um the playing card thing so I guess
+rank uh is what I was looking for um
+which is I guess just the order um so
+yeah Rank and suit um but um yeah I just
+looked it
+up uh all right so where have we left
+off uh we
+covered
+um enams
+first enams how you are likely familiar
+with um just as a smaller set of the
+integers we can also have a smaller
+set of the
+strings and then we saw that enums could
+also be arrows they don't have to have a
+raw value so when we first created our
+our day of weeks thing we didn't have
+the integer representation here um so uh
+if we don't need to
+instantiate uh one of these uh with an
+integer or with with a raw value we
+don't have to have it um and that
+actually happens a lot uh where it's
+just for yourself so you're not going
+from um you're not going from maybe
+something that the server would give you
+where it's probably represented as
+either a string or an integer um but you
+just need something you need it you need
+something that has a couple of options
+uh to choose from and um or yeah a type
+that has multiple versions of it itself
+um so yeah um you don't have to have an
+a raw value uh and um yeah I wanted to
+cover some some very unexpected places
+where enums uh show up so uh so yeah
+what was an enam again so it's uh it's
+in the in the example um that we had for
+day of week we have seven days of weeks
+so we have one case for each of those
+days we've seen something already where
+uh we needed to have
+two versions of something uh we needed
+to have uh to be able to save it save
+something as uh so Swift is a types type
+safe language to hold um a a a variable
+that could be one of two things one of
+two very different things we saw a need
+for having two different kinds of cases
+um and I'm trying to be as vague as
+possible here to not give it away maybe
+think about it for a second where have
+we seen something where we had two
+potential um things that we wanted to
+deal with
+uh and uh we were going to act very
+differently depending on um which one we
+got uh so think about it for a second
+and then and then we reveal it so a very
+unlikely place to maybe see enams but a
+very powerful place and um we we'll
+we'll see it a lot more in that in that
+scenario uh is anyone able to guess my
+very
+obscure um riddle that I've given here
+so maybe type oh optionals very good yes
+so you guys are typing it in so
+optionals so in the case of optionals we
+either have uh so if we're going from a
+string to an inte or integer or double I
+think we've been mostly using doubles uh
+there we're going from string to double
+from something really big large set of
+things to a slightly smaller set of of
+things uh so then we have uh so either
+let's say if we're going from 10 to
+double so here we would go to 10 and
+then here if we're going
+from Ab C we would be going to null okay
+so we either hold something or we hold
+nothing so how would we represent that
+with an enum uh so let's create we'll
+call it our
+optional okay let's create two cases
+let's create one uh uh so we call call
+this one none we create the none case
+which one would this probably be it'll
+probably be this one and then we're
+going to create and I'm going to choose
+a slightly maybe count like I'm going to
+choose a name that might not come
+immediately to uh uh to mind but with a
+reason so we're going to uh call this
+case sum so we have a nonone case and a
+some case so we have something or we
+have nothing um so those are those are
+the two options why am I using none and
+some here uh so under the hood optionals
+are actually uh enums and those are the
+names of the two cases and we'll see
+that in a second so the nonone case we
+don't have to do anything about it
+anymore but so what's special about
+optionals so if we have nothing we don't
+we don't have to have something there if
+we have something we want to have access
+to that something so we're going to say
+uh and maybe we call this our double
+optional so we're going to go from
+string maybe to double so
+here we have in the sum case we might
+have we we not we might we have a value
+here we have a value associated with the
+Su case so this weird syntax says uh in
+case of of the Su case there is a double
+that we have access to and we'll see how
+we we can get access to that in a second
+in case of the nonone case we don't have
+access to that and uh um yeah so and
+this is definitely an enum where having
+wanting to iterate over this uh over all
+possible versions is a little bit
+Troublesome because we're now iterating
+over all the doubles potentially so are
+not necessarily possible
+okay so our double optional here so how
+would we how would we instantiate this
+so um let's maybe go from a string here
+so let's say we have a user
+input and maybe the user typed in 10
+great that works uh and then so here we
+have our um our um our conversion or our
+we'll just say value
+and then this will be
+of this will um this will be of type our
+optional our double optional okay so in
+this case I guess let's let's start with
+something that we can't convert so
+ABC here we
+would this would be none um so if we're
+trying to go from
+ABC uh
+to uh a a double and we're using our uh
+new lead found optional here a newly
+created
+optional as a vehicle to to do this
+conversion um we would end up with none
+okay so let's update this so that we
+have something that
+works and in this case value would be
+the sum case and here we can put the
+value in there at that that we want to
+represent um
+so in our case we have
+have uh so in our double optional CA
+enum here we have the
+noncase which looks like any other enum
+um instance that we have and then we
+have the sum case if we're instantiating
+sum um our optional double here um we
+can add the the the double in there that
+we want that we want to have in there
+okay any any questions here um we'll
+we'll make make sense of this in a
+second
+here um okay so um how would we work
+with this um so if we want
+to if we have now a value here we want
+to do math with uh that so maybe we want
+to um what maybe we we
+have a result here maybe we want to
+multiply this by two
+um so we can't that we can't do that
+because we don't we can't do math with
+our optional and an integer um so I
+guess in this case a double so we have
+to
+unwrap our value here before we can do
+any math with it so let's see how we
+would unwrap um our double optional here
+we want to cover all the cases that are
+possible so what do we
+use we use the switch
+statement um so we'll switch on our
+value
+here and then the compiler will help us
+making sure that we cover all of the our
+bases
+here okay so we have the non case so in
+case of the non case we don't want to do
+anything so we'll just
+print
+um uh so not a valid double okay and
+then in case of the some case we have a
+value that we have access to um and we
+have this underscore here so if you
+remember underscore means something was
+omitted something is there but we we are
+not using it so the compiler or so the
+compiler as it autoc completed this uh
+put this here uh in case we didn't want
+to deal with this value um it's the what
+what the compiler did here is the same
+as if we just didn't do that so if we
+just interested
+in um
+the the fact that we have something
+valid here we can say uh we
+have uh valid
+double okay so this this is the same as
+what the compiler gave us with the
+underscore
+here um so yeah not not very useful
+right now but what we can do is we can
+have whatever value is stored in the sum
+case be uh turned into a local constant
+here so we can
+say um
+uh we can we can say for the sum case I
+am interested in the value that's here
+assign it to this local variable here
+and then we have access to it um uh in
+in our uh sum case here so let's let's
+print it
+and we could we could do some math with
+it um so so here we can do our result
+thing that we wanted to do for
+before and now it is unwrapped for us
+with a switch St so let's let's
+um let's run
+this so in the very bottom here we will
+have um
+uh so we have a we have a valid double
+here we go we have a valid double uh it
+is uh 10 that's what we put in here and
+then when we do some math with it uh so
+we doubled we doubled that it is
+20 um okay so if you
+have if you have an enum where one of
+the cases has some data that's uh
+associated with it this is called um an
+Associated value so we have an enum uh
+with Associated values and not all of
+the cases have to have Associated values
+this one does this one has the has the
+double value here um and then uh so yeah
+to unwrap our optional we are using the
+switch statement here for actual
+optionals we would use the IFL statement
+that is syntactic sugar just a nicer way
+to write this thing here um we but to to
+prove to you that we we are dealing with
+an optional when we're working with uh
+when we're working with
+um sorry to prove to you that we're
+working with an enum when we're working
+with optionals uh let's redefine value
+to not be uh our optional but in case uh
+but instead uh an actual
+double optional and then all of the code
+still works so the non case we can
+assign to this value and we can assign
+the sum case with a value so all of this
+still works even the switch statement
+still works so um here we go this this
+all still works and if we go so if I go
+to the uh if I command click to the sum
+case here this is the Declaration of the
+act of of the actual optional so this is
+behind the
+scenes we we're working with an enum
+when we're working with with optionals
+and we have the nonone case and we have
+the sum case and then we have the
+associated value here that is stored in
+the optional and we've seen this before
+we have a generic type here we have the
+generic type here we can do the same
+thing with hours uh so if we don't want
+it to be a double we can just say our
+optional and then we can have um we can
+use the same thing wrapped I think is
+what they
+used um as as a type so now if we do
+that um we can go back to to our our
+value here and now we have to define the
+type and again all of this still works
+should if I didn't make any mistakes
+here um so yeah all of this still works
+um so behind the
+scenes the optional and I can I I can
+even declare an optional with this
+generic um notation here so this is not
+ours this is
+ours um and if we go to the definition
+of it we see that it is an
+enm that has a generic and um the Su
+case has something associated with it uh
+so yeah behind the
+scenes optionals are enums and then
+everything for unwrapping them um that
+is available to us is
+syntactic sugar so something that is so
+syntax that is nicer than dealing with a
+switch statement so this would be a
+little bit awkward to unwrap optionals
+like this you can sometimes it's
+actually uh the more legible option so
+if you have uh an optional for an enum
+that has a bunch of cases if you use the
+switch statement one of the cases can be
+the none case uh so you don't have to do
+an additional unwrapping which is nice
+um but yeah uh super I I find this super
+fascinating I love when uh we can kind
+of pull the curtains back on how things
+work in the background and we encounter
+things that we can use that that we use
+behind the scenes um
+so if yeah if there any if there any
+questions ask them um because we can we
+can create our own optionals now that we
+know this we can uh create optionals
+that are tailored to exactly what we
+what we need to do so that options that
+we're dealing with right that we've been
+dealing with so far had a nonone case a
+su case uh if we need other cases we can
+uh we can do it ourselves any
+questions okay so let's uh let's create
+another
+type um so when I first started doing
+this um this made a little bit more
+sense to do now we actually just
+recreating another type that already
+exists so um um wouldn't it be nice if
+we had a non case a sum case uh uh sorry
+sorry a su case and the noncase had some
+information what what went wrong um so a
+good name for that kind of optional
+might
+be uh a result so if we have a result um
+uh we have a let's start with the thing
+that we know already we have a sum
+case um and then let's let's go generic
+again so that we uh that we can use it
+for anything so here we have our let's
+just use our um let's use wrapped again
+maybe that's since that is what the
+optional used so our result can hold a
+value um so that's very similar
+to um to our optional here but then the
+noncase here here we have no information
+what went wrong so wouldn't it be nice
+if the non case was not called none but
+maybe
+error and then uh here we have an error
+so and this is a swift error so anything
+that is an enum uh of type error uh we
+could put in here so uh now if we
+instead of using an an optional if we
+use our result
+type when we're unwrapping our result
+type we can find out what went wrong um
+so maybe we have the server we we're
+requesting something from the server and
+um we want to know exactly what went
+wrong did did the device have not
+internet connection um was there a
+server error maybe that there's
+maintenance mode we're interested in
+what went wrong so that the user can
+decide what to do next so this result
+type um we can unwrap the value that is
+stored in the sum case and we can unwrap
+the error and figure out what went wrong
+here so let's uh use our so we had our
+server error type here let me just move
+that down so we have it here as well um
+and uh let's pretend let's let's create
+a little function uh that returns
+something um of of type result so let's
+let's do something that could go wrong
+um let's maybe uh create a function uh
+read um and then file name so uh okay
+and then we just have a string here and
+then uh so when you're reading from a
+file name things can go wrong uh so
+maybe um what could go wrong the file
+could not be there so if I have a file
+name the file could not be there um
+maybe the file name the file is there
+but I don't have uh read access so maybe
+let's not use this one let's use uh
+let's create a new let's create a new
+error type here so so um let's let's
+call this uh file file error as so um
+maybe file does not exist and then maybe
+uh we can't it's there but we don't have
+permissions so
+insuff not enough
+permissions uh what else could be there
+uh maybe it's corrupted file corrupt it
+uh maybe um maybe we don't have uh we
+don't know how to open it
+um uh
+unknown file type um maybe we didn't
+have enough
+memory okay so these are all maybe error
+error cases for working with a file okay
+so when we're now reading
+file um and maybe we're interested in
+the contents of the file uh so maybe we
+want so in the happy case we want to
+return a string with the content that is
+in that
+file but if if there's an error if
+there's an issue so far we've only been
+able to return nil if there if there was
+an issue so we're either returning the
+contents or we're returning nil so that
+that's what we had before let's instead
+return this result type here that we
+created and we'll have to Define what
+kind of a result we're dealing with so
+we have to uh we have to specify the
+success type here and what is what is it
+that we're interested in the contents of
+the file so string and now um we have a
+really neat way to return something from
+a function where um something could have
+gone wrong and we know exactly what went
+wrong so let's maybe uh randomly so
+whenever we're calling this uh let's say
+uh um so maybe with a Chance of uh so
+let's let's create
+um let's
+create yeah let's create a random um
+integer oh sorry a random Boolean
+and uh so let's make let's say uh file
+access oh
+yeah access
+was
+successful okay so randomly it was Maybe
+not maybe successful maybe not um and uh
+so
+now um so if it was successful
+we'll return we want maybe want to
+return hello world
+so the the return type is not a string
+anymore so we can't return hello world
+we have to return a result type so I'm
+going to be VAR ver both first so let's
+return a result type where we
+have the sum case and we returning hello
+world inside that some case because it
+is known what we're returning we
+actually don't have to specify what we
+have here so first of all it knows that
+we are returning a result as a string
+and it also know knows that we're
+returning a result um uh in general also
+with the result type maybe so we have
+error maybe instead of sum let's call it
+success so here we have success or we
+have error success we're returning hello
+world
+else Let's uh return a random error here
+so how could we return a random error so
+we have 1 2 3 four five possible things
+here let's make this one case
+iterable and then uh let's randomly
+return uh one of these so file error all
+cases
+uh we can call there's a function on
+here uh random element there we go and
+then uh we will
+return this error here so return so we
+can't just return the
+error so we have to return a
+result and then uh so we're not
+returning success we're returning
+error and then we're putting an error in
+there
+okay so
+if access was successful we're returning
+success result with Hello World in it
+and um oh um I'm just going
+to uh haven't
+um have a have a fallback here I'm not
+sure
+why this one oh I guess if if all cases
+is empty then um we don't have a value
+there uh all right so yeah in case we
+are successful we return the contents so
+hello world in case we have an error
+we'll create a random error and then we
+return the uh result case where we have
+an error and again we don't need any of
+this so not much more uh so if you're if
+you're trying to read this I find this
+very easy to read so returning a result
+type
+uh this was successful and then we're
+saying what was successful about it and
+then if we're returning an error we
+returning the error case and here we're
+putting the error in there um so yeah I
+find this very nice to read and
+um we have more information than uh with
+just the um with the with the optional
+all right so let's read some files uh so
+uh let's
+maybe um let's read 10 files so for
+index in Z less than
+10 um and then we'll uh we'll just print
+out what we get for now so
+um file
+contents read
+file and then the file name um uh my
+file. text
+there we go and then we print out um
+what
+uh uh read result I guess let's call it
+this way for now okay let's read some
+files so let's have that run maybe while
+that's running are there any questions
+uh with what we've done here so uh we
+created our own optional where we still
+have the sum case in this case we Nam it
+named it success and then instead of
+just nil we we're returning what went
+wrong about it um all right so um so we
+did this 10 times it looks like we F
+first had not enough permissions then we
+had an unknown file type twice
+successful file does not exist uh four
+times successful and unknown file type
+um great so um our little dummy uh fire
+reading thing works um and we're able to
+return um this result type here what if
+we actually want to do with uh do
+something with this now so either we
+want to maybe show an error to the user
+and and give them a chance to um like do
+something about this error uh or maybe
+print out the result that we get here so
+if we were dealing with an optional we
+would do this so if let um
+contents uh we would do something like
+this and then we would have access to
+the to the contents here so we can't do
+this we we created our own our own um
+optional so what do we use we use the
+switch statement we're switching on our
+result that we got and now the nice
+thing is the compiler will tell us what
+do we need to do uh we just click here
+fix and then we want to know what kind
+of an error we have and we want
+to have access to the contents we don't
+need this anymore so here let's just
+print
+out
+um
+file uh my iPad just died and let me
+just plug that in real quick
+file red and then here we'll put the
+content
+uh
+there okay and then
+here um
+error and we'll print out the
+error okay so we're calling
+our function that returns our special
+type of optional our result type so
+either success or
+failure um and then depending
+on if this was successful or not
+uh we we deal with the consequences so
+we're switching on our result type on
+our result uh there and if we have an
+error we can do something about it we
+can let the user know what went wrong if
+we have success we can uh show the
+contents um again with an regular
+optional here we could just only say hey
+this wasn't successful if we pass along
+this error we can say hey you didn't
+have permissions for this file uh so
+that then that can do something about it
+or hey this file doesn't exist they can
+fix whatever they typed in there um so
+there's something actionable about
+seeing this error so let's run this
+again okay so file red Hello World error
+file does not exist error file does not
+exist so this is how we are unwrapping
+our result type um and again it's just a
+an enum
+um that is an optional on St on steroids
+pretty
+much uh but yeah so um I used to start
+every project by creating this enum
+because it was so useful um we now
+actually have this enum in Swift so uh
+if I comment all of this out I can say
+uh oh here maybe
+um let's keep this
+one and I'll tell you guys in a second
+why I'm commenting it out
+so
+uh let's create a
+result um and so in uh the uh the Swift
+result um that exists now we need uh two
+two generic types here so one is the
+success
+type and then you have to also specify
+what your error type is so in this case
+we could actually specify that it is a
+file
+error error here so uh which is actually
+very neat so my result types weren't
+this fancy um and
+um uh and I guess so this one I think is
+not called error but
+failure so actually slightly better
+better named so this exist uh this
+exists this is what we have access to uh
+in Swift um same thing uh we have a
+success casee and a failure case um and
+yeah so um this is maybe like six six
+years old now um and I was very happy
+when it was
+added um but yeah so you're saying oh
+okay um we're just covering all these
+things that already exist so why why are
+we covering this um uh one thing that I
+also still create with almost every um
+project uh is a
+loading uh a loading state so let's say
+we have uh we created another
+enum um and uh so let's call this one
+loading
+state so if I'm if I'm representing a
+view that has maybe a a loading screen
+an errow screen and a success screen we
+can now represent this with an Enon so
+we canate we can
+create uh a
+loading a loading case we could even
+uh if you want to you could create a not
+started case if you're interested maybe
+the request to the internet has not not
+happened yet uh but we'll keep it
+simpler and we'll just do three
+loading uh now we have maybe a failure
+again or
+error and a
+loaded and then here we
+have an opportunity to use generics
+again so so um I'll just call this one
+element ele element there we
+go okay so loading
+State um if our if we're making a
+request to the internet our view might
+have this this loading State here and it
+it might actually be useful to just
+create a really quick app uh that that
+uses this so let's create a
+new um project
+um interesting why is it not letting me
+create
+a file
+no this is weird I have not seen that
+before weird I couldn't uh create fin
+new project but command shift n worked
+um weird Okay so let's create a little
+Swift UI app really quickly um
+loading State
+example
+desktop okay my computer is being slow
+what is going on
+ah
+okay all right so um let's copy this
+over let's give ourselves all the space
+possible
+and um
+let's uh let's
+create a little app where um maybe it
+loads um on on Startup okay so we'll
+we'll keep our content view here and um
+let's
+create uh enam oh not enam um struct
+uh so maybe this is our our home
+screen or or our home
+View and then uh so
+maybe this home so this home view now
+has um a loading
+State there we go so let's start off as
+loading and then uh so let's make this
+one a
+state property
+and uh oh um and then what are we
+loading here uh maybe we are showing a
+user uh so let's
+create a
+user okay let's do that so we have a
+user and now our loading
+state will be a loading state
+for displaying this
+user um and so you might not have a so
+maybe it will be a home view data type
+or something like that so that it might
+be uh more specific like that but uh so
+what what is cool about this now um so
+if our loading state is loading we want
+to show some sort of a progress
+indicator if it if there's an error we
+want to show an error screen if we have
+something loaded I want to show the the
+the I want to represent the user and and
+show everything about the user um and I
+don't want to be in a in a place where
+maybe I'm half so maybe I'm showing an
+error but I'm also displaying the user
+so I either have a user or I don't have
+a user so this is the nice thing that we
+can do now so we can
+switch on the loading state in our view
+here and the compiler will help
+us oh not
+here uh so load in case we're loading we
+will return uh um act um progress
+view in case of an error
+we will return just a text
+field uh that
+says um error
+occurred and then the error that we have
+there and then in
+case of loaded if it's loaded we have
+the user that we can
+display and then so here maybe we have a
+vstack
+and then we have a
+text with user so maybe say usern
+name
+O user. name let me
+move this
+thing and
+then uh user age
+user. H okay uh so our home
+view uh now has a loading
+State and um depending on what our
+loading State display uh what the status
+is we will very
+deterministically show something so if
+we have a a user loaded there's no
+optionals that we have to deal with we
+have a user
+we're not dealing with anything like so
+if we had something like this
+um we now would have to for each of the
+the properties we would have to we'd
+have to make sure is is there user here
+or unwrap the user first um so if we
+have this this loading State here so
+we're either loading or we have an error
+or we have a user so very very neatly
+packaged up everything
+here and uh so
+let's uh display our uh home view
+here and
+um we will so once this
+loads um do we have previous here or do
+you have to switch it
+to um okay let me switch it to an
+iPhone uh so yeah um it'll be loading
+right now um but then uh we'll we'll do
+some some magic here in a second where
+um where uh we'll we'll actually load
+something so please finish uh updating I
+guess I can also try to build maybe
+that's
+faster yeah so while my computer is
+being slow and trying to display to you
+what I'm what I'm doing here are there
+any questions um so yeah why are we
+doing
+this um we're not going to be in weird
+States uh where we are we're showing a a
+progress View and an error because maybe
+we forgot to disable the progress view
+showing um or we showing an error and
+the user at the same time it's either
+this or that or that so um this like
+special kind of
+enum um that has Associated data with it
+it's very nice at being very we're doing
+something very deterministic Le so we
+either have something or we don't and if
+we have an error we can we can display
+that error uh and yeah so my computer is
+just really slow today um and it's
+getting slower which is
+concerning so maybe we'll do another
+break here in a second and maybe I'll
+restart we'll see we'll see how it goes
+um still not still nothing here okay
+well
+and all of this only to show you that
+there will be only be a spinner here in
+second
+um well I guess while while this is
+loading uh let's um let's reach into the
+future a little bit and
+uh pretend that we have um that pretend
+that we have a way to update this uh
+after some time
+um so
+let's uh we have uh on our progress view
+so we're starting off loading so we
+could pretend that we're making a web
+request here and we can uh do um there's
+something called uh task that we can do
+here and it's very
+slow uh so this will run uh the second
+that this loading this progress view is
+is showing and then here we can do um
+we will sleep
+for uh let's actually do not one second
+but oh yeah everything's very
+slow let's do 3 seconds we sleep for 3
+seconds
+and then after the 3
+seconds
+um we'll cover this later um probably
+next
+week
+um and then oh I guess we have S Swift
+six turned on one second
+it think
+this this should fix it let's
+see oh sendable
+okay uh yeah so these are this is new
+that we need to do this uh it has to do
+with swift swix which just came out um I
+think this fixes it we see and then here
+we can uh do the same thing where uh we
+have a
+Boolean random
+and so if this is
+true we'll show our user so loading
+State oh
+um why is my computer so slow today
+loaded um I do my cat
+think he
+is four by now let's see
+else we set the loading
+state to be a
+failure so it's getting worse and
+worse and let's bring in
+our server error that we had here where
+is
+it I can't even scroll anymore so yeah I
+think we'll have to take a break here
+I'm not trying to scroll that
+high losing control over my computer I
+think I need a
+reboot uh server error here we go we
+copy that over
+and then maybe servers and M servers and
+maintenance
+mode okay I guess I misspelled
+server
+um is that
+it ah okay good okay so uh let's see if
+the original thing booted without us
+doing that it did so it's spinning I
+don't know if you can tell that um and
+then if I load this now after three if I
+rerun this if we ever get there after 3
+seconds uh it'll either replace it with
+Percy who is four or um a failure and a
+server error so let's see if that uh if
+it does that and and then I might have
+to do a reboot of my computer
+here ah okay maintenance a maintenance
+mode so hopefully we don't have to do
+this more than two or three
+times um and I guess I didn't see the
+spinner let's pointed out here uh let's
+see should show up for 3 seconds there
+it is Spinner okay there it is and we
+have the user okay uh so yeah um we'll
+see something like this later uh we
+would move all of this work that we're
+doing here for fetching something uh to
+a model that does our fetching from the
+internet uh but then everything else
+that we have here um is pretty close to
+what I would what I would um use in an
+app that I would be creating where uh
+there's a load loading state where we
+have um yeah a loading screen that can
+show a progress View and eror
+and a loaded State without having to
+worry about mixing all of those those
+three states so it's very nice uh so
+yeah enums in Swift super powerful um so
+from creating uh optionals to result
+types to loading States um the world is
+our oyster uh there's um constantly I
+find uh new cool use cases for enams um
+yeah just a really cool Tool uh to
+have uh in in Swift uh any any questions
+here then I would say um so we don't
+have that much time left uh I'm going to
+I need to resolve whatever is going on
+here so I think I'm going to try to
+reboot uh and I'm going to try to do it
+quickly so I'm shooting for a 5 minute
+break um but it might take longer so
+let's try to come back at uh 9 16 or 17
+we'll see um and then hopefully I have
+uh computer that is not that slow so
+I'll see you guys back

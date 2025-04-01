@@ -1,0 +1,923 @@
+so um we have
+encountered uh classes and we have
+encountered structs and um so we are we
+saw one of them used uh to create views
+in uh in um uiit and then the other in
+Swift UI so classes in uiit structs in
+Swift UI and let's see what's up with
+those so let's create another playground
+and uh let's let's play around with
+these a little bit
+so if I if I have a
+box and um I want to be able to put
+something in so this is a magic box um
+let's let's create a magic box if I put
+something inside um it should double
+whatever I put
+inside um so let's let's think about
+what we need to be able to do here so
+let's let's create a
+box oh um uh so yeah we want a
+box and then uh we want we want to be
+able to maybe when we're shaking the Box
+we want to be able to double what's
+what's whatever is inside so we'll we'll
+we'll have our container will be called
+box and then we'll have a a function on
+their shake and then I want to be able
+to look inside the box and see uh and
+see what the what the value is so we
+want to be able to put something inside
+so we'll have some sort of a a value
+um that holds our box so let's let's
+choose a class for this so we have a a
+box
+class um our value let's use
+doubles for now
+so um
+a number with a with decimal
+places and then so here we have a shake
+function and then uh this will do
+something uh and then we should be able
+to hopefully double whatever we put
+inside all right so we have a compile
+time error uh and this is one of the uh
+one of the uh I think great things about
+Swift um
+so we are not allowed to declare a type
+so in this case we are not allowed to
+build a class that allows us to be in a
+state where something is undefined so if
+you're thinking about instantiating this
+box right now so maybe we
+have um a variable and we instant
+instantiating
+box what could be or what could be a a
+programming mistake that we that we do
+here that something that we might might
+be doing in another language
+so uh what what could be undefined right
+now or what what actually is undefined
+right
+now so uh you're you're onto the
+solution um so so um that is what we're
+going to do um what is undefined right
+now if I'm creating a box like this
+we're looking at our box definition what
+is
+undefined when we're instantiating this
+box value value so we didn't say what
+what's uh what the value is in this box
+um we're going to see different kinds of
+uh so so one thing that you might think
+is but what if we want the box to be
+able to start off uh with with nothing
+in it um we we can do that but we'll
+cover that uh next week um so how would
+we how would we do that we would we
+would say hey this this value could be
+nothing or it could be a double I'll
+just show you real quick how we would we
+would do that we add the uh the question
+mark here and now the value could hold a
+double or nothing but we're going to
+talk about uh next week how this works
+what we're doing
+there so um for now our a value has to
+exist so when we're creating a box it
+has to have something in it so right
+now there's no guarantee that value will
+hold that there will be something
+assigned to Value so the compiler tells
+us right now you could be in a state
+where maybe someone forgets to assign a
+value and then we're in trouble because
+we're expecting that to be a value we're
+saying hey value should be a double so
+one of the rules in in Swift is um every
+property has to be initialized somehow
+there's a couple of ways we can do that
+and one of the ways that we can
+initialize properties is like you said
+uh with a Constructor so we can actually
+have click again on the red here so the
+compile ter error we had was class box
+has no
+initializers so let's uh what is telling
+us is there's a property that is
+undefined uh when when we are creating
+it so let's fix it and um what the
+compiler decided to do is um assign a
+default value so that's one way to
+initialize things we can declare the
+property and then uh initialize it in
+line so that's one way that we can do it
+um what's another way we can create a
+Constructor uh Constructors in Swift are
+called initializers so I think
+Constructors was used in in Java here
+they're called initializers same thing
+and then it's already Auto completing it
+for me here I can hit Tab and uh we now
+have an
+initializer that takes the value and
+then uh it's it assigns the value to our
+property uh that we've declared okay so
+we now fulfilled the requirement that
+every property has to be initialized
+somehow and we saw two ways to
+initialize a property with a default
+value and with an
+initializer um so now we have another
+compile time error so why do we have
+this compile time error we're trying to
+create a
+box without passing in uh an initial
+value so uh the compiler again is
+warning us saying hey we need um we need
+to have that value parameter and now we
+can pass a value in if we do want to be
+able to instantiate a box without any
+parameters we can enable us we we can
+enable us to do that so we could create
+another initializer
+that takes no parameters but now we have
+so we still have to instantiate all of
+our
+values uh so now we have to we have to
+come up with a default value so we could
+we could do the the zero initialization
+so this is actually the same uh yeah so
+this is the same as if we had done this
+but um so there's another interesting
+thing happening here
+so even though
+so we have all properties
+initialized um we have another compile
+time area here now um so it's it's
+telling us we now need to uh we need to
+provide a value because we have an
+initializer that um that requires a
+value we have to use um if there's one
+initializer we have to use an
+initializer to instantiate it if this
+initializer wasn't there
+we could instantiate a box because we
+have this value initialized in line so
+the rules are all properties have to be
+initialized at all times we can't have
+something not initialized we can we'll
+see later we can initialize something
+with nothing but we have to be explicit
+about that we have to State hey there's
+nothing in this box or there's nothing
+in this in this variable so we have to
+we have to be explicit everything has to
+be initial ized even if it's to nothing
+um we can initialize variables we can
+initialize properties in line like this
+um but the second we provide our own
+initializer um we have to call an
+initializer now so we have to provide uh
+an
+initializer so if we want this value
+initialized uh in
+line we can do it like this so now we
+have both ways of creating a box so now
+box has zero in it because we're using
+this initializer or we could pass in a
+value um and initialize it this way any
+any questions
+here cool okay so we have a
+box um and uh so yeah we have a value we
+have an initializer um and we can shake
+the box so I said this was a magic box
+when we're shaking it the value would
+double
+so let's um let's double the
+value if we're passing in zero obviously
+we won't be doing anything with that
+let's say uh let's pass two in
+and uh shake the
+box and then uh let's
+see uh what
+is what is in that box so here we'll
+bring the gutter a little bit closer so
+we can see it
+um so yeah
+um we have our box we we're creating a
+box we're shaking it and then now our
+value uh is
+two
+so
+um the contents of our box
+changed um when we when we hit the shake
+this the shake method here
+um did did
+we did we create a new box instance no
+we still have the same box instance here
+so we don't actually have to have this
+be a variable so once box is assigned
+we're not changing the instance so we're
+creating a we're creating one box then
+we're shaking it and then uh we're
+proving its value so we're we're not
+actually changing the Box itself so the
+Box could be a constant um so the Box
+the Box doesn't change we're changing
+the the contents of the Box um any any
+questions
+here all right so let's uh let's let's
+create another
+box uh sorry um so we create another box
+and this time uh it'll be um we'll
+create a box out of a
+struct um we'll call it maybe struct box
+uh and we'll do the same thing we have a
+value and we'll have a shake
+function okay and so structs have have a
+cool um behavior that classes don't have
+um so structs are so classes have been
+around since um Objective C um structs
+are a new thing in Swift so and classes
+are inter interoperable with Objective C
+so they're they go way back strs are not
+so strs are a new thing so with the the
+new thing that we get to play with we
+get some fancy new uh uh new new Tool
+yeah new yeah I guess new tools um if I
+were to create a struct
+box right here let's let's do a constant
+again um I
+get uh by by default I I get an
+initializer that initializes all my
+properties so uh let's provide two again
+here
+so for with classes we get one free
+initializer if there aren't any if all
+of our parameters are um initialized in
+line we get the no parameter initializer
+for free for structs if we have
+parameters we get um an initializer for
+free that initializes all of the
+parameters so if I'm adding another
+parameter here maybe
+color um are we a new I kit let's
+do there we go so I'm adding another
+parameter so we'll get a compil error
+here in a second because we're not
+initializing all of our properties again
+in for structs all properties have to be
+initialized so we're getting a missing
+parameter um
+error so be we're declaring properties
+because we're in a struct we get an
+initializer for free that initializes
+all of those properties there's one like
+downside to not creating your own
+initializers and that is if I were to
+reorder the
+parameters we now have a compile time
+error because the the labels us a
+flipped so um so that's not ideal in my
+opinion there's one other there's one
+other reason why you might want to
+create um initializers for structs and
+that is uh let's say uh we'll talk about
+um sharing your code with other with
+other developers later so we're going to
+use a um a package manager where we can
+use other people's code we can package
+up our code and have other people use it
+um if if
+our box is so amazing that we want other
+people to use it we might want to make
+it available outside of um our um of our
+environment here and we would call it we
+would then say this box should be
+public so if the the box is public
+accessible outside of for other people
+to use outside of our package that we're
+creating then uh the um so the default
+initializer because it doesn't have the
+public keyword uh in front of it is
+private still or it's internal it's
+internal to the uh to the package so um
+no one would would be able to
+instantiate your box which is annoying
+so uh it would make sense to just
+provide this initializer now you can
+make the initializer public and people
+can use your your box
+so for a couple of reasons one because
+the parameter order um matters and
+because uh sometimes it can be annoying
+uh
+to package something up and then you
+later have to come back to um add the
+initializer I think it makes sense to
+just it autocompletes um so if you start
+typing in it uh xcode will just create
+this Constructor for you or this
+initializer uh so I think it makes sense
+to uh to provide this most of the time
+anyways so we have our we have our
+struct box
+so now let's do the same thing so we
+want to be able to shake
+it
+and actually we don't need the color so
+let's uh get rid of
+that so I want to be able to shake the
+box and then what should happen when I
+shake the
+Box uh we want
+to multiply oh we want to double the
+value and we have a compile time error
+um so this one should look similar or
+should look familiar um we saw the exact
+same
+um uh compile time error last week so
+what does it say cannot assign to
+property self is immutable where did we
+see
+this does anyone
+remember very good so let's go back
+there so we have our Swift I
+demo okay so we had our button so again
+I can I can build this right now and we
+have that um that we'll get our app
+where we can press the button and it
+toggles the visibility of our label how
+does it toggle it modifies this property
+this property is inside a
+struct so if I remove
+State we end up in a situation where so
+I can't build to the app anymore I can
+click I can't click here we have a the
+build failed we have a compile time
+error let's get rid of the canvas
+here so we have a compile time error
+cannot assign property to uh cannot
+assign property self is immutable same
+thing so we have a property on our
+content View and we're trying to
+manipulate at this this
+property but we're saying that our that
+our content view is a struct so uh we're
+running into an issue here so we have
+the same problem when we're shaking the
+Box
+we um we can't uh we can't double our
+value um so this might s seem annoying
+counterintuitive um I want to be able to
+shake this box and I want it to to
+double its value um but the the this
+concept is actually pretty um we
+encountering this in a lot of real world
+scenarios so let's let's rename this box
+um maybe uh
+die um for like a d multiple dice so so
+we maybe we're creating a a d a dice set
+um if you're shaking your
+die you wouldn't expect the numbers to
+change on your die right so if you're
+shaking the the if you're shaking the if
+you're holding the if you're holding the
+um if you're holding the uh D in your
+hand and you're shaking it those numbers
+better stay the same right otherwise you
+have a really funny die uh so um in that
+sense the D is immutable so you have
+this object that has properties on it
+and we can't change them so how do we
+how do we interact act with a die uh we
+would um so the die would maybe not just
+have one value but maybe it has uh maybe
+it has
+values and maybe there
+um or let's maybe have a or let's let's
+do a
+coin let's do a coin so we have um so we
+have um we
+have uh heads and maybe it's it says it
+maybe it has the a head of person maybe
+um
+um oh here we
+go uh maybe it's maybe it's a cat maybe
+there's a c cat on there and then maybe
+we have tails and then that is often
+some sort of a value maybe this one is
+10 10
+cents I don't want string I want uh
+integer
+okay so if you have a
+coin uh so this coin has a head side it
+has a tail side and I'm not expecting if
+I'm holding the coin in my hand I'm not
+expecting the coin to change its
+properties when I'm when I'm shaking it
+so um what how could I create a change
+with a coin I could put it in a box or
+like a container and then shake that and
+then depending on how it how it flips
+upside uh which which side faces up uh
+that's how I can uh interact with that
+box um does that make sense okay so
+coins we can't uh we can't change the
+value on it in a box like the inside of
+a box uh might might change um the
+value so maybe um instead of
+um yeah so so maybe let's let's build a
+box here real quick that can uh that can
+hold a coin um and uh maybe it can hold
+a coin
+and um and uh a
+double so how might we do that if we
+want a box that can can hold
+anything um not just a double um but
+also maybe a coin how would we how would
+we be able to do that so let's let's
+have our coin
+here and if I wanted to be able to put a
+two in that
+box and I
+also uh so box
+with Boolean uh sorry with uh with a
+double in there and then a box with a
+coin
+um and maybe I want to put this coin in
+there wa here I guess we
+can instantiate a new coin here so let
+coin heads we create a cat again Tails
+10 cents so I want to be able to put
+either the um the double in there or I
+want to be able to put the coin in there
+so let's see what we get if we try to do
+that
+so we get another compile time error uh
+cannot convert value of type coin to
+expected argument type double so uh
+Swift is a strongly typed language what
+does that mean um so every variable has
+to so we already saw that every variable
+has to be defined so we can't have
+something
+undefined um so if we're declaring a
+variable uh as a property on a class
+that variable has to be assigned by the
+time we instantiate that class so it has
+to have something assigned to it the
+other
+thing that is not allowed is to have a
+variable that changes its type so we
+can't have a value that is that holds a
+double at one point and then it just
+holds a coin at another point so that
+property of Swift um is so Swift is
+strongly typed so once we declare type
+it has to stay that type does any
+questions there so who knows the
+language that is not strongly typed what
+language is not strongly typed where can
+you assign maybe a string to a variable
+and then a little bit later you can
+assign an integer yeah JavaScript
+JavaScript yeah very good so yeah
+vanilla JavaScript so JavaScript without
+anything surrounding it um is not
+strongly typed um because
+um it is um sometimes very nice to have
+a strongly typed JavaScript you can use
+JavaScript with some flavors on top and
+then you have so I think typescript is
+an example of JavaScript with types U
+but yeah JavaScript by itself is uh not
+strongly typed all right so we can't put
+a coin into a box that only can hold
+doubles the way we uh could imagine that
+is the box has a little slit for where a
+coin could F fit in maybe it it we can't
+put a tennis ball in there so that kind
+of makes
+sense um but we could uh the concept of
+a box still is makes sense in the in the
+context of maybe wanting to put a tennis
+ball in so could we instead of now
+duplicating all of our
+work um and changing this to
+coin uh so can we avoid having to make
+this so this to me seems very redundant
+like we're
+creating all of the code again so how
+could we do it uh that we we can put
+either coins in this box or uh doubles
+and then so we would have to stick with
+that so once we decide what what kind of
+a box it is we would have to stick with
+it so how could we do that um there's a
+concept called generics in Swift so we
+can just make up a type here so this is
+the generic type um and it's for these
+container types of things it's often uh
+just element so we're going to say so we
+have the name of the class and now we're
+saying so we have these uh alligator
+brackets these pointy brackets and I'm
+declaring a name for type that we'll be
+using from uh inside
+this inside this uh box and then
+wherever we are encountering the value
+that we want to be able to either be
+coins or doubles we replace it with that
+so uh and then we can't have this
+initializer
+anymore any any questions here so we can
+create a generic box that can hold
+element and and then uh how do
+we and so now actually our all of our
+compile time errors went
+away and we'll kind of unra rvel why
+this happens here in a second so compile
+time errors went away it all
+built uh how did we do this we created a
+a box that can hold generic a generic
+type so we created we said the type that
+we're going to be using will be called
+element from now on sometimes you'll see
+t for
+type so um this is a little bit
+discouraged to have these um one letter
+or two letter two one character or two
+character um type names in in generics
+because it's not quite clear what what
+type of thing you're putting in there
+but you'll see t a lot um you'll see
+element a lot um so this is not a type
+this doesn't exist if I try
+to if I try to create an
+element if I try to create an element I
+would not be able to this does not oh my
+gosh so this does not exist element is
+not a type I cannot instantiate element
+it is just the the the place holder for
+whatever type I'm putting inside so but
+yeah so once I'm setting up a box to
+hold something
+generic I can now put either coins coins
+in there oh coins or doubles which is
+very nice any questions
+here um sometimes the compiler won't be
+able to figure out what kind of a box
+you want uh then you'll see something
+like
+this so you can say hey I want a box
+that can hold doubles hey I want a box
+that can hold uh
+coins okay or you you'll see it like
+this so the the parameter the the
+constant here could have the type or we
+can be very
+explicit um as we're instantiating the
+Box any questions
+here okay well so what what happens if
+we have a coin box and we're trying to
+assign um a double box to it so let's
+let's say we have our box with
+coin and now I'm going to assign box box
+with double um what what do you guys
+think will
+happen cannot assign it so there's
+actually two reasons why we won't be
+able to assign this uh so one uh so why
+won't be able to um assign it
+different type so let's let's try
+that so yeah they're different types so
+once we have a coin box we can't put um
+we can't put doubles in it we actually
+have another um error here we cannot
+assign uh box with coin it is a let
+constant so here we have box with coins
+we make that a
+variable we now have uh we now have the
+other compile time eror so we can't
+assign a box with doubles to a box with
+coins all
+right
+um but yeah
+so um yeah so
+structs we can't uh we can't
+change the
+properties uh on an instance and then
+have that instance be the same one still
+we'll see we'll see a couple of with see
+ways that it will appear like we have
+changed a property in a second here but
+um it won't be we won't be quite doing
+that and then um yeah so with
+classes we we are able to change uh the
+values inside so let's any questions
+here so let's bring up our uh Swift UI
+demo
+again and so here we we still have this
+compile time error right cannot assigned
+property self is immutable so we have a
+variable inside a value type we have a
+struct here and when we're pressing the
+button we're trying to update uh the is
+showing label property so why can't we
+update it we inside a value type we
+can't change a property
+um uh from from within our uh content
+view here so we saw that in Swift UI
+there's a special treatment that we can
+we can do to a a parameter and then
+we'll be able to store something we
+we'll be able to update that so let's
+see if we bring in our our box
+here let's bring our box into our
+content
+VI and uh so what if we said our content
+view has a
+box um
+and
+um we uh the type of this box will be a
+box that holds
+booleans and then um the initial value
+of it will be false uh sorry true okay
+and then let's change that Box's
+name to be is showing
+label so now now when we're trying to
+assign uh a value to is showing label we
+still won't be able to change this this
+uh the Box itself but we can change the
+contents so if we were to say value and
+value H and then
+here the compile has B away question
+yeah you have a question
+now yes so we could make this a constant
+uh so we have we have behind the scenes
+we're dealing with a reference type so
+that we have some uh location and memory
+that we have this box s uh yeah so did
+you have another question there yeah so
+it's just that's making it yes that's
+that's not changing yes that's it yeah
+um so yeah we're not changing the actual
+contents of our we're not changing any
+actual property on our content view we
+kind of cheated we said okay I fine I
+can't change my view uh it's it's
+immutable I'm going to put this box in
+here and then I can change whatever is
+in this box so we kind of went around
+the rules um and then
+and then we can affect the change we we
+can change the things in the box and
+therefore we're not changing the view
+we're changing the things that are
+inside this box
+yep
+comp yeah with the page that's still but
+yeah yeah I think you have some great
+intuition there yeah we'll um we'll
+unpack a lot of what you're what you're
+saying there in a little bit more detail
+yeah very good very good um all right so
+um so
+yeah views are immutable in spui to be
+able
+to uh change State we uh we have to
+resort to some some trick
+uh to be able to change something inside
+the struct um there's something else
+going on with the with the state
+annotation here though so we had we had
+this is how we had changed it before or
+this is how we had solved it before um
+so let's see what happens so I have our
+we have our content view right now we
+have this um is showing Label
+Box let me build this and see if our app
+store works
+okay so if I hit
+toggle our label doesn't update why does
+it not update um if I go um so the if I
+comment this out again I guess we'll
+have a compell here in a sec in a second
+um if I hold down command I can I can uh
+explore a thing in in Swift so for
+example um if I hold down command and
+I'm clicking on button oh I guess I
+can't do it while I have compile time
+errors why was that so
+loud okay so comp wait so I'm holding
+down command and my my cursor turns into
+this this hand so if I click on button I
+have an option to go to places where
+button has something defined so I
+clicked on the initializer of the button
+that's why it's giving me this or the
+the definition of the button so if I
+click
+here it takes me uh so this is the place
+where we where we are so we are in the
+Swift UI package and then uh there's a
+button um there's a button uh described
+here
+so uh so yeah for the button actually
+really useful already so button has this
+generic label uh so that we're seeing a
+generic type here which is interesting
+we're seeing that button is a
+view and therefore must be a struct so
+it's a swift UI view therefore must be a
+struct and we also saw so it needs to be
+accessible from outside of the Swift UI
+package so it's public and its
+initializers have to be public otherwise
+we wouldn't be able to to use it so that
+so that was interesting uh so we're
+seeing a couple of things that we just
+talked
+about uh if I I inspect so I have to
+make the compile time errors go away
+here real quick so we the reason why
+there so something was funny we
+had we clicked the button but it wasn't
+updating our um it wasn't updating
+our uh our view here so if I hold down
+command and I uh hover on
+state we we're wrap we're un unraveling
+a little bit more about what's going on
+here in Swift UI
+so um states are Dynamic properties um
+so we'll we'll talk a little bit later
+so this looks like um we're inheriting
+from Dynamic Property um everyone should
+know what inheritance is is that correct
+so um who remembers what inheritance is
+yeah well hopefully everyone um so
+structs actually can't inherit from
+anything uh so we have protocol
+conformance so protocol is another name
+uh for interface so we have
+um our state adheres to the Dynamic
+Property interface what what that means
+is
+State uh is is a special thing that when
+we're changing it it'll yell to Swift UI
+and say Hey There was an update here
+tear down the house we we're building a
+new house so anything that is a dynamic
+property if it gets updated inside a
+Swift uh um inside a um Swift UI view
+will result uh in your view updating in
+that house getting Tor on on so we're
+not doing that in our box um
+so uh we we are not doing that here does
+that make
+sense okay so we got mostly there uh we
+able to change something inside of our
+view but uh Swift VI I won't update
+right now because um we're not a Dynamic
+Property a little bit later we will be
+able to build um something ourselves
+that will also be able to trigger an
+update uh in Swift UI and I'm just so we
+won't see this for many many weeks but
+the the thing that allows us to do that
+uh um or the the thing that we are doing
+here with a state we're wrapping this
+property so we have a property wrapper
+so we have a property
+wrapper
+state that is a dynamic property so um
+property wrappers allow us to take
+whatever property this is and we are
+wrapping it with something so in this
+case we're wrapping it with a magical
+box that yells at Swift UI hey update
+the view so that's what this uh State
+annotation here does it's a property
+wrapper for our uh our Boolean here so
+we have a we have a Boolean
+a Boolean uh
+property but so booleans are value types
+since booleans are value types we can't
+affect
+their uh we can't update them inside of
+a Content view so by wrapping our is
+showing label Boolean with this magical
+box that yells at Swift
+UI uh we can we can uh trigger updates
+so there there's a lot here the I'm not
+expecting you guys to remember all of
+this the things that I hope that you
+guys remember is classes are value types
+inside classes we can change the insides
+of it so is that clear with everyone so
+classes are value types we can change
+the insides um without the outside
+knowing about it structs are so if
+classes are value uh are sorry CL
+classes are reference types um we can
+change whatever we want in there structs
+are value types so value types are
+things like booleans integers doubles um
+so we don't have a reference to memory
+that we're U that we're storing in our
+variables we are storing the the actual
+thing and if it
+updates um well we get a new object so
+if we if we have a variable that holds
+the value seven if we wanted to hold the
+value eight we get rid of the seven and
+we're now putting an eight in there um
+if we had a class sitting there um we
+would just be able to uh update the
+insides so classes are reference types
+we can change the insides structs are
+value types and um they are they are
+what they are so we we get the thing
+that we got if we want it to update we
+have to tear it all down get a new
+one um there's one thing I want to point
+out right now uh so oh yeah actually
+I'll do that later
+okay so yeah
+um to be able to change a value inside a
+Content view it has to be U or inside a
+view it has to be specially wrapped in a
+state annotation uh for us to to trigger
+an update in the view and for us to make
+a change here yes question
+understand
+uh oh so if we had
+this um
+so our box is not special right now uh
+let's see
+um was it the
+um so we have a box but it's not a
+special box so the special box
+um and I'm I'm being like very U
+flippant with the definition here so uh
+special meaning um there are special
+kinds of things that alert to Swift UI
+that it needs to redraw there's some
+things that we don't know yet um but um
+the the problem we solved was because we
+can store something inside a struct that
+is is mutable now so we can we can
+affect the change here the mechanisms of
+how this alerts uh Swift UI to redraw we
+haven't covered yet and so and we won't
+for a while
+so no no no yeah so the the thing to
+remember is uh so yeah for for the
+structs and classes uh the thing to
+remember is
+um one second
+uh yeah so for structs and
+classes classes are reference types we
+can change the insid structs are value
+types um we can't change the insights we
+would have to get a new one uh and then
+so last week we covered that uh
+to um to be able to update the view we
+have to have uh a property annotated
+with state so the the why we haven't
+covered this is just it now makes it
+special if we change it it will it will
+trigger the view to
+update I know this this is probably
+slightly annoying that there's like some
+information missing um just know that if
+this state property updates The View
+will update so we
+have
+um we we're reading from this property
+here to to decide whether or not to show
+the text or not um so when this updates
+our body gets recall redrawn and rebuilt
+and and we'll see exactly what's
+happening a little bit
+later any
+questions okay so um I know all of this
+like what's going on in behind the
+scenes can be a little bit dry so I want
+us to build with what we know now um we
+can build an app uh we can build
+something that does something not just
+hides a label and shows it again um so I
+want to spend the the rest of the class
+uh to actually build something so that
+we that we have something useful uh also
+we'll see a couple so we've we've seen
+the button we've seen the text um I want
+us to see a couple of other um views
+that we can use uh so that you guys can
+play around with something already so
+let's do another break uh let's do
+another 10-minute break and let's come
+back at 9:05

@@ -1,0 +1,2711 @@
+okay so we're going to talk about
+architecture um has anyone here studied
+application architecture uh how how to
+how to architect a large um software
+program has anyone studied that already
+um I'm just cous curious uh I'm not
+going to pick on you I'm just gonna I'm
+just curious has anyone studied how to
+kind of break this really large task of
+making a software program into smaller
+chunks okay U one person okay great okay
+so um let's uh maybe uh so yeah
+let's uh leave the programming word for
+a second and um you've probably heard
+the word architecture um in a different
+context um buildings I'm assuming
+everyone has heard that before um all
+right uh so what does an architect do
+um so if you build a shed in your
+backyard are you going to hire an
+architect probably not no um but what
+might you do so if you've never built a
+shed you'll probably look at other sheds
+that other people have built right so
+you might go online maybe you're you're
+driving around the neighborhood you're
+going to see okay so I guess sheds need
+doors good um I'll do that um maybe a
+window roof is probably good um so uh so
+yeah what what is architecture um or
+like what what is the study of
+architecture uh in in buildings so you
+want to make sure that your building is
+safe uh it doesn't fall apart uh and how
+do we do that so we look at mistakes
+that happened in the past so if um maybe
+someone only put two walls uh and no
+cross bracing maybe uh in the past um a
+wind gust might have blown over over
+that shed or that house so we learned
+through mistakes that it's maybe a good
+idea to have maybe a third wall or some
+some cross bracing um so yeah we can we
+can learn from other people's mistakes
+we can learn from other people's really
+good ideas uh and um uh so yeah we can
+um we can build something really complex
+by kind of just break like breaking
+things down into smaller components and
+then um and then um yeah having in in
+the sense in the case of an an architect
+for buildings having one person who's an
+expert at that and then they can kind of
+plan the whole thing and then uh we we
+can hand off the work so um
+in uh applications and in software
+applications and in programs we kind of
+have a similar thing going on so what's
+the equivalent of trying to build a shed
+in your backyard maybe you have um a you
+have a bunch of grades and um you see
+yourself of every every um every year or
+maybe not grades maybe uh you you um
+have a job um and you want to uh have a
+good way to calculate maybe your taxes
+on that so if you want to build a little
+quick program that just calculates the
+tax um you uh you wouldn't need to hire
+an architect for that maybe you can just
+write a little little program where you
+type in some numbers and it splits
+something out um but you might still go
+out and and look for inspiration
+somewhere else so you can you can learn
+there but then uh if you have if you
+work at a at a company where you're
+working with uh maybe a hundred other
+Engineers um you have to have a Common
+Language you have to be able to talk
+about uh the same things uh and you have
+to with a really large with a really
+large software application a lot of
+things can go really wrong so if you
+have uh you can if you can learn from
+the past if you can learn from mistakes
+that other people have made uh that's
+also really good so um uh so yeah one
+one thing that architecture allows us to
+do is uh
+learn
+from
+other
+people's
+mistakes and then so yeah if you have uh
+and good ideas um so there
+um uh
+yeah so if if if you do solve the same
+kind of problem over and over again uh
+there might be a really good solution
+for for all of them so um in in
+buildings it my stuff gets wet um okay
+so a roof seems like a good thing to
+have uh so maybe um in all the places
+where it can rain maybe it's a good idea
+to always maybe start with a roof like
+we'll have a roof on our our house
+uh so so yeah in in large applications
+maybe um security is maybe a thing that
+um if you if you write a big web
+application uh keeping people's
+passwords safe um we probably don't want
+to have everyone reinvent that we
+probably want people to kind of learn
+from the mistakes that happened in the
+past and then um have yeah not have to
+reinvent uh the wheel over and over
+again so yeah learn from people's
+mistakes learn learn from good practices
+uh and then uh what else does the
+architecture allow us to do so um if I
+build a
+skyscraper um we're going to have maybe
+thousands of people working on this
+thing and um if we didn't have a way to
+coordinate
+everyone then I'm going to assume we're
+going to end up with not a skyscraper
+skyscraper so everyone kind of just does
+what uh what they want to do
+um that doesn't work if everyone comes
+to you to decide so so if you have a
+thousand people um coming to you every
+every morning and said and they're
+asking what should I do today and you
+said and then maybe you're tell you're
+telling someone today you're going to
+put uh you're going to put some steel
+beams over there and then the next
+person comes what should I do today
+today you're going to pour some concrete
+there so then you have this one person
+has a bottleneck one person knows all of
+the information maybe you're inventing
+new things every every time you're
+building this so that is also going to
+take a really long time um but yeah so
+if we have a if we develop a Common
+Language so maybe uh you can hire um a
+carpenter and the carpenter can do all
+of the framing of wood wooden things you
+can maybe hire someone who's an expert
+with with steel um and they can do all
+the welding uh maybe you hire an
+electric an electrician and they're
+going to do all the electrical work and
+they're going to get really good at that
+work and and then uh they uh even if if
+maybe they don't like to work for you
+anymore they they're going to go
+somewhere else uh they already kind of
+know okay so normally um so
+electrical cables for lights probably
+should go to into the ceiling so you can
+you can learn you can learn something on
+one project and then uh bring it to uh
+to the next project so um we can split
+up work really easily
+and how is that possible so we have a
+Common
+Language and um if we can kind of create
+mod modules so um you work on Windows um
+you work on electrical work um so if we
+can kind of
+modularize the the work then people you
+can it's much easier to plan it's it's
+easier to if you have an expert uh and
+putting in Windows they're going to be
+able to tell you much better when they
+might they might be done uh
+so
+uh okay uh so yeah that's kind
+of same thing with buildings uh the the
+building of a uh large software
+application
+um
+Can fail if you don't have um a plan for
+for how to do things and yeah so there's
+uh
+there's there's small really small
+projects where um if you're approaching
+it the same way as as a skyscraper uh
+you're probably not going to get
+anything done and then there's really
+large projects if you don't plan ahead
+and have a good idea of how you're going
+to do that
+then that's probably also not going to
+happen so
+um there are some um architecture
+patterns that are pretty common um so
+for for UI kit the architecture pattern
+that was forced on every onto everyone
+uh is called uh
+MVC and this stands for
+model
+view control
+two Ls I forget um controller two lse
+yeah I think two um tell me if I'm
+wrong um so oh model missing an L here
+so model view control uh
+so we if we're building if you're
+building an app using uiit we are forced
+into this into this pattern um
+we we can try our we can kind
+of go a little bit Rogue and Mis misuse
+the pattern but at least we're we're
+we're we're forced to follow uh the
+general principles of this otherwise um
+we we can't we can't do anything um and
+so on top of this model view control
+there's um a ton of other patterns that
+you can do on top of it but so if you're
+building in uh in UI kit you at least
+starting with MVC so on top of this you
+could you might have
+mvvm which stands for model view view
+model so
+model
+view view
+model so this one it's very um very
+closely related to MVC we'll talk about
+um how it's different why it's used and
+then uh so there's MVP which uh you'll
+see in a lot of Android applications or
+older ones at least
+MVP which is
+model
+view
+presenter and don't worry I won't ask
+you any of these uh so MVC you'll you'll
+learn um for sure and we'll talk about
+the components but the other ones um not
+so much um so yeah mvvm MVP um there's
+lots of other ones um one that is I
+haven't seen outside
+of iOS applications is called
+Viper um so this one uh I think the r
+stands for routing so this one has
+creates like more
+little sectioned of domains that are
+responsible for um for very specific
+things so there
+the the way that you navigate has its
+own component uh which is interesting um
+but yeah so there's there's some other
+ones um we'll we'll talk about M uh MVC
+today um a little bit about mvvm also
+today and a little bit later and then
+we'll see what what we might do in in
+Swift un uh okay so what is this MVC so
+we have I like to draw this this diagram
+for for this so we have the um we have
+the model we have the view and then the
+control or the controller uh these are
+the three components that we have uh
+let's coordin those off here and uh
+let's see how so one way that we can get
+it sens for what what this even is uh we
+can we can talk about what are what are
+the responsibilities of each of these
+components and then how do they talk to
+each other so uh the view is probably
+the the most clear so so um what is the
+view in an in an application uh so we
+have
+um y something that the user can
+interact with so see maybe touch uh so
+the the jobs of the view are uh to um to
+uh
+respond to
+user
+input so if someone's dragging on a view
+we might want want to know about that uh
+if someone is typing uh in a text field
+uh we want to know about that um uh yeah
+maybe rotating uh so those are all um
+responsibilities of the view uh uh
+recognizing them maybe not respond but
+yeah maybe let's say recognize not
+respond because we don't need the two
+okay
+uh all right so then um so yeah to lay
+out some um yeah to to create the user
+interface so uh to maybe show the user
+some some information so
+display I'm going to say
+stuff uh we we'll talk a little bit more
+about what will be displaying uh and
+then one other job of the view uh in in
+the MVC pattern is uh
+to
+um uh it's respon it's responsible for
+laying out subviews
+so so you might have a big parent view
+and then the parent view says okay
+there's there's a text field here
+there's a button which is also view uh
+here and then maybe a picker here so so
+that's also also a job of the view okay
+and then uh so we have the model who's
+heard the word model before uh and it
+might you might have heard it in
+different contexts so here it means
+something pretty specific but who's
+who's heard the word model before yeah
+uh what contexts have you guys heard
+model
+before yeah yeah uh yeah so there the
+model is kind of the the the big uh so
+same with scientific models so if you
+might have a model that can do uh
+weather predictions you can have a
+weather model so those are big um
+complex machines that that give you
+something um who's who's heard model
+maybe in a different context
+yeah oh
+yeah yes so who's heard of it in a in
+the computer science in a computer
+science environment environment good one
+though yes
+uhhuh
+yeah yeah okay so I'm going to pick one
+of one of the things he set up there uh
+so data um so uh so yeah there's lots of
+different definitions of model um the
+one that we're interested in for MVC has
+has a spec pretty specific uh meaning so
+what are what are its jobs uh in MBC one
+of its jobs is to contain data so that's
+that's exactly what you said so if we um
+if we have a
+database um with a lot of stuff in it so
+talking to that database or or
+containing the data uh maybe is is J is
+the job of of the model uh so one other
+job um and then so in certain
+applications that is all the model does
+so in MVC we also do um operations on
+that data so if we if we're doing
+computations with uh on on the data that
+the model contains that's also part of
+the um of that model so uh here I'm
+going to say contain
+data contain
+data
+and
+um
+um transforming or working with that
+data so work I guess working with that
+data
+working
+transforming um
+calculating uh with the
+data okay so yeah
+view uh very specific jobs uh user
+input displaying
+information laying out subviews model
+contain data and then operations on that
+data so
+calculations um removing data kind of
+managing that um okay
+so one could say maybe okay um what why
+do we need something else here so um
+those two seem to do most of the things
+that I want um why don't we just have
+them talk to each other so one downside
+of just having a model and a view uh
+that talk to each other is your uh app
+anything that you write uh will be very
+specific to the way that we're
+displaying it so um if you only have a
+model and a view then there's going to
+be some code for uh talking directly to
+a specific model from The View and
+getting something from a very specific
+uh row in your database uh maybe
+deleting something very specific there
+and then vice versa maybe a model might
+want to tell a very specific view that
+it updated so uh you kind of end up with
+this a scenario where um you can't
+really reuse your models anywhere else
+and you can't really reuse your views
+anywhere else um and that might seem
+fine at first but then uh we've already
+reused some view components uh so we've
+reused um buttons and we've uh reused
+text fields and uh if the buttons were
+tied to a very specific database that
+they can talk to so if I press this
+button and it deletes a row from a very
+specific database that wouldn't be very
+useful we wouldn't be able to reuse that
+very well so um this brings us to the to
+the controller or in this in uh in UI
+kit Land The View controller so what are
+the what are the jobs of the view
+controller uh the main job is really to
+facilitate communication between a view
+and uh a model so it's kind of it's the
+glue between a view and a model um and
+so the view controllers are the very
+customized thing that makes the those
+two be able to talk to each other and uh
+so the views we try to build in a in a
+very general way that we might be able
+to reuse them elsewhere and the models
+we might we building in a way that other
+views might be able to use them as well
+so um I'm going to say as a as the main
+job
+facilitate uh
+talking or or talk
+between oh uh View
+and the model uh so yeah I've said the
+glue the the thing that makes makes
+those two to talk to each
+other um and then so for
+MBC uh it also has the job of um of
+causing so of of
+um uh of causing the view to change so
+if we if you want to animate something
+if you want to hide something uh so um
+so one of its job is also
+to uh
+to let me move this down a little
+bit so we can write that because we also
+want to write one other
+thing um
+so uh so yeah um tell the view to update
+itself um um animation so I'm going to
+say manipulate the
+view and what is it basing on of this
+manipulation on it's based on changes uh
+in our models So based So based
+on
+changes to our
+model okay and then one other job it is
+um to and these these kind yeah these
+kind of fall under the the very first
+point here uh it is to update
+the
+models uh so update the data based on
+things that the user does so
+update
+models
+based
+on um input from The
+View okay so yeah those are the the jobs
+of those compon components so view um I
+like to use the the the description Dum
+so views are views are supposed to be
+dumb they're supposed to not really
+think for themselves they're supposed to
+uh just be
+as uh as devoid of logic as possible so
+if I can create a view without any logic
+in MVC land that would be great um all
+of the logic would would live in the
+controller um that and then yeah we hand
+we hand everything off uh to the
+controller which will then communicate
+with the model model contain data work
+with that data perform operations on
+that and then the controller talk
+between the two any any questions here
+has anyone seen this before MVC this
+this
+pattern okay so let's uh let's maybe
+just create an uh
+new project real quick and then we just
+create the project that we're going to
+be working with so if we're going to use
+uh if we're going to use UI kit um it
+only works as an IOS app so we can't
+create a Mac app watch app or any of
+these other apps um uh with uiit uh it
+only works uh for iOS so it's choose iOS
+we've been choosing
+multiplatform um app and then we'll do
+tip calculator UI
+kit oh and then I already have let me
+delete that real
+quick all right so let's see if we can
+find any of these components already in
+in our um in our app here so uh one of
+the file names already kind of gives
+away one of the components uh that we've
+described which one is that so we have
+our files and our app Navigator here we
+have the view controller
+right okay so the view controller
+is the glue between a model and a view
+so uh what is the view in in uiit so we
+can create views programmatically but
+how how have we so we've only created
+one little little tiny app in in uiit um
+what did we use to create uh the views
+in UI kit does anyone
+remember did we write code for it or how
+did we create the views does anyone
+remember I think first first lecture
+that we had
+yeah plus button yeah and then so we
+dragged stuff onto uh this main file
+which is Let's uh let's look at it real
+quick and finder it's a storyboard file
+um so uh the the the storyboard uh
+contains our our views so we have our
+views here
+so if you're creating a default project
+uh with your IIT um your views are going
+to live uh in in storyboard land but
+again we don't that is not necessarily a
+given we can also create them
+programmatically all right so where here
+is now is there a view here that we can
+see so we have the word view control up
+here
+so the view controller this this is the
+the bar that um this is the this is the
+view controller that's also bring up our
+view inspector here so this is the uh if
+it's not there it's the very leftmost
+little toggle let me also make this a
+little bit bigger uh this is our um our
+inspector here for our views so we have
+our view controller and then the view
+controller Under The View controller is
+a view so if I highlight The View
+controller it gives me the bar up here
+if I highlight the view it gives me this
+uh this phone looking thing uh and then
+we can expand that and uh there can be
+other things there uh so yeah the view
+uh in a uiit app is visually represented
+in interface Builder and uh we can
+visually drop things on there uh and
+build it that way but again we can also
+do it programmatically and we'll see
+that as well uh okay so we have two of
+these so we have uh we have the view
+controller we saw that it's this file
+here that we have we have the view uh so
+the view controller uh owns a view so we
+have a view here
+and uh oh that's actually another good
+um thing to just add to our jobs here um
+so it it
+owns views
+and as we'll say see later it also owns
+view models uh sorry
+models so it it has variables that uh
+that allow us to yeah it holds on to
+those uh all right so we' we've seen
+views we've seen a view controller uh we
+have not seen a model yet uh so we'll
+we'll do that um so for the calculator
+app the model will be very simple um and
+and one could argue it's a little bit
+Overkill to create um a model for this
+little tiny application that we're
+creating um but yeah Okay so we've seen
+views we've seen models uh have we seen
+the model uh the view controller talk to
+the view is that something that we've
+seen already um in our very first
+lecture and how did we have that how did
+we facilitate uh The View talking to the
+vew controller does anyone remember uh
+even if you don't remember the the exact
+details how did we make them talk to
+each other does anyone
+remember we dragged okay so let's uh
+what component did we drag does anyone
+remember button let's put a button on
+there uh so
+let's drop a button on here and then so
+we control drag right and where do we
+control drag this to the code say again
+into the view controller very good and
+so if I let go uh we can create an
+outlet or an action so let's start with
+an action and then I'm just going to say
+um button pressed as the the name for
+this action and so now we've
+connected um uh The View and the view uh
+the the new view that we threw on here
+with our view controller uh our our
+original view also now did a new thing
+so we we put a button on there right so
+the view controller's main view here is
+the parent view and one of its jobs now
+is to lay out uh this uh this other
+button that we thre on there
+yes
+yes
+controller so does that mean the
+controller as you said
+so I actually think so you're on to
+something very good there I find it
+slightly misleading that it's called a
+view controller um so in MVC it's it's
+called model model view control so I
+think controller is actually potentially
+a better word because it does control
+the model and the view so it facilitates
+the talking between the two so the code
+in this case is just the controller so
+the controller is uh the the class that
+we have here uh The View controller yes
+uh the The
+View because we're using interface
+Builder is not code because it's it's
+here but uh so it doesn't have to be so
+we we can also create code that creates
+a view so let's do um my
+view so now we've created in U IIT we've
+created um a view that that's a code so
+here we have the controller that is code
+here we have the view that is code here
+we have the view that is laid out in XML
+in this in this case okay and uh also
+this is very different from what we've
+seen so far in Swift UI so Swift UI
+works very differently uh so this is uh
+yeah maybe so why am I teaching you this
+uh other thing uh I think I mentioned
+this at the beginning of the class if
+you do end up taking a job as an iOS
+engineer somewhere you are going to be
+working with both of these UI kit and
+Swift UI um I would say
+uh probably to in a lot of places equal
+equal amounts the newer the place is
+maybe more Swift so sadly we have to we
+have to learn both they're very
+different I I want to stress that so we
+kind of have to almost forget a lot of
+the stuff that we've learned uh in the
+other uh lectures so far but yeah so
+good question uh what is this controller
+is there a model controller not in this
+case there's there's a I guess a
+controller later but it's it I mean it's
+a model um in my in my opinion um but
+yeah so we have a we have a view
+controller here and uh and it will uh it
+one of its jobs is to own this view uh
+it does have so it's hidden from us
+right now but it does own this this view
+that we just plopped this button onto so
+if we I'm going to command click onto
+the uiv controller and one one of the
+things that we see here so this is the
+def the this is kind of the interface
+for our for our view controller uh these
+are all the functions that that are
+available uh to us and all of the
+properties and look at this so the the
+UI view controller has a view property
+and this is this view here so um it owns
+the view it owns this this View and then
+because it owns that view uh it can
+manipulate things that are happening
+here and we can manipulate things that
+are parent that are child views on here
+um okay so yeah we've thrown this button
+onto this view so one of the jobs of the
+of the of the main view here is to lay
+out this button and then now we want to
+be able to have this button do something
+so we control dragged uh into the view
+controller and so we've made a a
+connection here so what happens if we
+press this button
+so the button itself doesn't execute any
+code where does this if there's
+something that should happen when the
+button gets pressed where does this code
+get
+executed yeah so very good yeah so the
+button gets clicked so the the job of
+the view is only to recognize the user
+input so the button which is a view
+recognizes the someone pressed me so I
+need help to do something with this uh
+so let me let me let my controller know
+no um and we did that by
+dragging um this action into into
+existence so let's add some here I'm
+going to create another diagram here
+control View
+model so in this case the button gets
+pressed so the button is going to let
+the controller know that it was pressed
+right so that's what we just did we
+control dragged the button and now if we
+want to execute some code maybe let's
+print something into the
+console
+oh okay so let's build
+this let's bring up the
+console let's hide this thing there we
+go okay so yeah while while that is uh
+starting up here so we the The View
+recognizes it was tapped so the button
+view recognizes that it was tapped it
+lets its controller know hey I was
+tapped and then the controller can
+execute some code and as you very
+correctly said um it's only job is to to
+kind of facilitate the talk between the
+The View and a mod model so ideally it
+would now cause a model to do something
+um and we'll see that in a second here
+okay no button yet uh so this is still
+starting
+up okay so while while that is starting
+up uh so yeah in in our little diagram
+that we have here so our view talked to
+the controller right so let's let's uh
+create a little arrow here I'm going to
+draw this as a dashed
+Arrow uh because the communication
+between the from the view to the
+controller is not direct uh so we're
+using a form of indirect communication
+and um the one that we're that we're
+seeing here right now is uh called
+Target
+action action here we go okay so this is
+a form of indirect communication we talk
+about why that is in a second
+yeah very good qu very good question uh
+so yeah we we we press the button um and
+we're letting the view controller know
+that something happened somehow it is
+indirect let's see a direct let's see
+direct communication so instead of
+printing hello world to the uh to the
+console here let's
+add um a label a UI
+label here we go and now instead of
+having the oh we
+go instead of having the um console
+print this out we're going to have this
+T we're going to present this in this
+label so we added another view um which
+is this label somehow we have to make
+the controller aware of it how do we do
+do that again control
+dragging and then I'm just going to call
+this
+output and we're creating an out let
+here connect okay so let's do some
+direct communication so instead of
+printing we're going to tell the label
+hey this label uh saved in this uh
+output
+variable uh so it has a text property I
+want you to display hello world so this
+is direct communication so we have a
+variable that has full access of to
+anything that this label knows or
+displays or thinks about so um if labels
+can think think so
+um the the view controller owns this
+label so it's one of the views that it
+controls it knows it state it can ask it
+questions it can have it do things and
+when we have it do things that is we're
+telling it directly hey you label uh
+that I saved under the output property
+change your text property so let's test
+that real quick
+uh and then
+so once we demonstrate this okay so the
+button so what happened here so the
+button recognized that I tapped it the
+button let the uh vew controller know
+hey I was tapped and this is how it's
+indirect it just said hey I I was tapped
+I don't know who I'm talking to uh I was
+tapped I'm talking to
+someone uh who who knows uh what to do
+with this the view
+controller recognizes hey the button was
+pressed let me talk to the label and
+update the label with hello word so let
+me talk directly to the label and let me
+update uh uh what's there okay so let's
+go back to our diagram here so um view
+talking to the controller um through
+Target action is indirect communication
+and then when the controller talks to
+the to the view here let me mix it up
+with some colors here so uh this one is
+direct I'm not going to spell it all out
+uh direct communication yes question is
+that always the case you have
+so that's the thing we really don't want
+to avoid so let's let's take a look what
+that would mean um so for the uh
+controller to be able to talk to the
+view it has to know everything about uh
+so it owns it owns this uh it owns this
+view so it knows everything about it so
+it has a has an instance of this view of
+this label View and uh it's like okay so
+it's it's this specific label and I'm
+I'm gonna change a specific thing about
+you so that makes the view
+controller not really reusable because
+uh it is the glue between a specific
+view or um and and the models that the
+view wants to display so the glue
+between the
+two uh the I think maybe if someone
+moves the back um the back of the lights
+will turn back on um there you go um I
+think there's a motion sensor so you
+guys were too
+quiet so the glue we can't really reuse
+so we we're actually trying to keep the
+glue to a minimum so wherever we can
+make something reusable we're trying to
+reuse it but at some point we have to
+create something that we can't reuse so
+the view controller is the glue between
+views and and U models uh which is the
+not reusable part
+um why is it not reusable uh the if the
+communication is direct uh it is to
+specific view uh it is um uh it is we
+know everything about it so if a view
+talked uh directly to a very specific
+view controller at that point the view
+the view wouldn't be reusable with
+another view controller because it can
+only talk to one uh to one view
+controller does that make sense okay so
+um yeah so if you have a if you have a
+but if you have a in this case here if
+we created a button that can talk to
+our um I don't know what are we doing
+here or a tip calculator so if we had a
+tip calculation button um and the tip
+calculation button knew how to update a
+specific variable on my on my view
+controller we would not be able to reuse
+it
+anym because it would be updated this
+specific variable does that make sense
+yeah okay good um but there's a there's
+a little as asterisk here we're going to
+see views it it looks like views are
+talking to view controllers um but it's
+masked to uh through there's there's
+some some additional masking going on
+that makes it indirect again we we'll
+get to that uh uh in a little bit so
+we're going to see a strategy for what
+you are trying to do right now we're
+going to see a strategy to do that in a
+way that we can still uh do it and reuse
+components and kind of one thing that
+we're trying to do is have you guys
+heard the word
+decouple uh have you guys heard decouple
+before yeah so um you want your code to
+be kind of independent you don't want it
+to so the more you like have little
+tentacles going either direction um the
+harder it is to kind of uh separate them
+so if you have uh if you have your thing
+if you have a thing that you can have it
+have it uh have it do it own thing here
+and the other thing does its own thing
+and only uh where it's absolutely
+necessary is there communication between
+the two uh it makes it easier to reason
+about both of the systems so if you're
+if there's only one place where the two
+communicate you there's a bug between
+that communication that's the only place
+you need to look um so it makes it
+easier for us to think about all of
+these components we if if there's a
+component that has only one job we can
+kind of think about what is it doing is
+it doing its job correctly oh it's not
+we can fix it um and then we can kind of
+take that out of our brain put the next
+component in reason um about that mod
+that component and then uh otherwise uh
+very quickly you get to a point where if
+you're trying to if there's too many
+tentacles going either direction you
+have to put everything into your brain
+and at some point when you're shoving
+something in it comes out the other the
+other end uh you can't can't fit it all
+in there so um yeah you had a question
+have yes you can um and so the way that
+we would do that is one of the comp
+controllers would act like a view so and
+we'll actually we'll see that today very
+good question any other questions okay
+so yeah we've seen let's bring back the
+iPad here so we've seen direct
+communication uh direct communication
+involves there's a variable um I'm going
+to talk to whatever is at this variable
+and I know the exact type so if there's
+um uh in this case a a UI label at this
+point so there there's there's an in
+there's an instance of a UI label at
+this out output I think is what we
+called it uh variable that is direct
+communication I'm talking directly to
+this thing um and then this target
+action thing um has something indirect
+about it and so so how does it work or
+how how can we think about it um
+so uh we are by by having this this
+action here on The View controller the
+button knows it's talking to some view
+controller that can respond to a button
+click uh with uh with a function uh and
+it can it can send actually it can send
+itself there so UI button so we can uh
+when the when this button gets pressed
+maybe uh maybe one thing we can one fun
+thing we can do here is we can take the
+send us
+title I think title
+label uh
+so um so the button what what is its
+title right title right now it's it's
+Button as I'm talking to the view
+controller I can pass myself along uh
+so on this view
+controller that I'm talking to all I
+know about it is there's this function
+that can uh that I can invoke on it and
+let's let's maybe demonstrate that we
+have access to the button here so what
+should happen when I press
+button so the button will pass itself
+along as the
+sender and then we're taking the senders
+title labels text and we're setting it
+to the outputs
+text let's find out very
+good okay so yeah all the the button
+view knows is there's a function that uh
+is going to be pressed and I can send
+myself so the way we can kind of think
+about this is let's move things
+apart so as the programmer we're going
+to paint uh so this is why it's called
+Target action we're going to paint a
+little Target there on our view
+controller and then actually let me use
+the other color otherwise it's going to
+be confusing so we're going to paint a
+little Target there and then from The
+View so the view will shoot an arrow so
+let's say we have a
+bow we're going to shoot an
+arrow uh into the target so that's how
+we are kind of supposed to think about
+it that's why it's called Target action
+so um when the button gets pressed we're
+going to shoot our Arrow
+um we don't know who we're hitting we
+just know that there's a Target that we
+can that we can hit so this makes it
+indirect we don't as long as there's a
+Target that we can shoot at um we don't
+care so we don't know who has this
+target painted on their back um and that
+makes this part reusable the only thing
+we know about our view controller is
+we're going to shoot at this target does
+that make sense
+okay uh all right so we've seen a form
+of direct communication we've seen a
+form of indirect
+communication and oh I guess
+I um between the view and the view
+controller so yeah we haven't really
+seen anything model related
+um so to not have to draw all of these
+these lines here uh like arrows dashed
+and not dashed um a very common way
+to show that com the communication
+directions and how PE things can talk to
+each other in a like really quick way uh
+is by borrowing from Road markings so if
+you're if you're driving um and you're
+seeing the the the the paint in the
+middle of the street we're going to
+borrow from that is anyone familiar what
+I'm talking about um so I know there's
+some International students so maybe you
+don't know all of the rules of the road
+here but they're they're going to be
+similar uh to an extent so I think um uh
+um so yeah one
+one line paintings that we might uh that
+we might see is a solid
+line and a dashed line next to it uh
+where do you see that a solid line and a
+dash line next to it in the middle of
+the
+road yeah you're allowed to cross right
+so you're allowed to cross this uh this
+dash line so you you're allowed to pass
+maybe you're allowed to maybe yeah make
+a make a turn from it uh so yeah um
+that's kind of what's Happening Here so
+the controller is allowed to cross into
+the View's business so it's allowed to
+tell the view exactly what it wants to
+do the uh so the controller is allowed
+to talk directly to the view the view if
+it wants to go and tell the the view
+controler something it's it's going to
+have to do it in some roundabout way so
+it can't just go straight across the
+line um does that make
+sense okay and then so I think so not
+all other uh so we're going to um we're
+going to show one more here in a second
+um so this one is maybe a little bit
+specific to the US so if you're an
+international student this one uh might
+not exist um so what happens if there's
+a double solid line uh in the middle of
+the
+road what does that
+mean you can't cross yeah either either
+direction so yeah you're not allowed to
+make a turn uh to like go into your
+driveway you're not allowed to pass so
+you're not allowed to cross the double
+solid line so in other in other
+countries you might have a one solid
+line that just might mean that you're
+not allowed to cross but yeah so in the
+US we have the double solid line uh so
+what can we infer from this and I've
+I've kind of said this already about the
+model and the you so can they in what
+direction can they talk to each
+other never okay so they can never talk
+to each other so these these
+two yeah let's do it this way um these
+two cannot talk to each other so model
+and view don't talk to each other how do
+they if they want to if if they need to
+be communicating who will help them
+controller very good okay uh and then
+yeah so um we haven't
+really figured out what's going on here
+you might have some opinions or some
+some some thoughts here uh what might be
+going on there but um we we'll get there
+when we get there um all right so any
+yeah any questions
+here um I think we should probably take
+a little break here so let's come back
+let's do 10 minutes let's come back at
+uh 8 uh 17
+what did we do before the break uh we
+learned
+about three components the model The
+View and the
+control in this case the view controller
+we know that the model and the view
+should not talk to each other why was
+that why shouldn't the model and the
+view talk to each other
+very
+good very good very good so who what do
+they use to talk to each
+other the view controller very good the
+controller uh so yeah uh and then um the
+controller can talk to the view directly
+and then the view can talk to the uh
+view controller indirectly there's
+there's going to be a couple of um uh
+communication patterns that we're going
+to talk about here so we we covered
+Target action already uh today we're
+going to see see uh delegation as well
+let me what is going on here we go let
+me match the color here so we're going
+to see
+delegation uh and then so we've seen
+this already in Swift UI so that one is
+going to be around uh here and and
+elsewhere um we're going to see
+callbacks okay so these are kind of
+direct um and then so this one is kind
+of a I'm going to put a little as
+asterisk here um so we yeah for for
+reasons um and then yeah so direct
+communication we just talked to the to
+the thing
+directly all right
+so anything else here so we
+have um so yeah we kind of went through
+the flow button is a view so it
+recognizes the user tapping it um to be
+able to talk to a view controller we
+will have had to have painted a little
+Target on there so the
+button uh shoots its little arrow at the
+Target um The View controller will
+execute some code likely talk to a model
+um maybe the model changes so now we
+update the view again and we can do that
+directly by talking to the label here
+all right so uh let's let's start
+building some stuff here so um let's
+kind of redo some of the work that we've
+done last time for doing the tip
+calculation so I think we had um we had
+a a little layout here that we were
+using uh we're going to do this slightly
+differently um with this so we could oh
+I guess I'm not sharing the screen so we
+have a text field we're going to put
+that on there uh here we had a picker we
+could use a picker but we're going to
+create our own little component uh to do
+that uh we have a calculate button and
+then we have a label so let's let's
+match that so we need a text
+field there is dark mode um I had uh
+asked I think last semester if people
+prefer dark or light uh so yeah let's
+see of the people who are here what you
+guys prefer so this is light let's
+switch it to dark let's
+see um where is it uh say again uh yeah
+there you go thank you
+doc uh do people prefer
+this anyone strongly
+opposed
+okay
+I you prefer the light one uh is it uh
+okay so we in a little conundrum here um
+so uh is it harder to read for you this
+way can I make it larger maybe it's fine
+okay good um okay so yeah interesting so
+last last semester preferred uh
+preferred the light version okay so if
+you're not too strongly opposed if you
+can work with it then we' switch to to
+dark mode everyone else happier with
+this okay um also maybe it's easier if
+you sit a little bit closer I don't know
+um okay good um also I've had a um
+semester where um uh people wanted all
+of the lights out so um that I thought
+was also interesting and then I I think
+dark mode made a little bit more sense
+uh okay so
+um yeah so let's mimic what we have here
+so we have a text field let's um put a
+text field on
+there again we'll just go to the plus
+button pick it here put it up
+there oh actually I think I might have
+there we go so we have a text
+field uh then we have our button I think
+the button said uh
+calculate very good uh we have a label
+that's going to say our yeah I'm just
+going to change the tip say something
+about the tip um and um we for now are
+going to have another label or that
+just we we're going to leave
+the thing that shows us how much uh tip
+there is for later there is a picker
+view picker view here uh so we could use
+that one that one would behave similarly
+uh to the um
+y oh uh
+yes the name
+this is not a name this is just the this
+is the text uh so sorry the title labels
+text so when I when I double clicked uh
+this is uh the the title label uh text
+here um so name I guess so if we were to
+we don't have we're not holding on to it
+with uh a variable that we can access
+right now so we would we to do that to
+give it a name for our view controller
+we would control drag and add an outlet
+and then we could give it a name um but
+you're you're maybe seeing how where are
+other things that we can change about
+this button
+yeah
+okay U
+Buttle yes very good what other
+properties are very good question so um
+couple of things we can do so one we
+could control so here we're changing
+this uh programmatically right so we
+we're setting uh well we we're asking
+for it programmatically so if we command
+click the
+button we get to uh the the buttons
+interface and here we can uh see all of
+the things that are on there so all of
+the methods all of the properties um but
+we're also in this Visual Land here so
+let's see how we can see things about
+the button here if we bring up uh the um
+the edit menu
+here and it's not doing it there we go
+so the third from the right uh button
+here has properties that we can change
+uh and so the thing when I double double
+clicked it was the where is it uh title
+no here calculate there we go so that's
+what that's what I uh changed for double
+very good question
+yes very good yeah very good question
+yeah um cool okay
+so uh so yeah we have our text field we
+have our button uh we have our tip here
+uh let's before we do anything else um
+before we redo our work here maybe um
+something we haven't done in uh uiit is
+make sure that this works on all devices
+on switch UI it kind of just worked on
+all devices in UI kit we have to go
+through one uh one more hoop um and I
+think I showed this if we so right now
+the preview is for iPhone 16 if I go to
+iPad uh this does not look right it's
+all smooshed here in the corner uh so we
+want
+to uh oh they changed that interesting I
+like that better uh so yeah we want to
+make sure that this kind of works on all
+devices uh so in Swift UI everything was
+just grouped centrally um and then we
+added padding around it or between
+things spacers and padding um here uh
+very different very different way of
+working uh we are creating something
+called Auto layout constraints so what
+are Auto layout constraints so if we go
+here we're describing relationships
+between view components so let me
+actually draw what we just have so that
+um it's we're not drawing some any extra
+stuff so we want a text
+field we want uh a button for calculate
+so say calculate and then we have a
+label that says tip and then I'm just
+going to give this like a
+dashed layout okay so we want to
+describe relationships so I for for
+example I want to say uh these two
+components are a certain amount distance
+apart from each other uh then I want to
+say uh the label and this button are a
+certain amount away from each other and
+then I'm going to create a relationship
+sh between the top edge of our text
+field and the top edge of the view the
+main view the parent view in our view
+controller and here so I could give it
+uh width but then it would look weird
+again on other devices so let's create a
+relationship between the Leading Edge
+and so this one's called the trailing Ed
+Edge so the edge on the on the right so
+we don't say left Edge and right Edge we
+say Leading Edge and trailing Edge uh
+and the reason for that is not all
+languages read from left to right and in
+those language languages those
+components would be
+flipped leading is uh the left one and
+trailing is uh the right one so um if
+you're trailing something it's behind
+you so here if you're starting to right
+this is kind of uh I guess yeah trailing
+Edge is at the end uh Leading Edge is at
+the
+beginning um so yeah we're creating
+these um relationships uh here for the
+button if we want it C centered uh in in
+the view we can say hey I want to so
+it's if there's a center
+line I want this button to
+be centered it's not centered right now
+but we'll have it centered um so that's
+how oh and that's
+maybe here let's anchor to to that
+okay uh and then same with the with the
+I somehow have a different
+with no here we go we want those um
+connected uh or describe we want
+relationships between those so how do we
+do this these
+little relationships that we're creating
+they're called Auto layout constraints
+how do we create them um so we can
+create them visually that's what we're
+going to do today and then we can also
+create them programmatically and we'll
+do that later I'm just going to give us
+as much space as possible
+uh there is also a way to turn this to
+dark mode um I forget if if you guys
+want let's see I forget where to do that
+I think it's
+here
+uh no it's not it used to be It's one oh
+here we go it's here there we go you
+guys prefer
+that okay let's long
+all right let's leave let's leave it
+like uh okay so how do we create these
+relationships uh let's start with this
+text field uh so if we go back to our
+drawing we want a relationship to the
+Leading Edge of our view here um and the
+Leading Edge of our text field so how do
+we do that um down here these are the
+auto layout constraint buttons so not
+the very first one and not the last one
+but the three uh in between so the main
+one probably that you'll be using is
+this one so let's click on that one and
+here we can describe relationships uh so
+uh it tries to figure out the ones that
+you probably mean uh so right now these
+are distances to the top the Leading
+Edge and the trailing Edge uh and these
+are not pixels so these are points um
+and the reason for that is different
+device resolutions have different pixel
+densities so we're we're going with an
+an
+so a point is something that looks
+equivalent on devices with different
+pixel densities so let's do maybe uh
+let's do 32 from the top here uh so I'll
+type that in I don't know if you saw
+that but like this little bar became
+dark red I don't know if that's uh was
+visible so if you edit these they become
+active or you can click there click on
+it and turn it on or off so if I want
+the 51 here I can just click here and it
+becomes active but 51 is maybe a little
+bit far away I'll do a 16 instead 16 and
+here I'll do 16 as well so I want the
+top the leading and the trailing Edge
+and uh so very often when you're doing
+this stuff uh one thing you don't want
+to do is create too many of these so if
+we um and you want to be uh predictable
+and kind of always do the same thing so
+we want to in this case we don't want to
+create the relationship between the
+component um that's below us right here
+we'll do that when we we're clicking on
+this one so we're doing leading top
+trailing and then I say add constraints
+and then look what this one's going to
+do so I'm going to click that thing and
+it kind of snaps into place and all of
+these component oh sorry all all of
+these uh relationships here all of these
+layout constraints turn blue so blue
+means uh we are fully constrained we
+have the exact amount that we need so if
+I remove one of
+these oh clicked on the wrong thing uh
+so if
+I you
+can you can select one of these and if I
+delete okay that's different that used
+to
+be I think they messed this up that
+deletes the whole thing now that so that
+used to you used to be able to select
+the those there we can still select them
+here uh in the view hierarchy this is so
+interesting that that definitely is a
+new new Behavior oh yeah here it works
+okay um so I selected this one now the
+top bar is red and the Bottom bar is red
+this means in the vertical direction
+we're missing a constraint so if I undo
+this we now or uh so I guess uh I can
+bring it back here by saying I want this
+top
+constraint add constraint so now
+everything is blue again so the the
+vertical direction is fully constrained
+and the horizontal direction is really
+constrainted if I get to delete one of
+these here no it just deletes the whole
+thing that's definitely not that's
+definitely a bug uh but yeah so in
+constraints we have uh we have some here
+as well we should be able to delete
+there that also deletes the whole
+thing interesting uh that it didn't
+behave like that uh it didn't used to be
+like that interesting uh but yeah so
+blue means we're good red means we're
+not so the other thing that you might
+need see is once you start adding
+constraints that's when you get those
+blue and red things so the the calculate
+button doesn't have any constraints yet
+so uh not adding any constraints and uh
+adding all of the constraints that are
+necessary it kind of works together uh
+but if you if you're using constraints
+and you're not adding all of them then
+your uh your layout will break when
+you're building it so this this will
+build and it will will look kind of like
+how we are wanting it to look uh so
+let's build
+that so yeah our text field is all the
+way up there I can now rotate the um
+device either with up or command and
+then the arrow buttons so if I rotate
+that the the text field is now spanning
+the entire thing these move these are in
+the exact same position that they were
+so these are not going to adjust uh to
+device uh orientation or size um so yeah
+you can mix fully constrained and not
+constrained but not only partially
+constrained I would always fully
+constrain like I would make sure
+everything is constrained um because
+then everything is predictable okay so
+how do we do the calculate button now um
+we could go here again uh if we go to
+the top it'll figure out the view
+component that likely uh you mean uh and
+it'll it'll do that so maybe we can show
+that real quick so I'll just activate
+this and oh and maybe say 32 okay it'll
+snap into place okay uh it jump there uh
+the other thing that you can do
+sometimes it's ambiguous uh which one uh
+which top one to mean you mean maybe
+there's two components right next to
+each other another thing you can do then
+is highlight the or select the view hold
+down control and and then uh you can
+describe a relationship um by pointing
+at a view that uh you're meaning to
+create a relationship with so I want
+this text field and then I want vertical
+spacing okay so we it created it in
+place very good and now if I want this
+edited if I want it smaller um I can't
+just drag this component um we'll get a
+misplaced view so this one says it is uh
+46 points away from where uh it thinks
+it needs to go so I'm going to undo that
+um so if I want to edit this constraint
+same for all of these we highlight it we
+bring up the editor and then uh so if
+you have a constraint selected the third
+from the right these are the constraint
+edit properties that we have so constant
+is the one that we are interested in
+here so let's do
+32 and if I hit enter it'll jump uh into
+place okay uh any questions
+here why why is the button red like on
+the right and the
+left we didn't add constraints okay so
+um buttons are different from uh text
+Fields buttons have uh buttons and
+labels have an intrinsic with so if we
+didn't add one of the leading or
+trailing constraints for the text field
+uh the view would break the button works
+if we don't if we if you're just
+creating one constraint uh either to the
+leading or to the trailing Edge Let's uh
+let's demonstrate that real quick uh so
+let's we don't need this guy anymore
+let's just create a Leading Edge
+constraint and let's maybe say
+16 so it jumped it's hugging this side
+here uh and uh so this this works right
+now one carat with this so if you're
+only constraining same with a label um
+if the text uh that you're displaying
+here changes or it might change for
+unexpected reasons um and it changes
+beyond the device width um the text will
+get just keep keep growing so if you
+want the the the label or the the button
+here to line wrap you will also have to
+create a constraint to the
+right um and it'll it'll do that so now
+if we have a paragraph As A Button then
+it'll it'll line wrap um it'll create
+multiple lines uh so what might be an
+unexpected reason for why your uh text
+is not the size that you anticipate any
+question any any thoughts why might it
+not be the exact same width that you are
+anticipating when you're designing
+it uh so let's say we have this
+calculate button uh and it looks uh so
+let's say We'll constrain it to the
+Leading Edge again what are scenarios
+that you can Envision where calculate
+will go beyond the edge of our view here
+um and so I can demonstrate it with not
+calculate one
+second so see how this this goes off the
+edge if we uh create another constraint
+to the
+right
+16 it'll it'll line wrap like that does
+that make sense okay but yeah so just
+with calculate it could go off the edge
+can can anyone think of scenarios
+there's a couple of scenarios that could
+happen where just the word calculate
+could go um go Beyond the Edge what are
+thoughts okay yeah so maybe uh oh yeah
+so maybe there's something that we do
+later that we're not anticipating right
+now where the S size changes very good
+yeah any other thoughts
+yeah maybe maybe something moves it over
+very good uh so yeah I guess also what
+you're saying with with animation so
+maybe later we're moving it over yeah
+any other
+thoughts uh oh okay so yeah it could
+push it all the way down yes so then uh
+so then it'll actually uh disappear in
+the bottom in the bottom here so um to
+mitigate that we would put have to put
+everything on a scroll view so so uh to
+prevent for us to be able to uh look up
+and down there's a UI scroll view that
+we have
+here so we can plop that one down and
+then put all of our components on there
+very good question but yeah can anyone
+else think of why would this grow in
+size from what you are predicting it to
+look accessibility very good that's
+that's a big one so uh I think we can
+simulate this here one second uh oh
+where is it oh here so second from the
+from the left here next to the um thing
+that hides The View inspector there's a
+little mannequin that does this so we
+can click on that uh turn on
+accessibility let's see if we can make
+calculate uh grow bigger so there
+is
+uh I thought that oh yeah okay but let's
+just do this one so that one didn't
+quite do it uh let's do Boldt text okay
+that did it so uh oh but then this one
+went so I I think this wouldn't it it
+won't look like this when we're building
+it let's
+see oh okay yeah well we can also change
+it here let's see um we can change
+accessibility in our device as
+well let's go go to
+accessibility there we go thank
+you I just clicked something else before
+okay there we go uh and display size uh
+let's turn
+on larger sizes and let's crank this
+up okay didn't make it big enough but
+yeah so accessib accessibility it might
+make it bigger than you anticipate can
+you think have another
+one but yeah accessibility is likely the
+the main
+corporate what's another
+one there are languages that have longer
+words so German is a big culprit for
+this so if you're internationalizing
+your uh your stuff you're designing for
+English language and then German comes
+along and has a paragraph for um for a
+word uh and then your layout will look
+broken so uh I would say whenever you
+can constrain it all the way that you
+can um so I would say if you want this
+centered uh constrain it to both
+directions um and then if it grows it'll
+grow down which is nice um and uh so
+this is one way to do it um if we know
+maybe this is a picture this button is a
+picture um so it's not going to get
+bigger um if we want to constrain it to
+the center there's another thing we can
+do so let's go back here oh we're
+changing the accessibility there we go
+uh okay so let's say we wanted
+constraint to the top but we wanted
+constraint to the center we've done all
+of our constraints with this guy let's
+do it with the one next one we want it
+vertically sorry uh horizontally
+constrained in the container so if we
+click that
+one we get a center line and then this
+thing is uh constrained to the center
+line so everything went uh blue again
+only possible because our uh button has
+a width that it comes with already the
+text field does not all right any
+questions here
+yeah
+yeah uh so yeah I'm not an design expert
+but what I've seen designers do is so
+one you create a design and you create a
+design that is also larger and then you
+see how it works with that uh some
+things you just maybe don't want to
+change it you can make it so that they
+don't change the size so sometimes you
+that some some uh sometimes that is done
+for like graphs when you have to have a
+um like certain number of values um what
+else have I seen um so often putting
+multiple components next to each other
+can cause things to get really crowded
+so maybe having things be on top of each
+other instead of next to each other so
+for example you could have a label that
+describes what a text field does in
+front of it um so maybe you can have the
+label above and the text feel below so
+stuff like that but yeah I'm I'm not an
+expert you can probably um yeah there's
+probably good articles out there but
+yeah not an expert cool so yeah we're
+just missing good very good question
+though we're just missing this guy uh so
+let's just go back to this one here uh
+let's do 16 from the top let's see if it
+picks up the the calculate here let's do
+16 from the left and 16 from the
+right okay very good all right so that
+all worked um this might grow beyond the
+screen below um can you guys think of
+something that we haven't mentioned that
+could do this happens all the
+time any
+thoughts something comes up from below
+what would come up from
+below keyboard yes so very notorious
+happens all the time people design their
+layouts without the keyboard coming up
+we have text field here so if you click
+on the text field the keyword will come
+up so to to deal with that you'll have
+to have things on a on a scroll view um
+we're not going to cover that right now
+but uh for this one probably safe but uh
+yeah if you have long longer thing
+longer screens you want to put things on
+a scroll view all right so that was
+probably 90% of things that we'll talk
+about in regards to
+constraints um in the past I used to go
+into into a little bit more dep so
+there's like ways that constraints can
+uh um conflict with each other um that
+is very frustrate that can be
+frustrating um but I mean again um if
+you get there you'll you'll be able to
+maybe Google it as well we just don't
+have that much time to cover constraints
+in too much depth uh we'll revisit
+revisit constraints one more time when
+we when we're creating uh constraints
+programmatically but uh for now we have
+most of the tools for constraints so
+Auto layout constraints help us make the
+uh this components lay themselves out
+depending independent of device size all
+right any other
+questions cool so let's make this
+actually do the calculation I'm going to
+do this really quickly because we only
+have a little bit less than a time than
+an hour left so let's put uh uh um tip
+here double and uh we said I think we we
+started with 20% when the button is
+pressed we are going to get the uh text
+uh Fields um value right now we don't
+have a way to interact with the text
+field yet so we have the output label
+that we can write to we're doing that
+when the button is pressed um but and we
+have the button but we don't have a way
+to get grab the value from the text
+field
+what do you guys think we need to do to
+grab the value from the text field to be
+able to do
+that so
+we say again drag click yes so let's
+drag
+click and went and do drag click yeah so
+I'm too lazy to come up with a better uh
+let's say a um meal
+amount there we go Outlet we want an
+outlet uh and let's connect it and now
+we have have um a a value a variable
+here a a property uh to interact with
+this text field so to grab the value
+from the text field is direct
+communication we we're going to ask the
+text field directly The View controller
+can do this view controller has access
+it it owns this this text field here
+it's um on its um its main view so we
+can we can ask it questions and one of
+the things we're going to ask is what's
+inside you so let's do that when the
+button is pressed so uh let's get the
+um uh
+meal Let's do let's call it meal string
+uh so we have me amount. text and one
+would think that text would be a string
+if we control click on it uh sorry
+command click on it we could uh option
+clicked it's a string question mark what
+does string question mark
+mean optional yes say
+again maybe it's a string yes um so
+we're dealing with an optional why is
+this an optional uh how could there uh
+be not a string in here so the one might
+think it's when you don't type anything
+in that would be a a good guess uh it
+gives you a string it gives you an empty
+string if you don't type anything
+so when is this
+nil um when the text Fields view has not
+been built I can't think of a way that
+you would actually uh be able to get to
+that uh with interface Builder so um
+when does the text field get built uh
+after so when view viewed load gets
+called we have everything built already
+so at that point
+we're interacting with things so um
+there is going to be a string there um
+so so yeah not quite sure how this ever
+would be an optional uh but it is so how
+what do we do how do we get the text out
+of the optional container
+there if let okay let's do that so where
+do we have access to this string now we
+have access to it for this duration okay
+so now this we have a string now now we
+have to get this into a double so let's
+do that so if meal
+double these are terrible terrible
+variable names here but uh so
+double
+oh me
+string okay so we know that this can
+produce an optional so I already put it
+in my IFL here okay so we now have that
+double if it exists right here and only
+here so not here anymore only here so
+this looks pretty awful to me these like
+two if if in nested if statements um if
+you have another one um you're it's
+really hard to see uh where where we are
+here uh in the in the code um so let's
+take a couple of minutes here to make
+this a little bit nicer so the first
+thing we can do is um I don't want
+anything to happen when this is nil that
+I I was saying that really never happens
+so there's nothing specific I want to
+tell the user that they need to change
+so I I don't I don't need to this to be
+two things so one nice thing that we can
+do is we can just combine these two uh
+unwrapping uh in one IFL statement and
+we do that with a
+comma and now we are unwrapping both of
+these uh with one IFL statement and both
+of these variables are going to be uh uh
+accessible here if they're both if they
+both can be unwrapped and if either one
+of them cannot be unwrapped we won't go
+into this uh into this block of code so
+that's very nice um I find this hard to
+read so what I do when there's more than
+one I put each of the the Le statements
+on one line and then I put the curing
+bracket on the next line uh I just find
+this a little bit uh easier to read
+so this is uh one way that we can do it
+um and then we have both of them them
+unwrapped I wanted to show you uh
+another way to unwrap um so we don't
+even have to be indented at all um uh
+but I think we're running out of time
+here a little bit so we'll do that next
+week all right so if both of these can
+be unwrapped so both of these are
+successful and we have a a meal double
+here we can now do our math so how do we
+do the math we have our tip
+times the
+meal and uh we want that to be in our
+output string
+here oh let's let's do this total
+tip and then uh our output text here
+should have this so what is what's the
+type of uh total tip what's that what
+what's it it's type right now
+so we're doing I heard double any
+disagreements so so that's uh option so
+if I hold down option it turns into a
+little question mark it'll tell tell us
+what it is so it's it's a double so we
+did math with it and we can only do math
+with it if both of the things that we're
+doing math with are the same type so tip
+is a double meal double is a double
+because we were able to unwrap it
+so uh so this is a double
+yes never
+no as an error yeah so we'd have to cast
+it ourselves yeah very good question so
+now we have to get this into the text
+field what type is the text
+field uh so it is a string it is an
+optional string um but uh doesn't really
+matter so yeah we can put a string into
+an optional string can we put total tip
+into the string like this can we do
+that no yeah so doesn't AutoCast from
+from a double to a string so uh what did
+we do last time we said this is uh an
+amount of money uh and we don't want to
+do the formatting ourselves so we can do
+formatt it uh and then uh we can add um
+we can say uh currency and then we can
+use the device currency I think it's I
+forget the exact um we we have it in the
+last lecture so I'll just do USD which
+is US dollar so uh it'll format it
+nicely uh to be a currency in this case
+US Dollars and put it uh to the output
+text here all right so we should be able
+to do that right
+now okay so let's do
+100 calculate $20 uh and then so I guess
+we had we wanted to say tip colon so
+let's maybe uh move this to
+another uh so here let's do tip
+formatted maybe a little bit easier to
+read and then here we can do uh
+tip and then so we said we could do
+something like this where we do where we
+add the plus sign something that you'll
+see a lot more often than this is uh
+where you can put strings inside or
+variables instead of other strings so
+the way that works is the back slash the
+two brackets and then you put can put a
+variable in there and then we could have
+an exclamation point after the end if we
+wanted to so uh we we've also seen this
+in a previous lecture so let's just make
+sure that works still oh
+100 calculate
+okay uh great what if we make a mistake
+uh and put something in that is not a
+string uh sorry it's not a double we can
+have an else block here and then we'll
+use the same
+output
+text uh and then here we can be helpful
+we can say hey this thing that you gave
+me output.
+text uh so here it'll matter that it's
+an optional we'll see that in a second
+there's not a number
+so what is the error that we're getting
+here it is telling us uh it's going to
+use a really dumb error message string
+interpolation produces a a debug
+description and not an actual value so
+we are trying to Output an optional we
+know it's not an OP it's we know there's
+a string there uh oh we actually we have
+oh we don't have it necessarily so uh uh
+so one way that we could deal with this
+is we can give it a default value so um
+here let's
+do I guess in this case it would have
+made sense
+to oh
+no yeah so I guess in this case it would
+make sense to keep them both separate
+let's let's do it let's keep them
+separate oh that was right
+and then we can use this one uh M string
+there we
+go okay so oh uh but I used the wrong
+indentation there we go okay so
+if we a to get a string out of this
+which we always will uh then we're going
+to go into
+this if we can get a double out of it we
+calculate the tip and present it if not
+we put the output there um since this is
+now really difficult to read I'm going
+to show you the other way uh of of
+unwrapping an optional so what I don't
+like is like nested whenever there's
+nested code to me it becomes very
+difficult to read and the deeper the the
+nesting is the more difficult it is to
+read and also for me the meat of the or
+the the main thing of this thing uh that
+should happen is is here this is I'm
+going to call this the happy path the
+golden path through my uh function the
+thing that uh I want to happen so this
+is the thing that makes that that I'm
+actually trying to calculate all of the
+other stuff is it's make sure that that
+someone didn't put something stupid in
+there so I like to have the happy path
+not be indented at all so that's one of
+my goals uh for making things uh easily
+readable and understandable how can we
+do that so instead of unwrapping uh with
+an IFL we can say um we can we can short
+circuit we can say if this is not a
+string then I don't want to continue so
+it's kind of like
+this and then it's a Magic Magical place
+where uh this string will exist after
+here does that make sense so we're going
+to we haven't created it yet but that's
+what what the intention is here so I
+want to be able to Short Circuit so if
+this is not a string I want to return
+and then my happy path continues here
+and I have access to the string does
+that make sense how do we do that so
+there's another way to un unwrap and uh
+so let's keep this guy there's a God
+statement so
+oh guard and uh so when you're guarding
+so in um in a sports uh you're if you're
+guarding someone you're you're making
+sure that they're staying in their place
+um uh if you're guarding a palace you're
+making sure that no intruders are coming
+uh in and uh if they if you don't want
+them in uh you short circuit them out so
+you're showing them the door if if
+you're at the at the door someone comes
+in who's not wanted you just get them
+out of there immediately um without uh
+bothering the other guests so let's use
+this guard statement so we're going to
+guard against this being true so we're
+going to say this should be true
+else return so what this says is hey if
+you are not a string get out of here if
+you are a string now this variable is um
+accessible from out here um so um and it
+it made it so that we can get rid of
+this
+entire uh level of indentation we could
+do the same thing with this one here so
+the happy thing is the happy path is
+this one I really like it when the happy
+path is not indented so we could say
+let's guard against this thing being a
+double uh so if if this is not a double
+let's get out of
+here let's return and then all of this
+stuff can not be
+invented and then in this case if this
+is not a double we can inform the user
+hey you made a
+mistake does that make sense so uh with
+an if let statement we wouldn't have
+access to these properties outside of
+the scope that's defined by the IFL
+here we don't have access to that inside
+the block so if I try to
+print meal string we're going to get a
+compile time error because this is the
+thing that wasn't
+successful does that make
+sense so a little bit of maybe
+difficulty at first to wrap your head
+around what I really like about this is
+we can do a bunch of checking like we
+can check 15 20 things um if we had to
+do that with IFL we would end up maybe
+with like 15 lines of indentation uh
+this way the happy path is not indented
+so we at the same scope level as our
+function which I really like um little
+anecdote uh so Swift is now I don't know
+like 14 I'm not 14 years old maybe I'm
+not quite sure Swift one uh didn't have
+the god
+statement and uh so Swift is typ type
+safe uh when you're when you're trying
+to work with Json so um you have to
+unwrap every property um in a Json thing
+that you're trying to read uh so now
+let's imagine you have 100 properties on
+your Json object uh so in Swift one you
+would have had to have a 100
+indentations to check all of them um so
+that wasn't very readable so uh I think
+people called them uh um towers of Doom
+or uh because you were not able to read
+this anymore uh so this was really nice
+uh we'll get to unwrapping Json later it
+is much nicer now so it you still have
+to it's uh interacting with Json we're
+still putting something type safe on
+there but it's much nicer though
+yes yeah uh but yeah so try catch you
+would still have the the thing you're
+trying is still indented and then I
+guess the oh yeah I see I see what
+you're saying so a try but not a catch
+right so so you're you're trying and
+then that you're you're uh handing it
+off to some other place to catch it
+right uh it's just an if if else
+statement on his head um so um normally
+in an if else statement in an if
+statement you would have this be the
+thing that is true uh here in a god
+statement you have
+the thing that comes after that's true
+yes begin exactly
+yes
+yes yeah that's it yeah
+yeah very good what language have you
+seen that uh in um c c okay um I have
+yeah haven't seen that in C cool I think
+it's just like it is just like it's a
+concept right yeah yeah yeah so I I
+hadn't seen it before Swift so uh yeah
+cool so maybe yeah so I guess it's
+around in another places very good
+say again
+sorry oh the autot tapping so it it's
+slightly uh so there's there's going to
+be a thing that we don't know about yet
+to do that so we won't do that in this
+one um uh so yeah uh we'll be able to do
+that probably after the thing that I'm
+going to that we're talking about now
+but we might not have quite enough time
+to finish it but yeah so right now we
+wouldn't be able to do it yet cool but
+yeah so so far uh we have except for the
+auto tap typing uh we we're good right
+like this this works this is great and
+then I think we are now also able to we
+haven't tested the uh something it's not
+a number let's test that out real
+quick um let's mess this
+up okay so that works
+great all right so any questions here so
+we reimplemented the tip calculator
+um we learned this new way of unwrapping
+optionals by having the happy path not
+be indented happy path golden path those
+are both things that you might hear uh
+places um I think it's a a nice way to
+organize your code because then uh if
+you if you're just so if you have this
+function you're trying to figure out
+what it does you can if you're not
+interested in all the edge cases you can
+kind of just skip through all of this
+like okay we're guarding against
+something guarding against something and
+then the happy path is here so it makes
+it much easier to pass if there's like a
+bunch if you're trying to quickly figure
+out what's what's written there uh you
+can just look at the the happy path then
+so I think it's it's a good good
+standard to do all right so let's now do
+something new for showing our uh tip uh
+for changing our tip so what we're going
+to do is let's go back to our
+um also I owe you another break I think
+so let's do a 5minute break this time or
+6 minutes let's come back at uh
+9:15 where where were we left off where
+did we leave off here so we wanted to um
+be able to change the tip percentage uh
+somehow so what we're going to do is
+we're going to add another button so
+we're going to move all of this down um
+I'm just going to squish it here oh I'm
+just going to squish it here uh and the
+button is just going to show the
+percentage of the of the uh of the tip
+and when we press it we are going to
+navigate to a new
+screen and uh this new screen is going
+to have another text field and a button
+uh that says uh oh yeah maybe it says
+set
+tip uh and then we'll we'll figure out
+how we want to cancel this so and then
+it'll pre populate
+the uh it'll prepopulate our tip percent
+uh with what what it is already so so
+yeah pressing this button gets us here
+we put something in we hit set tip and
+then this should update so that's what
+we're going to try to uh do right now uh
+we're probably not going to have quite
+enough time to finish this uh uh but
+we'll we'll we'll get there um um slowly
+we we'll make some
+progress all right so first thing let's
+just
+add uh our Let's do let's do all the
+view stuff here real quick out of the
+way so I want another
+button um so let's bring up button here
+we go let's drag that on there um I
+think I want it kind of um below the
+calculate so let's remove this
+constraint let's have that one snuck in
+there uh let's have it say uh I'm just
+going to I'm just going to say x% so
+that we know that something's going on
+here uh and so we I want all of this to
+look nice again so let's um control drag
+to the top sorry uh not control drag yes
+control drag to the top let's oh
+actually let's do this one first so
+let's do control drag let's do vertical
+spacing
+and then let's control deck this one
+vertical
+spacing and then we
+can thank
+you that would have taken
+me uh a while to figure out what I did
+wrong there uh and then yeah so a label
+uh we need to constrain that oh this is
+not a label this is a button oh it needs
+to be uh constrained to the center
+another thing we can do is we can have
+it be constrained the same way as uh the
+one as the other one so we can say
+Center horizontal horizontally so now
+they're both they both have the same
+horizontal Center which we can do and
+then maybe just to
+un uh cram all of that here let's find
+the right
+constraints and let's do that one and
+make
+it uh where is it uh multiply oh not
+multip where's constant let's
+do um 16 again
+and then let's find the other one
+where's the other
+one I think that's
+it okay all right so we have our new
+button in there uh we're not going to we
+this button is going to be slightly
+different so what we've done so far is
+we have control dragged our button into
+our view controller the other thing that
+buttons can do is they can get us to
+another screen
+um uh without having to interact with uh
+the view controller at all so let's
+let's bring up another screen um let's
+go to the plus let's go to view
+controller we go going to drag that one
+and I'm going to put that one there and
+uh I want the percent button to go to
+this view controller so I can now
+control drag the
+button to this view controller and say
+show
+and then we we have this connection here
+um we're going to talk about what this
+is in a second uh this arrow means that
+this is the view controller that uh will
+launch when we when we start the app uh
+this this Arrow here is called a segue
+we're going to see what Segways are in a
+second if I move this thing uh the that
+Arrow will kind of follow it and and
+show us uh wherever that is uh but yeah
+so I could I could say hey actually I
+want you to go into this screen then
+when we're booting it it would it would
+go into this one yes
+question it's a new screen let test it
+let's test it out see what
+happens so yeah maybe try to anticipate
+how this screen should present in your
+mind uh what what would you expect so
+I'm going to click on this so this is a
+modal so it uh pops up from the bottom
+we don't have a way to dismiss it right
+now so we're going to we can uh slide
+down to this we can also put a button
+data um another thing that you might
+have expected is maybe you would have
+expected to like have it slide to the
+side and then be able to go back uh if
+that's what you prefer we can click this
+view controller we can go to
+editor uh and then embed in uh
+navigation controller so this will take
+both of our so um this is our initial uh
+view controller that we had uh it took
+both of those so if I uh so it these
+these were the ones that we had before
+um our new entry is into the navigation
+controller and then uh these are owned
+by this navigation controller so let's
+see what this looks
+like okay so if I click here now we have
+this behavior that you are probably
+maybe were anticipating or expecting it
+to happen
+yeah uh oh like so um oh do we want to
+go to this page or this page uh
+or okay yeah uh so good question very
+good question so here we just control
+dragged uh to to make this happen uh
+since we don't have time to do um all of
+this anyways I'm just going to go with
+your uh your your line of questioning
+here we um and we'll do it slightly
+differently that um that can show you
+how how to do that so we we won't be
+able to completely finish this here
+today so let's let's uh take your
+question it's a very good question so
+the question is um right now there's no
+way to disable this button there's no
+way to uh so let's say I'm
+authenticating this button should not be
+able to get me to to this page here so
+right now there's no way for us to do
+that so um let's remove this this is
+called a segue let's remove this
+segue and the way I'm going to connect
+these two now here uh just so that we
+see that this one's different I'm going
+to change the background color to maybe
+uh blue just so that it looks different
+uh and is easy easily recognizable that
+we're going to this thing so now when I
+am pressing this button instead of
+dragging to the view here I'm going to
+drag uh one
+second oh um we have to turn this into a
+oh yeah uh so we have to create this
+view controller file first so let's do
+that
+first so this was our tip view
+controller oh sorry this is our
+calculation view controller let's clean
+up a little bit let's right click
+refractor rename and let's call this
+one once it's all done
+oh calculation view
+controller let's create another
+one uh
+new uh this got
+rearranged um let's do this file
+new uh new file here we
+go uh let's call this one that's also a
+different Behavior Uh let's call this
+one uh tip um or tip change change tip
+calculator uh change tip view controller
+maybe
+H uh uh change tip view controller tip
+view controller there we go all right so
+let's
+import UI kit and then uh so I don't
+want to type that twice so class we have
+to inherit from U iew
+controller uh so UI kit does inheritance
+Swift UI does protocol conformance so
+here we actually this is a base class uh
+so we're we're inheriting everything
+from that Swift UI doesn't do that we'll
+talk about that a little bit more later
+uh okay so we have our uh change tip
+view controller um I'm just going to do
+the I'm just going to
+mimic or I'm just going to reproduce the
+other things that uh this one had so it
+had this viewed load um and now we have
+this change top V controller okay
+so um this thing that we dropped on here
+doesn't know we we haven't connected it
+to to this view controller yet how so
+how do we do that so if we're in
+interface Builder if I'm selecting The
+View controller I can assign the code
+file to this view controller so I now
+have to go to the center
+here um so again this is this is on the
+the right the
+rightmost thing comes up the center one
+and here it says the class that we
+should use and if I start typing uh so
+change tip view controller it already
+found it so we want to use that one okay
+so now uh this one has this one has
+changed its name to change tip view
+controller and this one says calculation
+uh view controller so um so it changed
+its name great so the question was how
+do we how do we make a button go to the
+screen under a condition so we we might
+want to maybe disable this button we
+want to may maybe send it to a different
+screen if we're not logged in so let's
+create a different kind of segue we're
+going to control drag and
+uh
+oh one second uh oh sorry it's not it's
+not from that button sorry we control
+drag from this vew control control drag
+from here to this uh to this view
+controller so what we're saying is there
+is a way to navigate from this V
+controller to this one um we haven't
+defined yet how so when we when we
+dragged the button we said this button
+navigates to this controller uh to this
+new screen if we're dragging from our
+view controller we're saying this view
+controller somehow can navigate to this
+view controller does that make sense
+okay so let's do that let's do a new
+show segue and this one we're going to
+have to give a name so if we click on
+this
+segue uh if we go to the uh third one
+from the right it says
+identifier uh so uh we have to give the
+the segue a name and sat needs a string
+we're going to have to type it exactly
+right in two places uh otherwise it
+doesn't work if we change it in one
+place and not in the other it doesn't
+work so let's uh say this one's may be
+called uh
+show uh
+change tip
+segue uh I've been using the word segue
+um you might ask be asking yourself what
+does that mean what is a segue um were
+you asking yourself that that question
+like what what where does that word come
+from maybe you're Imagining the little
+electrical thing that has two wheels um
+and its inventor uh um Rod it off a
+cliff and died have you guys heard this
+the inventor of the segue died riding
+off a cliff with a segue um is what I've
+heard not tragic not not funny but um so
+yeah so maybe you're thinking of that as
+the segue the word segue existed before
+the thing the the the electronic device
+um have you guys heard uh the word segue
+in conversation so if you making a if
+you're segueing into another topic it
+means you're transitioning to another
+topic same thing here segue is a
+transition from one screen uh to to
+another so um and I I can never spell it
+unless I see it so uh somehow that word
+to my
+German uh first language brain
+does not compute um okay so we have this
+we have this uh segue created again we
+created it from our view controller to
+this new uh view controller here um so
+now we have to make it so if we want
+this button to perform this thing great
+uh somehow we have to we have
+to uh Now call this segue um for now
+we'll use that button but in the in
+inside that button when we're pressing
+the button we could do some logic we can
+say hey are you logged in or whatever um
+was this successful so here we can we
+can write some code to check should we
+be able to navigate to this and we can
+also segue to another screen if we
+wanted to so let's bring up the
+calculation view
+controller and uh let's create a um a
+button pressed for that one as well so
+now we have multiple button pressed
+let's refactor this one and uh and
+say um so the calculate one should
+say
+calculate button pressed okay let's
+rename that okay calculate button
+pressed much better and uh so now let's
+uh create a new action now from the from
+the percent thing from the percent
+button and let's call this one uh change
+tip button pressed action that's great
+um so this one so uh we had changed this
+one to send our UI button we can change
+it here too we can just say oh no not
+that one here we go type any UI button
+is already there so we can select that
+and then we have access to the button
+itself we don't need it for thisa in
+this case but um you might want to do
+that later all right so we now
+have a
+button uh when we have we have a a way
+to execute some code when um this
+percent button is pressed okay um let's
+now
+um uh
+make uh this this segue happen so how do
+we do that uh the view controller has a
+function uh on it that says perform this
+segue um we can explore all of the
+functionality that a view controller uh
+offers us by command clicking onto the
+view controller here and then we can
+scroll through and and read all of the
+functions that are available here I know
+kind of what I'm looking for is so I'm
+going to do uh I'm going to do command F
+and I'm going to be uh I think it's
+perform perform segue with identifier so
+this is the one that I want so
+so let's do that
+so perform so we're doing something on
+The View controller so I could say self
+dot but it also the compiler knows that
+we're inside the the vew controller if
+there a function that we're calling
+we're calling something on The View
+controller so maybe this time I use the
+self but most of the time you won't see
+the self uh written so self dot meaning
+this a function on The View controller
+that I'm going to use perform
+segue with
+identifier here we go here is the
+identifier that we have to pass in and
+that is the that string has to match
+exactly what we gave here I've copied it
+so should just be this and then sender
+we can send ourselves as the sender all
+right let's try it out
+here we go let's press the X and it
+performs that thing so now if you're
+logging a user in maybe you're going out
+to the internet submitting credentials
+coming back with a happy response uh you
+can wait until you have the happy
+response so you can have some logic
+here where uh you're doing you're
+checking uh the that your internet
+response was happy and then you can
+perform this Segway and if it didn't uh
+you can you can maybe show an show an
+error message or whatever so so yeah
+does that answer your question so if you
+had if you had to you could also um
+depending
+on uh maybe a user's logged in or not
+you can go to a different screen if
+you're pressing a button but that
+answers your question right that you had
+yeah okay
+ah okay how do I separate very good uh
+so what we had before was let me how do
+I maximize space here okay so what we
+had before was there was the button I
+control dragged the button here and now
+it just goes there U so this second way
+we don't have to give it a name when you
+press the button see it's even so when I
+select it the arrow sorry the the button
+highlights so this means these two are
+linked so what we did now was we went to
+the view controller uh so this bar is
+the view controller and if I control
+drag from up here to this view
+controller that means I'm creating a way
+to transition from this screen to this
+one we can uh we can have multiple ways
+to do that maybe we can transition to
+different screens um and I'm picking
+show as the as the segue here and then
+the key thing to be able to call this
+segue programmatically is
+Select and then give it an
+identifier and then if I uh didn't if I
+recreated everything here correctly it
+should do that transition again yeah
+okay so that your C question is answered
+very good okay any other questions
+so we have seven minutes okay so let's
+uh um I guess just to see again the the
+um layout constraint creation let's have
+this mimic what we have here and then I
+think by the time we have that uh it'll
+be the end of the class um and then
+we'll talk about how so I guess uh what
+what problem are we going to face so
+once we can get the tip here
+uh what is the problem that we're going
+to have to
+solve sending the tip back yeah so let's
+let's get to the point where we've
+solved everything we we turned this into
+a percentage um when we're pressing this
+button and then we can pick up uh from
+here next week and we can talk about how
+do we send this back does that sound
+good
+great all right so all of this we've
+already seen so I'll go relatively
+quickly here so let's put a text
+field on here and let's put a button on
+there there we go oh uh so there are
+different kinds of buttons we've done
+the plain buttons let's do one of these
+uh I think so the slightly more
+prominent buttons I guess that one's
+blue and blue now we don't need this one
+to be blue anymore uh use the
+default nope not what I wanted to
+do uh
+background is that I think background
+system
+color let's use something less obnoxious
+I don't want to find the correct thing
+right now let's
+do uh green
+and not good okay uh gray how about that
+there we go uh okay so yeah these
+slightly more uh prominent buttons
+they're often used for calls to action
+so a call to action button is uh the
+user needs to there's some information
+on the screen and you're you're very
+sure that they want to do this thing so
+that you can use these more prominent
+buttons for them which is great uh okay
+so let's um let's use uh Auto layout
+constraints to constrain this nicely and
+then when we press the button we'll turn
+that into um a double so I'm going to
+have you guys drive uh what do we need
+to do to constrain the text field
+oh yeah so sorry more more um uh high
+level so what what do we need to do how
+do we make sure that this uh what are
+the but yes very good bottom right is
+how we're doing it um uh but yeah so
+high level
+description yes so yes so
+um very good for both sides for both
+sides very good so let's do that and
+then as you said down here at the bottom
+we do uh so let's do 32 to the top uh 16
+and 16 those are pretty standard at
+three constraints button uh so just to
+so we we've constrained these buttons to
+the
+center just to prevent issues with uh
+other languages we're going to do the
+same thing here where uh we we're going
+to constrain it to the top and
+then uh 16 and 16 we'll see that this
+one that has a a background it'll be
+much bigger now I mean I'm fine with
+that uh and now let's make it so that
+this button calculates uh or gets gets
+us the double uh so there's one other
+thing here that uh might be that you
+might run into so we created a new file
+for the change tip view controller um so
+we didn't have it in the calculation uh
+view controller if you have two view
+controllers in the same file um unless
+they fixed it um you're going to have a
+very hard time uh dragging actions into
+into them so it's very buggy I don't not
+sure if it will work eventually but uh
+it it just doesn't work very well so
+just make sure that uh each view
+controllers is in its own uh
+file and then we can now bring up the
+change tip view controller it's maybe uh
+here we go here's the change tip view
+controller and what do we need to do to
+be able to uh interact with the button
+and the text field what were the
+steps drag and then so one of them needs
+to be
+a outlet very good uh and the other one
+needs to be a action very good okay so
+let's do that let's do the uh out let
+first oh not what I wanted to do uh
+control
+drag and let's call this one
+tip uh we want oh uh so it looks like we
+don't have these connected right now
+that can also happen uh so if this if
+this happens um something broke and we
+have to restart
+xcode um so luckily so UI kid and uh is
+just very fragile uh Swift UI works much
+better so this
+um it's been so much nicer to work with
+that here we
+go all right let's try
+again control drag action and no okay so
+let's see what uh then I might have
+actually done something wrong let's see
+ah looks like we lost our uh I'm pretty
+sure we had selected the view controller
+type that it is somehow we lost that
+uh so this one was the change tip view
+controller so
+then there we go so yeah the the problem
+was so the other thing that can happen
+is I haven't seen it losing it so that's
+new uh but yeah so um if you create a
+view controller file we want to be able
+to we need
+to connect the the um code file to the
+vew controller file uh so yeah um I
+guess so we at time
+uh I'll finish this at home um we've
+seen it so we create an outlet and an
+action and then we take
+whatever well I guess yeah we'll do it
+as review next next week all right um
+thank you guys so much um have a good
+week and I'll see you guys next week

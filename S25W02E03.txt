@@ -1,0 +1,752 @@
+to do before we build the app that I
+forgot uh to talk about real quick um so
+so yeah we'll
+see uh I'm expecting you guys to be
+slightly confused what is going on here
+um this should look strange it should be
+spooky that I'm just updating this
+variable
+and um The View red redraws based on the
+state of that variable um it's very
+strange uh took me a while to start
+thinking uh in the declarative UI um way
+so so yeah don't worry if this sounds
+really strange if it looks really
+strange um it'll it'll get better um so
+we'll come back we'll build a little app
+I wanted to uh show one other thing with
+our with our box and with our coin here
+um so we'll make it uh oh here we want
+the coin box come
+on no
+okay so yeah we make we'll make a couple
+of changes here so um I want this to be
+a box now that can actually just hold a
+coin we don't need this generic
+parameter um I want to be able to shake
+it and randomize a coin
+flip uh in a bit here so
+um we don't need this anymore
+uh oh I removed the coin as well let's
+create a new
+one uh okay so um we have a box that
+takes a
+coin um and um let's say we want we have
+a shake function here oh sorry let's say
+um sorry what was I going to do here
+um ah uh yeah let's actually not let's
+not do it with a box
+um so we have a coin
+I want to be able
+to um so we have heads tails and we have
+a a property for what is up so is it um
+heads or
+tails
+so um you'll have a string here that
+either says heads or
+tails uh okay so I want to be able to
+flip this string uh this this coin let's
+have
+a let's have a coin
+property uh and we'll say uh heads is up
+we we'll learn a slightly better way for
+not using a string here in a little bit
+um but yeah so we have this coin and um
+so we've seen that we could have a box
+that can hold a variable that can flip
+the coin um what about a function that
+can flip the coin for me
+so uh flip
+coin so how would we do something like
+this and
+then so yeah we we can we can kind of
+there's some Some people prefer function
+function signatures like this flip coin
+and then no parameter name or we could
+do something like this flip and then
+have the name of the parameter there
+um so we have this flip coin function so
+let's call it flip coin we have our coin
+here okay so it goes in uh and so maybe
+we don't do a string here maybe let's do
+um uh let's do an integer oh what sorry
+let's say let's make a property is
+heads up Boolean I think that's a little
+bit
+easier so maybe maybe it's that's off as
+uh heads
+up
+so all right so we have a coin uh it has
+a property of what's up we have a tals
+uh we have a number for tals and a and a
+um something that's on the head I'm
+calling
+flipcoin and then I'm going to I'm going
+to be curious uh uh what what is up um
+on the coin uh which which direction is
+facing up
+so
+we we've introduced this one property
+here that is a little bit different from
+the other ones so heads and tails don't
+really change right so if you're
+thinking about heads or tails on a coin
+so they they will never change um on
+that on that same coin we might have a
+coin with a different heads or tails but
+those will not those will not
+change now we're recording something
+about the coin's position on the coin so
+uh so this is not a a physical trait of
+the coin but it's a trait of the coin
+interacting with the environment um and
+uh so maybe one one could argue maybe
+this is not a a good property to put on
+there because the the coin doesn't
+necessarily uh keep the information of
+what's what's facing up but like for
+this uh for this uh demonstration I
+think I think it makes sense to just put
+it on there all right so
+coins are value
+types if I put the fun if I put the coin
+inside this function what is going to H
+happen if I try to if if I try to uh
+flip it so um one one thing we can do is
+um to to to decide what what is up or up
+or down we can randomize a Boolean and
+decide what what is up or down so let's
+let's do that first new
+oh here so we have a new is heads up
+here and then we'll create a random
+Boolean so now this heads up is
+sometimes uh true sometimes false and I
+want to assign this new state of the
+coin to my coin what problems am I going
+to run into if I if I try to do that so
+I'm passing in the
+coin and uh I am I'm going to try to in
+this function effect which if the coin
+is is up or down how might I what issues
+am I going to run into yeah the State
+issue that we can
+change okay yes uh very good so let's
+let's try what happens um so let's have
+our
+coin and then we have is heads up let's
+uh try to assign that that okay so we'll
+get we'll get some cryptic uh compile
+time errors here that will all that will
+make sense of all all of them here so um
+this might be an unexpected compile time
+error to to get here so we know that
+um so we have a coin coins are value
+types we are expecting that it says
+something like oh self is immutable uh
+but what we get here is uh cannot assign
+uh property coin is a let constant what
+does this mean so coin here is the coin
+that we passed
+in um when we when we have a
+function um and we're passing in a value
+type those those uh parameters are um uh
+they are passed by value uh so they are
+the the value is passed on but not the
+object so if we
+had um uh if we had a class here we
+would pass the reference and we can
+affect the the the um the insides of it
+but here the value of the coin is passed
+so this is uh you can almost imagine
+this as um you you're on on the phone
+with your
+mom and uh you're ask and you have a
+coin and you're asking her to flip flip
+a coin so what would you do how would
+you describe how would you tell your mom
+to so you have this coin maybe it's it's
+uh fa facing heads up how could you
+while talking to your mom on the phone
+have her flip a coin and affect the coin
+that you're that you have in your hand
+so um we'll have to do some some some
+funny things to to have this happen
+right so what's like what's one way that
+we have a um and uh so any solution is
+is accepted here so that is physically
+possible so we have a coin that is heads
+up in our hand uh and we're asking your
+mom uh to flip a CO flip the coin and
+then we want our coin to be affected by
+this so what what what could we do we're
+on the
+phone and so
+um this is kind of what I'm trying to
+simulate here with this function so we
+have to
+pass by
+value right so we we have the we have
+the information here we're not going to
+pass the physical coin through the phone
+right so we're going to have to pass by
+value the information that we have here
+so maybe one instruction that we could
+give to the person that we're talking on
+the phone is so I have a quarter it is
+currently heads up could you get a
+quarter please and flip it heads up so
+we we're passing the value of the coin
+over the phone over the phone n does
+does that make sense okay so now we have
+the state that uh your your mom might be
+might have to be in to to flip this coin
+so she's going to flip the coin and
+maybe it says now taals so uh so her
+coin that was passed by value now shows
+Tails ours still shows heads right so
+what do we have to do to make ours do
+the same
+thing we flip ours right yeah so she'll
+tell us the new value and we'll flip it
+so this is exactly what we have to do uh
+when we're dealing with value types and
+uh passing them into into functions so
+the coin will be passed by
+value so we can flip this thing it is uh
+it is immutable here so we have we have
+a coin uh that the actual coin we can't
+uh this is just the information of the
+coin so we can't change the information
+of the coin so so first thing we said
+get a coin
+so the person on the other side of the
+phone is going to get a coin so um I'm
+going to call it
+uh uh internal coin internal coin and
+what do we set this internal coin
+to we're setting it to the state of this
+coin right so we're passing by value so
+the internal coin
+takes on the information of this coin so
+we didn't we didn't take the original
+coin and assign it to this internal coin
+um what we did was we took the coin we
+passed by value this information and now
+we're assigning that information to our
+internal coin does that make sense so
+those are the exact same steps we did on
+the phone okay now we
+can flip the coin we're randomizing
+something and then our internal
+coin we are updating the is heads
+property and so this sounds like
+something that uh should be illegal uh
+so we we're saying we can't so we're
+dealing with value types we shouldn't be
+able to update uh the value
+type we are not updating the value type
+so we we're what is actually happening
+here is the following
+so we can think about it this way
+um
+um okay so these two statements are
+equivalent um but this one is just a
+little bit nicer to read we are it looks
+like we're changing an internal property
+on our coin but we really are not and I
+can demonstrate that this is true by
+turning his heads up into a constant so
+if I
+turn um oh sorry not not it heads up
+into a Conant not that one sorry
+um uh
+um yeah uh sorry no sorry by by turning
+this one
+into a constant
+um uh yeah sorry the internal coin if
+I'm turning the internal coin into a
+constant um so if if
+the if the coin was a
+constant and I'm actually changing uh so
+if if I still have the same prop
+um it says that is heads up is a
+variable so I if I should be able to
+change uh properties on my internal
+coin if it is if it is a variable right
+so um
+if um if I was dealing with the same
+instance so if I uh if I had if I was
+actually changing a property on internal
+coin since is heads up is a variable
+I should be able to do this um but since
+internal coin is a
+constant what is actually happening is
+is the following here so we are trying
+to assign a new
+value to our internal coin we can't
+assign a new value to our internal coin
+because our internal coin is a constant
+so since this is a variable I can assign
+a new coin a fully new coin to internal
+coin uh and this is what's happening uh
+this is what's happening here
+so does it is say
+again
+yes oh I cannot I cannot change
+that yeah um so yeah um by updating a
+property here we are getting a new coin
+so if we are so um uh so we we will
+never update heads so I think that's a
+good constant to choose here we will
+never update Tails
+um we have properties on coin that um it
+is very convenient if we could get a new
+copy of the coin with just this property
+changed and by making
+um by making properties on the
+coin marking them as variable that is
+what's going on in behind the scenes so
+we're saying hey um I want a
+coin that has heads up changed so give
+me a new
+coin that has this new property um and I
+I'm I'm going to assign that to this one
+here so that's what is happening when we
+have a variable on a coin uh sorry we
+when we have a variable on a
+struct uh and we are changing that
+variable we're getting a new coin we're
+getting a new a new variable um so we
+can't do that in our content view so
+here um even though even though this is
+variable when we are trying to update it
+we would get a new content
+view but we um the the place where this
+is stored is immutable so uh so wherever
+Swift UI is holding onto our content
+view it cannot be mutated so that's why
+um the the like convenient way of
+pretending uh of like um updating a
+property by by changing one of it its
+properties does not work does that make
+sense so even though it looks like we
+can update a property on a coin we
+cannot
+so
+updating this
+variable will result in a new instance
+of
+coin being
+assigned to the
+variable that holds
+it um so the result of this is uh if the
+coin
+is
+assigned to a
+constant even
+though is heads
+up is a
+variable we cannot
+update his heads up because we would be
+getting a new instance does that make
+sense so so I almost wish this wasn't
+possible because it looks like we can
+change properties on a struct but so
+structs are immutable it looks like we
+can but we cannot um and uh
+so uh so yeah actually uh so maybe this
+is a little bit so I'll put this back in
+a second I think this is maybe a little
+bit easier to to see this way so we have
+coin we want to update his heads up so
+so we'll do
+double dot uh random oh not double um
+bu okay so
+because
+coin we we're passing it by value so we
+don't
+have so if we're on the phone with with
+your
+mom uh she has not gotten a new coin yet
+uh at this point so we we we're just
+dealing with the information of the coin
+so we won't be able to do this does that
+make sense so value types are not
+mutable even though they might have
+variables on them if those variables
+update we get a new instance so it's a
+small Nuance but very important for
+understanding what what what is going on
+so um we're not changing the instance
+that we get we get a new uh that we have
+we get a new instance the does that make
+sense
+yeah yes so here we would be changing
+the entire struct which we cannot
+because we passed by
+value so this would be if we on the
+phone with your mom this would be your
+mom trying to update your coin flipping
+your coin she cannot she just has the
+information of the coin does that make
+sense okay so yeah
+just making sure that everyone yeah so
+she need completely new coin so let's go
+through the steps again so um new
+coin we're going to
+transfer the coins information uh over
+the phone so she can flip it to the
+right direction so we have a new
+coin new coin is flipped so we're
+flipping New coin so how do we relay the
+information back we she will tell us
+about it right so we she will tell us
+the new information how does how do we
+do that by U by value again we we're
+passing by value how do we pass by value
+we could
+return um so we can return the new
+coin and then now we can update our
+coin and then this will have to be a
+variable
+again because coin was a
+constant okay so we did The Impossible
+we we were on the phone and someone on
+the other end of the phone flipped a
+coin for us and it affected our coin so
+that's the Hoops we have to jump through
+with value types um but so I mentioned
+this um in the last lecture the benefit
+of all of this is we we have complete uh
+threat safety so we don't have to worry
+about um multiple things happening at
+the same time and
+uh different states affecting yeah
+coming together and we have different
+states that that are that are
+inconsistent so this looks funny looks
+like a funny dance to have to go through
+to flip a coin but the nice thing is
+there's no way that a another thread
+somehow um flipped this coin also um
+because in in the time that we we flip
+this if we call Flip coin
+and we pass this coin to this function
+by the time this function has executed
+uh has has flipped the coin we will get
+the exact information that was created
+here and we have it assigned so there's
+no place where some other thread could
+have meddled with us so the nice thing
+about these uh immutable types these
+value types is um like 99% of all
+concurrency issues just disappear which
+is very nice there are some
+little issues that we have to figure out
+like how do we have someone on the phone
+flip a coin for us but it's possible by
+passing by value does that make sense
+okay
+yeah say it again sorry
+issues yeah so like could we um so we
+could I don't know if uh I also wanted
+to
+uh yeah let's let's do this real quick
+so I'm pretty sure I could could
+simulate this real quick one second uh
+so uh let's uh create a class coin so uh
+so guess maybe let's do a a we have a
+coin let's create a die
+oh uh so we have um uh up again uh so
+here let's have up and that's an integer
+from 0 to six um so this is a class
+um let's have a function that flips that
+um rolls the die
+maybe um we'll pass in the
+die uh wait here we need an
+initializer um let's start with
+one okay so here we don't have these
+issues uh we pass in a by
+reference um what's up we are going to
+randomize uh an
+integer
+um pass in uh a range here we go uh so
+one through six so we're randomly
+picking an integer from 1 through six
+it'll be assigned let's create a die
+uh so I guess it starts up uh starts off
+as one here let's actually create the
+initializer
+uh okay so we we're going to call let's
+move this
+up we're going to call the role function
+on the
+die and then um so we'll print
+out we print out what the well I guess
+we yeah let's print it
+out we print out what's up okay so let's
+see uh so we have three let's let's call
+this a couple of
+times
+five
+six um so we didn't have to jump through
+these hoops
+um but by the time uh so so if this
+takes a long time whatever we we did
+here might might have changed uh so one
+way that we could simulate that let me
+see I'm pretty sure that we can simulate
+that real quick one second um I think
+this should work we so don't worry about
+we're doing a lot of what what I'm now
+doing it's just to demonstrate the point
+that um something else can meddle with
+it um we should be able to um uh so yeah
+we'll see a lot of this a little bit
+later uh one
+second
+um I'll explain what I'm doing in a
+second I just want to make sure that I
+can actually uh simulate
+this uh and then um again I'll explain
+what I'm doing but I will we will cover
+this uh a little bit
+later okay so um we now have a a die
+roll
+that uh takes a second so we are um the
+rolling this function will will take a
+second uh to execute and um once that
+has happened so we still we have a we
+have our die we're going to roll the die
+and then we're going to print what's up
+okay so I'm going to execute
+that uh oh and then I guess uh so the um
+I will
+print what the DI R is RO is inside the
+function okay so it'll print what's
+inside the function and then we'll print
+outside so those should those two should
+match so it takes a second second
+now takes a little bit longer than a
+second what going
+on okay I might have to uh do a tricky
+thing here um
+maybe we have to do
+this say again
+Sor so we're not getting to the end here
+okay let's uh do this in a project I
+think it doesn't like the async there
+one second new project
+okay so we'll have a
+die we have a die we have here let's
+copy all of this
+over okay so we have a
+die um we
+have um so we'll create a
+class um die
+roller that has this uh function
+here actually I don't think I need that
+um sorry it's taking a little bit longer
+than I was hoping but I I think I should
+we should be able to demonstrate this
+one second so we let's create a button
+when we press this button we are rolling
+the
+die and uh we um oh so the function can
+be outside sorry
+here we can take this
+die we roll we'll roll the
+die and uh this
+should this should work okay one
+second here we go okay so same thing now
+we're just in a we don't yeah we don't
+need this uh we're in an actual app I
+think there's something not quite
+working with um things that take a
+little bit longer um the the async I'll
+explain that in a second um so we
+have we have a a button that says roll
+and then uh we have in our console down
+here uh we're printing inside
+function and then I guess we should also
+print what's what's afterwards
+okay so let's try that
+again okay so we're rolling inside
+function says three after the function
+says three as well so this is expected
+so nothing is messing with our with our
+die um so now let's um move the die to a
+place where uh we can affect it with
+another button so let's create another
+button yeah so and here I'm just going
+to call this one mess with die okay
+um so uh here we take the die and we'll
+change it
+to10 uh and then I give myself a little
+bit more time than one second let's do
+two
+seconds okay so I'm going to roll the
+die it was three I'm going to mess with
+the die and uh
+so it is the die that uh the die now
+shows 10 does that make sense so I I'm
+rolling the die if I'm not interfering
+with it it is it is three if I roll the
+die now I mess with a die we have uh -10
+so the function that rolls the die takes
+the die as an
+argument um while this function was
+being called some other thread
+interfered with it so
+um this is
+impossible where we have uh the the
+value types so here we're calling the
+function we're passing the coin by value
+we're passing the coin by value so we
+are giving the information of the coin
+to our the person on the other end of
+the phone uh they get a coin they have
+it oriented the same way now they're
+flipping it it lands whatever Direction
+they want or what whatever Direction it
+falls now they're returning the coin to
+us so they're passing the information of
+the coin by value
+so uh the the flip function returns we
+get the value of of the coin that was
+flipped here so no way to interfere uh
+with the coin flip so this is this is
+what this function call looks like for a
+struct
+um this is what that function call looks
+like
+um uh with a so same so same thing here
+we could assign it as well uh with a
+class so from the outside we can't tell
+the difference but because the die is a
+reference type while we flipping it
+something else could medle with it does
+that make sense so we we created a race
+condition so two things modified the
+same thing this is impossible with with
+value types you had a question so I
+guess yes so um the suggestion that we
+given by the creators of Swift is uh we
+we're always supposed to start whenever
+we're creating a new thing start with a
+struct so if start with a struct start
+with a value type and then if you have
+to have reference type characteristics
+uh with the thing that you're creating
+then be very careful to make that that
+switch so do I really need to be able to
+um affect the insides of this if that
+the answer to that is yes then go ahead
+and make the change but at that point
+it's up to you to manage um our race
+conditions um responsibly we'll um we'll
+cover how to do all of that later um but
+yeah so the thing I wanted to show here
+is value types are thread safe um you
+get what you and that's the the same
+thing that I was trying to show yes last
+week with the house um if even if it's
+very inefficient and so whenever you're
+introducing safety so threat threat
+safety there's some extra overhead it's
+going to be a little bit slower um so um
+passing the thing by value is less
+efficient than passing a pointer and
+having something be meddled and like
+meddling with something there so that uh
+so this all comes at a little bit of a
+cost but the benefit is we don't have to
+one of the most difficult things of
+programming uh which is concurrency we
+don't have to
+so if we if we're using reference types
+we have to is we have to worry about um
+threat safety with value types all of
+that goes away which is very nice um so
+uh same thing so if if other languages
+give you this this choice that you can
+make something immutable it's I would
+advise go that route it it whenever you
+can make things immutable if if it
+doesn't have to be able to be changed
+don't let it to be don't let it get
+changed uh it's a it's a very nice way
+to control for meddling um yeah any any
+questions there does does this make
+sense so uh yeah since we built this uh
+so thank you for that uh question um so
+we built this dice roller die roller um
+because of a great question um I just
+want to make sure that I'm not just
+giving you something that um is not to
+you guys so let's let's go through what
+it
+does so our Ro function um we still uh
+we're still throwing up a coin and that
+that hasn't changed so we we're change I
+guess the die we're rolling the die so
+nothing has changed there um for
+integers we have this nice random
+function where we can pass in a Range
+we'll see ranges later as well so uh so
+the the in random function takes a value
+from one through six in this case and
+it's going to spit one out that is
+within that range which is super
+convenient so then what do this thing do
+um so here we have some exception
+handling that I'm ignoring so I don't
+want to deal with it and then this await
+means uh it's it's a very smart sleep so
+if you have sleep for a processor it
+normally means um uh do nothing but
+nothing else can happen at the same time
+so this await just kind of suspends
+whatever is going on so we we're saying
+we're sleeping right now but like other
+things can happen um so for two for two
+seconds so we're passing in two million
+nanocs here so for two two seconds this
+function is just going to do nothing but
+it's not going to block anything which
+is which is uh important because we're
+going to mess with something at the same
+time uh and then this async means that
+this function has this capability of
+just doing nothing for a while and
+letting other people uh do something um
+probably halfway through the semester
+we'll we'll um talk more about this all
+of this will make sense halfway through
+the semester so we're rolling the die
+and we're kind of awaiting whatever is
+happen happening without blocking
+anything so we're not going to block the
+UI and then if at that same time we
+messing with a buy button we're messing
+with a die so we have this the button
+that just changes the value to negative
+-10 so we have the same button sorry we
+have the same die here
+here and here so um this can happen
+whenever we want to so if this is this
+is still sleeping here we've already
+flipped the die or we've already rolled
+the die we we're just now waiting for
+two seconds um so whenever we're we're
+pressing this mess with die button we're
+going to
+change this die to this value um um so
+this is where another thread so we here
+we're sleeping we we got the die but
+we're waiting for this this thing to
+return another thread can mess with it
+uh and yeah so at the end of class um
+thanks for coming um and I'll see you
+guys next week I'm here for questions if
+you haven't

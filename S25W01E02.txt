@@ -1,0 +1,219 @@
+do what we just did uh just in in Swift
+UI this time so we'll leave this kind of
+in the background so we have that uh to
+go back to uh so let's do new uh project
+uh so there's other things that you can
+do new playgrounds we'll see as well uh
+they're really useful little areas where
+you can just execute some code um and
+you don't have to worry about an entire
+project uh package and workspace we'll
+see later uh but yeah project is the one
+that we want to create right now
+and uh since we can with swift Pi let's
+just pick multiplatform so we'll see the
+other build targets that we we get
+through that and as so we're always
+going to pick just app uh as the uh as
+the template here uh all right so uh
+we'll call this one um Swift UI
+demo and we leave all of this the same
+the as you can uh tell now we don't have
+the option of picking a language because
+we picked um the multiplat form Target
+which only allows us to do Swift UI uh
+we do get other options for storage now
+so we get core data and Swift data uh so
+Swift data was introduced a year or two
+years ago um it is on top of core data
+um and it's designed to work really well
+with swift UI um uh there are still uh
+parody um I think there's some talking
+in the background yeah uh there are it's
+not there's no feature parody yet um so
+core data still has capabilities that
+Swift data does not have um I haven't
+seen a company uh use Swift data yet I
+mean they might be out there but um so
+um industry is still a little bit
+cautious here things might change uh
+with a A lot of these new technologies
+uh there's like flux there it changes
+changes pretty frequently um so uh
+eventually I think Swift data will be
+very nice uh I will not teach Swift data
+since I haven't seen it in the wild um
+if you want to use it you're welcome to
+um we as I said we will teach core data
+and so when we're teaching core data
+you'll see how awkward it is uh to use
+um uh well some of it is is awkward to
+use because it is older uh so it it does
+work nicely with swift but there are
+some some vestages there of of how old
+it is uh so Swift data is trying to get
+rid of all of those old smells um so I'm
+excited for it but um again a little bit
+too new I think to to cover in depth
+here so core data uh you could choose I
+don't actually want to use it right now
+and uh so yeah those are the differences
+um we have a different storage option uh
+let's create this new project uh again
+just on the
+desktop and so let's keep both both of
+these open here and let's just see
+really briefly if I go back to the
+project Navigator here so the projects
+look different so um I don't think
+there's anything that is the same as as
+you can tell here assets uh assets yes
+good point yeah assets is the same um
+and uh so one thing that could be in the
+Swift UI file uh that you find here is
+the info file so info is
+again an XML file so info.
+pist uh so it's an XML file it is pretty
+it's an old uh dictionary format so Json
+would be a little bit more modern uh but
+so yeah the info. pist those are
+settings that your app um uh that the
+buildt settings for your app uh we'll
+see this a little bit later but um by
+default the Swift UI project
+uh still has one but it's implied in the
+project file so we again we'll see this
+later um but yeah very different uh
+structure and uh so yeah the place where
+we wrote code here content
+view uh sorry view controller is not
+even here um it opened up to this place
+where it looks like we have some code uh
+called content View and again let's give
+ourselves a little bit more space here
+um and I'm going to hide all of these
+things for now okay so yeah very
+different um let's let's achieve the
+same thing that we did here we want to
+be able to uh have a button that hides
+uh and shows a label um we'll go over
+what these are um in in a little bit uh
+um or at a later point I just want to be
+able to do the same thing
+here um the content view here uh
+describes our screen for us actually I
+don't want to show that one so the
+content view describes our screen and
+just like in interface Builder we're
+able to show what this screen would look
+like uh but everything is nicer so if
+it's not showing automatically for you
+here so the second from the right button
+um so this kind of like hamburger menu
+has a canvas option so the canvas option
+will build if you have if there's
+previews for your file for your view
+file it will build those previews um and
+um sometimes they oh uh it is breaking
+because I'm building to my Mac um you
+have to you have to have a A Team
+Associated uh or you have to have a team
+selected which I don't think uh there is
+one selected here
+um uh but yeah so let we just not built
+to the to the Mac right now let's pick
+um my the iPhone 15 Pro again and the
+canvas will update again so what what I
+did here is um I I picked from from the
+build targets that I have so we have
+those those simulators again the new
+thing that we have here is my Mac so I
+can build a Mac app this way and uh so
+my iPhone oh my iPad is still there as
+as an unsupported device so yeah once I
+pick so whatever I pick up here will be
+the thing that gets uh selected for the
+for the canvas here and so this is what
+this view uh generates it's this uh this
+screen here and there are two options
+for intera for interacting with the
+screen here so this is the
+play uh action so you could kind of
+navigate and click through things um and
+then there's also this I'm going to call
+it View building option so it's the
+second one from the right and when you
+select this one uh this is the closest
+uh to what we've seen here uh in
+interface Builder so here we can select
+a view component so if I select the the
+image here it actually highlights in my
+code the code that generates this image
+which is pretty neat if I click hello
+world maybe uh imagine before I do it
+what what should highlight so if I if I
+click hello world it uh selects the uh
+the text there and the other nice thing
+is so if I have something selected I can
+bring up the detail Navigator and it
+gives me um options for for styling or
+for for changing uh the the the
+properties on here so um let's go maybe
+to the to the hello world label and we
+could change uh maybe a padding there so
+let's maybe add some padding at the the
+top and um let's maybe change it to
+32 and so now we have a 32 top padding
+there um if we want to and you see how I
+still have the the label selected um it
+now added the
+padding uh code uh to the to the to the
+code file here so whatever I do in the
+in the view uh in this on this canvas if
+I'm adding properties to it it updates
+the code that generates that view which
+is pretty neat um so you don't have to
+deal with XML uh you just have uh the
+whatever you see here gets gets
+generated into code so you can you can
+do either thing so you can write code
+and it'll update the view so maybe I
+want padding uh all the way around uh my
+label um which I get by not providing
+any uh anything for the padding there I
+can also add maybe 32 to have a padding
+of 32 again and my view updates which is
+pretty neat um sometimes um the the
+playback kind of breaks sometimes you
+have a crash and it just doesn't update
+sometimes it just takes too long to to
+recreate what you you did there this is
+getting better every year um so I when
+first when this first came out I wasn't
+really using it because it was just so
+so fickle um this is now usable to me so
+I started using uh previews again and
+they're pretty neat uh if it if it
+breaks sometimes you have to click a
+little little button there uh but yeah
+so it's it's pretty pretty usable now so
+um pretty cool pretty cool thing there
+yeah didn't
+this were you
+looking uh oh um I mean like so you
+would you would write the text and then
+you would build uh oh you would write
+the write the code and you would build
+oh every single time yeah but I mean
+like also like the more you do this you
+just know what what happens so uh uh but
+yeah so you would I mean it goes for
+smaller projects it goes really fast so
+you write something so I hit command R
+right now the first time it takes a
+little bit
+longer um wait oh yeah here you go so so
+yeah let's let's make a change let's
+maybe just come back
+okay that sounds like the light is out
+now okay let me pause the

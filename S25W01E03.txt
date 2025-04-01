@@ -1,0 +1,790 @@
+all right I think we're back um what was
+I saying um oh uh so if I I think I was
+saying if I change something here uh
+this should be quicker to
+build um so that was pretty quick so
+that's what I used to do um and I mean
+yeah so the more you see this like if
+you do this for work and you'll be able
+to just write stuff and not compile it
+for like a couple minutes and then um
+all right so yeah very nice
+so I'm very this is a really neat uh way
+to work with UI in my opinion for a
+native device I mean web is always a
+couple of decades ahead um but for for
+Native uh app writing this is a pretty
+neat uh way to write apps Okay cool so
+we already have hello world uh we don't
+need the image so let's remove that um
+so we could now type the UI component
+component's name and just write it by
+text by by typing it's really good uh
+the code completion is really good so I
+could start typing uh button and it like
+gives me the thing that I want to to do
+but let's maybe pretend we don't even
+know the name of the component we can do
+the same thing that we've done in uh in
+interface Builder where we go to the
+plus button up here and uh we have a
+button so we can now drag the button in
+the code if we want or we can drag it
+believe we can drag it here can we not
+drag it there I'll just drag it here uh
+and we have a button very nice um button
+should update there in a second oh
+preview paused Let's uh unpause that and
+I think we said
+toggle very good okay so
+um what are what are some of the
+differences that we're seeing here so
+here we're dragging things wherever we
+want but as you saw that came with some
+caveats it doesn't build nicely with uh
+other uh devices so we we'll have to do
+some cleanup work here and uh make it
+make the layout nice um here we drag
+things on and then they kind of Clump in
+the center for now um so it is already
+designed in a way uh to work that it uh
+it works with all uh screen sizes um one
+thing if we wanted to mimic what we have
+here as close as possible where it's
+kind of upshifted to the top uh and not
+centered here one thing we can do is we
+have uh so this is called a v stack a
+vertical stack uh so a v stack contains
+other other views so we have a button
+and a text so if we want the vstack to
+show things uh at the top we can just
+say spacer at the bottom here and it'll
+move everything to the top so the spacer
+will take up whatever space it can we
+add a spacer at the at the top it'll
+kind of just mimic what we just did uh
+and if we put another one here it'll
+divide it uh evenly uh between those
+those two components uh so yeah v stack
+a collection of vertically stacked uh
+views there's also an H stack and a z
+stack that we'll see later um but yeah
+very nice uh okay so how do we how do we
+toggle the visibility of the button uh
+sorry of the of the text field so we'll
+talk about all of the peculiar curly
+brackets here much later um right now I
+don't see a way so we don't have uh we
+don't have an outlet to this text field
+uh we don't have really any way to
+interact with this so how do we how do
+we interact with this text field and
+this is the like this is a very simple
+uh illustration of like one of the main
+differences between Swift UI and UI kit
+um and so there's more to it but um this
+is I think a a first way to to show how
+significantly different uh that the two
+are so um UI kit is
+uh imperative
+programming that uses imp imperative
+programming and let
+me bring back my iPad real
+quick uh quick time
+okay and the transport created
+some okay so UI
+kid uh so the the programming Paradigm
+it uses and does everyone know what a
+paradigm is what's the
+Paradigm it's like a
+model world world view yes I think
+that's a that's a good analogy yeah so
+the way that you approach everything so
+worldview is great uh so Swift UI UI kit
+uses um uh
+imperative programming
+uh who has heard this before this
+term okay very good uh not expected uh
+that you would have heard this um what
+is imperative programming imperative
+programming is uh you dis you describe
+all of the actions that should happen so
+if I'm clicking this button I am I'm
+accessing this label I'm telling it hey
+uh you have this you have this this
+hidden uh thing I'm telling you uh so
+set this to the opposite of what it was
+and then I mean the the label now knows
+what to do but maybe in in another UI
+framework maybe you would say uh label.
+update so I'm telling the label what to
+do um so the button is pressed there's
+an action there and now step by step I
+am I'm describing the actions that that
+should be happening uh Swift UI uses
+something
+called declarative Pro
+programming uh and we we'll talk about
+why uh this would be happening a little
+bit later uh but uh so declarative
+programming you declare what should be
+the truth you just State this should
+this is what what should be the the
+state of this thing so if I say um uh if
+and maybe the best way to demonstrate
+this is uh to to uh just implement this
+here real quick so if I have a variable
+that says uh label is
+hidden and maybe we would start off with
+uh
+so uh if
+I uh so I'm I'm just taking this as the
+truth I'm saying the label is hidden now
+the The View should render as if this
+was the truth so um let's add some logic
+here uh to to the text field so if label
+is hidden oh so I guess if if label is
+not
+hidden I guess maybe I could have picked
+label is showing maybe a little bit simp
+simpler uh so if the label is not hidden
+yeah let's just do that uh is
+showing label just to keep things a
+little bit simpler here so is so if show
+if is showing
+label then our text field uh should
+should be showing
+so uh this is the code that generates
+our
+view if the label is uh if this variable
+is set to true we're showing this text
+um so I'm not saying hey label
+um I'm setting this property on you uh
+and then oh label update so that uh that
+you can hide
+yourself uh I'm declaring this is what
+the view should
+be and this is what the view will be uh
+so let's let's I guess we're seeing what
+what's going on here
+uh I guess this should be true for now
+okay so
+if the label should be showing we're
+showing the label um and now so if
+you're saying this is and uh the canvas
+updated here if we set this to
+false the label Heights so we're
+declaring what should happen and it just
+happens we're not describing how it
+should H how how this Behavior should be
+be happening we're not saying hey label
+um you have this property set yourself
+to Hidden hey label update yourself
+we're not we're not telling theb what to
+do we're just describing the overall
+outcome that we want does that make
+sense uh so um this to you so if you if
+you're 100 uh so who has any questions
+here so
+far yeah
+yes good so this should be this should
+sound really weird uh you you should so
+if you're if you're actually
+understanding what I'm saying and you
+have not seen this before you should
+scream at me and throw something at me
+like it it makes no sense uh so how how
+is this supposed to happen uh so that
+that should be that's an appropriate
+question so I uh if you don't have this
+question I'm I'm uh yeah so maybe maybe
+you're not quite understanding the
+implication of of what we're what we're
+saying here uh
+so uh I'm assuming most of your
+schooling so far has used uh imperative
+programming so you're describing the
+things that should be happening
+happening uh it is the rage right now uh
+especially in in UI uh Frameworks to use
+declarative programming and that is you
+just State the truth and uh it shall be
+it it happens um we will unpack all of
+this as you might feel really
+uncomfortable right now we will unpack
+it all and I would I would say uh so if
+you're really used to imperative
+programming you've done this for years
+uh this will take a couple of weeks to
+really feel comfortable you're you're
+always going to be uh wanting to set a
+property on this on this uh view
+component um and that's normal uh I went
+through that uh it was horrible um once
+you once you're accepting that this is
+how it works it's very nice um there's
+we'll talk about the benefits of this uh
+probably next week but uh yeah so there
+are some really nice benefits with it
+there's some drawbacks but there's
+there's some really nice benefits with
+it all right so given this as so we we
+kind of cheated it here so we set this
+to true and false in code um we
+obviously want to toggle this with a
+button uh let's see what happens if we
+try to do this uh so where would we put
+this code if if we if we updating this
+this variable here so where would be a
+good place to put
+this h no I mean like where would we put
+uh sorry if we're trying to update this
+this variable here so who has has a yeah
+inside the button here yeah so this
+seems like a thing that could execute we
+have some curly brackets uh so let's
+write some code here and hope that uh
+the button will update our uh our our
+variable um spoiler it will not but uh
+we on our way yes didn't you say that
+before we do make changes like this we
+should be committing not for Swift UI so
+Swift UI will not break on you in weird
+ways uh so this is for story this is
+story boards yeah yeah uh so yeah but
+yes good point so let's let's try uh we
+we're on the right track so this is the
+right place to put it but we still need
+to do another thing so is showing label
+let's update that to
+not uh is showing label so we're just
+negating the thing and assigning it to
+this variable and uh we xcode is yelling
+at us uh so there's some red uh this red
+is different from the red that we've
+seen uh in
+storyboards how is this red different um
+so so when we when we did something here
+we broke something I was able to build
+the app and then when I press the button
+the app crashed how is this
+different it won't let me build it yes
+so if I hit if I hit run here um it it
+it will not let me so build failed um so
+this is a compile time error what we had
+in uiit was a runtime error so runtime
+errors are word for that is Crash so
+everyone has heard the word crash before
+who's heard the the word compile time
+error before yeah great so uh if you
+were to write an app what would you
+prefer compile time errors or runtime
+errors if your goal is to ship um
+functioning apps that are not annoying
+users
+what what do you as a programmer what
+are you likely to prefer runtime errors
+or compile time errors compile time
+errors
+why yes problem very good so I can't
+ship this I can't build this I can't
+even send this to a user uh because the
+compiler is telling me hey you're doing
+something wrong so compile time errors
+are our friend um whenever we can have
+the compiler help us uh find bugs that's
+perfect so we we did something wrong uh
+we're on the right track how do we fix
+this uh I'm going to just fix it for now
+uh we'll talk what uh about what this
+what what this means uh in a second here
+uh so this um this error message cannot
+assign to property self uh cannot assign
+to property self is immutable is not
+helpful to us we have no way to approach
+this error message at the moment uh Yeah
+question I was we have to set it
+to we can try so let let's try that
+let's try to build it uh so the compile
+time error uh message changed so it's
+telling us now that let so it's a
+constant we're trying to update a
+constant very good so constants um we
+can create with let uh we should be
+creating constants whenever we can um so
+but here we need a variable so we want
+to be able to update this but we're not
+allowed to and we'll talk about uh why
+not um uh later so let's just fix this
+I'm going to add an annotation here I'm
+going to say
+State and uh I just added it above it
+you you might sometimes see it uh in
+front of it it's the
+same uh I mean uh kind of so they're
+different they're doing very different
+things but um so I prefer um these
+things to be above uh the the variable
+is I find just a little bit uh more
+legible so uh the compile time error
+went away we'll talk about what this
+means uh in a second here and uh so
+let's see if we can build
+it okay so hello world is
+showing uh when I press the button to
+toggle I'm stating a new truth so the
+truth before this was the label is
+showing when I'm pressing the button the
+truth or the the state of this view will
+change it'll be it'll now State uh that
+the label is not showing uh and again I
+think you're you're you're understanding
+like there there's some magic here uh
+I'm not saying label please hide
+yourself I'm just saying hey this
+variable is this is now the the new
+truth here so uh let's see what happens
+let's hit toggle and the label
+disappears and um yeah so the again this
+should look like magic to you right now
+so we'll go over um why this is
+happening
+um we we'll unpack a little bit more
+uh um yeah so I guess we we'll unpack
+we'll unpack some more things today we
+won't unpack all of it today but yeah
+any any questions before we keep going
+here so very different
+approaches uh imperative programming for
+Swift UI we describe how something
+should have sorry you like it we we
+describe how something should happen
+Swift UI uh declarative programming we
+describe the end result that we want and
+then uh it'll just update magically to
+the thing that we describe even if we
+make make updates so those are pretty
+fundamental differences in approaching
+the problem of of creating the
+UI um so so yeah any any questions here
+so far okay so then let's we'll talk
+about what what the state thing means uh
+all of that next week let's unpack the
+error that we got here uh and I think
+that's the only thing that we have time
+for today um so cannot assign to
+property uh cannot assign to property
+self is immutable so let's make sense of
+this error what does this mean uh so
+self beinging
+immutable uh what we're really doing
+here so there's some there's some syntax
+that was left that we're able to leave
+out that uh uh that we can add now so
+self dot is uh is showing label is what
+um what we're really doing here and the
+other thing that we're doing here is
+self dot is showing label so we we're
+reading from self. is showing label and
+we're assigning to self do is showing
+label so we have already figured out
+that uh so our is showing label property
+is we can't change it it is uh so the
+opposite of immutable is mutable so uh
+is showing label is a variable so it
+should be mutable it should we should be
+able to change it the thing that is not
+changeable is the self so self is
+immutable so we can't change self so
+what is self it is our content view so
+our content view one thing
+different about it if we go back to uiit
+uiit the view controller here was a
+class content view the The View here is
+a struct so structs in Swift and I'll go
+back to the quick time player
+here
+so
+structs and Swift are value types
+classes are reference
+types and we'll unpack what this means
+um so a value type is a thing that if
+you have if you can recreate the exact
+same thing all of those are to be
+treated the same um who can think of
+something else that behaves like that uh
+so even if you haven't heard the word
+value type um who can think of so if we
+have two of the same objects they are
+they're the same like who who can who
+can think of something that we use all
+the time when we're using when we're
+programming so we wouldn't think of that
+we're like changing the object we're
+just treating all of the objects like it
+the
+same any any any ideas it's also totally
+fine if not
+so how how about integers so if we have
+an integer
+seven um so any seven they're
+indistinguishable to us right um and I'm
+not expecting that if I'm passing seven
+into a function uh and I'm I I I
+wouldn't expect that I can change
+something about seven that now seven
+becomes eight so if I'm if I want a
+variable to be eight I assign a new
+value type to it I assign a new a new
+integer to it so um integers are value
+types doubles um floats are value types
+booleans are value types so um they
+are um uh so kind of kind of like a
+dollar so if I give you a dollar um it
+doesn't matter if if which dollar I give
+you it's it's a dollar um and I wouldn't
+expect so you would I wouldn't expect
+that if I give you a dollar that you
+could change something about it and now
+it turns into $100 so I can't change
+something about the the the thing that I
+gave you that will
+change what it is so dollars are dollars
+it doesn't matter which dollar I give
+you it'll always be the same thing and
+we're treating them equally we're
+treating them as as if they're the same
+um so this is a little bit different if
+I give you my
+car and um your dog has an accident in
+this car um um that doesn't mean that uh
+so so first of all um so now my U yeah
+so first of all um there's now a
+specific car that has uh that has a dog
+accident in it and um if you gave me
+another car for this car even if it uh
+even uh even if it's the same same car
+um it might have a different VIN number
+I might have some trouble with with this
+trade that you made um
+and also so if I give you my car your
+dog has an accident in it
+and uh you then give me back that car um
+so I gave you the the car and it came
+back changed so does that make sense so
+dollars kind of the same you can we can
+treat them all the same cars um whatever
+you do in them matters to me later so
+uh same thing with uh structs and
+classes so view controller this is a
+reference type so if I'm giving you a
+reference to my view
+controller I have some opinions uh about
+what you do to my view controller uh in
+a programming sense um the main thing I
+will be having an opinion about is uh if
+so if this is on a different thread uh
+we might have a race condition uh so all
+of those things don't matter when we're
+dealing with uh with value type so value
+types um they're all they're different
+things sorry so each thing is treated
+the same but I'm not expecting to to
+that you can you can manipulate the
+thing that I give you does that make
+sense kind of yeah okay good so the
+error that we have here is content view
+is uh value type so but and so maybe for
+the for this exercise think of whenever
+I'm saying struct or value type think
+something that's you easily think of as
+a value type so an integer so let's say
+uh we had the integer uh
+seven um if if there was some
+functionality on the integer
+seven I wouldn't expect you to be able
+to do something with my seven integer so
+that seven turns into anything other
+than seven so that that is the kind of
+fundamental um thing about this the the
+value type here so I shouldn't be able
+to change something about the the value
+type inside the value type uh so that
+that's meant here with uh self is
+immutable so we have a struct and we
+have to kind of live with what we have
+so we can't change it so it's it's
+immutable um so uh any any questions
+here yes
+is that is that what state it and
+also so very good question uh I I like
+what you're going there uh where you're
+going there so seven still doesn't
+become uh mutable so we carving out a
+little spot inside seven
+that becomes mutable so so maybe another
+analogy we can use here is so if I have
+a box like a I have an intricately
+carved box um so I I can give you this
+box and um hopefully your dog doesn't do
+anything to it uh and then you can give
+give it back to me um so you you won't
+any you won't be able to change anything
+about the physical nature of this box
+but the box has this spot inside
+um that you can put something in um so
+uh this is kind of what's Happening Here
+where we have um so you can mutate the
+inside of the box but you can't easily
+mutate the Box itself so changing the
+color of the Box you won't be able to
+easily do uh but you can easily change
+the inside uh what you put in in the
+inside of the box so in this box analogy
+the inside of the box so the the the
+contents of the box would be a reference
+type uh so we have a reference type
+where we can um who who remembers what a
+reference type is so a reference type
+we're dealing with memory location we
+we'll go over all over all of this um uh
+later um so yeah we have a reference
+type inside a value type and that's how
+we can uh mutate State there we'll go
+over this again um I'm just mostly
+showing um I'm trying to showcase the
+differences here uh and uh yeah we we
+will go over it again so the state
+annotation we're carving out a little
+space inside here um to uh uh to be able
+to put something in there that we can we
+can change um but yeah so so if you're
+thinking about it so we're trying to
+change a property on our view here and
+it's telling us that the view is
+immutable uh again this should raise
+some alarm Bells um if I have a view I
+want to be able to change thinks about
+it so it seems like a really strange
+concept that uh
+views are immutable uh and so for the
+rest of the lecture we'll kind of unpack
+uh one benefit of this and we'll we'll
+go over we'll go more into into depth
+next next Le lecture as well I want to
+so we only have 10 minutes I want to do
+like a little visual so like a little
+visceral um demonstration of the
+benefits of uh having immutable views so
+views that do not change and the strange
+thing that we'll do to uh to allow our
+views to update even though our views
+are immutable uh so we only have 10
+minutes so um let's say we're going to
+we're going to build a house and our
+house uh we're going to have three three
+properties on a house so roof
+type and so maybe there a gabled roof
+there's a flat roof and then I think
+these are called shed shed roofs so flat
+roof that is at an angle um and then so
+we have maybe uh since we don't have a
+lot of time we just do two uh window
+window
+count window count and it'll just be a
+number so we're building a roof uh oh
+sorry we're building a house uh these
+are the attributes of the house that we
+have and um uh and as we're building the
+roof uh maybe things change maybe uh so
+maybe I'm the contractor and uh so I
+already built the foundation uh I
+started building maybe yeah I have the
+foundation um so the person so the
+person who's uh paying me to build this
+house so maybe the the the owner could
+could come at this point and say I know
+youve started already uh but so maybe we
+started with four windows and a GED roof
+um so I've already started and so the
+person could the owner could come and
+say hey actually scratch this let's do
+five Windows fine I can do that um and
+uh so yeah that's kind of how we are
+thinking about building a house should
+work right so um nothing is really set
+in stone until it's set in stone until
+it is built so if I'm already building
+the roof maybe this would be a little
+bit more work maybe I'd have to like
+demolish a wall uh to add another window
+um but that's kind of how the word the
+real world world works so we we have a
+thing we are kind of incrementally
+building it and we have some properties
+on it that we want to
+reflect we want to be reflected um so
+let's do a little demonstration um so
+there's another uh board there uh who
+wants to uh be my uh helper here so it
+it won't be a lot of work any any
+volunteer real quick I need a helper
+really
+short perfect yeah so if you could uh uh
+so so yeah if you pick a color there and
+uh so you're GNA uh yeah so if you go to
+that board there um we as a as a group
+now we're going to decide what our house
+should look like uh so how what kind of
+roof do you guys like
+flat okay so can you just draw like a
+straight line for oh yeah oh perfect GBL
+roof yeah uh we all decided on a g roof
+uh perfect it's fine it's fine okay how
+many windows should we
+built seven seven all right seven seven
+windows can you yeah can you write seven
+all right so um I am now so I'm going to
+be pretending to be so so what we did
+just now is more real world how we
+interact with things now we're going to
+build a house like a computer builds it
+so or like an iPhone app uh works so to
+set it up uh we are in a multi
+multi-threaded environment so we have a
+UI thread that does all the UI stuff and
+uh so you can uh I'm not going to ask
+you for a while to do anything so uh so
+yeah we have a UI thread and then we
+have some background threads threads
+maybe so maybe we're fetching something
+from the internet maybe we're doing
+something really expensive um
+computational wise so we have multiple
+threads multiple things that can happen
+at the same time so that's the that's
+the stage that we that we're in um so uh
+we're now trying to build this app we're
+trying to build this house so um the
+user selected this uh house to be built
+okay so I'm looking at that as I'm uh
+drawing this house now I want you guys
+to just change that so you can just
+change it to something else so so I'm
+going to look at this so I'm see gab
+roof seven so now I'm going to draw a
+house um and
+windows okay so I'm gonna I'm GNA draw
+seven
+windows yeah
+I all right okay so this doesn't match
+anymore so I I had gotten instructions I
+started doing my thing and in the
+meantime something happened something
+updated so that's the bane of multi uh
+multi threaded uh programming so you
+have things that you read something you
+do the thing and something else updates
+it so that's that's how house building
+Works uh on an on a computer so um we
+we're not necessarily agreeing with the
+things that uh that we agreed on and
+that we built because something might
+have updated so uh this is what uiid
+does so uiid uh we could run into this
+situation there's Tools around this but
+they're fairly complicated uh we we read
+a property we do the thing we read a
+property we do the thing so now let's do
+it in the um declarative way uh
+so uh can you reduce the number of
+windows
+again okay so now what I want you to do
+is uh so so I'm looking at this you're
+going to change something but then
+someone in the room is going to say hey
+stop uh and then we're going to we're
+going to update what we're doing here so
+I'm G it roof two windows so I'm going
+to start
+drawing and then so someone someone yell
+stop while I'm not
+finished okay good has it updated just
+update it real
+quick four Windows four Windows yeah
+there you go so I I someone yell stop
+perfect okay so someone yell stop I'm
+not finished yet I'm pretty much almost
+done oh count of Windows has changed so
+this is what Swift UI
+does we tear down the house and we start
+from scratch so Gable and four
+Windows okay so I'll just do it this way
+okay so um the nice thing about
+immutable views is and we have three
+minutes good uh the like State thing
+that we have here is the thing that
+yelled stop something updated so there's
+some magic there that we unpack um
+so if a property updates in an in an up
+in an immutable view here um we tear
+everything down and we create the thing
+that we stated that we wanted to build
+so uh very inefficient in the real world
+uh so and you can sit down sorry thank
+you so much so yeah very inefficient in
+in the real world we don't want to be
+tearing down our house when a little
+property updates but as you can tell the
+the problem that we had run into that we
+didn't agree on the thing that we wanted
+to build and the the outcome that we had
+that went away so there's a cost here
+we're starting from scratch if something
+updates but the outcome is we actually
+have the thing that we want and uh since
+computers are so fast now uh our phone
+is so fast the like additional penalty
+of having to start from scratch is uh
+negligible the benefit of not having
+this problem is huge so this is the nice
+thing about uh the declarative uh
+programming style um where we're just
+describing the thing that we want and we
+never end up in a weird state where uh
+where as we're starting to draw
+something uh something updates um yeah
+what if you that's like real time saybe
+IA
+going
+always yeah so I mean like this works
+really well with UI stuff um I I'm not
+sure so so yeah what would that be um
+yeah I'm not sure not sure how to answer
+it all right um I'll think about it yeah
+so we have we have one minute I'll think
+about that for a second in a second any
+other questions Okay cool so um uh so
+yeah uh maybe just to wrap up uh or like
+to re reate a couple of things so uh
+declarative programming is weird
+uh there's some like really weird things
+that are not
+intuitive um or like seem really
+wasteful um the out the the benefit of
+it is threat safety so we we live in a
+multi-threaded uh environment here uh
+this solves it so like there's no way
+that we can end up in weird States so
+that's that's really nice about this um
+and then yeah so there's lots of things
+that appear magic now right now still so
+the how does it do this um maybe there's
+still some reluctance in accepting that
+um I want My Views to be able to have
+properties that can change that are not
+like magical like this so we we'll
+unwrap all of that um but yeah anyway
+yeah officially lecture is over I'll see
+you guys next week and uh so okay camera
+feed so

@@ -1,0 +1,1309 @@
+all right So I think we'll just get
+started So yeah Um apologies for the
+weird format Um uh so as I mentioned in
+the email um we now have child number
+two I was born last week And then I also
+underestimated um how much time I would
+have last week to to post something
+There will be a lecture posted
+um to make up uh for last week um it'll
+just be it'll be something that is
+optional in the sense that it it'll be
+interesting but I won't ask um anything
+in it from it in the uh uh in the
+midterm or in the final just uh so that
+you guys don't have to watch um or do
+two lectures um in one week Um uh but
+yeah so um next week should just go uh
+should be back to normal uh we'll have
+an in-class session um and then um uh we
+we'll go from there No and finish the
+semester as as as usual Uh so yeah let's
+uh and yeah so I don't know exact So um
+yeah so I'm having some flashbacks to
+the co times with uh with Zoom Um I'm
+assuming uh everyone here probably does
+too So apologies for that uh little
+throwback Um I'm sure there's some some
+trauma associated with that or happy
+times I don't know For me mostly just
+sad sitting in my um in my office and
+talking to a screen So anyways um so
+yeah what what are we going to do today
+let me just move this out of the way Um
+we are um uh so I I had alluded um I had
+mentioned enums now a couple of times
+and we never had quite enough time uh to
+cover them So we we are going to start
+with that today Um and they're they're
+really cool and uh swift So uh we'll
+we'll cover I'd say like 60% of them
+today and then we'll see more and more
+as we they're everywhere pretty much
+probably a little bit more maybe like 80
+80% today Um so yeah enums
+uh we are going to uh look at functions
+as arguments to other functions Um you
+might have heard these as callbacks Um
+this yeah that's another name for it or
+closures Um so um I I'll uh maybe just
+write it down here as
+functions as
+arguments We have already seen them Uh
+they were just hidden Um they're
+everywhere in Swift UI Um and uh so they
+are they are one way of doing
+asynchronous work Uh so uh we're do
+we're doing something from on one in one
+place something else should finish while
+we're doing this and then we can come
+back uh when we're done Um so this is
+one of the tools for asynchronous work
+Um we will do a good amount with this So
+we we'll do UI work with this We'll
+we'll fetch something from the internet
+with this Um and we'll learn uh lots of
+other
+fun uh no uh we we learn lots of other
+other fun asynchronous uh tools here Um
+so
+um maybe a couple to mention here So
+we'll swift recently a couple of years
+ago now uh gained uh a new paradigm for
+for doing asynchronous work async await
+we'll cover that Um and uh there are
+some functional reactive uh ways to do
+async away uh to asynchronous work If
+that doesn't ring any bells right now
+what that means don't worry about it Uh
+we'll cover it But as we in those we are
+listening to to streams we're
+subscribing to streams Um and it's
+that's it's a cool way to to do it Um so
+we we'll cover lots uh of different
+techniques Um but yeah so functions as
+arguments uh we'll we'll uh we'll start
+with that today Um and uh then we're
+going to um as so last week or uh the
+week that we had last last lecture uh we
+started kind of cementing uh what it
+means uh to to be a delegate or to
+delegate work Um so we'll uh we'll use a
+concrete example in UI kit uh to use uh
+delegation So we we alluded that briefly
+We we alluded at that briefly that the
+UI table view uh uses the delegation
+pattern So we're going to build a little
+um a a little to-do
+app and then we'll come back to this
+to-do app in a couple of weeks uh when
+we cover database access So we'll this
+one will just save things in memory and
+then much later uh we're going to come
+back and um uh we'll uh
+we'll hook this up uh to to a database
+Um so yeah um and then so I guess todo
+app um UI table view in particular we're
+focusing
+on and um so this one the reason why
+we're focusing on that that is we're
+using
+delegation Um all right so that is
+today's uh agenda and so we'll just
+start with um UI so we'll start with the
+enams I'm realizing so I'm I'm
+forgetting all the things that one does
+uh in zoom I don't have the I don't have
+the chat open so let me open that right
+quick and let me move that
+here uh there we go so
+Um so there's a question there have not
+been any video lectures for week six Yes
+I mentioned that at the beginning I um
+underestimated I overestimated how much
+time I would have in this first week Um
+there will be a lecture uploaded Um
+it'll just be optional to watch It'll be
+interesting but it won't hopefully but
+it won't be uh material covered on uh
+any of the exams Um it might help you
+with your with your app Um okay Uh great
+So yeah feel free to use uh chat as um
+as a way to uh let me know that um yeah
+for for questions or anything else feel
+free to unmute yourself and ask a
+question directly Um but yeah All right
+So let's uh let's start with enums Um
+and let's our Xcode went over
+here Let me just close that Um let's see
+if I can open it down here Uh hot
+corners Close Xcode Bring it up
+Here please
+open Did it open in a funny place let's
+see There we go Okay So uh let's start
+with uh just um I think one of the
+reasons uh things are slow right now is
+because of quick time uh taking up
+resources for screen sharing So I just
+turn that off for now Um and we'll bring
+it back as as needed Uh so let's start
+with a playground Um I think so a lot of
+the enum work we can do
+uh with
+playgrounds and uh so yeah let's start
+We'll name this
+Um here we go Uh
+emails All right Um and I have too many
+things open
+Okay Uh all right So what might you know
+from enums uh in uh in other languages
+so um in in a lot of other languages um
+they are a convenient way to restrict
+the integers So for example if you if
+you have
+um uh yeah if if you were to use all of
+the integers for certain applications um
+there might be some error errors that
+get introduced So for example let's
+let's pick uh days of
+week So days of week um can be easily
+represented with uh with integers Um
+maybe we start with zero and go to six
+So Monday through Sunday or if you'd
+like to start your weeks uh with Sundays
+then we go from Sunday uh uh through
+Saturday 0 through six Um but yeah what
+does it mean uh if if it's out outside
+of this so I guess we could go negative
+So negative one One way to avoid that is
+we can maybe use unsigned uh integers So
+that's that's already an improvement We
+we cut down uh the potential um uh input
+in half We got rid of all of the the
+negatives uh negative numbers But um but
+yeah so there's still what does it mean
+if I if I u use the the number nine um
+what what day of week is that so it
+doesn't doesn't make a lot of sense Um
+uh so how do we how do we make it that
+you can only use the numbers zero
+through six Um so enums and other
+languages restrict uh well take one
+larger set the the large set of integers
+and you can kind of define your own type
+You can say okay I only want Monday
+through uh Monday through Sunday So we
+can do that in Swift 2 and maybe we'll
+start with that um just I'm I'm assuming
+most of you have seen enums in that way
+or enumerations Uh so so let's do that
+Let's uh see what the syntax is like and
+then um and then we can go from there So
+we start with the keyword enum and then
+we'll do day of week Okay So day of week
+uh we have
+um so in Swift there are cases for each
+of these So maybe we have Monday Um if
+you look at really old Swift code uh
+there the cases start with an uppercase
+Um you won't see that in in new uh
+anything uh more modern Uh and we we'll
+see in a second that it kind of looks
+weird uh if the cases start uppercased
+So but by conventions um they they are
+all lowercased And let's maybe get a lot
+of the other syntax out of the way So we
+we theoretically we're creating a case
+for each of these Um so Monday is a case
+Tuesday is a case Um we could list them
+like this
+uh comma
+separated or we could do
+um new line for each of these And we'll
+we'll choose this one for now Um because
+there's some some extra things that we
+can do with enums that uh is a little
+bit easier to to understand if we're if
+we're creating a case for each of them
+Um do Thursday
+uh
+and Sunday Okay So we have now uh our
+type day of week and there's only
+there's only seven of these So there's
+seven things that we can create Um so if
+we we used integers we could create up
+to max int um and min int Um so so lots
+of individual versions of this here we
+can only create uh seven Um how would it
+look if we uh so that maybe we have a
+I'm just going to abbreviate uh this one
+day of week That's my variable name here
+I'm going to create a day of week and
+I'm going to say I want Monday Okay so
+that's how I I would instantiate a
+Monday
+Um a nice thing about enums uh if you if
+you know the type uh for a variable or
+in this case a constant we don't have to
+write uh the the full name of the enum
+Uh we can just do period and then Monday
+So this it's it's short for day of week
+Monday But even um the the
+the autocomplete will know what you're
+trying to do here So if I just do period
+it knows the cases that I want want to
+do here And you have seen this in lots
+of places Um we've already seen enums um
+where maybe you were confused why oh why
+is there a period in front of this thing
+um so we're dealing with an enum and uh
+so yeah um here there's not much uh it's
+not much simpler because here we have
+the uh the type right here But let's say
+we have a function that uh maybe prints
+the day of week So
+print day of week and then maybe here we
+have our day of week uh day of
+week Uh so if you were to call this
+function we can now just do Monday like
+this because the the parameter that we
+have here uh is known as day of weekend
+So oh there's a there are questions I
+didn't see it so far Sorry Um
+um uh okay so there's something about
+the final project I I'll get to that a
+little bit later Um midterms We'll get
+to that as well Apologies And then okay
+more midterm question So I'll get to
+that um um maybe right right before the
+break I'll cover that Uh but yeah so um
+this I find pretty nice to read Um
+there's less clutter uh than than here
+It's it's simpler to pass Uh so I I find
+this very very nice
+Um and uh yeah so here it used to be
+that uh you would then have um an
+uppercase um here but kind of in all of
+Swift uppercase means um you're defining
+uppercase at the beginning uh you're
+defining a type and this is not this is
+not a type this is something on the type
+or like a something about the type So
+here we have the Monday version of that
+type Um so I think I think that's just a
+good good change but yeah so you might
+still see an an uppercase there Um all
+right Um so yeah
+Um so far hope I I'm assuming we've only
+mostly covered syntax that might be new
+Um and uh so yeah it goes it goes a
+little bit more there's there's so much
+more here than um than what other
+languages uh can do
+So uh we are not quite on we don't quite
+have par with something uh that is an
+enum in in another language where we
+we're restricting the integers uh to uh
+with an enum So in this case we have an
+enum that doesn't have an underlying
+type That's how we've defined it So this
+one is actually not an integer based
+enum We can do that though So if we say
+um this enum should be integer based we
+now pretty much have parody with with uh
+other languages that uh use um use the
+integers for enums Um and yeah so where
+where does that where does this matter
+so what what I can do now is here let's
+turn this day of week into a variable
+Uh what we can now do
+is we can say uh I want to create a day
+of week and we now have this um we have
+this new constructor uh that we were
+given just because we're saying um we're
+integer based and uh here we can type in
+a raw
+value which is an integer So we're
+integer based Um so let's say we want to
+create a day of week um from from the
+integer
+zero and so alarm bells should go off We
+we're going from the integers which is a
+really large set down to a set of just
+seven uh values here So uh the inte the
+integer initializer that we get for day
+for um the integer based uh enums if we
+commandclick oh I guess um I think we
+won't do we get it here
+um we don't get it here Yeah So um it is
+a failable initializer So this just like
+the double where we can uh we can create
+a a double from a string an integer from
+a string We're going from a much larger
+set to a much smaller set So this can
+fail Couple of things we can do here Um
+so we could make a day of week optional
+which is um in this case um not what I
+want necessarily here Um I want to be a
+able to have um I don't want to have to
+check for optionality each time Um so
+one thing we can do and I think we
+haven't covered this yet is um I'm going
+to cover the nil coalesing operator here
+So let's say um if this fails I want to
+have a default value that gets assigned
+The nil colescent coallesing operator is
+two question marks and then I can give
+um a default value So if this fails
+uh we then provide this one This is not
+something that is uh specific to enums I
+just wanted to give you guys that uh
+that um operator here It's useful in a
+lot of places where you can give a a
+sensible default If you can't give a
+sensible default we would want to be
+working with a with um with an optional
+All right So we've
+created a day of week from an integer Um
+I guess right now Monday and zero would
+be the same one Let's just go with with
+five here So just uh so that we get
+something else and uh let's print our
+day of week Uh so let's let's see what
+we get here So let's print it Get let's
+get it to the console and let's see what
+we get there So ah didn't change it to
+um that might it might still make sense
+to change it to Mac OS just to save some
+time because the um compiler doesn't the
+um emulator doesn't have to start uh up
+So let's see I think this is still
+faster Um okay let's see what we get
+here
+Uh so we're printing there week So in
+your head what should five correspond to
+um
+uh it should correspond to Saturday Why
+are we printing Monday that's a good
+question here Let me see what I'm doing
+wrong So we have we have Monday here
+Um what is going wrong here we're
+printing Monday Why are we printing
+Monday um oh because we're printing
+Monday Uh we want to print day of week
+There we go Uh so but yeah in the gutter
+here we already saw uh we're printing
+Saturday So let's see how this
+corresponds to what we're understanding
+about enums so far So if it's zero
+indexed so let's start with zero 1 2 3 4
+5 Okay So the enums that are integer
+based in swift seem to be zero indexed
+Um what if I don't want that uh what if
+I want to have Monday start with 1 and
+Sunday go to 7 maybe that's a little bit
+easier for me to think about Um very
+simple to do in Swift I I think here
+we're already at a point where other
+languages um it's a little bit harder um
+or maybe impossible I can just say
+Monday should be one And now if I print
+if I call our print day of week function
+uh we get for five what do we get so 1 2
+3 4 5 we get uh Friday instead So that's
+nice Um and maybe um maybe I like
+starting my um my weeks with Monday I've
+never quite understood why people like
+starting them with Sunday but maybe
+that's what you like Um uh so we could
+we could do that without rewriting
+anything here So let's start our um enam
+with uh Sunday Let's say this one should
+be zero Uh this one should be one And um
+uh we could we can still we can still do
+that So we don't wherever we want a
+special value we can assign it Uh let's
+see let's maybe let's do zero
+Uh so we should get Sunday for that
+one There we go We get Sunday So you can
+you can just assign all of them if you
+want You can uh you if you assign one
+the ones that are following will just
+increment by one And you can create gaps
+Uh so maybe you want them all you want
+them to be the odd numbers maybe for
+some reason I don't know why why you
+would want this but
+um you could And maybe we'll keep Sunday
+Uh so now let's do uh seven What is
+seven
+um seven will be Thursday hopefully
+There we go So yeah we can kind of do
+whatever we want You might wonder uh why
+would I do that that seems silly Um so
+yeah for for days of week this is silly
+And I'm going to undo this here real
+quick Um but for example uh so one one
+place where we're using um uh where
+we're using enums is uh with errors So
+maybe you want to have a specific uh
+error code associated with a specific
+enum Um so there it makes sense to um be
+very specific with with which one is
+which Um and then yeah you might not
+cover you might not have all of your all
+of the integers represented Maybe you
+want to jump to maybe match um server
+errors or something like that So So that
+makes sense to uh
+to have some gaps or um uh have have
+them as assigned uh each each
+individually Um okay So so yeah um enams
+in Swift uh can be pretty much what
+you're used to in
+um in other languages It can cover the
+the integers Uh I guess one thing we
+haven't covered is how do I how do I get
+back to the how do I get back to the in
+integer value So uh so here we have um
+let's maybe create another function Uh
+so print day of week um I guess raw
+value
+Um I that's kind of silly We don't need
+an extra function So let's just print
+straight here our day of week So if we
+if we print the day of week So we saw
+that we get uh the name of of the case
+that we have up here Um if we want to go
+back to the um the inte integer
+representation since we're integer based
+uh we kind of do the reverse of the
+creation of the integer based enum we
+are trying to access the raw value So
+day of week raw value will give us back
+the in integer representation and no
+need to have an optional here since
+we're going from a smaller set to a much
+larger one Um so we so we get that one
+back Um okay so um yeah I think by now
+we have mostly covered everything that
+you would see uh in another language uh
+with with enums Um uh maybe so yeah one
+one really nice thing of of restricting
+uh the the set of um days of week Uh so
+one we can we can only create these that
+are here Uh so that's very nice We can
+iterate over all of them Uh so maybe I
+want to let's print uh all of the uh the
+days of week uh here So how how do we do
+that so we have to conform to a specific
+uh protocol uh that allows us to iterate
+over them to to go from one to the next
+to the next to the next Um so uh the
+protocol that we have to conform to is
+called case
+iterable Case
+it case iterable There we go Um so we
+don't have to do anything uh for this
+It's it's it just does its magic behind
+the the behind the um behind the scenes
+And now what we can do is for uh day of
+week we're going to loop over all of
+them Uh so we're going to take all of
+the days of week and there's an all
+cases
+um property on there Uh so what does
+that look like this all cases property
+uh if we go um I guess so in the
+playground we can't see it So the all
+cases so if we if we assign it to its
+own
+um uh yeah let's just create a temporary
+v variable What is this all cases
+property on on our day of week if we go
+there it is an array of days of week So
+so we have just an array of of days a
+week Um and it so it it creates that for
+us Um and yeah I don't think we've seen
+uh this this loop before um in Swift So
+if you want to loop over an array um and
+you don't want to deal with an index we
+can uh go uh over each of the elements
+in this array assign it to this uh to
+this local variable here and then we
+have access to it um in our in our
+bracket So it's this is I'd say the most
+swifty way of of looping over something
+Most of the time uh you are um you're
+looping over something where where you
+want the content and not an index So so
+it's a really nice way to do it And I I
+think I'm seeing a question here
+Um so yeah all cases show up because of
+case Very good So if I were to um remove
+this we're going to have a compile time
+error and this won't work anymore So it
+has no all cases um thing there And you
+might wonder why do I have to specify
+this that seems silly What don't I
+always want to iterate over over my
+enums uh no there are some enums that
+you could create that are impossible to
+iterate over and we'll get we'll get
+there Um uh so not something that you'd
+be able to do in another language but we
+can create enums in a way that uh it
+would be impossible to iterate over all
+all cases All right but yeah so let's
+iterate over these Uh let's just uh
+print them out Um so we just print out
+day of week Uh so yeah this is one
+reason why you might want to create an
+enum You want to be able
+to realize that this was all up here You
+might want to uh be able to
+um uh yeah do something with each one of
+them Uh you might want to Here we go
+There we are We're printing all of them
+Uh you might want to make sure that
+you're not creating something that uh is
+is not representable as a day of week So
+then you would have to check first that
+whatever you created is a valid day of
+week
+Um and uh so yeah uh uh what else um uh
+you you might want to have a nicer way
+of representing whatever you're talking
+about So if I'm talking about day of
+week zero
+um if I'm using the integers there might
+be some confusion Are we talking about
+Sunday or are we talking about Monday so
+depending on who who you talk to zero
+might be Sunday or Monday or if I'm
+talking about one it could be the first
+day if we're uh one indexed or the
+second day if we're zero indexed So um
+it just gives us a a neat way
+to talk about the thing that we're uh
+that we're that we're using It just
+reduces um
+mistakes There's another really nice
+thing uh that we have access to if we're
+using an index if we're using an enum Um
+so let's say uh we have
+uh we have
+um so right now we have these
+um these ways of of representing uh the
+enum uh by by just printing it So it's
+it's Monday through Sunday
+Um let's say we want to create a shorter
+representation of it Uh so maybe we want
+to be able to say um like a two-letter
+short version of this Um and we want to
+print that out So we want to do
+something with each of our uh possible
+um days of week Um and we don't want to
+miss any of them So we don't want to
+forget about Sunday Um and we don't want
+to accidentally cover something that's
+uh that's not a day of week So um
+there's so there's another control
+structure So we saw the four control
+structure uh today Um there's another
+one called switch And what the switch
+control structure does is uh whatever
+you pass to switch So I'm going to pass
+the day of week that we created here or
+our v variable up here I'm going to pass
+day of week to our switch And uh what we
+now we're going to do something for for
+each possibility that day of week has So
+a a switch statement if you haven't seen
+it in another language is an if else if
+else if else if else block where you're
+covering every everything that is
+possible Um so um to to do the same what
+we're doing here with if else it would
+be like this If a day of week I'm going
+to do it with the raw value is zero then
+do uh let's maybe uh print
+um I think we had it
+Sunday Uh oh I guess we want it shorter
+So
+Sunday else if and I'm going to do some
+copy paste here just to make that a
+little bit easier Uh so I don't know how
+many I need here So Sunday
+Monday Tuesday Wednesday
+Thursday Friday Saturday Okay So we only
+need this And then here we'll do
+uh one two three four five six Okay
+Um so if we want to do something for
+each possible value um so we we could
+write an if else uh if else if else
+block like this or um so this is kind of
+hard to read I don't know if I've if I
+if I see this and I have a 100 cases
+it's kind of hard to know if if we've
+covered all of them Um so what the
+switch statement allows us to do is the
+compiler will make sure that we cover
+everything which is super neat So I can
+just say I just said I want to switch on
+day of week Day of week is an enum that
+has seven possible cases I'm going to
+click here and say fix I'm missing some
+cases So switch must be exhaustive
+Exhaustive meaning every case that it
+can be has to be covered So let's click
+on fix and the compiler knew uh what was
+missing and gave me all of the the
+missing cases which is pretty cool So
+let's uh just do the same thing where uh
+where we just take uh all of these um
+I'm creating multiple cursors You can do
+that with uh shift control and then
+clicking and then uh if you do shift I
+think it's uh option you go from from
+token oh token to uh next token uh here
+we ah sorry
+um here we go so copy that and then I'm
+going to create cursor multiple cursors
+again by highlighting this with shift
+and control and I'm going to do command
+paste And we we have something for all
+of them Okay So this should uh Oh I
+guess um I have them I I miss I have
+them misaligned Um
+let's
+do what does it start with sunday Um
+okay Well let's move this one
+down Think I can do this or not
+no Uh I'm getting myself
+Whatever Let's um What am I starting
+with i'm starting with Sunday Here we go
+Let's do
+this Okay I am unable to type Okay let's
+do this again Uh so com uh command uh
+sorry control shift gives me multiple
+cur cursors wherever I I wherever I
+click Um and then I can So if I just
+hold down shift these are all the same
+uh length I can just do this uh copy and
+then um I could even go down
+uh and paste here Okay so does the same
+So these two make do the same thing This
+if else if else if else block and the
+switch statement The nice thing with a
+switch statement is I know that I
+covered them all here I would have to
+manually go through and make sure that I
+actually covered them all If I'm missing
+if I'm deleting one here the compiler
+will complain So kind of the same theme
+that we've covered in the past Whenever
+the compiler can help us that's the
+ideal We don't want to have a a runtime
+error We want the compiler to help
+us Um all right So yeah switch
+statements very useful when you want to
+do something for every
+single element We're going to see
+um different versions of how you can
+cover every case Uh so we we'll see that
+in a second here Uh but yeah so whenever
+you can have the compiler help you So
+I'm actually gonna
+uh I guess we we can leave it for now
+But yeah Uh all right
+So so yeah we have now
+um I think we've covered all of the
+traditional benefits of uh of using an
+enum Um maybe a couple that are unique
+to Swift and um uh but result from from
+us using an enum meaning the compiler
+being able to help us So um wouldn't it
+now be nice so to me like this shorter
+representation
+uh belongs to the day of week type Um so
+this if I if I were to um have this day
+of week type maybe I'm creating a
+library with day of week wouldn't it be
+nice if I had like a a shorter
+representation
+um of the day that can be printed
+Wouldn't that be nice without having to
+maybe wrap this into a function so we we
+could wrap this into a function We could
+say um uh so uh
+short short string
+um for day of
+week and then we'll return a
+string and then instead of the print
+statements we will
+uh return something
+Okay So uh so yeah we could have this as
+a as an extra function uh that we um
+that we ship our our day of week with
+but it's not discoverable Um so if I
+have if I type day of
+week day oh so if I have a day of week
+day of week um I I can't so I have a raw
+raw value representation that is that I
+can access um this this is not uh
+discoverable so I would have to go
+through the through the documentation um
+oh how do I get a short shorter
+representation of my enum um and find
+this function uh that is part of this
+library So wouldn't it be nice uh if I
+had um a function on day of week that
+was just short string so day of week
+short string wouldn't that be nice uh
+and then that printed out or that that
+gave me the the short string
+representation Uh we can actually do
+that with enums So how how would we do
+that um and this is where things become
+strange if you're used to enums from
+other from other languages We can take
+this
+function We can take this whole this
+whole function and I'm going to just add
+it to the enum type declaration So I
+have my enum uh the type declaration uh
+starts here ends here We have our cases
+and now we have this function on the
+enum And we actually don't need to pass
+in a day of week anymore because we can
+call this function on um on an enum
+instance So we know uh what we're what
+we're talking about when we're calling
+this We're calling switch on self And
+that's confusing Let's take a look at
+where we're where we're calling this So
+day of week is a variable that we've
+defined ourselves And on this variable
+maybe it was Monday We want to get the
+short string representation for Monday
+Um so we want to print out M O for this
+thing So for the Monday day of week I
+want the short string Uh so here we have
+our enum and then we have this function
+on the enum where we can switch on
+ourselves and then uh return uh the the
+shorter string representation So uh let
+me know if there's any questions here Uh
+this might
+be very new Um which is understandable
+but uh so let's let's see it in action
+Let's see it in action and let's see
+what that looks like So uh we'll just
+print
+this
+and I guess we we're doing a lot of
+printing Let's just get it into the
+gutter here So
+uh day of week short There we go So that
+should give us a little gutter
+representation of that
+thing
+Um my cat is being fed through the door
+right now
+Um I and I have accidentally locked it
+Um all right So yeah we have our short
+representation of the uh day of week
+here in the gutter and um um so so
+that's nice That's uh that's very
+discoverable now So if I do day of week
+dot I have short string Um very
+discoverable Very nice Um so to me it
+would even be nicer So if we had so if
+we're looking at raw value so this the
+raw value representation is is a as a as
+a property on day of week wouldn't it be
+nice if short string so to me this
+doesn't seem functiony uh this seems
+property like so wouldn't it be nice if
+I could just do short string and this
+would be a property on our day of week
+we can do that very easily we can uh uh
+instead of having this be a function So
+we we know that functions can be of uh
+on enums we can also have uh what's
+called computed properties and I I think
+we've briefly covered them Uh so we can
+have a computed property which is we're
+saying we have this this property here
+we have a short string property and then
+instead of providing a value we add a
+function body So um our our enum now has
+a property short string that gets
+computed based on um what that day of
+week is So uh just to demonstrate that
+this still works Uh so we are
+recompiling this and it'll it'll still
+say Sunday here in a second
+Um and so we can we can do
+um I guess uh yeah so we and we we don't
+have to stop here So short string maybe
+we want to know if um so to me it might
+be useful if I'm staying dealing with a
+day of week It would be maybe useful to
+know if it's a week day or a weekend day
+So wouldn't it be nice to have something
+like this
+um is weekend Uh so maybe we're
+interested in that So day of week and
+then again
+uh is weekend day maybe like this Uh
+wouldn't it be nice if we had a property
+or I guess maybe just is weekend Um
+wouldn't it be nice if we had a property
+on day of week so we'll have a compile
+time error here in a second because this
+is not a property on day of week right
+now But wouldn't it be nice if we had
+that if we knew um just by having it be
+discoverable by hitting the period and
+then oh I can I can quickly find out if
+this is a day of day of week or is
+weekend So let's implement this real
+quick So we can have uh as many
+functions or um computed properties on
+enums as we want So let's create another
+computed property So is weekend would be
+boolean And then we can do the same
+thing where we switch on ourselves So
+we're inside day of week We're switching
+on ourselves The compiler will help us
+Here we go Switch must be exhaustive Fix
+And we get all of our um all of our
+cases Um here Um so let's so for is
+weekend we actually don't need all of
+these right so we just need to know that
+for uh Saturday and Sunday that these
+are that these are true and everything
+else needs to be false Uh so let's uh
+let's first of all we'll kind of work
+ourselves to not needing all of these
+here Um let's let's see a couple of ways
+that we can write switch statements
+where some of them are equal So we
+Saturday and Sunday they should both
+return
+true Yeah let's maybe just implement it
+first So those should be return true and
+then these should return
+false Uh oh there's another interesting
+uh fun thing So if you're if you're
+trying to replace the same thing um over
+and over again I can do command E Uh
+that kind of copies whatever I have
+highlighted and then I can paste Uh and
+then if I do command G it goes to the
+next representation of that thing So I
+can I can do now uh V G V G V and then
+it just does all of these So command E
+selects something Uh so if I want to
+select faults here I can do command E
+And then if I do command G it goes to
+the next representation of that thing
+Very useful Uh okay So yeah is weekend
+We now have that implemented We we clean
+this up in a second Let's maybe just see
+that this works Uh that this works So I
+forgot what we had in there Sunday So
+this should be true Uh and um and then
+uh is week
+day
+Um oh uh yeah So let's let's do uh here
+Let's let's do
+this Uh let's update our day of week
+Let's uh set it to Monday And then let's
+update is day of
+week And then we should see uh true in
+the gutter here for Sunday and false
+down here Okay So very nice and very
+discoverable because now I can hit
+period and I have is weekend Very nice
+All right So let's let's make this a
+little bit uh easier to to read So here
+we can't really go shorter than this Uh
+apologies My cat wants out One
+second All right So um so yeah here we
+can't really go shorter Here we can go
+much shorter So the first thing we can
+do is we can group like uh like return
+statements So Saturday and Sunday should
+maybe be the same one So we can just
+comma separate them Very good And then
+uh so the other ones should as well So
+we can just comma separate these And
+here I again I can do command E uh for
+this whole thing that I want And then I
+type uh comma space command G going to
+the next thing And then uh I can do this
+a little bit quicker Uh okay So this
+does the same thing We now have Monday
+Tuesday Wednesday Thursday Friday return
+false And then uh Saturday and Sunday
+return true I actually think this is
+probably the nicest implementation uh
+since we since it's still very clear
+which one does which But uh so we could
+also do something like this where and
+maybe we'll implement it for uh is
+weekday is week day We could now just do
+the
+reverse here So not is weekend So that
+would be a perfectly fine implementation
+of is week as weekday Uh but um uh so we
+could do something like this too So we
+we only want to return true for Monday
+Tuesday Wednesday Thursday Friday And
+then if that's not the case we So if we
+just remove that we're running into
+switch must be exhaustive We can have a
+default And for the default we'll return
+false Um so so sometimes this is
+necessary Um so uh you can't cover so if
+you have something that's um much larger
+if you're switching on something that's
+much larger than the seven items that we
+have here Maybe you're switching on a
+string You don't you can switch on a
+string or any anything not just an enum
+Uh so then you have to have a default
+clause to catch everything else uh here
+um having a default clause for just
+seven items I don't like that much Maybe
+we're add so for days of week probably
+not but maybe we're adding another case
+uh maybe uh Sunday special I don't know
+um so now this one wouldn't be this one
+doesn't catch it this one does So here
+we
+uh
+we the compiler helps us down here it
+does not Uh but yeah so uh these are
+couple of other ways um that we
+um uh that we can uh do the same thing
+Um and uh yeah anyways um so very nice
+we can have properties on our um uh on
+our enum
+um any oh yeah and then so so one other
+thing about like printing the the enum
+itself So the the first thing we were
+doing uh when we were printing it out we
+just printed the enum and it gave us uh
+the the string representation of this
+Um there's one there's one downside of
+working with the raw enum cases Uh so um
+what if
+you introduced another language u maybe
+we wanted German Um so then Monday would
+be uh
+montag So I want I would want that to
+print and not Monday Uh and so here I
+would want to have it print uh instead
+of Sunday I would want to say
+uh zont so
+um so the if we have a string
+representation we can internationalize
+strings So this is fine um we can't
+internationalize
+uh those those cases here So um whenever
+you're printing a string representation
+of an enum I would say uh just create
+another computed property and then uh so
+maybe here we have long
+string and then um I mean in this case
+we can just
+uh copy all of these
+and paste it uh in
+here and then we have the same thing But
+then now we could maybe maybe we would
+want this to be uppercase
+Uh maybe we would uh want to have the
+ability to later
+um internationalize and translate this
+So it's nice to have a special
+um property uh for that um something
+that I think makes sense if so if this
+is kind of the main representation of
+your enum there's another protocol that
+we can adhere to
+called custom string convertible and
+what the custom string convertible
+protocol um wants is the only thing that
+we need for that one is the description
+Um so we just need to have a property
+that is a string that says description
+and we can fulfill that with a computed
+property So maybe instead of long string
+we can say description and then so now
+wherever we were uh so let's rerun
+this and wherever we were printing our
+enum we
+now are printing
+we now are printing the uh the the full
+custom string representable version So
+our description So just as a
+little advice here um whenever you're
+printing or showing to the user uh an
+enam representation I would use this
+custom string convertible if you're
+printing straight with the with a print
+statement or if you're if you're adding
+it to um if you're string concatenating
+So maybe um maybe something like this
+uh it uh it
+is so if you're adding the day of week
+uh in a in a in a string like this it
+will pick the custom string convertible
+for this one So if we rerun this it'll
+now say it is and then our description
+version of
+our uh so it is Monday Um so it'll it
+picks it picks the custom string
+converter I'm realizing I have these
+messed up again So um I'm not going to
+spend time fixing this right now I I
+have them not ordered the right
+way Uh all right So yeah we have a way
+to create string representations We have
+a way to create short strings Um we uh
+maybe your server is zero indexed and uh
+starts with Monday Maybe in your code
+for some reason you have a different
+representation You can create a computed
+property that says server integer or
+something like that So so all of these
+things you can have on the type directly
+They're discoverable when you're typing
+the dot So now we have so is
+weekend
+is oh I guess um
+yeah all of these are uh discoverable
+which is very nice Um okay yeah any any
+questions here um while you're maybe
+thinking let me just make sure that I
+don't have anything else in my
+notes
+Um yeah so again we've we have we're
+dealing with Oh so there's there are
+questions
+great yes so the question is could you
+make it uh uh so is weekend I think I
+had that first
+um here we go so we could do this uh
+that was in the qu in the questions you
+could do
+this yes um I'm just trying to give you
+as many of the switch statement use
+cases here But yeah so for for this one
+we could have just done not this thing
+Very good Good question Any other
+questions okay so now we're going to
+step into the realm of So this was all
+still Okay my cat came back
+in You can open doors I'm going to close
+the door
+again I'm gonna say hi
+uh he likes uh whenever I'm talking
+especially um on the computer he likes
+to be near me and he is trained to use
+to open doors
+um uh yeah
+so so far we've we've been dealing with
+integers um and uh we're not limited to
+integers we can do other things so what
+comes to mind um obviously strings could
+would come to mind um so let's Maybe
+create another
+uh let's create another
+um enam here and maybe let's call it
+playing
+card Playing cards Um so playing cards
+Um so we have uh or maybe playing card
+Oh yeah let's let's start with the whole
+playing card So we
+have Oh let's maybe playing card suit
+Let's start with that one No let's let's
+start with playing cards Sorry Um so we
+have maybe uh um and let's uh let's only
+do uh Oh yeah Not not suit but let's do
+playing card value There we go Um so we
+have so we obviously have uh the the uh
+numeric ones So um or I guess so it's
+called suit and is it called face i
+forget Uh not value I think it's not
+value uh maybe playing card face If
+someone knows the correct term here I'm
+blanking on it right now So uh and this
+is what I mean here So we have maybe the
+ace of spades Uh and then so spades is
+the suit and I think this is the what
+what is this called i'm forgetting So
+this is what I'm talking about Um uh but
+yeah so we have uh the uh so we have ace
+obviously ace We
+have we have queen we have king we have
+um uh jack uh and then we have numbers
+too So we have two we have three um and
+so on I'm not going to do them all the
+way to nine So we have number cards and
+then I guess face cards So here um
+um there's kind of a mix between two
+things Um we can't we could use an
+integer I guess but um let's let's use
+something else uh uh to to represent
+these here So um let's uh let's have
+them represented by a string So our
+playing card
+um will be represented by by an enum
+that is uh string based So what does
+that mean so if I'm now
+um if I'm in uh instantiating a playing
+card I can now
+say so I want to create an ace or I
+could say
+um so if I create it with with a
+string I could say raw value and now it
+takes a string and here I and say king
+maybe So king again we're going from the
+very much larger set of all the strings
+to whatever however many
+I've created here So we have to have a a
+default value or unwrap So maybe I'll
+default to the ace here Uh so yeah now
+we have a a stringbased enum um kind of
+uh everything else applies that we've
+had before Um we had um we can create uh
+we can create properties and functions
+on there computed properties We can
+assign
+um values
+Um let's yeah so let's maybe uh let's
+turn this into um into suit I think that
+makes a little bit more sense So playing
+cut
+suit Playing cut suit And then we have
+uh spades
+hearts Um
+uh spades hearts
+Um what else is
+there i'm totally blanking right now Um
+um maybe once I see him uh it'll make a
+little bit more sense Yes So one second
+Um and
+uh very thank you clubs clubs
+uh
+diamonds Okay So yeah for these I think
+it makes a lot more sense to have
+strings Um and then let's update this
+here real
+quick Thank you very much Uh so here it
+makes a lot of sense to have strings and
+um maybe
+uh in instead of typing the the the name
+here So we could uh we could have we can
+be very specific with what the string
+should be but it could be anything So
+for example if we go to our emojis um
+where is it here where is it um
+uh emojis where you I forget edit Okay
+So there are uh playing card emojis Oh
+and it um that's that's new It um gives
+me uh that one immediately That's that's
+very nice Um so
+um okay I
+am let's do this Um there should be a
+way to just pick
+emojis Here we go So it was new that it
+gave me that That was nice So hearts I
+can I can search for that heart Very
+good Uh
+clubs We can go back
+there
+Clubs
+and diamonds
+There we
+go Uh so yeah we these are these are
+strings that we have here Uh emojis are
+strings They're legal strings And uh so
+it'll be a little bit harder to
+instantiate it this way but um so this
+one will actually fail and give us
+spades again Oh I guess we have spades
+here So let's do Yeah let's do this one
+So it'll be harder to type but our
+playing card suit is string based based
+on these emojis And then so hopefully
+that um so we we're instantiating spades
+here Very good And then uh we're
+instantiating clubs based on the raw
+value Um so we have have clubs here Uh
+so yeah so this one is string based Okay
+Um useful and and so it's definitely
+useful
+Um and uh yeah so I as far as I know not
+supported by a lot of other languages Um
+so you you have you're stuck with
+integers So here we have uh we have
+strings We're not limited to just that
+In Swift errors are enums So if I want
+to maybe we have a bunch of responses
+that our server might come back with and
+and we'll call these maybe a server
+error uh so the I can say it's not
+string based it's not integer based
+it'll be error based so this this enum
+will be error based and again this is
+very nice um because we uh if we if
+we're to switch on an error we have we
+are forced to cover all of them So if we
+if we want to make sure that we've
+covered all the errors that we have
+defined um we if we switch on it we we
+are forced to cover all of them Uh but
+yeah so maybe we have um resource not
+found Okay so that could be one case Uh
+then we could maybe ha have um uh
+maintenance server in maintenance mode
+uh server
+maintenance Okay So these are these are
+these are now errors that we can use We
+haven't really covered uh the only error
+handling that we've seen so far is uh
+with optionals So if something can't be
+instantiated we get nil back Um there is
+exception handling or in this case we're
+throwing errors and you can catch you
+can catch those errors Those are those
+enums Um these are those are enums are
+enum enum errors Um so yeah errors in
+swift are enums Other things are enums
+in swift um where uh you might not
+suspect it So I feel like this one's not
+necessarily out of left field Uh this
+one makes a lot of sense If if there's
+integers supported why not support
+strings um there's there's something
+that is uh in my opinion completely out
+of left field but also really cool And
+we'll cover that but we'll do uh I want
+to make sure that you guys also have a
+little break So let's do a 10-minute
+break right now So I think it's 8:08
+right now So let's come back at uh at 8
+uh at 8:18 Let's do a 10-minute break
+here and we'll come back um and we'll
+we'll cover a little bit more enams uh
+some some more adventurous stuff Um so
+yeah uh I I'll see you guys at uh 8:19
+since it's 19 now Um and yeah feel free
+to keep asking questions in chat Um I
+will stop the recording

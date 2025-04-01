@@ -1,0 +1,2063 @@
+uh welcome to week five um I'll start
+with a uh real quick announcement uh so
+my wife uh has her due date for our
+second child uh later this week maybe
+beginning of next week so I'm going to
+record next week's lecture and it'll be
+recorded and then there's a likelihood
+that the week after will just be a zoom
+uh lecture uh so apologies um for that
+um but yeah so
+hopefully um that
+won't change anything um yeah shouldn't
+change anything material wise uh you
+just don't have to come next week and
+like there's a chance also the week
+after we'll just be a zoom
+recording all right so let's get started
+with
+today and I'll announce that on canvas
+and I'll send an email reminder as
+well so what are we going to do today so
+we um last week we um
+put all Swift UI to the side for um one
+lecture and we uh built um an app in
+uiit uh we started building the uh the
+tip calculator there and uh so yeah we
+did a lot of layout things we saw
+um we saw how we can navigate to another
+screen um and we also talked about
+architecture a little bit so we started
+talking about MVC so again MVC stands
+for
+model
+view
+control and uh so yeah in uiit that is
+the framework that's the architecture
+that we we have to follow to get
+anything done um there's a view
+controller um there's there are views
+and then I guess we could we could not
+follow the pattern and uh not create
+models but um it is highly suggested
+that in in uiit that's what we do um and
+I I mentioned this last week as well you
+can have something on top of MVC as well
+so you can have more control over your
+architecture there you can be more fine
+grained um and uh but yeah so we at
+least have to cover MVC in this course
+uh just to make sure that uh you guys uh
+can find your way around um U IIT um so
+we'll we'll continue with this we talked
+about communication patterns there so
+certain modules could talk directly to
+others and certain could not talk to
+each other at all so we'll do a quick
+review there uh and uh then we're going
+to today we're going to cover another
+communication pattern that's uh a little
+bit more complicated uh to understand um
+it's it's everywhere in uiit uh so if
+you want to create a list of things this
+communication pattern shows up if you
+want to have Pages uh this communication
+pattern shows up um and I just name it
+here so we're going to cover
+delegation um and yeah so Apple used it
+a lot um creating their UI uh
+components and uh so in Swift UI it's
+not really that useful but you can still
+use this pattern for for other for other
+things talking to each other so uh it's
+a it's a even though we're not going to
+use it in our UI layer anymore um it can
+be used uh for it can be used in other
+uh situations and why you being weird
+iPad is
+being confusing let's see what's going
+on not quite sure
+maybe ah
+I think I put some sweat on there for my
+bike ride there we go working again um
+so yeah um delegation we'll cover today
+uh we'll first use a
+little example that doesn't involve code
+um and then we're going to continue with
+our tip
+calculator uh the one that is in UI
+kit and we're going to
+delegate a task to the second screen
+that we uh created um changing the tip
+and uh then communicating back to our
+main um tip calculator screen so we'll
+use delegation for that and so yeah
+you'll see delegation a lot when views
+talk to view controllers but you can
+also have uh sub view controllers talk
+to their parent view controllers we'll
+we'll cover that little bit more in
+detail
+um so yeah we'll we'll cover delegation
+today in our with our own example um and
+then so there's going to be lots of
+other places where we'll see delegations
+so I'm going to apologize in advance
+after today's lecture um it might um it
+might seem this is a really complicated
+pattern uh we'll we'll try to work on
+that uh for sure but then uh the the
+more you become familiar with it the
+more it just clicks um
+and so yeah it's it's it's I find it
+very interesting there are not that many
+components but somehow uh I think part
+part partially the language around those
+components um make it so that uh it is
+some it can sometimes be a little bit
+hard to wrap your your head around this
+communication pattern but yeah so we
+we'd see it today um there might be
+still some questions uh you might not
+feel very comfortable with it yet but
+you'll see it again um in in many other
+places and uh so I hope we have a little
+bit of time after all of this uh to
+start talking about
+enams enams
+are it's short for eneration uh who's
+heard the word eneration before in other
+contexts so yeah that it exists in other
+languages uh you probably have a thing
+in mind so if you've worked with in
+enumerations in other languages um so
+unless you've covered them in Swift or
+another language that uh uses these to
+um to this extent uh you're going to be
+surprised even if you think you know
+enumerations uh there's a lot here that
+uh that I find really cool um um and
+it's it's it's a really powerful thing
+to use in Swift um all right so yeah
+that's my plan for today um so let's
+maybe uh just really quick go or any
+questions before we
+continue great so let's just uh go over
+um some of the components of MVC again
+because so that we can hone in on a on a
+very specific place so we have
+our uh three components we have our
+controller up here we have the view and
+then we have uh the model and uh so
+maybe you guys can can guide me in and
+adding
+some uh some ways that these components
+can talk to each other which which
+commun which components cannot talk to
+each other at all directly so which two
+of these cannot talk to each other
+yeah so we haven't actually covered this
+section very much um so they there is
+some communication uh happening but
+you're right we haven't covered it yet
+uh I did mention a very uh particular uh
+but yeah so you're right so far we have
+not seen them communicate um any other
+yeah the model and the view yes so these
+two
+here they
+cannot talk to each other and then we oh
+so we had borrowed
+from uh lines on the road so a double
+double solid that one uh a double solid
+line what's going on
+here a double solid
+line in on the road means you can't
+cross so that's often what you'd see in
+this kind of a diagram
+and then uh so yeah if the if the view
+wants to let the model know that
+something is happening and we haven't
+really seen models we've just
+theoretically talked about it um but
+yeah so maybe you remember from last
+week if the view wants to let the model
+know that something happened how is this
+facilitated so they can't talk to each
+other directly so how would the view let
+the model know that something
+happened so the view would let the
+controller know um and is there a way
+is there anything fancy that needs to
+happen here when the vi wants to talk to
+the
+controller so we had uh we were talking
+about how the view uh so that we can
+reuse our views we have to um be very
+careful with the communication direction
+from view to controller so uh we'll
+we'll cover that again um but yeah so
+view talks to the controller and then
+what does the controller
+do communicate with model communicates
+with the model yeah so the the the
+controller has both model and and view
+properties so the the controller knows
+everything about uh the model and the
+view can ask it ask it questions can um
+tell it to do something um so yeah uh so
+if we if we want to talk from The View
+so if the view wants to communicate
+something to the model we have to go to
+the controller first and I'm using a
+dash line because there's certain things
+we have to consider and then the the
+controller can talk directly to the
+model and say hey model do this thing uh
+maybe update this property here because
+we the view someone clicked on a button
+and wants to U set something to false so
+model I'm I'm telling you this thing is
+not not false do with it what as you
+may yes yes yeah very good yeah um yeah
+so and then so we haven't really talked
+about the other direction yet but so if
+the model wants to talk back to the view
+so let's say the user un uh selected
+unselected a check mark So something is
+now turned off this causes maybe comp
+computation on some data in the model so
+we now went through the controller to
+let the model know that this is now not
+true the model did its thing and so now
+we want to update the view with this new
+model state so
+uh we would go in the the reverse order
+right so the the model would talk to the
+controller and here again we have to be
+careful with how we're communicating
+back to it uh so that um we can reuse
+our models in other places uh and and
+that they are as separate as possible
+and then again the the controller can
+know anything everything about the view
+so the the controller now can talk
+directly to the view um we used again
+Road
+painting um yeah Road Road markings for
+this so solid line with a dashed line
+next to it means you can uh go over from
+the dashed line but you can't go over
+from the solid line um so we we add this
+dash line
+here um so yeah the controller can
+unrestrictedly talk to the view and the
+model and if the view wants to let the
+controller know something or the model
+wants to let the controller know
+something we have to do something
+special so for view to controller
+communication we already talked about a
+couple of them so there is some um I
+think we mentioned that it is
+restricted
+communication and then this is from the
+uh from the view to the controller so uh
+does anyone remember one of the
+restricted communication patterns that
+we'd seen so this had to do with
+interface
+Builder does anyone remember so what
+what view components have we had talk to
+controllers so
+far buttons very good so yeah the button
+the view recognizes that the button was
+selected somehow we have to let the
+controller know that something was uh
+was pressed so somehow the controller
+needs to uh be notified that something
+happened here uh does anyone remember
+the pattern uh that uh that we called
+this it's totally fine if not um any
+anyone so we called it Target
+action and yeah so the way it works is
+uh the view can talk to anything that
+has a Target painted on it we don't know
+where that Target is painted on we just
+know hey there's a part Target um I'm
+somehow connected to it so I was pressed
+I'm going to shoot my little arrow at
+that Target and then the controller
+knows that something has happened so
+Target action um The View knows nothing
+about the controller it just knows that
+somewhere there's a Target that I can uh
+respond to and then yeah so if the
+controller wants to talk back to the to
+the view we don't have to jump through
+any Hoops we can just say hey view
+update this label um and then uh and
+then we're all good uh so yeah another
+restricted communication pattern um is
+delegation and we'll we'll cover this
+one um again there's a way that the view
+knows as little as possible about uh the
+controller and we can still talk to it
+um how many different things can the the
+button
+uh if the button wants to let the
+controller know that something happened
+so far how many different ways of
+letting the controller know that
+something has happened have we had with
+Target
+action so we've painted one
+one target there so there there was only
+one way so the button was clicked we
+could only communicate this one thing to
+our controller right so Target action um
+there is there's one action and then
+there's one target that we're talking to
+so there's there's one thing that we can
+communicate there we can paint more
+targets uh and and Define different
+actions um but so the the idea is one
+act one thing happens and then we let
+our controller know that there's this
+this one thing that happened delegation
+allows us to have a little bit more fine
+grain control uh about the thing that
+happened so we can we can even pass back
+some data uh we can um I think it's is
+anyone um does it annoy anyone that that
+the class outside is a little bit loud
+if not we can leave it open does anyone
+bothered by no okay good yeah so with
+delegation uh we can have a whole host
+of things that we can communicate back
+to the controller um not just hey
+something happened but this very
+specific happened with these specific
+conditions okay so any any questions
+here great so let's uh come up with a
+couple of examples
+here um well let's work one example and
+then we'll uh we'll go back to our tip
+view controller here so let's say we
+have a
+bakery and when I'm start so let's say
+we're starting this Bakery and we don't
+have a lot of funding so we had to buy
+all this equipment we have to pay rent
+um so we're trying to do this as cheaply
+as possible so uh B Bakers as as I've
+heard I've never been a baker but I've
+heard that they have to get up really
+early to make the dough and then they
+have to bake bread and then make sure
+that it's available for the for people
+in the morning uh and so it's just a
+really long day so um our Baker is
+really
+successful H and uh our day is just not
+long enough anymore so what what would
+you guys do if uh you have this really
+successful uh business um it's going
+really well how could you um maybe serve
+more people with your beautiful bread
+what could you do
+EMP get an employee yes okay so um and
+let's say we we have this really amazing
+um uh so so we have all these really
+fantastic recipes and we don't really
+want to share all of them so we want to
+kind of just let them know as as little
+as as they need to know to to do their
+job so maybe for now um we still we feel
+really guarded with with this whole uh
+situation so we're going to hire someone
+to make the dough for in the morning and
+then we we'll do all of the other things
+uh still so that whoever we're hiring
+they can't just make up open up their
+own Bakery and and steal our amazing
+bread recipe uh I guess if they're
+making the dough they they know
+something about it but um but yeah so uh
+we're going to we're going to hire
+someone to just make our bread so if I'm
+if I'm if I I have a task and I want to
+give that task to someone um there's a
+word uh that that we can use for that
+that is is part of this uh that this
+pattern here we can delegate a task so
+if I want to make uh if I want to make
+bread I don't want to make the dough I
+can delegate the task of making the
+dough has anyone has everyone heard the
+word to delegate a task before okay so
+let's say we we
+hire
+um so we uh we want we want someone to
+to bake our to to make our dose so let's
+call that person maybe our our D
+maker we have our D maker and then so we
+are maybe the the head
+Baker okay so the head Baker so the B
+the
+baker
+delegates
+delegates at to the
+so
+oh
+make okay
+so I apologize we're going to go into a
+little bit of English sentence
+construction uh the word delegate in
+this uh in this circumstance uh what
+what kind of a word is
+that yeah very good a verb so in this
+case um the baker
+delegates uh the
+this task um the reason we're going
+through this is the very confusing thing
+in the English language is there's a
+verb uh and a noun that are spelled the
+same way mean something different
+they're kind of opposites even and um uh
+so yeah they're spelled the same way
+they're pronounced differently I find it
+very confusing so yeah the the baker
+delegates to the do maker um so here we
+this is a verb
+okay um so if you are now the D
+maker if you want to refer to the person
+who just gave you this task who
+delegated the task uh to to you
+um if uh have you heard of a a noun that
+sounds very similar that would describe
+the um the
+baker uh so if you want to communicate
+back to them what is the baker to you
+and if this doesn't make sense don't
+worry about it but um so yeah if someone
+gave you a task do you guys have a word
+for what this person could be called the
+person that gave you a
+task deleg delegator yeah and um and
+also delegate so so delegator delegate
+um very good delegator I actually wish
+um in this pattern it was called
+delegator because that um that would
+make it so much clearer but yeah so the
+do
+maker
+has a
+delegate so to delegate and having a
+delegate sounds slightly different but
+to delegate and having a delegate those
+words are the they're the same but one
+is a noun and one is a verb so um this
+causes a lot of confusion in my opinion
+uh for for this particular uh pattern so
+um uh let's just so that we can get
+these words correct and uh I'm I'm
+mostly mainly yeah so I I think I can
+with certainty say even if it seems
+clear right now there's a there's a
+pretty high chance that you will get
+confused a little bit later um and yeah
+for that reason I think the the naming
+here is just is just terrible um okay so
+who let's let's maybe I'll come up with
+one other example and then uh maybe you
+guys can spend a little bit of time
+coming up with another example just so
+that we work these words for second year
+because um if we don't have them um if
+we don't know exactly what what each
+does it'll be uh just a little bit it'll
+be harder so let's say um it it'll be
+very similar UMC so because to delegate
+a task um you're always going to have
+someone who who knows a lot more about
+something and they break up the the task
+they break up the tasks and then they
+give a job to someone else um so it's
+going to look very similar so let's say
+we have um a gardener and then uh so
+they want to uh they want to hire
+someone to plant the carrots so uh The
+Gardener hires a carrot planter so what
+do they do to so the carrot planter is
+supposed to plant some carrots what does
+the gardener do with a carrot planter
+what what how could we describe what
+what the Gardner is doing
+here assign a task and then let's try to
+use the the dword here um so again I
+wish it was a sign or but yes sadly it's
+it's delegate but yeah so how would you
+how would you say The Gardener does
+something to to give the assign the task
+how how could we use it one of the words
+that we have
+here very good thank you yes and then so
+so we have the carot planter and we have
+the gardener which of the two has a
+delegate the carrot grower has a
+delegate and which of the two delegates
+task The Gardener yes okay very good um
+so yeah um confusing naming um so just I
+know it's a little silly but let's maybe
+spend like 30 seconds you guys can come
+up with um another example in your head
+uh we don't have to share but if you
+want to share it we can afterwards but
+yeah let's just take 30 seconds think of
+some other example and like just go
+through the words um just so that it uh
+that it ruminates that these are
+words that are very
+similar oh okay uh yeah just come up
+with another example where there's
+someone who has a task for someone else
+and um think about
+the the act of assigning this task and
+then having someone who you who you talk
+back
+to and so yeah once you have this keep
+this example in your head uh we're going
+to uh we're going to add something to
+this in a second
+here okay any everyone have a example
+again I'm not you don't have to share
+but does everyone have an example okay
+does anyone want to share again you
+don't have to if you're very proud of
+your example
+yeah oh very good yeah and so what who
+would they
+what would they do to make their job
+easier very good yeah and so let's pick
+the sound design person uh and the movie
+director which of the two would have a
+delegate so the movie direct I would
+delegate which one of the two would have
+delegate the sound designer would have
+the have a delegate yes very good okay
+so let's go back uh with um so yeah
+anyone else want to share you don't have
+to good okay uh so let's go back to our
+Baker and our dough
+maker um
+so one thing that's nice uh with with um
+having so the baker would have very
+clear instructions for how to make the
+dough and then uh the the dough maker
+could go ahead and make the dough and
+then and then let the the baker know
+uh so now that we've break broken up
+this task we could hire a bunch of Dome
+makers uh and then we we could make this
+task really easy for us like we have um
+we have lots of people are making our
+dough for us and uh maybe me as the as
+the head Baker maybe I have to go on
+vacation uh but so as long as there's a
+relationship um the the person who's
+making the dough is going to come back
+with the dough at some point and give it
+to someone so as as long as there's a a
+baker it doesn't really matter who who
+that is so the D maker might know very
+little about the baker so maybe they
+just know they have um a white hat and
+so when the dough maker is done they
+just look for the person with a with a
+white hat and then they can deliver the
+dough uh so so here we we have a product
+that um is done here so the when the
+when the dough maker is done they can
+say hey delegate I made this dough hey
+Baker I made I made this dough here
+here's the dough um so same with with
+the um maybe not with the carrot planter
+but maybe now we hire someone who does
+the harvesting for us so now we delegate
+the task of harvesting and then we say
+hey so delegate uh hey you person who is
+harvesting Harvest everything that's
+orange and then when you're done put it
+in this basket that that I'm holding
+here and then uh I I know that I'm I'm
+getting the thing that I want here um
+all right any questions
+here okay so um let's go back to
+our uh let's go back to
+our tip calculator
+here and we'll spend a couple minutes
+here just
+to uh re familiarize with ourselves what
+we've done here and then once we've done
+that uh we're going to try to figure out
+the relationship between each of the
+components here so we have we have two
+we have two screens here let's go back
+to
+our let's go back to
+our um interface Builder here so we have
+two screens one we called um calculation
+view controller it's also up here so
+this is our calc view controller and
+then we created a change tip view
+controller so let's write those two down
+here where's my that
+nope ah I hit
+it so yeah we
+have can't do that we have a calculation
+view controller
+and then we have a change tip view
+controller okay um so yeah again our
+calculation view controller we have the
+amount that we putting in there uh we
+have the calculate button and then when
+they hit that um we we calculate the the
+amount that we want to tip um and then
+here we have this this other button
+where we said hey if you press this
+button show this change tip view
+controller and then um here we can type
+in a tip and then hopefully click button
+I guess we should change that here um
+let's maybe say
+apply or something like that um
+uh or or yeah apply maybe so when we're
+we're changing we're adding maybe it was
+15% now we change it to 20% we're
+hitting apply and then it updates over
+here okay so we have the calculation
+view controller and the change uh tip
+view controller uh which one of the
+two is delegating a task so who does the
+delegating in this case and what what do
+they delegate
+the change tip view controller so
+delegates and what does it
+delegate we haven't talked about it yet
+so you can put it in your own words and
+and also doesn't have to be you um so
+yeah what does so we have the
+calculation view controller there's
+going to be some communication with a
+change tip view controller what are we
+from just the words and from what we've
+seen here uh what what are we delegating
+what task are we
+delegating yeah get the get
+updated tip
+percent okay so we could have crammed
+that onto onto this screen here um we
+could have had another text field user
+could have typed something in there um
+so we could have had it on there but we
+decided uh actually let's have this task
+be done somewhere else so let's we're
+going to delegate to another view
+controller okay so the calculation view
+controller delegates to the tip view
+controller which of the two now has a
+delegate so again this is the noun which
+of the two has a
+delegate change tip view controller yes
+so this
+one has
+delegate and let yeah
+delegate
+property and maybe uh so maybe the verb
+for all of these um I'm going to
+underline in
+yellow so here as well we're delegating
+and then um
+the the other one the the noun maybe
+I'll do in in pink so
+this one has a
+delegate so the do maker has a delegate
+the tip CH the change tip view
+controller has a delegate and we're
+delegating uh
+to the change tip view controller here
+okay so okay so now we're changing the
+tip or the user is changing the tip so
+what do we have to do so we have to who
+do we report to so we're inside the chip
+change tip view controller who who do we
+let know that the chip tip has changed
+to whatever
+percentage we're letting know our
+delegate yes exactly who is our
+delegate the calculation view controller
+okay so the change tip view controller
+has a delegate and the delegate is the
+calculation view controller okay does
+this make sense so far okay um so so
+here
+uh so we could say the delegate is the
+calculation view
+controller um so but now so if we're
+saying our delegate should know as
+little as possible sorry our the the
+person we're delegating to should know
+as little as possible about the delegate
+the person who's giving the task so the
+the task taker should know as little as
+possible about the task Giver
+um so our view should know as little as
+possible um about our our view
+controller then
+if so if the the change tip view
+controller knows everything about the
+calculation view controller knows that
+it's a calculation view controller
+then uh we we are in that back in the
+the situation where um The View would be
+able to talk to the view view controller
+without restriction and the the the
+view controller can talk to the view
+without restriction so something somehow
+we have to make sure that the delegate
+uh that we're only knowing as little as
+possible about our delegate and we'll
+we'll go uh we'll go back uh and update
+this here in a second so uh let's let's
+implement this any any questions here so
+far okay all right so we have to do a
+couple other things uh to make this
+communication uh work here so
+uh
+let's
+um uh let's see how we actually
+um let's run this and then let's see uh
+what we've done here how we've how we've
+set this
+up well I guess while it's building we
+can talk about how how it's set up so
+initially what we had done we had just
+control
+dragged uh click the we had control
+dragged our button uh to a change tip
+view controller and that created a segue
+so a segue was a transition from one
+screen to another and then um another
+student had a question how could we
+transition um with with some logic
+attached so it maybe we wanted to make
+sure that the person is logged in so
+what we've done here now is we control
+dragged from our from The View
+controller in general uh to a change tip
+view controller and we created this this
+General segue so somehow from here we
+can transition to here we named the
+segue so we called it uh show change tip
+segue and then the way that
+we uh that we actually uh performing the
+the segue is our button has this perform
+has this this um this target now where
+we're performing the set way does that
+makes does that
+are you guys remembering from from last
+week um so I would say even let's let's
+make it a little bit simpler I'm going
+to rip I'm going to redo the the
+connecting of the two components and
+we're going to go back to the we could
+do it this way too I just want to make
+it as simple as possible so that we're
+only seeing the things that are
+necessary um and so maybe I'll I'll keep
+this one
+here uh so I'll keep this one here and
+then we can we can still use it later um
+we're now just going to remove the we're
+going to Mo remove this uh this action
+here so if we if we want to remove an
+action from a button so that's maybe
+another thing that uh would be
+interesting uh am I actually pressing
+the button yeah okay so let's we have an
+action from this
+button um to our view controller so
+let's bring up the view controller
+here and let's
+maybe so if I'm hovering over here we
+had control drag an action um to our
+code let me just make sure we have as
+much space here as
+possible so we had control direct this
+this button created this action if I'm
+hovering here we we see where where it's
+connected um if I just delete this we
+saw this I think in our first lecture if
+you're pressing this button the app will
+crash because the connection is still
+there so how do we Ser this connection
+we bring up
+our we bring up our
+right side menu here we select this view
+component and on the very right side
+here we have connections so these are
+all our connections that we have so here
+I can sever this connection and then the
+connection here is now is now gone so we
+could connect reconnect it if I control
+drag here it's connected again and then
+I can I can Ser it like this so I'm just
+going to leave this here but comment it
+out so that you guys know that there and
+maybe I I'll move it to the bottom just
+so that we
+have I actually you guys have this in in
+the previous I I uploaded this um to
+Canvas we have it there so okay these
+this behavior is different
+from the last operating system okay all
+right
+so
+let's we can also remove the segue again
+so the simplest way to connect the two
+controllers was to control drag this
+button and create this segue by control
+dragging and letting go and now we have
+the seg way when we're pressing the
+button we're transitioning to this V
+controller so let's build here real
+quick so if I'm pressing the percent
+button here we're going back we're going
+to the screen if I'm going back we're
+going back to the screen so this is the
+same behavior that we had last week and
+we changed it slightly I just want to
+make sure that um since we're covering
+something that can get confusing that we
+only have the the minimum stuff that we
+actually need um so that we we see
+what's going on U okay
+so um somehow now we have to set up the
+con the connections between the
+calculation view controller and the
+change tip view controller so how do we
+do this how do we how do we um delegate
+our task to the change uh tipb
+controller so there is a method that
+gets called whenever a segue is
+performed and I I think I briefly
+mentioned this last week so
+whenever one of these connections gets
+triggered so I'm pressing this button
+button a segue is performed we're going
+from this screen to this screen um
+there's a function on our parent view
+controller
+on our view controller that gets called
+that we can overwrite so it it exists it
+gets it already gets called We're
+inheriting from your I view controller
+and this this method gets called um if
+you forget uh method names you can just
+uh command click go to the view
+controller and then I know um here's now
+all of the here all of the methods all
+of the properties on The View controller
+listed we're looking for something um um
+did perform segue so that uh uh per here
+perform
+um uh not this one perform Segway that's
+the one that we saw uh
+so okay wait let's just search for
+second
+um where is it uh
+oh sorry prepare for segue so this is
+the one that we're that we're looking
+for so this is called as we are going
+from one screen to the another so we're
+preparing for this transition we're
+preparing to go from one screen to
+another so this function is on our this
+is on UI view controller so this is on
+on our class that we are inheriting from
+so we're inheriting from UI view
+controller our calculation view
+controller inherits from your a
+controller so we have a function here so
+prepare for
+let okay so I think my computer's um a
+little bit unhappy with code completing
+normally it code completes um just to
+prevent copy paste mistakes I just copy
+paste so if I'm implementing this method
+this method already exists on U VI
+controller so we we have to write uh add
+the override keyword just like here for
+the viewed load um does everyone
+remember uh inheritance and overriding
+properties from from other uh from other
+classes okay so uh let's add the
+override here so again prepare for segue
+gets called as we're transitioning from
+one screen to the to the next so inside
+this method we have access to both view
+controllers the one that we are
+currently on so obviously we have access
+to that one since we inside calculation
+view controller so we know all of our
+properties here and we have access to
+the one that we're about to transition
+to so we haven't transitioned yet but
+we're about to transition how do we have
+access to this uh next screen so here
+the segue is passed to us so the UI
+Story Board segue is passed to us and
+the uh the
+segue has
+a destination property and so down here
+we see the type the destination property
+is of type UI view
+controller um which means um so that's
+the the parent class the parent type uh
+that we're going to um we are actually
+transitioning to a change tip view
+controller but
+um so in in inside this destination
+property we just we just know about um
+that it's a UI UI controller so if you
+have a parent type in another language
+and you want you want to see if it's a
+specific type what can you do in in
+another language to to see if if you
+actually have that specific type that
+you're interested in does does that
+question make sense so we have so this
+is our destination
+so our destination is of type UI view
+controller we know that our destination
+is change tip view controller which
+inherits from from UI view controller in
+another Lang in other languages how can
+you if you have a parent type how can
+you see if how can you turn that parent
+type into another type into a more
+specific
+type have you guys done this in other
+languages so you have a generic like a
+very you have a base type and um that
+you're maybe you have an array of um of
+posts and then you inherit it uh from
+post to create a image so maybe you have
+a feed of of people are posting to a
+feed and then you have so yeah your
+parent classes feed post and then maybe
+um in this array could be image posts or
+text posts or friend request posts so
+these are all um specific inst or
+specific types that are inheriting from
+from feed post so um if you have this
+array of of feed posts how could you
+then talk to the specific type that you
+have there have you guys done this in
+other
+languages have you guys heard the word
+casting before yeah okay casting so you
+can try to so you can cast uh a parent
+type to you can try to cast it to a
+specific type or you can say hey this
+this specific type I want to cast it to
+a parent type um who has heard casting
+before okay so most people PR good all
+right so we have our destination we know
+that it is a UI view controller we are
+hoping that it is of of type change uh
+tip view controller so we are
+hoping um that uh it is of change to
+view controller so how can we how can we
+uh cast and and Swift uh we can say
+destination as this other
+thing um when you're casting from uh
+from uh from something that is a base
+type to a more specific type what could
+happen so we we're casting from the the
+very base U uh UV controller to a very
+specific type that we implemented change
+tip view controller what could happen in
+this in this operation
+what if the segue went to another view
+controller then the destination would be
+of a of a different type right so it
+would still be of a u view controller
+but we wouldn't be able to cast to this
+view controller does that make sense
+okay if it's if it doesn't make sense
+let's add another view controller here
+so let's
+add um another view
+controller okay
+uh we'll have to create another file
+here real quick
+um um we'll call it um we create a blue
+view controll
+blue all it has is a blue background so
+let's import UI
+kit and uh let's Implement our blue view
+controller there we go Okay so let's
+change its color uh so we can change the
+color of a view the views color of a
+view controller U when the view has
+loaded so we're going to overwrite view
+did
+load and we're going to say hey my view
+that I
+have I want the background color to be
+blue not black blue all right so we have
+a blue view controller let's go back to
+our main screen here and then we have to
+say this one should be the blue view
+controller so I'm selecting The View
+controller icon and I'm
+saying here in the center button this
+should be the blue view controller okay
+so it won't update the color here this
+is a uh this is a runtime thing so
+once uh once the view has loaded the
+background color uh will change here uh
+all right so let's make sure this view
+control is actually actually blue we I
+showed you guys last week this little
+entry Arrow if I drag that one to our
+blue view
+controller let's drag
+that our app will launch into this
+screen so let's make sure that it's
+blue oh
+something ah
+sorry all right so we should see a blue
+screen okay so we have a blue view
+controller very good um let's bring this
+back to our entry point here and now
+we're going to add another button uh so
+all this button does is it goes to the
+blue blue view controller so let's add
+another
+button uh let's do a blue button here
+and let's maybe say go to
+Blue and I'm going to
+connect this screen with a segue I say
+show and so now
+our our calculation view controller can
+go to two screens does that make sense
+so I'll I'll boot it uh real quick
+here and we can
+either go to our change tip view
+controller here so now we in our change
+tip view controller or we can go to our
+go to Blue you controller and then now I
+can't find the bread Clum because it's
+also blue uh okay okay so we have two
+destinations that we that this view
+controller can go to our change tip view
+controller and our blue view controller
+does that make sense so far okay any any
+questions
+here so let's go back to our uh
+calculation view controller so this is
+the the the our initial view controller
+that we're navigating from and what did
+I say when does this function get called
+when does prepare for segue get called
+does anyone
+remember what was a segue um what was a
+segue a transition
+from very good and then when does
+prepare for segue get
+C transition very good yes and then what
+was special about this function so uh
+who do we have access to in this
+function
+yes very good okay so let's let's uh
+take a look at that so
+um uh we are going to oh yeah so we um
+we we not do the the casting yet so
+let's uh I'm just going to print to the
+console our destination here
+and then down here we'll see who we're
+navigating
+to okay so now I'm going to print go to
+Blue and so this is the tip calculation
+oh sorry this is the blue view
+controller so this is the name of our
+app and then we have uh blue view
+controller so the destination was of
+type uh blue view
+controller it inherits from UAV
+controller but this is the actual
+instance that we navigated to
+uh so if I go to tip calculate tip view
+controller the destination is this is
+this view controller the destination is
+of type UI view
+controller
+but um so that's just the the the type
+of the destination so the
+actual the actual uh type of the the
+destination we're going to is either one
+of these two does that make sense so far
+any any questions here
+so inside this function no matter where
+we're going to uh there will be a
+destination of type UI view
+controller but depending on which view
+controller we go to we have the the
+actual instance of this view controller
+there so we have we we have access to uh
+to that why why is this uh maybe
+necessary why would we want to have
+access to uh this this other view
+controller so let's go back to our our
+app here and so when I'm changing
+changing the tip percentage I probably
+want to prepopulate this with the tip
+that we already uh have right so I don't
+it might be nice to be able to see this
+so to be able to do that let's pass the
+tip percentage to our change tip view
+controller so that we're going to pass
+some other things here in a second but
+that's the that's the first thing that
+we want to
+pass so our change tip view controller
+should have
+um it'll have to be a variable it should
+have a uh current
+tip property um so our tip here is of
+type double so we want
+that and then so so now we have to
+decide uh What uh what the type should
+it should we do we want to give it a
+default value um I'm not a huge fan of
+this because
+then uh we
+uh we're assuming that there's there's a
+value here even if there's not maybe
+someone didn't select zero so what could
+we do if we want this current tip to be
+either nothing or a double who remembers
+we we talked about this last week so we
+introduced this concept that things
+could either that there's a special kind
+of variable that can hold a thing or it
+can hold nothing optionals so let's turn
+this into an
+optional and then uh
+so um we can
+we can
+um set this in our prepare for Segway
+here all right so change tip view
+controller has a current current tip
+property blue view controller does not
+so
+um if I try to set on my
+destination current
+tip why does that not uh so uh here
+let's do that tip
+okay so we have our tip up
+here and what do we have we have a
+compile time error so value of type UV
+controller has no member current tip why
+is
+that why does our destination not have a
+current tip
+property yeah blue blue view doesn't
+have it uh our UI controller that we're
+inheriting from doesn't have it right so
+um to be able to set the current tip
+here we have to make sure that we're
+talking to a change tip view controller
+does that make sense so far so we have
+to cast our destination view controller
+type to A A Change tip view controller
+we have to make sure that it that we're
+talking to the right thing so let's
+let's try that so let's try to cast our
+destination
+as as a change tip you controller and
+then we just saw that our destination
+could be something else too right so it
+could be blue view controller in this
+example or it could be change tip V
+controller so what could happen as we're
+trying to cast the destination so what
+what could
+happen so if we're navigating to the
+blue view controller what what is going
+to happen with this with this thing that
+we're trying to do here is it going to
+succeed or
+fail fail because because our
+destination if we're navigating to the
+blue view controller is not of type
+change tip view controller right
+so uh casting is is very similar to
+Turning so what we've seen before is we
+we had a string that could hold a double
+and we said hey we want to turn this
+double we want to turn the string into a
+double you guys remember that that's
+where we first saw optionals so we did
+something that was a dangerous operation
+uh there was a string we're trying to
+turn turn it into something that uh sort
+of this giant set of all possible
+strings we're trying to turn it into
+something that is of the set of all the
+strings that can contain valid uh
+integer or doubles um so we're going
+from a much larger set to a much smaller
+set so same thing here we're going from
+all view controllers to a set of one we
+want um just the change tip view
+controller so this could fail right so
+cast casting from U VI controller to
+change tip U controller could fail so
+what might be the result of this
+operation so if it if it can fail what
+should be the uh what should be the
+result what should be the resulting type
+of
+destination option we need an optional
+very good so this is going to be an
+optional change tip view controller so
+and again optionals we create uh by
+adding the question mark so uh all right
+and then so the other thing uh we just
+have to add one little bit of syntax
+here um we have to there is a way that
+you can cast one thing from another but
+only if their sets are equivalent so um
+if two things are truly the same you can
+say uh as like this if they're not truly
+the same we have to add this question
+mark behind it so what we're doing now
+is we're taking a UV controller we're
+going to check can I turn this into a
+change tip view controller can I cast it
+from from the parent um that we're
+potentially inheriting from to change
+tip view controller if this is Poss if
+this is possible we'll
+have uh destination um be an instance of
+change tip view controller if it's not
+uh possible then we have n does that
+make sense so far okay so we have to
+make sure that the destination is
+actually of this change tip view
+controller the compiler makes us check
+so the result of this so even if I
+remove the the type here um the result
+of this casting operation is so if I
+option click
+destination the result is an optional so
+when we're casting from one type from a
+from a parent type to a child type or
+from a more broad type to a more narrow
+type um we're going to have we're going
+to dealing with optionals okay how do we
+unwrap our optionals we've seen that
+last week and two weeks ago how do we
+make sure that we actually now have
+something
+here what did we use uh when we wanted
+to do math with our optional doubles
+unwrap it how do we do
+it if so the yeah the if let right so
+let's do that if let and then inside
+here
+so inside our scope that we have here we
+now have so if I if I option click on
+destination the optional is uh the
+optionality is
+gone any questions here does that make
+sense so our
+destination might or might not be our
+change tip view controller we saw that
+if we're going to the blue view
+controller it's definitely not something
+that has a tip property so we have to go
+from destination to be able to set
+something at that destination we have to
+make sure hey I you this thing and then
+if the question is if the answer is yes
+then we can we can do some stuff there
+okay any questions here
+yeah we can use a guard yeah very good I
+I like a guard here um since we only
+have this one thing
+here um actually so we'll do that in a
+second um let's uh let's add another uh
+if let here because we have the blue
+view
+controller um and let's change uh let's
+uh cast that one to the blue view
+controller here and then so this one
+doesn't have a current tip right so
+we're going to get a compile time error
+here very good so here we'll just print
+to the
+console um blue view controller and then
+here maybe we say
+tip
+is
+oh uh
+formatted percent okay all right let's
+let's test this out so as we're
+preparing for our segue our destination
+is either change tip view controller in
+our app or this blue view controller we
+added to demonstrate our point so let's
+see what happens
+all right so I'm going to click here our
+console printed this I'm going to click
+here our console printed this so when we
+have a change tip view controller this
+code block is executed otherwise this
+one gets executed does this make sense
+good so but I like your suggestion we're
+only going to navigate to one thing
+actually so let's uh add the guard
+statement here
+so that means when it's not successful
+we'll return here and then let's maybe
+be a little bit more specific here let's
+let's call this our change tip V
+controller and then we don't actually
+need this okay so we now have a way to
+pass data to our to our next screen here
+uh in our prepare for segue uh method
+so let's see what what we can do with
+this now so um we have our change tip
+view controller
+has this text field right so we could
+add maybe this uh this initial text this
+initial tip to our change uh to our text
+field so to be able to do that we need
+to be able to access this view component
+here how do we access this view
+component inside our chain tip view
+controller control drag and what what
+are we
+creating an outlet right so
+um uh
+tip text field maybe like this okay so
+now we have our tip text field and we
+can
+now set the
+text uh and uh sorry
+um so
+we we're dealing with an optional right
+now so let's
+unwrap I don't think we've seen this yet
+so if we have an optional property here
+and we want to make sure that it exists
+we can just say guard this thing is not
+an optional and now from here on we have
+that that unwrapped property so this
+replaces this which looks a little fun
+funny got let current tip equal current
+tip that looks a little redundant um
+this is what one had to do um just a
+couple of years ago or maybe you would
+have created a slightly different name
+for this unwrapped value so I I very
+much like that we can all just do this
+all right so we're going to have some
+some weird formatting here um so um
+because
+we yeah so we have our change
+tip we now have
+0.2 so let's
+maybe multiply by
+100 so if we do the dot format we would
+have the percent sign there as well uh
+which we would have to strip so uh so
+yeah
+um very good point
+um yeah i' I'd say for now we'll just
+leave it this way uh and then just just
+to but yeah so I I did tell you
+specifically to to always use uh format
+so uh but yeah so now we have a way to
+pass the tip from
+here uh to here and I guess we can also
+uh yeah in in a second we'll also update
+we we'll set the tip here but yeah so we
+have a way to pass something to our to a
+a new view controller does that make
+sense so far
+yeah uh so well good question Let's uh
+take a look at what it
+does so we now have the percent sign
+there I guess we could strip it but so
+if I'm now typing something in like it
+we would have to delete the percent
+sign so
+um yeah uh there there's probably a
+formatted here that we could use uh I
+just didn't let's see um
+number and interesting um
+yeah there's oh there might be there's a
+rounded
+uh there's a here maybe let's do this
+yeah I didn't prepare this so let's just
+do this for now um but yeah very good
+point I told you not to use
+it probably yeah all right um okay so we
+have a way to change we to send
+something to our uh change tip you
+controller um so here is a pitfall and
+then we'll do do uh we'll do a break
+here so we we I I show you something
+that you might be tempted uh to do um
+we'll just wrap up we'll make sure that
+we um understand what we've done here
+and then we'll do a break so you might
+be tempted so now we have this this uh
+tip text field here right so when I'm
+clicking on this
+button I could just set the the tip
+straight here right I could um why why
+do I have to go go through this hoop
+here and and set it in vied load did
+anyone think this um I I wouldn't fault
+you for and that would be my first
+thought here I want to set the current
+tip uh on our oh sorry I want to set the
+value of this text field um let's see
+what happens if we're trying to directly
+set it so I'm going to undo the vi load
+here and now I'm going to try to set the
+tip text field value directly so this
+should this still um this still compiles
+what we've done
+here and we can go to this screen we're
+not setting anything right now so what
+if I set the text field directly does
+that make sense so we have this this tip
+text field what if I set the text uh
+value directly in so let's try
+it so instead of setting the current tip
+property
+let's say change it
+to uh tip text field there it is very
+good uh text okay very good so I now I
+should be able to
+do um what did we have we had uh tip
+times 100 that's what we had I
+think very good thank
+you okay let's see what happens
+okay our app
+crashed which might be very unexpected
+so what
+happened
+um let's give ourselves the most space
+possible here
+so when did I say this prepare for segue
+exists so we're going from our tip
+calculation view controller to this new
+screen when does this function get
+called
+right before the transition so the thing
+that we that is not possible for you
+guys to know without U no about without
+hearing about this at this point the
+view controller exists but its view has
+not been loaded so uh all of the
+properties on there all of the the view
+properties they don't exist yet so the
+view controller the instance exists but
+when we're going
+to uh our
+so so the view controller file exists
+but all of the view properties on here
+don't exist yet so the view has not been
+loaded yet so prepare for Z segue gets
+called before the view actually gets
+loaded so why does this
+crash our tip text field here has a type
+UI text field exclamation point what
+does the ex exclamation point uh mean we
+haven't covered it yet um so I can
+change it to an uh to a question mark
+without any errors popping up here uh
+when I go back to our uh C calculation
+view controller and I try to build we're
+going to
+see um we now have a a compile time
+error right so before we had a runtime
+error now we have a compile time error
+so I changed this from an exclamation
+point to a question mark and what does
+the compil time error say to here so one
+second I think this is a little bit
+easier to to see value of optional type
+UI text field must be unwrapped to refer
+to its text property here so what we can
+infer from that is so text uh um tip
+text field is an optional and it gets
+set once the view has loaded so until
+the view has loaded this is nil so when
+view did load gets called right before
+that um all of these these properties
+were created so I'm actually very
+frustrated with um with um interface
+builder for adding
+these um for adding these exclamation
+points um it the exclamation point means
+that we're still working with an
+optional but we're saying trust me I
+checked if we referring to this type um
+it says it it disables all of the
+compiler features that Force us to check
+that we have an optional here um and the
+app crashes so you can you can change
+these to be uh optionals and now the
+compiler will help you uh make make sure
+that we're not making this mistake so
+prepare for segue gets called before the
+view of our destination gets loaded that
+means tip text field is still nil at
+this point so let's see if we can unwrap
+it
+uh I'll just do
+this so let's see if we can unwrap
+it okay so let's see what
+happens okay so it didn't set the
+property or it didn't set the value here
+so uh I'm I'm trying to set uh text
+Fields uh text to the string here but it
+does not hopefully that makes sense we
+traded the uh the the runtime
+crash uh for a compile time error so
+we're not checking but where do we exit
+so if the text field is nil by the time
+this function gets
+called we we never go here right does
+that make sense so we we traded the
+compile time error for a runtime error
+sorry we traded the runtime error for a
+compile time error we're now checking
+but let's add some Sprint
+statements uh to see where we're exiting
+uh text field was
+nil and then here we'll
+do um
+destination not change tip okay
+all right let's see if we can trigger
+both of these how can we trigger this
+one how can we trigger this this
+one let's go to Blue let's see if we
+trigger that one very good destination
+was not tip view
+controller uh let's see let's see if we
+configure the other
+one text field was no okay so because
+this function gets called before the
+view of the destination gets loaded all
+of the view all of The View elements
+don't exist yet does that make sense
+okay so we can't populate properties on
+our view elements directly so that's why
+we set a property on our change tip view
+controller and then when the view has
+loaded
+so view load gets called as the view is
+loaded uh and now we can we can change
+our property does that make sense okay
+so when we're transitioning to a new
+screen with prepare for segue uh be
+aware that the view doesn't exist
+until um viewed load gets called it
+doesn't exist yet in prepare for segue
+so this one so um the so the view
+controller exists already so this is a
+property on our view control on
+so we're inheriting from you view
+controller and then viewed load so this
+this this property here has to load so
+if we go back to
+our view controller here so this is the
+view controller that we're talking about
+um so the view controller is represented
+by this bar up here so that's the code
+so the code that we have here those are
+the view controllers this is represented
+by The View uh The View Property
+so this property has not loaded yet um
+at this
+point
+yes loaded before the re is loaded yes
+yeah I can still do yeah uh okay very
+good question um so um we have a thing
+that we can call before viewed load gets
+uh gets called so uh the a viewed load
+is called a life cycle method so viewed
+load gets called once when the view was
+loaded uh there's another function
+called uh view view will
+appear and it's it's
+not autoc
+completing okay so we should have access
+to current
+tip uh let's just double it um so let's
+do um
+okay so this should double it before the
+view gets loaded let me let me make
+sure that I have that
+right uh so okay so uh actually view
+view will appear is uh gets called after
+vied load let's see
+um is there another one there okay so
+view viewed load gets called first okay
+so then there might not be a way that I
+can think of right now uh one other
+thing you can do is once you've set this
+property uh you can trigger something um
+so so this gets called as we're
+manipulating this this thing uh so maybe
+uh oh yeah so let's let's see let's
+let's prove that this very good thank
+you so much we're going to prove that
+this gets called before the view gets
+loaded when we're setting it uh in
+prepare for segue so when we're setting
+our current tip we're going to execute
+whatever is happening here
+so setting current tip
+to okay uh and then so uh let's print
+when the view uh was loaded
+view did
+load tip
+is just do the same thing
+here all right so we we'll see that this
+one will trigger this one which is
+before the view will
+load so setting current tip to 0.2 view
+it load tip is 0.2
+okay so yeah just something to keep in
+mind prepare for segue the view of the
+destination has not loaded
+yet all right yeah
+question oh oh sorry yeah life cycle
+methods uh so the in the life cycle of
+the view so we have the view loads and
+then the view will appear The View will
+disappear so those are all uh kind of
+life cycle methods of the uh of the of
+the view and this is one of one of the
+life cycle methods so there's also here
+let's go to the other
+ones
+uh yeah view will
+appear uh view will
+disappear uh so this one gets called
+whenever the view appears so after view
+did load but whenever the view appears
+so if I'm backgrounding the app this
+method gets called uh if I'm uh if I'm
+sorry if I'm backgrounding the app and
+I'm opening it again this will get
+called if I'm backgrounding the app this
+one gets
+called this one will only get called
+once these ones get called whenever
+we're doing these
+actions uh all right uh so I promised a
+break so yeah question no perfect
+oh we'll cover that much later so
+nothing is asynchronous right now so
+don't don't worry about it yet we will
+cover
+it very good question uh all right let's
+do a Break um let's come back at let's
+do 10 minutes I come back at
+8:35 a way to pass something to our next
+screen I think just to make things
+simpler I'm going to remove these uh
+additional print statements here things
+it made sense uh hopefully it made sense
+I just wanted to make sure you guys we
+don't have access to view properties yet
+uh when prepare for segue is called so
+when prepare for segue is
+called view controller properties are
+Vis are accessible to us but not things
+on The View so we have to go through
+this uh dance of doing things after
+viewed load so this is a pretty common
+pattern in uh UI kid you often see um a
+lot of the
+work uh that uh you want people want to
+do um when a view controller happens
+after the view has loaded all
+right uh so we can send we can set some
+data
+um we can talk to uh our Target U our
+destination VI controller how do we send
+something back so
+um we started talking about delegation
+so if we're thinking about delegating
+the task of producing a a new tip out
+output uh to this change tip view
+controller how can this change tip view
+controller talk back to its delegate so
+we go back to our our iPad here so the
+change tip view controller will have a
+delegate property right so we we're
+giving them the job of doing this thing
+so we need to be able to talk back to
+the person who gave us this job so let's
+let's start with that let's create a
+delegate property on our change typ view
+controller so we were given a job we
+want to be able to talk to our delegate
+so some of the things we're doing right
+now they're going to change um and we'll
+talk about why so let's create a
+delegate what type should this delegate
+be so we we need to be able to talk back
+to whoever gave us this job right now we
+don't really have any other uh way uh to
+describe that as with its with its very
+specific type right so we're talking
+back to our calculation view controller
+right so that is going to be the type
+for
+now okay
+so um just like with the current tip
+we're not going to have that uh when the
+view controller gets created but we're
+going to have access to that and prepare
+for to segue so it'll have to be an
+optional so now we have a way
+to communicate with our with our
+delegate uh so we have a a property to
+our calculation view controller so we
+should we should be able to talk back to
+it what might we want to tell our uh our
+delegate so we the user is going to type
+we're going to
+have
+our apply button what would we want to
+tell our our delegate when we hit
+apply what's in this field okay very
+good so let's do that first let's hook
+up this apply button and then and then
+let's see how we can make that happen so
+let's uh bring our change tip view
+controller uh up here we have our apply
+button how do we have the apply button
+talk to its view
+controller and
+and what are we
+creating uh so an outlet is a
+property what was the thing we're
+creating um
+for an action so buttons uh talk talk
+through actions okay so apply button
+pressed and then I just make sure that
+we have our buttons there not necessary
+but so let's connect all right so user
+type something in they're going to hit
+apply so what do we do now you had it
+pretty much already so we want to tell
+our delegate
+what delegate so maybe we can say tip
+changed to and then we provide a value
+right so maybe we would be able to uh
+say something like this tip changed
+to and
+then uh I'm just going to put a a double
+here right now uh we'll do that in a
+second uh so maybe the user typed 0.1
+obviously they didn't yet uh but so we
+want to be able to pass that value back
+okay so this is what we want to be able
+to tell our
+delegate so let's provide uh let's
+create that that function on our tip
+view controller here
+so tip changed
+to new
+tip okay and then what do we want to do
+here so what should the tip uh the
+calculation VI controller do once the
+tip has changed from its from its so it
+delegated this task it was now notified
+that a new value is there what should we
+do
+here okay let's do that very
+good
+right all right uh let's see if we have
+any issues here still uh so why do we
+have a compile time error here does
+anyone can anyone fix this for us
+here oh
+uh uh yeah so we have to check that our
+delegate exists and then I think um so
+this is the wrong compiler message right
+now let's see
+uh yeah must be unwrapped okay so uh
+I'll show you guys a new way to unwrap
+um so we could do
+this and then we just saw we don't
+actually have to have this thing so we
+could do this
+okay uh but then so now we have one two
+three four lines all right we have we
+have it's it's a little bit verbose uh
+to do this
+um since we don't really we don't need
+to do anything when delegate is is nil
+here so I'm I'm going to say if delegate
+is nil something terrible happened uh I
+don't necessarily need to know about it
+um we'll catch it somewhere else um so
+there's a way that I can
+access where we can go from left to
+right
+and uh keep going if we we haven't hit
+nil yet so wouldn't it be nice if we can
+say I want to talk to the delegate if
+there's a delegate there then I want to
+continue and I want to I want to
+communicate this message wouldn't that
+be nice if we could do that okay uh so
+we can do that with uh just adding the
+question mark here so what this now
+means is if delegate is nil stop here we
+don't
+continue uh if it is if it is not nil so
+yeah if if is nil stop here if it is not
+nil we're going to continue with
+whatever we're doing does that make
+sense and uh if there was another
+property here that also could be nil on
+on this thing then we could we could
+keep going but uh so yeah if you're only
+interested in accessing a property on
+something that isn't optional uh this is
+a very good way to uh conditionally
+access methods uh on this thing the
+downside is this will just F silently
+fail
+if delegate is n so if we forgot to uh
+assign delegate we won't know about it
+so we won't be able to log it anywhere
+we won't be able to get a notification
+in our console uh it just we won't be
+able to tell the user anything I mean
+the user won't be able to do anything
+with his information because they can't
+set the delegate uh but yeah so right
+now uh this will just silently fail if
+delegate is nil um so uh so this is a
+nice way to do it um so let's see let's
+see what happens
+here okay so let's change the tip so
+it'll change it to 0.1 right now um so
+let's hit apply we can go back now and
+let's see what happens if we calculate
+the tip for 100 so it's
+still two uh 20% why is it still 20% so
+this is where this silently failed now
+uh so let's let's
+Let's uh prove that it was
+um let's prove that we were nil here
+so all right let's let's see what
+happens okay so I go
+to change tip calculator uh change tip
+view controller let's hit apply no
+delegate assigned uh where do we how do
+we solve this how do we assign a
+delegate let's do itent prepare very
+good so we have to communicate two
+things and what should we assign
+delegate to so maybe before we answer
+this does this make sense to everyone in
+prepare for segue we have access to the
+next screen that we're going going to
+the next screen needs to be able to talk
+back to us so uh this is where we can
+set the delegate uh any any questions
+there
+uhuh so uh this is just where we where
+we're communicating all of the things to
+our new screen
+uh this is where we're communicating
+back does that make sense yeah um we'll
+go through it in a second um but yeah so
+what do we set the delegate to who so
+for for the change tip view controller
+who is the
+delegate calcul the calculation view
+controller very good so how do we set it
+to this instance of the calculation view
+controller we can use self so we inside
+calculation view controller
+we're assigning ourselves as the
+delegate and off we go um so so yeah in
+prepare for segue we set ourselves as
+the delegate then whenever we are
+pressing the button we can talk back to
+our delegate which calls this method
+does that make sense okay any questions
+here
+so let's see what
+happens okay so let's uh go here apply
+back and let's type in 100 calculate so
+we updated very good okay so let's maybe
+clean this up real quick uh I guess we
+don't need this anymore right like this
+makes sense to you guys we've set it up
+once now uh I think this one makes it
+slightly easier to see what's going on
+here since we have a little bit less uh
+going on uh so uh the other thing we
+need to do though is uh we have to read
+from our text field right so we have to
+actually read the value that the user
+typed in uh what is what's the type of
+what the user is going to be typing
+in string very good and then so we have
+to do something with it what do we have
+to do to the string
+very good okay so uh we did a lot of
+that here uh so we first we have to make
+sure that this text field exists uh and
+um so yeah this is this was one of the
+oh I guess the text could also be M yeah
+okay all right so let's let's do that
+let's do all of the unwrapping so let's
+make let's guard against the case where
+text
+field uh will is uh is
+nil okay and then I'm just going to add
+little print statements here uh so that
+you guys can follow the logic so uh uh
+no text
+field
+assigned this should be
+impossible at Le so we we're talking we
+so we're working with um interface
+Builder interface Builder will have put
+something there uh by the time that
+we're able to click something so this
+exists by the time we're able to click a
+button because view view will load will
+have been called because we're
+interacting with a view does that make
+sense so unless uh unless we're severing
+this connection uh manually this will be
+uh this will be not nil so yeah the only
+way that I could cause that to be nil is
+by going uh to
+the uh to the uh
+um uh so here we have text field if I
+were to go here and sever this
+connection that's the only way that this
+would be n so this should never be
+called this should never be n okay so we
+we now have our text
+field oh tip text field there we go tip
+text field has a text property which is
+of
+type optional string so let's UNR wrap
+that uh tip
+string and then I add a little print
+statement here
+oh
+um text field text was
+nil uh this also should be
+impossible I have not I'm unable to have
+text B nil um I have not been able to
+create any situation where this uh is is
+possible all right so we now have a
+string new
+tip
+double text
+string and then so the user will type
+this as a
+percent
+uh so we we'll have to uh divide this by
+100 because we're saving it as a a value
+that is not not um that is not that
+doesn't have the 100 multiplied by it
+okay so how could this how could this
+fail very good tip
+entered was not a number okay um so
+these two you can easily I uh I would
+probably combine uh so um I guess so
+you've seen this we could this is the
+nice thing about the God statement we
+can do all of these statements one after
+the other one after the other uh and
+then um our happy path through the
+function is not indented so we don't
+have to be three indentations deep so
+one really uh easy way to combine these
+would be uh so to
+do so a tip text field could be nil so
+we can use that uh that thing again uh
+and
+then I mentioned that both of these were
+I'm not able to uh really create by
+myself so we could even combine these
+two into one guard statement just to
+make it a little bit more
+Compact and this is probably the most
+compact that you could write this uh in
+a safe way and then yeah so you still
+have the ability to let the user know
+something happen so we don't have an
+outlet here uh for a label but you could
+add you could add that here uh all right
+so let's see if that
+works so let's type in 100
+let's calculate so that's 20 let's
+change it to
+50% apply go back calculate again and we
+get $50 for
+50% okay any any questions
+here ah okay yes we can do that uh so
+the the tradeoff is we won't
+have uh so there's a yeah very good
+question um
+let's I'll show you I'll show a way to
+potentially lock it but so it's also not
+foolproof so let's let's go to our uh
+tip text
+field
+and let's so in in viewed load and we
+can set up our view components so we can
+go tip text
+field um and then the attribute we're
+looking for is keyboard
+type and we can set that
+to um number
+pad so we do
+that uh so I am still able to enter
+whatever with my keyboard because it the
+this is the equivalent uh thing of the
+iPad the iPhone being connected to a
+Bluetooth keyboard very likely that
+someone will be um I think I showed you
+this last time you can uh
+toggle the the the software keyboard so
+the software keyboard now oh

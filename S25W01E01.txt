@@ -1,0 +1,959 @@
+all right so uh maybe a little bit about
+uh what most of these lectures are going
+to look like uh so we'll have a lecture
+portion and then we'll have a demo ption
+portion where um I will sit here and
+with you guys Implement whatever we did
+or um yeah use whatever we learned
+during the lecture to build something
+sometimes we'll end up with a fully
+functioning app um sometimes with like a
+little demo project uh but yeah so every
+I um every lecture or every every class
+will have um some live coding um
+happening so all right
+let's uh familiarize ourselves with with
+uh What uh what tools we'll be using for
+this
+semester so xcode is the IDE that we'll
+be using um uh if you download this
+right now from the app store it'll be 16
+something I uh forgot to update uh
+excode on this computer uh after this
+lecture everything will be in whatever
+the version is uh today uh so uh if
+there are newer versions I won't update
+to them uh to just to have a consistent
+um version for you guys to be able to
+work with uh you're always able to open
+older projects you won't be able to open
+uh projects that were created with a
+newer version so if you're working with
+the with a team and you've updated your
+xcode to uh uh uh partway through this
+uh semester to a newer version uh there
+might be some conflicts uh with your
+team so I would encourage you guys to
+stick with whatever version is out right
+now uh so download that one where do you
+get xcode uh it's available in the App
+Store uh and uh so there's the homework
+the first homework for this week is uh
+install X xcode so that's uh that's
+there's some information there that I'll
+post to Canvas um and uh yeah so
+uh
+xcode
+um what what is xcode so xcode is uh
+your entire window in uh into uh what
+we'll be doing you'll be doing the
+UI uh Creation in there you'll be you'll
+be doing write the the code writing uh
+if you're submitting this to the App
+Store um if once you're done and you are
+really proud of your project and it's
+really polished uh it goes it all of
+that happens through xcode um so you you
+submit to App Store connect uh with with
+xcode uh so yeah all of that is done uh
+through xcode um let's start with a with
+a new project
+here and
+um uh actually let's go to file new
+project should ask us I guess that's on
+the next uh slide here
+um uh so we have we have uh a couple of
+options here uh how to create a project
+um so if you choose uh
+iOS um you will be able to pick between
+Swift UI and uh UI kit if you pick
+multiplatform uh your project will be in
+Swift UI so for the first um couple of
+lectures I'll pick iOS here so you won't
+be able to build your project as a Mac
+app um which if you didn't know if
+you're writing your apps in Swift UI
+would and why would you know because I
+haven't told you yet so if you're
+writing your apps and Swift UI uh you
+automatically with very little extra
+work uh can um ship your app as a Mac
+app as a as an iPad app as a watch app
+as a TV OS app as a vision app uh so so
+yeah the the Swift UI UI framework
+allows you to write your code once and
+then with very little modification um
+ship it to all of those different
+platforms um so yeah that's if you're
+using Swift UI we're going to pick iOS
+right now not multiplatform and uh we'll
+actually create our first app uh with
+the older UI framework um so we'll see
+that in a second um you also have
+options here to pick some other fancy
+things we also we always starting oh
+didn't mean to double click we always uh
+starting with app so even if you're
+doing a multiplatform app just gives you
+a a mostly empty project which is what
+we'll start with um we'll give it a name
+uh so um I'll just call this one um the
+first couple of projects that we're
+creating here are mostly to orient you
+to xcode and get you familiar with the
+uh the very basic differences between UI
+kit and Swift UI I want you guys to from
+the beginning have a sense that both of
+these are around and from the beginning
+kind of understand that there is a
+difference and maybe also what what this
+difference is so first we'll do
+something in
+uiit and uh so I gave it a name here I'm
+I'm calling it uiit demo um you might
+not have a team here um so uh I forget
+what this looks like when uh um when you
+freshly install this uh but uh yeah that
+I don't think it's necessary to select
+that um an organization identifier so
+this is a unique string um that if you
+were to choose to upload your app to the
+App Store this will be used to uniquely
+identify you or your organization uh to
+and so this has to be this has to be
+unique um I chose my um sfsu email
+address here which I know is unique
+because only I hopefully get the email
+that gets sent to me um uh companies use
+their website uh uh their their domain
+name as a as an identifier and um yeah
+you choose something that's unique to
+you uh but not something that's uh
+confidential so don't use your social um
+uh ENT uh social security number um
+organization
+identifier um interface so here we have
+because we picked iPhone in the previous
+screen we have a choice here we can use
+storyboard or Swift UI uh so storyboard
+is we we'll go over what it means to be
+a storyboard but storyboard is the the
+uh template that we pick here uh to
+write our app using uiit so storyboard
+will give us a UI Kit app if we pick
+storyboard we get an option for for
+language so Swift and Objective C uh so
+all of this you won't get if you're
+picking um if you're picking Swift UI um
+you you won't get this uh this option
+here what is objective c so Objective C
+is a language that Apple created over 30
+years ago um for writing Mac software
+and then it was used to write the first
+uh couple years worth of uh iPhone
+software um it is similar
+uh it's more similar to U C++ uh in the
+sense that you uh lot you're in charge
+of all of the memory management yourself
+um the the similarity it has with swift
+is uh with
+how with some of the syntax um so we'll
+see this later but um Swift and
+Objective C are supposed to kind of read
+like a sentence um and Objective C kind
+of started this uh in my opinion they
+did it pretty poorly because uh there's
+all these square brackets that make it
+very unreadable um but yeah so Objective
+C is an older language that allows you
+to manage the memory uh yourself a lot
+more you have a lot more control over
+memory
+management um why is it an option here
+so if you are working for a company that
+is older than uh that was founded maybe
+in 2004 14 and older uh there's a good
+chance that they will have some object
+to C in their in their code base still
+uh totally fine Swift and Objective C
+work well together um but I I hope you
+don't have to deal with this because uh
+if you're if you're unfamiliar with
+Objective C it is horrible to read so um
+yeah so I hope you don't encounter this
+um so yeah language Swift we'll be
+picking Swift and then
+storage uh if you're picking the iPhone
+you only get non or core data core data
+is um something on top of no SQL so that
+it's a database um that you have access
+to but neatly packaged for us to uh
+access through Swift if
+you um pick Swift UI as your language
+and we'll see that uh you'll get an an
+additional option here so we'll pick
+none for nonone for now because it gives
+us if you pick uh qu data it'll give us
+a lot of boiler plate uh for database
+stuff that we don't need yet uh we will
+cover cor data so um one of the ways
+that we will be storing things to the
+phone is through this uh database
+interface uh so you if you're interested
+in creating a database C app later um qu
+data is is something that we're covering
+all right and then uh you could check
+this one include tests uh I'm not going
+to check it right now just to keep the
+project really simple hopefully we have
+a little bit of time later to cover what
+tests are um but yeah so who who has
+heard of unit testing before um and who
+has heard of UI testing uh so both of
+those uh Things become possible if you
+tick this little box here uh but yeah
+not not for
+now um all right now we get to pick
+where we want to store this um and I'll
+just store it to the uh desktop
+here and now we have a fresh
+um project and actually let me don't
+think we oh we probably need this later
+so let me give ourselves as much uh
+screen real estate as as needed here and
+let me just make sure I'm on track with
+what I want to do here yeah okay so the
+first thing we are going to build is uh
+very um a very simple
+uh app that does the following so we're
+going to
+have a screen there's going to be a
+button that uh for now just says maybe
+press maybe later it'll say something
+else and then uh there is going to be uh
+a label here that
+says
+uh hello
+world so that's uh the app we're going
+to build if you press this button the uh
+label will uh hide
+itself and then if you press it again
+the label will appear again we're going
+to build this app twice we're going to
+build it with um UI kit which is what
+we're doing right now and then we're
+going to build it again using Swift UI
+and we're going to compare some of the
+differences there um so that's what
+we're going to
+do so how do we do this um this this is
+what a an excode project looks like when
+you first open it uh there are let me
+maybe just briefly give you an overview
+of what what to expect here so this is
+the project Navigator um we can hide it
+by pressing this button up here uh so
+this whole panel goes away uh here we
+have access to all of the files that are
+part of our project right now and then
+we have options here um for other things
+um the ones I just want to point out
+here real quick is uh so if you do a
+search with command f uh or just you
+want to do a search um here you can you
+can click on this uh it'll it'll get you
+here um if you have a
+crash uh this this thing will open by
+itself so if you if you're doing
+something and you're you're losing your
+project uh you might be in one of these
+uh different um different options here
+uh and then so the other ones that we
+might see or that I just want to point
+out right now is uh so here you have all
+of your break points that you can set uh
+who knows what a break point
+is okay so we'll talk a little bit about
+debugging at a later point but you can
+set these markers in your code when
+you're running the app uh and if you hit
+one of these markers the app will stop
+and then we can probe uh what's going on
+so uh here you can see all of those
+break points you can delete them here if
+you want to and yeah so there's some
+some other stuff here that we might or
+might not see later but uh so yeah the
+one that you if you get lost somewhere
+this goes away uh that you probably
+probably want is the project
+Navigator uh we have two more panels
+that can be hidden or shown so this one
+is kind of like a
+detail detail editor detail viewer um so
+for um it's context dependent so right
+now we have the project file selected so
+there's not a lot for us to see here
+right now um we'll come back to this one
+we'll hide it for now and then uh down
+at the bottom and that is really
+annoying that it keeps disappearing uh
+we have down here we can bring up the
+console and the debugger and I I'm so
+sorry for the for that so yeah we bring
+we hide and uh show the the console and
+the debugger the console is on the right
+here the debugger the debugging
+environment is on the left uh and you
+can hide uh each one respectively uh on
+the left uh on the bottom right here so
+these two little things hide the left
+one hides the debugging environment and
+the right thing hides the console what's
+the console um you can for you can um
+you can see if you have a crash uh you
+can see in the console what uh what was
+going on um and uh when we are uh when
+we're debugging we can actually probe
+our code there so we can we can ask hey
+what's in this variable um which is
+super neat um we can also print to the
+console so if you're debugging um a very
+convenient thing to be tempted to do is
+write a print statement to print
+something to the console um but yeah so
+the the more we know about debugging the
+less hopefully you'll be needing those
+print statements um but yeah we can
+easily print something uh to this
+console by writing
+print uh all right so yeah these are the
+three areas um project Navigator and
+other tabs uh the detail editor here and
+then our console and uh debugger all
+right so what do we what else do we have
+here
+um uh we have our project folder here so
+and maybe um this is maybe actually a
+good point to uh go there in finder so
+I'm going to right click or um yeah I'm
+going to click to show and finder and uh
+when you're when you're um zipping up
+your project uh or not zipping up sorry
+when you're uh when you're submitting
+your your project to um to git or GitHub
+uh I need all of these files I need um I
+need the project file and I need um I
+need uh the the folder with all of your
+source source code in there uh and
+you're if you're collaborating your your
+friends um and um co- students uh need
+need those as well so a good thing to to
+test this if if you're throwing
+something up to GitHub um clone it right
+after and see if you can build it uh
+that's a really good test to make sure
+that you're submitting the right thing
+um all right um so yeah that's our
+project folder and then this is where we
+have all of the S source code in there
+the one that we're going to focus on
+right now is the one that says view
+controller um and if we have a little
+bit more time I'll go over the other
+files uh a little bit later uh today
+otherwise we we'll do it tomorrow uh so
+this is the file that we're going to be
+using to write all of our code in uh for
+the for this example and the other one
+that we're going to look at is the main
+file so the main file uh in uiit uh is a
+main. storyboard file uh so that's where
+the storyboard comes from um when we
+when we picked uh when we picked in the
+beginning um storyboards are not
+required I am so sorry storyboards are
+not required for uh using u i K so you
+could rip out storyboard um all together
+and uh um do all of your code in a
+different way all of your UI in a
+different way and um so if we have time
+I can I'll show you guys how to how to
+do that as well but um but yeah it's
+nice at the beginning because everything
+is very visual storyboards allow us to
+visually build our UI kit um
+UI um if you're going to be working at a
+company that still uses uiit um I'd say
+there's a 50 50 split if they absolutely
+hate storyboards or if they um use it
+but with some uh some restrictions on it
+uh you could create your entire apps
+view hierarchy in a storyboard file uh
+all of your screen uh information could
+be in this one storyboard file the
+problem you'll run into then is uh so
+let's inspect the storyboard file here
+real quick uh it
+is an XML file and uh
+so if your entire UI is one XML file
+what is one thing that you might run
+into if you're working on a larger
+team so imagine all of the UI is in one
+one
+file I'm seeing the right uh um uh hand
+gesture there so uh yeah any any any
+other people what happens if
+yeah very good good yeah so if two
+people touch the storyboard file uh even
+if it's not the same screen sometimes um
+there's some weirdness uh if two people
+touch the same screen um you might
+encounter something called a merge
+conflict and uh with XML and a lot of
+these ID uh autogenerated IDs it might
+be impossible to to merge those uh two
+two pieces of code together uh which
+means you might have to redo all of your
+UI work um to to get it uh to be merged
+so that is one of the reason reasons why
+some companies absolutely will not allow
+you to use uh storyboards um and then
+I've worked at a company before where
+there were just rules around using
+storyboards so uh that company had a
+rule that only one screen could be on
+each storyboard file um for this class
+uh I would say don't worry about it uh
+so even if you're working as a team just
+communicate uh I'm going to touch the
+screen right now so um please don't do
+any UI work I think that's the best way
+to avoid this or again we we'll also see
+ways uh that we don't have to use
+storyboards uh but yeah so storyboards a
+visual tool for us to build UI uh that
+generates this awful hideous XML uh all
+of this is a thing of the past for Swift
+UI so uh in Swift UI the UI that you
+write uh generates code even if you drop
+drag and drop UI components visually it
+will generate code uh which is easily
+merged if two people touch the same file
+which is very nice all right any any
+questions so far
+um sounds good uh all right so let's
+let's build something uh let's put
+something on here um so first of all
+let's just throw those two UI components
+onto this story board that we're going
+to be using um to
+get to the UI component picker you have
+this plus up here so we go there and now
+we can uh either search or browse the
+things that we want um I'm already
+seeing the two things that I want to be
+able to uh use here so one of them is a
+label so let's just drag so I I selected
+that and I'm dragging now the The View
+that picks allows me to pick all of
+those view components went away and I
+can now uh let go and drop it uh onto
+the storyboard file here so a couple of
+things to note um so I can't just drop
+drop it anywhere it has to be dropped um
+in this uh particular spot here uh this
+is a view controller's view so a view
+controller we'll talk about what a view
+controller is later um I can trop I can
+drop view components onto a view and
+this view is managed by a view
+controller and then there's a couple of
+other things that are may be interesting
+so uh there are these lines that appear
+to help me line up things
+uh they're not actually that useful they
+might seem really useful right now
+because you could place something like
+centered that's great um but uh so if
+you're just dragging and dropping view
+components and uh laying them out uh the
+way that we're going to do it at first
+here um they will not look good on other
+sized devices and we'll we'll
+demonstrate that in a second so um
+ignore those um we'll we'll be aligning
+our view components um a little bit more
+precisely a little bit later but so
+maybe just to demonstrate that I'm going
+to plop it not centered um so we have a
+label I guess I wanted to have the
+button be uh above it so I just drag it
+a bit lower and let's drag a button so
+same thing dragging and I'm going to
+plop that button there okay so label
+should say hello hello world we could do
+that in code but um uh we're just going
+to hide that for now uh so I'm just
+going to double tap the
+and I'm going to say hello
+world and uh so we don't have to do
+anything else there for for this little
+experiment which is nice and then yeah
+so the button uh maybe I'll just say uh
+it it'll say toggle uh toggle so we'll
+toggle
+the uh the label visible and we'll
+toggle it hidden okay so we will come
+back in a second for how to lay these
+out um for now I want to focus on um
+just the functionality here um so but
+just maybe just to demonstrate that uh
+if I pick a different I pick a different
+uh um if this was a different phone
+displaying it that we would get into
+trouble with what we have right now down
+here we can pick the device that is used
+in representing whatever we're modeling
+here um and so these are these these are
+just a window into your the UI that
+you're creating here so if I'm picking a
+different size it doesn't mean that I
+get a blank screen it just displays
+whatever I've created in that uh size
+format um so it'll blatantly show in a
+second here that we have a problem so if
+I pick iPhone
+SE uh our button is off screen so we
+have a problem here we'll address it a
+little bit later um so I think this is
+this is a good one to work with for now
+all right so view components in
+storyboard UI kit we can just drag them
+onto the storyboard um maybe a couple of
+more terms here so the view that we or
+this UI experience that we have here
+this is called interface Builder uh so
+interface Builder is used uh to create
+our storyboard um layouts I believe
+interace Builder used to be a different
+app at some point um and then it just
+got absorbed by xcode um so yeah
+interface Builder will see references to
+interface Builder uh at a later Point
+here um and uh yeah so it is its own
+little IDE uh um Development Area where
+we have controls for um showing views uh
+getting to the exact one getting to um
+places where we can specify how fast
+things should be apart from each other
+so so um interface Builder allows us to
+do all of that all right so how do we
+get our view to do stuff um so the thing
+we want to do is we want to be able to
+press this button and we want to be able
+to hide and show this uh hello world
+thing so the way we do that is our the
+by default we have this one view here
+that we have access to and we already
+have a view controller that was
+generated for us to write code at so I
+think you guys are um maybe a little bit
+distracting in the back there so just
+make sure that you're if you're talking
+maybe go outside um so yeah we have one
+view controller here for us we have the
+view for the view controller in here uh
+we can create more we'll see that later
+but uh so the the code that controls the
+components and the view that we have
+here is in this view controller file um
+so uh how do we connect two we actually
+have to bring up we have to have them
+both be visible at the same time so if I
+um if I option click um uh the next
+component that I want it shows up in the
+assistant editor so I was on I was on
+The View controller file if I hold down
+option and then um click on the main
+file here it brings up uh interface
+Builder with my view that I've just
+created uh on the right here um now it
+might be nice to have a little bit more
+screen real estate this is the view
+hierarchy inspector um might be the
+wrong actual term here but so yeah we
+see the the views and the hierarchy of
+views we can hide that to give ourselves
+a little bit more space it's the
+leftmost button here so let's hide that
+and now that we have interface Builder
+and our U view controller open in the
+same open at the same time we can
+connect them and how do we connect them
+I'm going to uh I'm going to want
+something to happen when I press this
+button so the button has to be somehow
+connected to this view controller how do
+I do that I'm going to hold down
+control and uh so I'm still holding down
+control and I'm going to start dragging
+this button and I'm going to drag it
+into the code and uh when I get to a
+point where uh xcode knows uh I can it
+can do something with it uh this this
+line appears uh and then I I just let go
+um my mouse and I'm I'm able to uh do
+something with um with my choice here um
+so we're now connecting the view
+component that we threw onto that view
+to the view controller that will be
+managing uh this view uh we have two
+options here uh actually three but two
+that we'll be using outlet and action um
+the button we want something to happen
+when we click it so this should be an
+action we'll see Outlets later um but
+yeah yeah so the the
+action uh means that uh we can write
+code that should happen when we when
+we're pressing this button so we can
+give it a name now so we we we'll just
+call it uh button
+pressed and we have a couple of other
+options here uh the the type that is uh
+that is referenced here is the type that
+was pressed so we only have one option
+here which is yourui button um you don't
+have to select this uh we can leave it
+as any I think I don't want to overwhelm
+you here so I'm just going to say leave
+this alone for now and then the event is
+when this action should appear uh should
+should occur so touch up inside means
+you're touching a the button uh you
+touch the inside of the button and when
+you let go so touch up so you've touched
+it you're moving your finger up that's
+when this uh action should U should
+happen so if you're thinking about
+pressing a button that's kind of when
+you're expecting something to happen um
+for a button like this for a keyboard
+button this is uh I think it's a little
+bit different so you're expecting
+something to occur on press down but for
+buttons on like a phone UI you're
+expecting something to happen when when
+you let go uh but you can choose from
+other things here so um again for
+buttons it'll be really awkward uh an
+awkward exp experience likely um if you
+choose something else and then we hit
+connect so again what we what did we do
+we control dragged the view dropped it
+in the view controller this this thing
+appeared this uh pop up we chose action
+very important for the button and then
+gave it a name everything else we left
+and then now I'm going to hit
+connect and we got uh something that uh
+we can we can work with here so uh what
+it created for us is uh a
+function named button pressed
+there's some parameter that is uh sent
+with this we we'll talk about that later
+uh but yeah so it created a function
+that's get that gets called when we
+press the button so whatever we do in
+here now uh will execute when we are
+touching the button and uh lifting up
+our finger um maybe just to demonstrate
+the console let's just print something
+to the console here real
+quick uh and we'll
+say press maybe and also it give us a
+little bit more space here by uh
+deleting that so what should happen now
+we have the button we control dragged it
+we created a function that should
+execute when we press the button and
+it's going to print to to the console
+great how do we test this
+um so up here we have the Run button so
+there's also a little menu uh yeah there
+should be when how did so if you press
+down on it you have other options we
+want run and uh so I already pressed it
+so um something is happening here uh
+what pressing run will do it will boot
+up the simulator which simulator will it
+boot up our selection of simulator up
+here so uh you can also click here and
+it'll give you an option of of um things
+to build to I have my iPad oh I have my
+iPad show up here uh it shows up as
+unavailable device uh why is it
+unavailable I haven't updated my uh
+iPad's operating system in a while so
+you can only build to a version that is
+supported by your phone if your phone is
+newer than xcode xcode won't be able to
+build it um but yeah so these are all
+the simulators that I have installed you
+can install more simulators um so when
+you're installing a code you can pick uh
+of what things you want to be able to
+build to so you can pick from Apple TV
+and Vision Pro so all of those will show
+up here uh not in U IIT uh so for your I
+could only phones will show up uh and
+iPads uh but yeah so iPhone 15 Pro was
+selected here so when I hit
+run this simulator was uh was launched I
+could have also done command r and
+that's the one that that's probably the
+thing that I'll be doing just naturally
+um so you won't probably see me press
+this button much I'll just hit command
+and then R for
+run and again this will build our app
+and uh run it on our simulator and I
+don't know if you saw it the simulator
+when it was booting up it was showing
+the the Apple symbol so what we have
+here is almost a complete operating
+system
+uh running uh in in our simulator here
+so we can even navigate the operating
+system if you hold done command shift
+and press
+HH uh what is it just one second is it
+just H oh No Just H gives you the uh
+gives you the the menu sorry the the
+home screen and then HH gives you the
+the Picker and uh so yeah we have these
+are some some older projects we have an
+iPhone operating system system here uh
+it's a little bit neutered so you you'll
+see there's no um there's no phone
+button here so you won't be able to make
+calls uh text messages I think you can
+simulate I forget exactly how that works
+but uh and then yeah um you won't be
+able to receive push notifications so
+those are kind of the caveats for uh for
+maps you'll be able to simulate a
+location that you're on uh so it won't
+pick your your computer's location but
+you can simulate the location but apart
+from that we have a full fully uh
+functioning operating system again with
+a couple of things left out we have a
+settings
+menu um that is taking a while just to
+to boot here uh and um yeah so um pretty
+neat this I think was our our thing here
+that we're running and so yeah running
+in in the simulator will boot up the
+simulator uh if it's already running um
+it'll just redeploy app to it and then
+we get what we built here in our in our
+um simulator so let's try out our toggle
+button let's hit toggle and down here in
+the console we saw pressed and that
+happens now uh whenever we press that
+button um we'll go over the architecture
+here in a in a bit uh next week um so
+what what is the view controller uh how
+does it fit into the larger picture of
+building apps um for the iPhone we'll
+talk about architecture uh uh then but
+yeah so for
+now uh control dragging creates this
+function that gets uh executed when we
+press it and here we have um the little
+annotation uh that indicates that we so
+IB means interface Builder and then
+action means uh an act so action we
+picked action um so that's how this
+function here is annotated and then
+there a couple of weird things with uh
+so the this is this was a good idea to
+be able to visually build your app and
+then connect it to the to the um to your
+code there are some fragile aspects
+about this so if I were to just delete
+this function I want to restart if I
+want to redo do this maybe uh I now
+created a terrible sin uh so the the
+inter face Builder file still thinks
+that it is building to this button
+pressed um function here we'll see in a
+second where it thinks that so if I try
+to run this now
+again um it'll build nicely and uh it
+Should Crash uh so let's
+see it Should Crash I don't know why
+it's not
+um uh but yeah what I'm trying to say is
+uh you might do something that you don't
+expect uh and it'll it'll break this uh
+uh this finicky connection um if you
+want to delete uh and uh so I'm not
+quite sure why it's not crashing or not
+it it should be crashing but yeah so if
+you want to delete the connection that
+you created here there's a couple of
+ways to do it uh if you have selected
+the toggle button and this is where I'm
+showing you that uh there's still a
+reference to it so it should
+theoretically crash here not sure what
+didn't uh so I brought up the right uh
+detail picker you have again a couple of
+options here the very
+rightmost are all of the connections
+that uh this component has and as you
+can see it still has a connection
+touchup inside it's connected to the
+view controller class and if you have
+connections that don't correspond to oh
+uh yeah I know how to uh crash it sorry
+if I hit toggle it'll crash so yeah so
+it built fine but it crashed uh when I
+hit the button um so so this is what a
+crash looks like we have a red line and
+in our console we have what's what's
+called a stack Trace so these are all
+the functions that uh it's the hierarchy
+of functions that have been called that
+uh led to to this crash for uiit crashes
+these are not very helpful uh most of
+the time uh if you if you don't know how
+to uh debug these so unrecognized
+selector so when something's
+unrecognized you probably deleted
+something that was not supposed to be
+deleted um so my advice to you is uh
+especially early on if you're using
+interface Builder uh use git and uh
+before you delete something or even so
+touch something between uiit and uh
+storyboard and your your source code
+file uh commit your work um and uh then
+do your thing because then you have a a
+really easy way to undo it uh this um no
+no that we uh did here uh I will show
+you how to undo but again that you might
+get yourself into a situation where you
+don't know how to undo the the no no uh
+so yeah select the button and now if I
+uh there's a little X next to the uh
+view controller button pressed if you
+hit that uh all trace of the connection
+between your interface Builder file and
+your your source code file are gone so
+it's all severed now so if I rebuild
+this
+now and if I hit
+the button again so it just won't do
+anything uh it's not going to crash but
+yeah let's redo this let's uh control
+drag give our button back
+select please come back select action
+we'll call it okay this is not
+great button pressed connect all right
+and now let's actually do the thing that
+we wanted to do the button press should
+hide our label so how do we hide
+something on a view uh from our code we
+have to have some sort of a connection
+to it so let's repeat what we've just
+done control
+drag uh our label let's drag it up there
+and now we have have one few option so a
+label doesn't have an action associated
+with it a label can only be an outlet
+and uh Outlet is a weird term that they
+chose uh I guess the the way to think of
+this is you can like so out of an outlet
+comes you have electricity come out I
+guess and uh uh um it can go into
+something and so here you can have uh a
+connection to
+um the thing on The View and um yeah I I
+don't know it's a it's a weird term uh
+so yeah
+Outlet um so let's uh give it a name
+let's call it maybe just our our label
+here uh connect and then again it
+created this um
+IB um prefixed thing an IB Outlet ignore
+the week we'll come back to that at the
+very end of our semester
+and then we have a variable so here we
+had a function
+variable we gave it the name label and
+then that the type is UI label
+exclamation point um ignore the
+exclamation point we will go into that
+likely next week um uh this has to do
+with uh how do we know something exists
+or not um so it's it's a it is part of
+the the type here that is uh is declared
+uh but yeah we'll we'll ignore the
+exclamation point for now so we have a
+variable a
+label um that's associate with this
+variable and now we can affect this
+label so when the button is pressed we
+can tell the label hey you should hide
+so label do is hidden uh we want to set
+that to the opposite uh so we can just
+uh do label do is
+hidden. toggle
+oh actually we can do so sorry we can we
+could either do this uh or we can do the
+opposite of what that was there before
+so if it was hidden it is now not hidden
+uh if it was not hidden it is now hidden
+let's do the same thing again we do
+command r or hit uh buildin
+run and now our app should be able to
+hide and show
+this label uh so yeah what did we do
+when our button is pressed we gave
+instructions to the label we we said hey
+label uh please hide yourself so we told
+the label to please hide itself uh any
+any questions
+here all right so we now have the
+pleasure of rebuilding the same app uh
+in Swift UI so it'll look different and
+then we'll spend the rest of the lecture
+talking about
+uh so there's there's some very
+fundamental differences um we we'll
+start talking about what those are and
+uh and try to reason why why these
+differences are there so the the way
+that Swift VII works is a a more Modern
+Way of creating your eyes uh this this
+is a pretty familiar way uh likely to if
+so if you've created a UI before uh you
+have buttons when you press them a
+function executes you can
+run some code there you can tell a label
+to hide itself so that should be pretty
+familiar right so who has seen this
+before uh I mean not this exactly but
+like um who has seen something like this
+yeah great cool all right so let's redo
+the app let's do uh and actually I want
+to give you another break so let's do so
+we had a 10-minute break let's do
+another five minute break um and then
+we'll redo it in Swift UI so let's come
+back at uh 8 uh 53
+one second yeah

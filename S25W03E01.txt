@@ -1,0 +1,1330 @@
+ah move
+please all right well welcome to week
+three I think um most of you who needed
+to yet probably heard it um add codes
+I'm pretty sure I'm allowed to give out
+now or able to give out so we'll do that
+during the
+break and uh so what are we going to do
+today um so we are going to build a
+calculator
+um for tips I guess so we'll call
+it tip
+calculator and everything we're going to
+do today kind of supports uh that work
+so um we're going to talk about
+architecture and uh so what what does
+that mean in the context of creating um
+computer program we're going to talk
+about how we can build um a structure
+that makes it so that we can work
+together on a project easily we can
+learn from other people's mistake uh
+mistakes and um yeah just have a Common
+Language so we'll talk a little bit
+about that um the two types of
+architectures that we're going to talk
+about uh
+MVC which stands for model view control
+we'll go over that um when we get there
+and then the other one is
+mvvm which stands for model view view
+model and again we'll write that down
+properly once we once we get there um
+and they're very related so mvvm can
+kind of sit on top of
+MVC um and uh uh we'll talk about why
+they both exist why one of them has to
+exist uh what what benefits that they
+have maybe a couple of other
+architectures that are out there so
+we'll talk about all of that and uh then
+the other thing that we'll run into uh
+is something called
+optionals so we've already seen some
+weird symbols at the end of um at the
+end of
+some variable types uh so we've seen
+exclamation points maybe we've seen some
+question marks if you've done if you've
+looked at some some code online line
+maybe you've seen um a double question
+mark uh so so we'll make sense of all of
+those uh lots of questions um maybe
+still and then hopefully at the end of
+the class we have an exclamation point
+we know what it means no just terrible
+joke sorry um all right so yeah that's
+the uh that's the what we're going to do
+today
+um we um I think so today normally I
+like to start with a with a review but
+pretty much everything that we're going
+to do today in some sense is also review
+of the last uh two weeks we're going to
+apply all of the things that we've uh
+kind of covered and I'll just point out
+um when we see something that might be
+um still new to you that we've covered
+uh we'll just talk about it as we get
+there uh any
+questions cool all right so tip
+calculator let's maybe first uh decide
+what it's supposed to look like uh so
+we'll we'll have a way for so what do we
+need when we're calculating a tip so
+we'll have to have a way to for the user
+to enter an amount uh so we're going to
+see a new
+component um a new view component that
+we can uh use uh which is called the U
+the text
+field and uh we
+can we can have the user type something
+in and uh we we can get that information
+uh and and do something with it uh so
+we'll have um a text
+field and we're going to we're also
+going to have um a way
+to uh so we won't start with this we'll
+we'll kind of add this later we're going
+to have a way to pick a percentage uh of
+a tip that we that we want to give so
+maybe uh at the beginning it says maybe
+20% um and it'll it'll use that to
+calculate our tip and then a little bit
+later we're going to see another view
+component um which lets us pick the tip
+um so if we tap on that we'll get some
+options uh for what to display um it's a
+it's a little like downward
+I think they're called carrot carrots um
+so we'll we'll see all of the options
+that we um can pick from um in this app
+we won't have an option for the user to
+manually type in a tip we just have some
+pre- selected uh options that we allow
+the user to pick and then we'll have a
+button U maybe it'll say
+calculate and then um here we'll have uh
+some maybe
+tip um we'll have a a label or text that
+allows us to then a display so maybe if
+someone types in
+$100 here we'll
+have uh $20 displayed so that's what
+we're going to build uh throughout this
+class and uh we're going to run into a
+couple of interesting problems and let
+me get out my notes here just so that um
+I am
+uh not forgetting anything so that looks
+good um so yeah any any
+questions uh if we have time so we'll do
+this in Swift UI first and then if we
+have time today uh we'll we'll start
+rebuilding some of this uh with uh UI
+kit also just so that you guys have the
+ability to use both of those uh UI
+Frameworks um but we might not be able
+to finish that all the way um so I will
+finish that um at home and then upload a
+finished project there if if we don't
+get there um but we'll make sure that
+we'll talk about um the majority of the
+the things that we're that we're going
+to see here and then uh very likely we
+won't
+cover uh the this this picker here in
+our UI kit um version quite yet so that
+we'll see a little bit later
+but yeah so let's um let's start a
+project and we're going to create uh so
+we call it um
+tip
+ccat there we go um we're not going to
+add any tests for now just to keep it a
+little bit cleaner we're not going to
+store anything on our on our phone this
+time around uh so we'll we'll just turn
+all of those
+off all
+right so
+let's kind of just put those view
+components on there that we uh that we
+saw uh let's make sure that our um
+canvas is working why is it not oh have
+the Mac selected let's pick the iPhone
+Pro uh so yeah just a just review um of
+things that we've covered already up
+here you can just you can
+pick um you can pick which which device
+we should simulate or build uh and then
+um we should be able to see why are the
+previews not sure
+enough um oh looks like something is
+preparing I did update to xcode
+18 or 16 16 so maybe it has something to
+do with that uh looks like there's a
+little um indicator there that
+something's still happening we don't
+need the preview yet uh or at all uh
+really but um so yeah let's let's build
+that UI first that we wanted to uh to
+have here so let let's take a look so we
+want something to enter uh a text amount
+or sorry um we want the user to be able
+to input something um from from their
+from their key keyword uh keyboard so
+where do we find
+that so up here we have our view picker
+and then uh so we can start filtering so
+if I T type in text uh so we have text
+field here uh done here so we've already
+seen text uh so that's just a way to
+display a string um to the user we have
+text editor uh so this this is a
+full-fledged um text editor but that can
+display different fonts U multi multiple
+lines um of text uh you can have
+colors um so uh so yeah this is a um a
+pretty involved UI component um so very
+powerful um but so yeah we're going to
+use the text field which just has one
+line of text that we can enter uh so
+we'll we'll drag that one uh on here so
+we have a text
+field oh now we have the uh the we have
+our preview rendering that's great okay
+so um we are going to uh yeah so we have
+the text field the user can input
+something since we're going to have
+multiple view components here uh so we
+we're going to create a v stack so we're
+going to a v stack is a container where
+we can vertically stack our views so
+let's add a vstack
+um so we can put some other components
+in there and uh so there's some some
+placeholder text here that we'll will uh
+take a look at uh in a bit here um uh
+let's just put a couple more more things
+on here for now let's just
+display yeah say it again
+sorry to this screen
+yeah sorry can you say it a little bit
+louder
+so um very good question if I hold down
+command um the cursor turns into a
+little hand icon and we can we can
+inspect so both of these so we we'll go
+there we we'll know the answer in a
+second here um so both of these are
+views so in uh as is our our content
+view so knowing that both of these are
+views what do you guys think uh uh what
+what are they structs are they classes
+in Swift UI
+any say again so any other thoughts so
+Swift UI all of the views were structed
+so all of them all of the views are
+immutable uh and we have to go through
+some hoops uh to make them um accept
+something that can change a value and so
+let's take a look so I'm holding down
+command I'm going to click on text field
+and uh so I can this is the definition
+of the of the class here's the
+initializer we often um so I guess since
+we clicked on the class being
+initialized it gives us both of these so
+let's go to the the definition and once
+that
+loads uh so we have a struct so text
+field is a struct um as it um as it
+should be since it's a view in in Swift
+and then vstack let's take a
+look is also struct so um all of these
+VI components that we're going to throw
+on here are structs um maybe I'm let me
+see if I'm anticipating your where your
+question was going a text field has to
+have something where we're entering
+something so we have to be able to
+change something in there is that where
+your question potentially was going yeah
+yes so yeah we'll we'll take we'll take
+a look at how that works in a second in
+a second very good um so um maybe just
+for now um so we're going to throw maybe
+the output label here so the we'll we'll
+have the text field we'll have the
+output label
+and uh we're just going to couple the
+two so that when we're typing something
+in we also want uh this to update so we
+have just a we have a way to to see
+what's going on here so let's put a text
+then below again so I'm just typing it
+in if you're if you're not remembering
+the view components uh names again you
+can just go up on this little plus icon
+start uh scrolling or in this case I
+know what it's called text so let's drag
+that underneath
+and uh so let's see how can we so we
+have our
+placeholder that says placeholder there
+we have placeholder there so that those
+seem to be related also we're in live
+mode I'm going to click the button in
+the center which allows me to
+highlight components on here that will
+highlight the code as well so if I click
+here um the text field gets highlighted
+um if I click here the text is is
+highlighted so there's maybe already a
+couple of unexpected things that we are
+seeing here so one to me this doesn't
+look like a text field so I wouldn't as
+a user wouldn't know that I'm I can
+place that I can put some text here
+especially if it's not highlighted like
+this so how can we first of all maybe
+make this um look a little bit more like
+a text field so we can add what's called
+um uh view wrapper so let's add a view
+wrapper um and we'll talk about what
+that means
+um so we can add a view wrapper so we
+have the creation of this text field
+we're adding um a view wrapper uh by by
+just adding the period and then um this
+case we want the text field style and uh
+so this might be some interesting or
+novel syntax that I'm about to do here
+we'll explore this probably next week so
+I'm going to hit the period and then I
+get a couple of options here so um I'm
+going to say just rounded border which
+uh is what text fields in uh on the
+iPhone uh often look like uh so we'll
+we'll pass through this in a second here
+we're going to add another view wrapper
+here so we're going to add the and we
+we've seen this one already uh so let's
+add
+padding just to show what's going on
+here with with this text field um this
+padding view wrapper I could have also
+added by uh selecting the text field and
+then uh going to the
+rightmost option here on my on my uh
+property editor and uh padding down here
+uh so I could have selected this we can
+select padding um
+to be just on on one of these sides or
+um above below so I could have also used
+this edit there here all right so looks
+like a text field or a little bit more
+like a text field uh so let's I think
+one other thing that we might expect is
+for these components to kind of start at
+the top we've seen this before I think I
+believe we've we've seen this before
+with our very first little app that we
+created so we inside a view stack um so
+the view stack will just take up so if I
+have this highlighted right now so all
+of the vertically placed views will just
+take up as much space as um they need to
+and then the AL the view the view stack
+itself will take up about the the space
+that it's its component that it contains
+will take up a good way to visualize
+this we can add another view wrapper and
+we'll get to what these view wrappers
+are and what they do we can say
+background
+and I am having a really hard
+time um typing today for some reason
+let's try that again there we go um and
+I can say uh so it doesn't have to be a
+color um you can have other backgrounds
+but um uh one of the the very quick ways
+that we can add a background is by just
+using a color so maybe I'll say uh
+orange and then so we'll see that uh the
+V so this is a view
+a view modifier a view wrapper for the
+vstack uh so we have we modified some of
+this this uh
+vstack and we said it should be orange
+and we could even say we want the
+opacity so how much it um lets what's
+behind it bleed through we can set an
+opacity and it's maybe say um 30% and
+just so that it's not quite as brightly
+Orange in our face um so yeah so we have
+the vstack we have the text field in it
+we have the text in it and by default
+the text field will sorry the vstack
+will just take up as as much space as um
+as is is in it uh and by default
+everything will just be thrown into the
+center of the screen which is maybe all
+also unexpected I think um maybe you're
+used to things just if if not find
+showing up at the
+top so how do we how do we move these
+components to the top here how do we how
+do we make that happen um so we've seen
+this before in our very first app in our
+view vstack we can just say hey make put
+something in here that takes up a lot of
+space um and uh we saw the spacer
+component or the the spacer View and the
+spacer will just take up as as much as
+much space
+um as uh as it can um so to push
+everything above and we saw this last uh
+week as well well I think maybe even in
+the first week if we put a spacer on
+top we end up with the thing that we had
+before the two spacers will uh split the
+difference here so they they will take
+up equally equal amount of space if we
+put another one in
+between um it'll be a three day a
+three-way division here between those
+components and so so one thing we're
+seeing here is nowh really am I saying
+oh this component should be five pixels
+from the left or five pixels from the
+center why do you guys think uh that is
+happening what is the benefit of not
+doing that
+yeah very good yeah different devices
+can have have uh different like wids
+widths uh all of that so everything that
+we've done so far and also device
+orientations so everything we've done so
+far um we we don't really care what
+device we're building to and like a good
+way to show that is we can just uh so we
+I have the iPad here as well it might
+take a little bit of time for this to
+show up so I now picked the iPad now the
+preview will update and show an
+iPad um and um it'll make sense of this
+and it'll mostly for so most things that
+you do will have a pretty pretty good
+default uh way of looking without you
+having to
+uh say on an iPad or on a on a device
+with this size uh do this so this is
+still taking a while since it's the
+first time you're launching
+it um and uh yeah so it's a really
+really neat way to write something once
+and it kind of works a across the board
+and then especially if you're going from
+iPhone to iPad uh maybe you want to make
+a couple of modifications but um most of
+you can just focus on one first and then
+kind of tweak uh as you go so this is
+taking a long time uh not sure if it's
+worth waiting we we'll see but yeah so
+if this were to update we have a big
+iPad kind of looks the same way here we
+go so it looks kind of
+looks what I would expect this uh to
+look when it's scaled up and then let's
+remove those additional spaces there
+just so it goes to the top and uh
+hopefully this time it should go much
+faster here we go so it just popped up
+to the top so I would I would say um if
+I had an iPad app that did this it's
+it's workable um but I think those like
+really long uh text fields are a little
+awkward so maybe um we would maybe have
+a slightly different uh View for the for
+the iPad but we don't have to like it a
+kind of just works on all devices which
+is nice so let's go back to the I think
+we had the iPhone 16 Pro here let's go
+back to
+that um all right so so yeah V Stacks
+we've seen them I think in the very
+first lecture uh we can throw views
+inside uh they will kind of just
+organize themselves vertically and then
+if we need to push things somewh where
+we can we can say hey add the spacer um
+the spacers by default take up as as
+much space as as you're saying but you
+can also say hey you should take up a
+specific amount of maybe height so we
+could say frame and then uh
+height uh and then let's say
+200 and then so uh you see again the
+vstack
+only takes up as much space as the
+components inside so we have a a text
+field the the text and a spacer that is
+200
+tall um all right any any questions
+here cool okay so let's get rid of some
+of these placeholder things here so text
+field by default we have two things that
+we uh have to pass in one is the what
+they're calling placeholder which is
+what shows up when no text is in it so
+uh no text in it when it's not
+highlighted so once you select it and
+you have a cursor there for typing uh
+this text will disappear so what what
+might be a good placeholder text for our
+tip um for our tip calculator let's
+let's see so what should it say what
+should what what would you expect an
+empty text field to say um where you're
+supposed to type
+in uh the value of your
+meal oh the value of the yeah so here we
+would put in the yeah so maybe let's go
+through these components so I would put
+the value of the meal here we can select
+the tip when we're hitting calculate it
+shows us the the tip amount so what
+would be a good thing for this to
+say uh in input me amount yeah so uh
+let's say um I
+think I'm mostly seeing not like prompts
+necessarily in these it's often just
+like a description of the thing so let's
+say let's maybe uh maybe say amount um
+okay or or total
+amount or meal amount yeah maybe meal
+amount great all right and then so here
+the placeholder um so as we know uh
+We've we've seen this oh have we seen
+this maybe we haven't seen it yet so
+I'll just double um double click if I
+double click it lets me edit it and
+let's say total and then it'll it'll
+eventually say the the total here all
+right so now let's let's let's take a
+look at the second parameter that we're
+passing into this text field initializer
+so uh the oh and maybe uh let's maybe
+build this real quick uh I'm going to do
+command r or you can just T click up
+here we're going to build this and then
+we have it in our simulator and then we
+can maybe just really briefly
+demonstrate that um how the how that
+placeholder there uh behaves so
+simulator coming up
+okay that's not turning it's concerning
+oh has to reboot that's not great okay
+well we'll have that think about what it
+did there uh we'll come back to it um
+okay
+so uh I find the uh I find the the
+parameter outter so the parameter name
+here um a little bit misleading so we
+have the text field and it's it's saying
+text I guess um so um and we'll talk
+about why um maybe you find it properly
+named um or maybe not um we'll see here
+so let's maybe see what the so again I'm
+going to command click this and it'll
+get so in this time I don't want to go
+to the definition of text field I want
+to go to the initializer that I just um
+um also command clicked because I
+clicked on the type with the initializer
+with the properties that are being
+passed in so let's click
+there let's see what we have
+here so um we have our text field we
+have an
+initializer uh so there's already an
+interesting thing here localized string
+key uh we can just uh there ignore that
+and we can just pretend it says um
+string we passed on a string so uh let's
+let's say it says string and then for
+text it says binding and string uh so
+little so I'm going to be inputting
+numbers uh so as we're putting in the
+the text amount so that's good to know
+that those numbers will be um
+represented as strings but then the
+other thing that's maybe a little bit
+confusing is this binding and uh those
+those um pointy brackets there uh we
+have seen this syntax before where we
+have a type and then we have those those
+brackets does anyone remember where
+we've seen this before yeah generics so
+who remembers what generics were so we
+or what context did we see them maybe
+hold on one second maybe anyone
+else okay so where have you seen them
+basically
+yes yeah very good
+yeah very good yeah and then so yeah
+what it so we had it in the context of a
+box I think so we said uh if we had if
+we said this is an integer box what did
+that mean for that box so we if we um so
+here uh this says it's a a string
+binding let's just replace it with a
+with a let's say maybe this just says
+box so string box what can we put inside
+this box strings okay if it says um
+integer box what can we put in it
+integers so so yeah we can't once we
+declare what kind of a box we have we
+can't put anything else in it um so we
+can't declare a string box and then put
+uh doubles in it um and it it makes it
+so we don't have to create a box for
+integers a box for doubles a box for for
+for Strings uh we can create a a generic
+box uh where once we say what kind of a
+box it is it is not it is defined what
+kind of a box it is but uh we have the
+option of yeah deciding what it is as
+we're creating
+it um so another generic type is uh in
+in Swift is uh the array for example so
+we can have an array of integers an
+array of strings and we we can say say
+that uh we can see that in a little bit
+here as well um but yeah so very good
+generics so we are supposed to put in
+something that is a a binding a a string
+binding so we we'll see what that uh
+means here in a second so how would we
+do that um and this is now loaded so and
+we so we can see if I if I select the
+also the first
+time uh you're interacting sometimes
+with the simulator uh oh okay so I was
+wrong so once we have the cursor it's
+you can still see it but then once you
+start
+typing uh this is being very slow today
+let's
+see uh so yeah once you start typing
+that uh placeholder goes away
+uh so one other thing I can use if I'm
+interacting with the simulator I can use
+my keyboard once I do that the the
+software keyword goes keyboard goes away
+the the keyboard that I have on the
+computer is actually it simulates a
+Bluetooth keyboard so I could have to
+any of the I uh iPhone um or iPad I
+could connect a Bluetooth keyboard and
+it would uh behave the same way if I
+wanted back
+um so I always forget forget exactly
+where it is I go to help and I type in
+toggle and then uh so toggle software
+keyboard so that's how what it what
+brings it back so I guess input output
+uh keyboard toggle software keyboard and
+then this this thing comes back up you
+can you can type and then once you use
+your your actual keyboard that thing
+goes away uh just something to keep in
+mind uh so it's much easier to type in
+with your keyboard but then one thing
+that you're not getting is probably most
+users experien who are going to use the
+software keyboard uh and there's one
+other little thing that we'll run into
+um uh if we are that that we see that uh
+is a consequence of this so we we we see
+that in a bit all right say it
+again uh oh with this thing does it push
+so this is a oneline text field so here
+we uh will just start
+scrolling oh okay yes yeah so yeah we we
+we want to design for uh yeah we want to
+be able to see what's going on there uh
+behind the keyboard or maybe it should
+be pushed up so we we'll see all of that
+in a in a little bit not today because
+we won't have too many components but uh
+very good
+question all right so
+um we have a text field um it says
+something string should be passed in so
+let's see if we if we pass in a string
+so one simplest thing I can pass in is
+maybe just an empty string so let's see
+what the compiler says uh so we can't
+convert a string to a binding string
+okay uh then next thing I could try is
+um so so the
+declarative ways of writing the UI in in
+Swift UI might suggest I could create a
+string out here maybe we'll call it uh
+amount or me meal
+amount let's have it be a
+string let's have it be an empty string
+at first um because we have to in Swift
+every type has to be uh fully has to
+have something um uh in it any any
+variable any property has to have
+something in it when we're instantiating
+our struct here so maybe can we we put
+in this this meal amount here let's see
+what
+happens and uh again so we have string
+to uh cannot be cast uh to to a binding
+okay so what what other tools do do we
+have so if we have a button and we
+wanted to so so we're trying to modify
+so whatever is in here this text text
+Fields text when we're typing that
+should update right so whatever the
+text uh we're typing in we somehow want
+to get
+um what did we use so we can't so first
+of all we we can't put a string in here
+it sounds like but then also if the text
+field were to update the meal amount uh
+what issue would be would we be running
+into so let's maybe let's comment this
+text field out again let's do kind of
+the the same thing we've done in our
+first lecture let's put a button oh
+apparently today's P's and B's are
+switched my head uh to a button um let's
+say uh enter or set meal amount and then
+this will just set the
+amount to 100 okay so uh this we would
+we've seen something very similar here
+we wanted to update uh a variable with a
+button and then now we get that familiar
+cannot assign property self cannot
+assigned property self is immutable so
+what is going on here
+yes yes very good and if we what if we
+were to change something which uh
+through like
+some uh so what would we get if we were
+to change something about the struct so
+if we are uh if you have a seven and
+you're updating it to to be an eight so
+those are also value Ty
+uh what would you get you would get a
+new instance right you wouldn't you
+wouldn't have the initial one so if we
+were to if we were to change something
+about it we would get a different one so
+yeah we can't we can't update me amount
+um right
+now uh we would be creating a new
+instring in uh instance if we were
+changing this one yes exactly so uh we
+would be rebuilding the struct the same
+way but with this property changed very
+good we had talked about that yeah so in
+Swift UI what were we doing uh to our
+types if we wanted to carve out a little
+area there where we can change the views
+State like in this case we have the meal
+amount which could be described as the
+view state so what could we do state add
+State very good so um we have something
+that describes the view state so let's
+add the state um property wrapper here
+so the the uh all of the errors uh
+compile time errors went away so let's
+make it so that our our text field here
+now updates as well so let's say we want
+our total to be displayed um there's a
+lot of ways that we so let's say we want
+to say total and then just the meal
+amount so we we don't we're not
+calculating anything yet
+um lots of ways we can build strings uh
+so one way I could say uh plus and then
+the other string that I want to display
+so we could do this um or uh often you
+have a string on the inside of of
+another string so maybe uh uh maybe we
+have something behind it um uh let's
+just add a someone is so excited about
+it we'll add some exclamation points so
+what if we want
+the the meal amount to be uh right there
+so then we can't use well not as easily
+use this uh we can um kind of inject our
+string into another string how do we do
+that with a backs slash and then
+brackets and then we can add a variable
+so we're
+escaping uh there's a way to escape this
+the string um well we yeah we're able to
+put another variable in here so you'll
+see this a lot so you want to build a
+string out of two strings one of them is
+contained in the other one um so the the
+back slash and then um the the brackets
+uh does that um any questions
+here so yeah it's a I think in Java you
+have to use like a string Builder object
+if I'm not mistaken is that right or
+maybe that's all Java um anyways very
+very nice very very easy way to build
+strings uh let's see if our preview oh I
+guess we want to interact with it we
+could also do that in the preview but
+let's just build it again and see it in
+the simulator so yeah our state our meal
+amount is now um a state we can uh set
+the amount and it injects the 100 in
+there uh so so we can now change the
+meal amount um from inside our view
+which is great um okay so little little
+bonus question here um our
+orange background looks different who
+can figure out what happened um totally
+fine if you can't what
+happens very good yeah so text Fields
+take up the entire width of the screen
+as you said buttons do not buttons just
+take up as much space as as they want uh
+as you want um so yeah that's why that
+background is is like that um so we're
+going to see other ways to do this but
+like one thing we one way we could uh we
+could do this is by adding uh an H
+stack uh so v stack vertical stack H
+stack horizontal stack and then we can
+add
+spaces and I guess now we can also you
+use our canvas here so uh this would
+push the button all the way to the left
+if we want it in the
+center we can we can do that there's
+some other ways to do this uh but um
+with the tools that we have right now
+that's uh how we would uh have the
+background of the of our initial vstack
+take up the the entire amount again okay
+so we have button so we have now a way
+that we can manipulate this the string
+variable so how do we manipulate so how
+do we extract whatever the the text
+field does here um and save it somewhere
+so I guess I'm hinting already at
+wanting to save it uh in a variable
+that's that's in our content user so
+let's see how we do that uh let's get
+rid of the button let's bring our text
+field
+back and uh so we we did try just
+putting the meal amount in when it was a
+string um so we can't put um a a state
+meal amount in there apparently the
+reason for that is wherever we're using
+this amount this meal amount we are
+treating it just like a string so for
+any for any view component that we that
+needs a string it just looks like a
+string it doesn't look like whatever is
+done to the to the string so that we can
+we can change it inside our struct
+so um we're just seeing the type that
+we've declared here um okay so other
+things we could do uh this is a property
+wrapper um we'll see those later so
+State um at State as a property wrapper
+which means it wraps our string with uh
+something else in this case with this
+magical box that updates uh our our view
+if we update what's inside so so there's
+a way to get to the actual box that we
+that so the thing that wraps our meal
+amount here or our string so let's try
+that let's put that in there we can get
+to the actual box or the the actual
+thing that we're that we're wrapping or
+the the thing that is wrapping it by
+doing
+underscore uh so this gets us and this
+is I think the only place where
+underscore doesn't mean something is is
+omitted so um so underscore gets us uh
+and now we we have a we have we have a
+type that would be this oh State
+string so that's what we have now so
+that's what we have access to we have
+access to this this magical box with
+with the the
+underscore um so um let's see if the
+compiler likes that nope um let's see
+what the error is there so we can't uh
+convert State string to binding string
+but we're we're getting closer so those
+kind of look more similar um so wanting
+to pass these magical boxes into other
+views is a very common thing um so
+there's a a very convenient way uh to to
+write that so instead of underscore we
+can say dollar
+sign and now the state gets turned into
+a binding so we wanted a binding um we
+had a we had a state we have we wanted a
+binding so the dollar score
+the dollar sign turns any State Property
+into the equivalent binding uh so here
+we have a a string
+binding what is a binding we'll get
+we'll get there uh so we'll I think
+continue a little bit here um so uh but
+yeah
+so uh how do we how do we make this work
+for now we have a state uh an uh State
+annotated property that is a string and
+we say at and then the name of this uh
+this variable and that's what the the
+text field needs so for that reason I'm
+finding the
+text label here a little bit misleading
+to me I would think maybe I'm passing in
+an actual string but uh but yeah so we
+want to pass
+in um a string binding again we'll talk
+we'll go over what that means in a
+second say it again
+we still need to add State yes so uh
+let's build this let's see what happens
+so yeah this uh yeah we'll go over
+I revisit your SEC your question in a
+second all right let's see what this
+does so I was able to build all of the
+compile time error errors went away
+let's type in a meal amount here so uh
+let's start typing and as I type our
+text field
+Updates this might so to to many of
+you uh this should seem strange um maybe
+in the back of your mind you still uh
+you're you're thinking okay it's kind of
+similar to the button updating this this
+uh thing and then uh just mag magically
+updates but like it is a very
+disconcerting thing uh to to many um so
+you're you're just you're just updating
+a a string and then something updates on
+the screen so this is uh this is
+inherently something that will happen in
+a declarative uh programming environment
+you're just saying a variable has
+updated and then the UI just does
+without you telling it to what you're
+probably more used to would be you're
+updating a property and then you're
+saying uh view or label refresh or
+something like that so that's probably
+something that you're a little bit more
+used to I'm I'm assuming um and that's
+the uh that's the um uh that's the other
+uh so yeah we in a declarative
+programming environment uh and then
+imperative programming is when you're
+when you're describing how something
+should happen here we're just describing
+what this the end result should be we're
+saying meal amount should say whatever I
+just typed in and then the view renders
+with whatever I said um without me
+having to tell it that it that it should
+uh that it should do that um so who
+who's still to whom is this still
+pretty like magical and like weird um or
+or maybe so who thinks it's not weird
+who thinks it's not weird Okay so uh
+either all of you guys are um very shy
+or doing something else or um yeah
+anyways so I I find it still uh strange
+um but yeah it's a it's a really cool
+way to write
+uis all right so we have a way to update
+our um uh our text here uh so let's
+maybe a little bit yeah let's go back to
+what what we're actually doing here so
+um we have and let's maybe go back to
+our our iPad
+here so this is
+our uh so I guess here we called it
+content View
+um let's let's maybe Ren rename this
+let's rename this uh tip calculator view
+um so how how would I rename this I can
+rightclick refactor rename and it
+updates it everywhere where it needs to
+so in three places um the the name of
+the struct in our preview which
+generates our um our canvas and then uh
+also here so in our uh calculator app
+there's another place to update it so if
+we oh and then the name of the of the
+file as well so if I rightclick refactor
+rename I can take care of all of that in
+one place and let's maybe call it uh
+tip
+calculator
+view okay
+so our tip calculator
+view has in it um a vstack and then
+inside the vstack
+is the text
+field so let's just say we're making it
+slightly simpler the tip calculator view
+has a text field inside it
+um and so the tip the tip calculator
+view has the um meal amount
+property
+so what is happening here is um we we
+don't have a property on our text field
+that says this is the thing that we
+we're changing so that that just doesn't
+exist um so somehow we have to um so if
+we if we're looking uh inside so let's
+say we're looking inside the text
+field um so if this is the text
+field so we actually can't look inside
+because it's
+um not accessible to us how how it works
+but this the text field would have this
+uh so they're calling a text property
+here and when the user
+types this this uh text um is updated
+with a string
+um and then
+somehow yeah oh sorry yeah thank you so
+we have this text field we can't look
+inside but like what's happening inside
+is somehow there's there's a text
+property that is somehow a string and as
+we're typing uh it gets updated so
+that's that's likely what's inside so
+how do we
+communicate uh this
+updated property how do we communicate
+that outside of the
+outside of the view so the way that it's
+solved here is um so we have our we have
+our state property and we said it's this
+magical box that updates our view and
+lets us know when something has changed
+so what The Binding allows us to do is
+to take one of those special boxes pass
+them uh into another view and then that
+view can write to that
+um special box um without having to
+initialize it so we we're just getting
+the special we're getting the special
+box we don't have to give it a um a
+default value uh and as we're writing to
+it uh not only does our our view update
+so the text field itself updates but it
+also lets the the the containing view
+know that something has changed so in
+this case we're taking the special
+special little magical box you're
+handing it to text field text field
+makes a change updates the the text
+field itself gets updated uh the the
+user's typing shows up but also the
+outside view is notified so since it's
+the special box we know that um
+something has changed so what a binding
+is is a way
+to take the state that was defined
+somewhere outside of our scope so a par
+some parent uh decided oh some some
+parent owns the state and then a a
+binding is a way to pass that state into
+a child view and then if the child view
+updates it the the parent view will know
+about it does that make sense okay um so
+yeah that's
+yeah um yeah I mean
+like uh yeah so what's going on the
+scenes we will talk about that uh almost
+so at the very end of the course so um
+some some events are passed yes so that
+there's something gets notified we will
+see exactly how it works uh so what
+behind here is uh so so I yeah events I
+guess events what are what language are
+you uh talking
+uh also fine if you don't have anything
+but yeah so what what's going on in the
+background here is and maybe I'll give
+it a
+a little um preview here so we have um
+we have a way to uh have the special
+variable that we can subscribe to so uh
+we can say hey if you update I want to
+know about it um and um so it's it's a
+little bit more powerful than uh we see
+this also so you could pass in maybe
+some of you guys have heard of passing
+in functions as arguments uh uh to then
+execute when something happens don't
+worry if you if that doesn't ring a bell
+but so there only one place can get
+updated uh here as many subscribers as
+as want as they want can subscribe to
+these changes of this magical box um
+which is uh pretty neat we'll cover it
+um later in the course and uh we'll know
+exactly what what happens behind the
+scenes yeah
+so if I'm understanding you correctly so
+let let me just ex uh restate what I'm
+saying and then see if if that answers
+your question so um tip calculator view
+has internal state so it has something
+that
+describes uh it it what it looks like
+what it behaves like what it uh contains
+so it has some some state so tip
+calculator owns the state so we have tip
+calculator owns the meal amount
+and uh then we can pass this magical box
+in the form of a binding uh into another
+view so this this text field doesn't own
+the state the outside view owns owns the
+state so a binding is a way to uh to for
+state that is owned by a parent view
+to be modified by a child view so if
+you're thinking of so it's a very um so
+if if we're looking at like uh so yeah
+it'll always be the parent uh who owns
+something if if you're if you're dealing
+with a binding does that answer the
+question
+yes so yeah um you would be passing the
+Bing down you would be passing it into
+all of those children so that like the
+so here you would pass it into another
+one uh so uh I mean we could have a
+maybe tip
+calculator
+um I don't know some like cont like a
+like a bigger app that hosts our tip
+calculator that maybe it's now supposed
+to own the the tip amount so we would be
+passing that in as a binding to a
+calculator view which be would be
+passing it into this so yes you can have
+that but then you're linking all of
+these things together like very tightly
+you're tightly coupling them so there
+are some other clever ways that we can
+uh work with that um you'll see them um
+and maybe the hint that I'm giving here
+or like the so there's a view
+environment uh so we can play we can
+place things into the environment and
+then all of these like um so child views
+can take things out of the environment
+so it's a it's again a very clever way
+to do it we don't have to um tightly
+couple all of our components we can just
+say here's a thing for anyone who's
+interested and then way down some
+someone can say oh I want that so we
+don't have to pass it uh down it's a
+very I find it very clever uh but yeah
+very good question so we don't want to
+uh pass something down 20
+20 um things because it gets like very
+rigid we won't be able to um modify
+things very
+easily Okay so also seeing we're kind of
+coming up on a break here so um let's
+stop at a at a good amount here in a
+second um so yeah um yeah maybe I'll
+just recap and then uh we'll do a break
+so States again are these magical boxes
+inside our views that allow us to even
+modify the views uh that if if whatever
+is modified there we uh get our view to
+get uh to be redrawn
+um if we want to have another if we want
+a child view to modify our state we can
+pass it as a
+binding uh into that child view because
+that happens so many times so often uh
+we do we have this like dollar sign uh
+syntax where any state we do dollar sign
+we get to The Binding representation of
+that state and then so maybe just real
+quick here um you you're maybe wondering
+why can't why can't I just pass the
+state in so let's I'm just going to
+create a struct here real quick um I
+can't really can't type today um let's
+say uh we we'll just create
+a um what do we call this uh maybe um
+just another box we'll just create
+another box here which will be a view
+and then so this thing is not supposed
+to um uh so this this thing will take a
+binding and not a
+state um and maybe it would be text
+again and
+then uh or maybe we'll call it
+display here we go
+okay hopefully everything goes away so
+if we have a display view where we are
+maybe styling our text neatly or
+whatever um we don't
+know Tech what we're going to we know
+we're going to uh display some sort of a
+string we don't know what that string
+should be so it really doesn't make any
+sense to really to have a default value
+here so so we we're not creating we're
+just manipulating the thing that we're
+that we're going to dis oh we're not
+manipulating this thing we're displaying
+we're just displaying it so um this is
+what um so same thing with the text
+field here uh we we don't own the meal
+amount um we we shouldn't have a default
+value for it uh all we care about is
+that it'll get passed to us as a binding
+and then uh we can display it we can
+manipulate it but we don't own the state
+the state lives somewhere else so uh
+that is why we're not passing in state
+we don't want to be able to have a
+default value here we just want to take
+the magical box that we're given we're
+not we don't want to create our own
+magical box so um and then yeah I mean
+uh we can just have this
+display
+uh also uh show our text here
+which uh now we should have two things
+rendering
+our um our amount let me just build that
+real
+quick and then yeah so the cool thing is
+since we're passing in this magical box
+um our display also knows when it
+updated um
+our our text yeah um we and we could we
+could change we could change the text
+inside
+because we we're given the magical box
+in the form of a binding we could also
+now change it and it would change on the
+outside
+yeah here's we don't have a we don't
+have a so this The Binding means we
+don't own this so um State we own this
+we have to give it a default property um
+and uh so here we don't own it uh it's
+this magical thing that will update
+um does that make
+sense I I see um why not just pass in
+the state thing uh fair question um yeah
+I guess that would be possible but since
+we have a a binding so uh it allows us
+to do something else uh neat so um we
+could we don't even so we could have a
+computed binding so we could take uh so
+and I can show you what that looks like
+again we'll see this later
+um so here what we have and it's doing
+some really weird stuff uh formatting
+so
+um uh yeah so we're not passing in a
+state but we could
+return
+um whatever how however we're creating
+this thing so we can kind of create our
+our binding from multiple places we
+don't have to maybe we don't have it in
+a in a neat State way here maybe we're
+getting it from somewhere else so we can
+have um we can we can kind of assemble
+what we're passing in there um so there
+there's there's a little bit more
+flexibility here yeah so you're asking
+uh why can't we just pass in the state
+thing so there's
+one uh yeah it's ownership and then so I
+guess so also behind actually behind the
+scenes um so uh so this is a struct and
+I'm not 100% sure how that actually work
+works so you can also have property work
+rappers that are classes so maybe the
+actual answer is um the state wrapper is
+a struct even though I said we're
+carving out this magical space that is a
+value type behind the scenes there's
+still something that has a value type
+associated with it even though this is a
+struct um so I think the short answer is
+state is a struct we wouldn't be able to
+modify it that way but I'm yeah I'm not
+100% sure I guess is is is also
+uh so one one reason is we have more we
+have more options by passing in a
+computed binding so that's I guess one
+answer um
+and um are there other benefits yeah
+it's just it's not just not done I don't
+think youit uh oh there's there's
+something else yes uh so maybe this is
+it a very good question um so so State
+um
+only so if you have uh
+nested
+views and one of them so like at a
+couple of levels deep in uh the the
+outside won't know about it anymore so I
+think another answer might be the
+binding guarantees that every every
+place that uses it uh knows that uh it
+gets updated so there's like some some
+very edge cases is where um if you're
+nested very
+deep state will not trigger an
+update uh but yeah I I guess I I don't
+know 100% um what the the answer is but
+there's a couple of thoughts that I have
+but yeah not 100% sure very good
+question um all right um so yeah but to
+recap we have the magical
+boxes we want to pass them into vew
+components we have to jump through the
+hoop of passing in them as bindings and
+then
+um we can update state that is owned by
+parent um inside a child any questions
+there and I will uh think about a little
+bit more what you said uh maybe
+tonight uh all right then let's do a
+break uh let's come back at 8:20 um and
+then I'm going to try to do uh add codes
+now so it

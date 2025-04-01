@@ -1,0 +1,525 @@
+i don't need I just close that just to
+make the CPU gods happy Um all right so
+what are we going to do next Um uh so
+yeah we have seen this already and I
+guess before we go any questions about
+enums any questions about these uh crazy
+optionals that we've created
+Um no questions we we'll continue with
+the next thing Uh good So
+let's um create a
+new
+playground Interesting That one also
+didn't allow me to create a project Um
+um great Uh so functions as
+arguments All right What does this even
+mean that we can pass functions as
+argument Uh so let's do
+um
+foundation and change this
+to
+Mac
+Great Uh all right So um let's create
+some functions and play around with them
+So first we'll we'll do kind of the the
+most the simplest functions that we can
+think of Um let's create an add function
+And then we have value
+double value b double Okay And this one
+returns a double
+Um so
+um so yeah this function um should do
+some adding So value
+A plus value
+B and we'll return that one Okay nothing
+too special here Um let's create another
+one Let's create
+subtract and we'll we'll subtract these
+two Um all right So what if we had some
+need for being able to uh swap between
+adding and subtracting Um so we could
+call what whatever we're doing So either
+adding or subtracting we could call that
+maybe an operation So we want to perform
+an addition operation or a subtraction
+operation And uh so
+let's
+assign the
+add
+function to
+um do I need to remove that one too
+Let's
+see Yeah let's assign the add function
+to operation Um so what does that even
+mean So let's let's run this see if we
+see something in the gutter
+here Um but yeah before we see
+something in your gut maybe think about
+what does this mean I'm I'm assigning
+the function to operation here So I'm
+not assigning the result of a function
+but I'm assigning the add function to
+the operation uh variable here So what
+we have here is uh the type We're
+getting the type Um let me actually uh
+So I think it said that Swift 6 was
+turned on Let me turn Swift 6 off
+because the sendable stuff is uh
+interesting but not necessary for this
+one Let me see if that uh quickly works
+Um that made it go away Um Swift 6 is
+all about um uh not not making threading
+mistakes Uh so there's there was a lot
+of work done there in Swift 6 It is
+actually such a big change that uh I
+would suspect that a lot of companies
+won't fully full fully turn on Swift 6
+for five to six even maybe longer uh
+years So there's a lot of changes that
+happened in Swift 6 Really cool stuff
+but if you have a large code base some
+of it is uh very difficult to meet uh to
+to fix Um but it also meant that lots of
+dangerous stuff in multi-threading world
+was happening So uh that was the the
+little keyword that we had there
+Sendable um tells us something about
+this function But yeah so operation
+holds a function It holds a function
+that takes two par two parameters both
+doubles and returns a double So that's
+what operation holds right now Uh I
+actually don't have to So I added the
+parameter names here for add um
+everything after the the initial name
+part So the parameter names are part of
+the of the function name They're part of
+the function signature We don't actually
+need to add that So this is enough Um if
+we just use this So I added I I saved
+add to operation So if you if you want
+to switch
+it we
+can put subtract there Um and this still
+compiles um perfectly fine Um and yeah
+operation holds a function that takes
+two double parameters and returns a
+double How is this useful um in our so
+the example that we're working on here
+is semi useful maybe if you're creating
+a a calculator but there's some really
+cool stuff um that this will unlock the
+the fact that we can put functions into
+and save functions as um as as variables
+and then pass those variables or pass
+functions as as arguments into other
+functions So maybe let's let's play
+around with this Let's get an intuition
+for what this means How would I even
+work with this operation that I created
+So maybe uh let's let's say we have
+operation assigned I don't maybe know
+what's what's in there yet Uh how would
+I call operation How would I how would I
+do do something with it So let's create
+result and let's try to let's try to do
+something with operation So if I wanted
+to call whatever function is saved in
+operation what would I need So I would
+need to be able to call the functions
+and pass two arguments to it right And
+then hopefully it it gives me something
+back So I want to store the the result
+that I'm getting if I'm calling
+operation Um so this is hopefully
+everyone knows u resembles you're
+calling a function Um and now the
+compiler helps me So we operation holds
+a function type and it's telling me that
+we're missing uh two doubles here So
+let's do it Let's say we want to do
+something with 10 and with five And as
+you as you notice uh add and subtract
+have outer parameter names I am not
+using those here I I actually can't use
+them here So if you're storing a
+function as a u as a variable or passing
+a function um along to another function
+the parameter names the outer parameter
+names uh don't exist anymore So these
+two functions
+uh even if maybe I here maybe I say not
+value a but first
+value and then here second
+value and I guess have to use them here
+as
+well Um so even though the parameter
+names are
+different because I don't have to use
+them here um it doesn't matter Okay So
+let let's run this Uh so I'm calling
+operation with 10 and five Um I had
+assigned add Okay that seems to work
+Great We have 15 as uh saved as the
+result And then let's do it again Uh so
+I'm just going to do the same thing but
+we had had previously uh assigned
+subtract So let's see what happens now
+Oh yeah let's see already So five So we
+can save
+a function as a variable Pretty cool Not
+that useful yet Before we get to
+something actually useful um let's play
+with this idea Um the idea that we can
+save functions as uh variables and uh
+how it might look when we're saving
+functions as variables
+So uh so here what we did is we assigned
+a named function and I'm actually going
+to bring this back here this uh since
+just so that you know uh that both of
+these
+existed
+Um so here we used the full name here Um
+and here we used just this like I don't
+even know if this has a specific name We
+just used the this part of the name Um
+so we we used a named function and
+assigned that function uh to the to the
+operation here Uh I'm just going to
+write a little comment here So we
+assigned
+named
+function Okay so it has a name This
+function has a name You might be
+wondering why am I stressing the named
+part here Don't all functions have names
+They don't all have to have names Let's
+let's explore that Let's save let's uh
+assign we assign an
+unnamed or a non how do I spell
+anonymous hopefully like that an
+anonymous
+function actually
+here So we're going to assign an
+anonymous function or an unnamed
+function Um actually maybe this way I'm
+not sure Unnamed function How would that
+how would that work So let's assign it
+to operation again Um and so again
+instead of assigning the name here um
+let's let's actually build the function
+that we're going to assign Let's assign
+multiply Okay Okay And then here we'll
+multiply So I want to assign the
+multiply
+functionality but I don't want to first
+have to create this this named function
+um to assign it So how how do we do that
+Um we don't care about the name We don't
+care about uh the parameter names Uh all
+we care about is or I guess not in this
+case we do but yeah we we care about the
+the body of the function So let's take
+the body of the function and I'm going
+to assign the body of the function to
+operation So we we're going to have some
+compile time errors here in a second I
+just trying to hopefully show very very
+like
+um direct show what we're doing We just
+copy paste or we cut out the the
+function body and we assigned that here
+Uh we still have these these named
+parameters here So how do we do deal
+with that I'm going to cut that out too
+I'm going to cut the parameter names and
+uh the type I'm going to cut that out
+I'm going to keep hold on to that We
+don't need this anymore So I'm going to
+delete that and I'm going to paste that
+here Uh so in the in the first line
+after the curly bracket and I'm going to
+write the keyword in So uh and all the
+compile time errors should go away
+And you might wonder um this look a this
+looks worse and b why do we need this So
+wasn't it much nicer This this seems
+much nicer to read We're using the word
+subtract uh to describe this thing that
+we have defined up here Uh and yes I
+would agree Um this is not as readable
+uh as as this Um so um so why would we
+do this Um we we'll get to that We'll
+kind of get to that in in a little bit
+Um for now we'll just cover syntax and
+how to work with it And we'll we'll
+explore why we even need to do this in
+the first place Um okay So so yeah this
+is the syntax for assigning an unnamed
+or anonymous function to a variable In
+this case um it would look similar if
+you're passing it as an argument
+Can we make this
+less verbose and a awkward looking So
+let's maybe do divide So let's change
+this to divide Um and uh oh actually
+maybe before we do this let's prove that
+this works So let's let's use the same
+numbers So we're multiplying So
+hopefully we get 50 See
+Hopefully So yeah seems to work Perfect
+Uh so now let's let's try to make this
+as small of a footprint as possible So
+let's get rid of all the things we don't
+need Um and again you might wonder why
+does it aid in in readability
+readability for the use case that we're
+going to use this for It'll it'll aid in
+in readability sometimes to do some of
+the things that we're doing So the first
+thing that we can get rid of is what are
+we saving in operation We are saving a
+function that takes two double
+parameters and returns a double So
+actually the types for the parameters
+um can be inferred by the type of
+function that can be stored here So
+let's remove
+those and this still compiles here So
+we're doing division Uh so this should
+be 10 divided by five Hopefully it's two
+Very good Okay So so the types of the
+parameter can be inferred Very good Also
+that it returns a double can be inferred
+So we know that the only functions that
+we can store there are functions that
+return doubles So I'm going to remove
+that one as well Okay Uh let's see if
+that still works
+Um I mean we're not going to see it
+change hopefully here So this still
+works It's very good What else is extra
+What else do don't we need Uh so any
+function uh that is one a single line
+doesn't need a return statement So in
+this case this function has just one
+line We can get rid of the return
+statement Okay Uh we're starting to get
+into some territory where if you don't
+know this syntax you're going to be
+confused Um so this thing doesn't return
+anything right now It looks like but it
+does because it's a single it's a single
+line function that returns a double So
+we don't need the return statement Can
+we go can we remove more Can we can we
+write this even smaller And it it might
+look like we are we're at the uh at at
+the at the end here but but we're not So
+what are we actually saying here What
+are what are we storing We're storing a
+function that takes two values and
+divides them Um we don't actually care
+about the parameter names as we have
+seen here So here we use the parameter
+names to store operation Here we didn't
+use them So and we're not using them to
+call uh the operation So we don't need
+the parameter
+names The types can be inferred for
+these So how can we do the same thing
+where we're taking two values and we're
+dividing them um but not give them names
+We can go by their index So we have a
+first value that gets passed in So zero
+index and the the one index So we
+there's two values the two parameters
+that are being passed in zero parameter
+and one parameter So let's get rid of
+all the names So we actually can get rid
+of all of this And then to get to the
+first parameter is dollar sign zero And
+then to get to the second parameter is
+dollar sign one And then because this is
+so small I often like to write this in
+one line Um so
+this does the same thing as this even
+though I mean this one does multiply and
+this one does divide Um and this is the
+this is the the least amount This is the
+most that we can trim away here So uh
+we're using the parameter names We're
+not using the parameter names using the
+the parameter indexes indices and
+everything else is inferred Operation
+holds a function that takes two
+parameters that are doubles and returns
+a double So everything else uh about
+this can be inferred If you have not
+seen this this looks awful I I 100%
+agree Um but uh these like little tiny
+oneline anonymous functions are actually
+super neat They're super cool Any any
+questions here before we continue So
+just the thing that I'm hoping is that
+you're you get familiar with uh what an
+anonymous function looks like what it
+can look like uh and the things that are
+uh if it aids in readability get rid of
+the things that uh that are or keep the
+things that are necessary for you So
+maybe uh this is the the most that you
+feel comfortable going Totally fine Um
+uh but yeah so let let's see why it's so
+cool that we can create these tiny tiny
+uh
+functions So
+um first thing
+uh first like real so I'd say this is
+not very useful what we've done here um
+we recreated math and we're saving it in
+a variable um so yeah not not that
+useful let's do something actually
+useful
+um let's uh create a student um
+here okay
+and and I only have 5 minutes Okay so
+this we might run into uh let's see how
+far we go Uh and let's say uh final
+grade Okay so we have student name and
+grade And let's create an
+array Oh so um all
+students and I'm going to use our cats
+here again
+So Percy final grade Uh he's very nice
+but um sometimes a little bit derpy so
+maybe he got a 75 Uh and then we
+actually have four cats now Um which is
+one more than you're allowed to have in
+San Francisco Uh we have Gio Uh he is
+special I'm going to give him a 65
+Um
+Jasper Um he is very smart but gets into
+trouble a lot Um so I'm going to give
+him 85 And then um we have Cali who is
+is very smart a little bit older So she
+got a she got a 100 Okay So we have
+students And um uh wouldn't it be nice
+if we so let's say I gave you the the
+the task of sorting these students maybe
+by name maybe maybe so alphabetically
+maybe by grade um so let's maybe do that
+manually right now and then we're going
+to we're going to create we're going to
+use some really cool functionality where
+we're passing a function as an argument
+to do that for us So how would you do
+this How would you sort students uh by
+name So um
+um uh or by grade Um so we would have to
+I guess first
+um
+uh pick a a a sorting algorithm Um
+um so maybe quicksort or so we have to
+implement that and then um we have to
+implement it
+for uh each of the parameters that we
+want to that we want to uh you want to
+do there So that's not great Uh okay so
+that's maybe not that's maybe not great
+Um so another solution is maybe I'm only
+interested in the names uh of the um of
+the students Uh there's actually a very
+nice so we if we have an array uh so
+let's create maybe just an array of
+array of names
+um and I think we are just going to run
+out of time so maybe
+we oh no
+uh let's see how we how far we go So
+array of names
+Oops Uh so this one is very simply very
+easily sorted So the array has a
+functionality on it So if I do dot
+uh sorted sorted will just return the
+array but in a sorted in a sorted way
+which is very nice So let's see if we
+can see that in the gutter here So Kelly
+Gio Jasper Percy Perfect So that's nice
+Okay So we have an we have a way to uh
+sort by name If we have an array of
+names we have a way to um to sort by by
+grade Um so that's nice But um how do we
+sort by uh how do we sort students I I
+don't want to just get rid of the grades
+with these students Wouldn't it be nice
+uh if there was a way to kind of keep
+the association between student and
+grade
+Um so um so maybe since we don't have
+that much time I'll just give you guys
+the solution to this and then we'll
+we'll explore how we how we get there uh
+next next lecture So um we have our all
+students array So there's not just the
+sorted that will sort by um uh
+by whatever is in here that can be
+easily
+sorted There is a sorted function that
+um sorry not that
+one this one Um so what we're doing here
+is we're passing in a function that
+takes in two students and says whether
+or not one is uh should be sorted higher
+or lower than the other So how would
+what kind of a function would that be So
+we could um so let's pass in an
+anonymous
+function Uh so um how much time do I
+have Okay we'll just do it really
+quickly We'll do it cryptically in a way
+that um um we we'll un unwrap next time
+So we're passing in two students So uh
+the first student we can access with uh
+the zero index The second student we can
+access with the one index And then let's
+say we want to sort by name So let's
+access the first student's name and
+let's access the second student's name
+and let's sort them alphabetically uh
+with a greater than uh sign So what we
+now did
+um there we go sorted that one uh we
+want that one So what we now did is we
+passed in a tiny tiny function that
+tells the array how to sort this uh
+custom uh type that we created here
+We're going to look at the names of the
+students that we're passing in And then
+we're saying is this one bigger or is
+the other one bigger And if if this one
+is big and it returns a boolean So let's
+run this and um array of for students
+Great It doesn't show us the actual
+Let's just do
+this
+Um let's do this real quick
+So once that compiles uh we have we can
+see that
+um we have only two names What is going
+on here Uh oh sorry it is uh we printed
+it Okay so we sorted by by name Now very
+easily we can sort by grade
+We just do
+that and they're going to be sorted by
+final grade Okay So we'll go over how
+this works later Uh I'm already two
+minutes over I apologize profuse
+profusely Uh but yeah so thank you so
+much for um joining uh via Zoom Um I'm
+here for questions if you have them Next
+week we'll be in class again Uh and then
+uh have a have a great week and I I
+stopped recording but if you have
+questions

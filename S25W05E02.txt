@@ -1,0 +1,933 @@
+where keyboard here we can go
+to numad uh and punctuation I
+believe let's try that one real
+quick so this one now
+has
+um H not not that
+one
+um decimal pad there we go
+decimal pad has the decimal point uh it
+will not prevent you
+from uh Mal
+formatting here let's see it so you
+could now you only you don't have ABCD
+so you don't have letters you just have
+uh the regular numbers and a decimal
+point but you you still have to check
+because someone could do
+this so that that's not a valid number
+so
+um
+yes yeah yeah well so theoretically I so
+I guess uh oh yeah so good point so how
+how could we help with that
+um uh so well one thing we could add a
+label enter percent I guess so percent
+implies that it has the 100 uh in it
+there's another word for the percent
+without the 100 I forget the name does
+anyone know what the name for the value
+that is supposed to present a percent
+but it's from Z to one um for like 100%
+does anyone know yeah there's a word for
+it I I don't know it but yeah so if I'm
+hearing percent I would type in 15 for
+for 15% tip right I think most people
+would do that um and then I mean you
+could guide the user if it's something
+nonsensical you could as the user is
+typing you can say or like as they're
+trying to apply you can say hey this
+looks weird is this what you wanted but
+yeah I don't think you can restrict the
+user from doing it because maybe so I
+think I mentioned this if you get a
+German they might want to give you uh
+0.1% tip so did I mention this here um
+I'm originally from Germany uh so it's
+whenever my dad is visiting um he will
+give 10 10 cents tip uh he will round up
+uh because so in Germany waiters get um
+a living wage and um so the tip is there
+if you if you're doing an extraordinary
+amount of work uh most people well if if
+you're a really good server they will
+they will round up so that's that's the
+tip that people will give so I've had to
+many times um and my dad will sneak away
+uh and try to pay by himself so he
+doesn't have to give 15% tip because
+like culturally it it's it's just very
+different uh so yeah a German might want
+to type in 0.1% tip um so yes yeah
+anyways
+um uh yeah so okay what what are we
+still needing to do here okay so we have
+a way to talk back um to our delegate
+we're going to have to change this a
+little bit uh to make this reusable and
+right now we also have a memory leak
+here and and how we created this um but
+we'll see that much later uh so I think
+one other thing that we can quickly do
+here just for this to be to work a
+little bit better I think one thing that
+is annoying right now is we have to hit
+apply and then go back so wouldn't it be
+nice if someone hits the apply button we
+can also
+dismiss and then here we can say do we
+want this to be animated yes okay so now
+if we built this we
+have uh so we go here if we hit apply
+uh
+oh it should should should
+dismiss one
+second ah what am I missing here
+um does it not
+dismiss okay I'm I'm blanking on the I I
+will come back to you uh should be Miss
+dismiss
+um oh is it we're in the navigation
+controller that's why
+okay might be
+this no uh oh it is it
+this it might be I apologies um my UI
+cat is getting um rustier with each
+year being away from it uh so let's try
+this real quick there we go okay so um
+uh we have this in a navigation controll
+as we as we uh saw here had we not done
+that work so if you're in a model this
+dismisses this dismisses a
+model um I'll I'll leave you guys this
+model uh and then here when we're in a
+navigation
+controller we are we can PP back to the
+pre the previous uh view controller that
+we came from does that make sense so if
+we
+are if we're applying we're now going to
+let our delegate know that something
+happened and then instead of having to
+hit back we can now pop back to the
+screen that we came from okay so that's
+one one thing that's nice now the other
+thing that we probably want to do is we
+want to show the the current percentage
+so let's do that real quick uh
+calculation V controller uh we have
+our so when our view loads we probably
+want to show what the percentage is so
+let's do
+that so uh we have
+our um we have our where's oh so we
+don't have an for that yet so this is an
+interesting case where we have an action
+for this button so we have a um oh we
+don't even have an action because we
+removed it so we could have an action
+but this time we also want an outlet for
+this button so that we can change the
+the text on it so let's do that real
+quick so here we have our our button
+let's control drag let's create an
+outlet uh so um
+change change tip button so we want we
+want Outlet we don't want action because
+we want to be able to set the title of
+this uh of this uh thing here so one
+place where we want to set the title is
+when the when the app launches so we
+have our set tip what did I call
+it uh change tip
+button so um what I find a little bit
+frustrating is there is a title
+label that you could
+set sadly this doesn't update the title
+um there is a title lab label there is
+it has a text but somehow the way that
+the button was constructed um it doesn't
+trigger an update um of of the actual
+text so the way that we set a button's
+title is set title uh and then here we
+um we're doing
+the tip
+formatted as percent me move
+this and then for a specific state so
+let's take a look at what those states
+are so there's normal highlighted
+disabled selected focused application
+and uh reserved the only ones that
+you'll ever see um really is normal and
+disabled uh so you could have a
+different uh button title for a disabled
+button um I have in my entire career
+I've only ever set the
+normal the normal title so for each of
+the
+buttons possible settings um you can set
+a title um so yeah now when we're
+loading the app if we're launching the
+app we will
+be once the view has loaded we are now
+updating the percentage here and then
+where do we where else do we have to
+update it
+say it
+again uh so so where where else uh do we
+need to update this button when when do
+we have to update it oh
+after very good and then since we have
+the same thing happening twice this
+might be a nice uh um little function
+that we can uh rip out uh so let's Maybe
+that call this update tip
+button and then we can move that in
+there and then if it ever changes it'll
+update in both
+places okay it's
+tested so let's go to let's set it
+to 100 apply
+100%
+10% 10% okay any questions so
+far okay so let's just really
+quickly uh draw what we've done so far
+so so we have our
+calculate so maybe we'll abbreviate
+abbreviate here so we have our calculate
+view controller
+we have our
+tip view
+controller
+so when the calculate view controller
+transitions to the tip view
+controller um so this is
+in prepare for
+segue so in prepare for
+segue uh the calcul
+view controller
+sets
+itself
+as
+the
+delegate and then I was saying I was
+going to use pink for the noun it sets
+itself as a delegate on
+the tip view
+controller okay so now inside the T tip
+view
+controller um the so the user
+will
+update the
+tip again let's maybe number these so
+one
+two um
+user will
+uh um
+press
+apply and then now we we have to talk
+back right so we have to talk back to
+our uh we
+report
+back to our
+delegate and what are we reporting back
+we are
+calling
+calling what did we call
+it tip changed
+to
+tip
+changed two
+so so now we so we we're calling we're
+calling okay let's maybe
+move
+calling tip
+changed
+two okay and
+then the calculator the calculation view
+controller um in response will update
+uh I have
+trouble
+uh writing today
+update uh
+it's
+tip okay hopefully that makes sense so
+calculation view controller has to set
+itself as the delegate as it's
+delegating this task so how do we do it
+as we're transitioning uh to the tip
+view controller in the prepare view
+prepare for segue we set ourselves as a
+delegate inside the tip view controller
+we do our thing to get the the the
+updated tip from the user once the user
+hits apply we have to talk back to our
+to our um calculation view controller
+and we call on it tip changed to and
+then the calculation view print can
+update does that make sense so far
+yes
+yeah uh for for
+what
+yeah why did why did we set normal this
+part so uh the button has several States
+these are the states uh highlighted
+normal disabled selected um the the only
+ones I have ever seen as normal and or
+ever really used as normal and uh
+disabled uh so if the button gets
+disabled you can set is is enabled
+defaults then it's disabled so now it's
+State uh is uh is disabled so then that
+title will be used um
+so uh I kind of think this should be uh
+uh like a default uh parameter value I
+think that would have been nice um but
+yeah so it's just the syntax so set
+title
+string for normal sets the the button
+title it's just how sadly it's
+done
+yes so right now the way we have it uh
+you cannot destroy either really um um
+so we we currently have a memory leak we
+will cover that very good question but
+um so we will not be able to resolve
+this until I'll show you what to do uh
+but we won't explain it until much much
+much later uh say it
+again mounting no no um yeah so this
+yeah I'm not um I'll just give you the
+answer and then probably one of the last
+lectures we we'll go over memory
+management
+uh but yeah so any other very good
+questions any other questions
+here so one thing
+we are doing right now that
+violates our MVC pattern so what we are
+doing right now
+is so let's let's draw what's going on
+here uh so we have um we have our
+controller up here
+we have our model and we have our view
+so I think I briefly mentioned this if a
+parent view controller is talking to a
+child view controller uh we can we can
+uh so we have the child view so if this
+is our tip calculation um our
+calculation view
+controller and then this is our tip view
+controller um
+so in this case we can kind of treat the
+tip view controller as a view for the
+calculation view controller so in this
+case we
+are oh here let's do
+this in essence this is what what we
+what we're doing right
+now so our calculation view controller
+and let's maybe move this down a little
+bit as
+well so our calculation view
+controller has as one of its and I guess
+it has has another view in there as well
+um but so as one of its sub views
+because it's delegating this thing to
+the tip view controller we can kind of
+think of it as um the calculation view
+controller is treating the tip view
+controller as a view um if we're adding
+our ways that we are allowing
+communication
+so let's let's uh follow the
+communication that we have here so who
+knows a place where the calculation view
+controller talks directly to the tip
+view
+controller how where are we
+directly asking it something or telling
+it something or setting something or uh
+uh can you guys think of any place where
+the calculation view controller talks
+directly to the vi tip view controller
+I think not I think yeah other other
+ideas very good so right
+here uh the calculation view controller
+is talking directly to the change tip
+view controller so so we're doing this
+right now um so this is
+in uh in prepare
+for
+segue uh we so
+we set
+ourselves as
+delegate
+and
+set the tip okay so we have some direct
+communication going on um and and um
+let's move this
+guy let's move it so we have more space
+for the other
+thing okay so in prepare for segue the
+calculation view
+controller
+uh is talking directly to the tip
+voller who can think of a way
+of a place where the tip view controller
+is talking to the calculation view
+controller where are we doing
+that very good so we have the apply
+button here we're talking to our
+delegate the delegate is of type
+calculation view controller so right now
+the tip view
+controller since we have a property that
+is of type calculation view controller
+right now the the tip view controller is
+talking directly uh to the calculation
+view controller so in MVC this is not
+allowed uh in MVC we're supposed to use
+some sort of a restricted communication
+path um does anyone remember why why did
+we why do we not want uh to have direct
+communication from in this case the view
+to the controller what were some reasons
+for
+that very good so maybe our tip uh our
+um here what do we have here
+um maybe this is such a such a great
+component that we've built um I mean
+we're not showing a percent sign so
+maybe we want to reuse this as a generic
+get number from user uh screen or view
+so we can't do that right now why
+because our delegate is the calculation
+view controller so right now we can't
+reuse this um and then an added uh
+complication is so the more you create
+tightly coupled connections like this
+where everyone knows everything about it
+uh debugging becomes more difficult uh
+you might be tempted to ask or tell the
+uh the calculation view controller
+something that has nothing to do with
+tip changing uh and then it's really
+difficult to find uh if there's a bug in
+that to find that so you very it's very
+tempting to to do more in this uh in
+this method here than
+uh what we're what we're intending or in
+this in this um view here than we're
+intending to do so right now we're
+violating MVC by talking directly back
+to the tip view controller so how can we
+create some structured uh communication
+here where the tip calculation your
+controller knows as little as possible
+about
+um the calculation view controller so
+what does
+the tip view controller need to know
+about the calculation of your controller
+what what does it really only need to
+know what's the only thing it needs
+needs to know about
+it what does the change tip view
+controller need to know about its
+delegate about the calculation given to
+that so um what so we have
+a tip here we have all these view view
+um all these Outlets we have a button
+that uh action we have viewed load we
+have prepare for segue we have tip
+changed and uh update tip button about
+all of what of all of this stuff does
+our change tip view controller what does
+it only need to know of all of this
+stuff
+here what does this change tip you
+controller only need to
+know has something to
+what yes how are we send sending it back
+right
+now tip changed okay so the only thing
+that we need to know about our delegate
+is that the delegate has this method
+right we don't need to know anything
+else okay so how can we hide the rest of
+the calculate view controller from the
+change tip view controller does anyone
+have an
+idea any
+ideas uh so I I like that approach yeah
+we could we could do a model that's
+interesting um so so we're going to play
+with types uh types and um we're going
+to use something similar to uh
+how the uh the
+destination how we could have multiple
+kinds of destination so any any thoughts
+um so we haven't covered it in this
+class but from other from other
+languages can you think of something
+that can make it so that we can strip
+all of the information away from the
+calculation view controller except this
+method to this tip change tip view
+controller so this change tip view
+controller the only thing it's going to
+know about its delegate is that it has
+this function
+okay yeah um uh that's that's an idea so
+let's let's see if we can do
+that I actually don't
+know so uh we cannot
+make uh uh so we cannot
+make um prepare for Segway private
+because uh the the operating system
+needs it I like I like the idea though
+that that was great any other anything
+anything else that you've
+encountered so yes something uh we have
+to do something with this very good yeah
+oh okay oh I love I love that yeah so um
+we could do this and then um but so so
+yeah then we have to kind of check if it
+has this right so how would we check
+that it has that so right now the only
+way to check that uh would be to make
+sure that it is of this type
+right but I I love where you're going so
+that that was great
+so you're almost there yes that's really
+really really
+close so if we don't want to have an
+entire class of something what what
+other things do we have access
+to say it again interface very good yes
+so uh interfaces in Swift are called
+protocols but uh it's the same thing
+what's an interface what what's the
+protocol
+yes yeah very good uh a way that I like
+to describe it is it's a contract um so
+um so yeah let's let's do that so how do
+we how do we name this contract um so so
+first of all let's create a
+protocol so protocol interface so you
+guys mentioned interface so uh in
+Swift
+interfaces uh called
+protocol okay so we have a protocol and
+then the way that we want to name it is
+so that it is very descriptive of of
+this delegate property here so we want
+to be able to uh so things that we want
+to capture about this whole situation is
+that that it is a delegate so most
+delegate protocols will uh will end with
+delegate uh deleg delegate there we go
+uh so that'll be the end so there
+there's going to be some stuff in front
+of this here and what else uh what else
+um would describe this this this
+interface this protocol so
+um so we we're being at the task of
+changing a tip right so maybe for now
+just let's do change tip delegate uh so
+I think that's that's good for now um
+and now uh we can say so in this
+protocol we can describe what our
+delegate should be able to respond to so
+our delegate we should still be able to
+do this right so let's I'm just going to
+copy this thing over here
+Funk and then let's turn this into a
+double uh new tip okay so our
+delegate should be able to respond to
+this thing right okay so on this end I
+should now be able to
+exchange our calculation view controller
+type with change tip delegate type
+without anything breaking on this end
+right so on this end everything should
+still be should still be okay
+so um on this end we're going to have
+some issues here but I'm going to
+pretend to I'm going to try to build
+just to make sure that there aren't any
+issues on this side no issues on this
+side okay all right so on this end we
+we're doing exactly we're done pretty
+much so we now only know about our
+delegate that it has this function that
+we can call that's the only thing we
+know about our delegate nothing else we
+don't know that it has a tip property we
+don't know that it has a a meal amount
+text field the only thing we know about
+it is is this method so on this end
+though um we still have
+to uh we we still have to do some work
+so uh here's the first place where we
+have a compile time error so we're
+trying to assign ourselves as the
+delegate what's our type our type is
+calculation view controller the delegate
+type is change tip delegate so right now
+we can't do this um so so we have to we
+have to agree to the contract so this
+contract that is being created here that
+uh if I want to be your delegate I have
+to I have to um adhere to this contract
+we have to we have to agree to that
+contract we are
+already doing the work but we're not
+officially uh agreeing to this contract
+in a way that the compiler knows that we
+that we're doing that so how do we do do
+that uh by conforming to this protocol
+so this protocol name we can just add so
+here we have the inheritance we just add
+a comma and we can add the protocol
+conformance so this should be pretty
+similar to other languages if you want
+to adhere to a protocol you add it uh to
+you add it to that type uh
+and yeah um letot y Um this can be a
+very very long long list
+uh and so actually so Swift has a has a
+philosophy called protocol uh protocol
+conformance over inheritance so whenever
+something can be a protocol um you're
+supposed to choose protocol conformance
+over inheritance so here um inheriting
+from U controller we're inheriting so
+the the more Swifty way would be to
+instead adhere to a protocol in Swift UI
+that's what we're doing views are we're
+not inheriting from a from a parent
+class we adhering to the view protocol
+if you guys remember um we can we can go
+over that again when we get there so uh
+so next next week maybe so in in Swift
+UI there's no inheritance it's all
+protocol conformance so they went the
+they they talked the talk and then they
+walked the walk um they they made all of
+Swift UI uh free of inheritance and it's
+only protocol
+conformance so yeah uh this fixed our
+issues so um our calculation view
+controller still knows everything about
+the change tip view controller because
+we have it as a uh um we have access to
+it as a property here in our in our
+segue it's our destination we can set
+ourselves as the delegate because we are
+saying we are adhering to this protocol
+um so we we're saying we're conforming
+to it and we are we're also doing the
+work here uh if I were to remove this
+function now what do you guys think is
+going to happen
+happened yeah so the compiler can now
+help us so we we're saying hey we are a
+change tip delegate but we're not
+implementing the method so it's not
+there uh so the compiler will not tell
+us hey you're saying you're a tip
+delegate a change tip delegate but
+you're not and the compellent knows
+enough that it can even give us uh away
+the uh uh start resolve our mistake here
+so it can give us the method stop here
+so we could we could go from here uh
+which is pretty cool uh all right so uh
+now in our diagram
+here when the tip calculator uh when the
+tip view controller communicates back to
+the calculation view controller we're
+going to use delegation
+uh which is uh a structured way of
+communicating back to the view
+controller uh in a in a way that we are
+only knowing as much as we need to know
+about our our delegate does this make
+sense okay so yeah whenever a view talks
+back to the to a view controller in this
+case our tip calcul tip view controller
+is as can be seen as a sub view of our
+calculation
+controller um so whenever we're talking
+back uh to our controller we want to
+know as little as possible about the
+controller and one way to do that is
+through
+delegation okay any any questions
+here
+yeah
+uhhuh you can't overwrite anything so
+you're just conforming to protocol uh uh
+properties oh protocol methods yeah
+let's uh let's create a little uh sample
+project uh let's
+do
+um excellent question by the way all
+right so we have a Content view here
+um so content view is a
+view so it looks the same way as
+inheritance so protocol conformance and
+inheritance look the same in Swift UI uh
+the only difference is the color here oh
+I guess doesn't even do with the color I
+think it it used to not have the same
+color um uh but yeah so the then the
+only difference is inheritance has to be
+the first thing so if we try to conform
+to a protocol first and then
+inherit we're going to get a compile
+time error there we go and it's going to
+tell us um must appear first uh so the
+inheritance class must appear first you
+can fix it'll just do it for us which is
+nice but yeah so here it looks like we
+maybe inheriting the giveaway is the
+view is a struct structs in Swift UI do
+not have inheritance so structs only
+have protocol conformance um which uh so
+yeah in in the Swift
+philosophy um there's so much right
+about this so structs are value types so
+we don't have to worry about um race
+conditions and accessing from multiple
+threads they're passed as values so all
+of those programming mistakes go away
+and then we don't have inheritance which
+um Can often so I maybe we'll talk a
+little bit later about uh
+why many people propose their proponents
+of um not having inheritance but using
+protocol conformance instead I think we
+don't have quite enough time to talk
+about that today but yeah so let's take
+a look is Vue what is Vue let's let
+let's see what
+viewers let's go there let's see it's
+taking its time here we go protocol view
+is a protocol uh what are the what's the
+only thing that um a view
+has to have uh to adhere to um for
+something to adhere to the view protocol
+the only thing that it has to have is a
+body property let's go
+back this content view has just one
+property body so if we were to remove
+this so we're saying we are a view but
+we're not so the compiler can help us
+again uh so it's not very helpful
+so uh the the view in Swift UI as a
+struct and as a reference type is an
+abstraction for us uh so that we don't
+that we don't make um that we don't make
+um conr currency mistakes uh and that we
+don't have really uh deep inheritance
+trees that that are difficult to
+maintain so behind the scenes so we're
+supposed to treat it like this behind
+the scenes for efficiency and all of
+this there are reference types behind
+the scenes but like um the nice thing
+about this abstraction about this way of
+looking at the UI is um we now have
+these these contracts with our UI uh so
+views are immutable which is why we can
+uh why it's going to be safe uh in a
+multi-threaded environment um views are
+um yeah so I guess that's the main the
+the main contract is that um we don't
+have to worry about
+multi-threading um uh so yeah but that's
+for us uh that's for us as a as a mental
+model for us to be able to
+not there's there's no way we can make
+these mistakes right now um but behind
+the scenes um what's going on so what's
+probably implemented in I think Swift uh
+is implemented in C++ if I'm not
+mistaken so there are value types sorry
+there are reference types there are the
+the operating system is going to hold
+onto onto pointers and um and stuff like
+that but um we don't have to worry about
+that that's the nice thing about about
+this UI framework does does that make
+sense ah okay very good so um uh uh we
+haven't we've barely touched it um so I
+think I mentioned that this is a view
+wrapper um so we have a so if we go back
+if we go to padding
+um so that's not very helpful right now
+okay good so um oh I guess it is it is
+helpful so padding is a function that
+returns another view so um and we we'll
+go over this uh in a little bit more
+detail later um
+so for to add
+padding to the vstack we are wrapping
+the entire view in a new view so we're
+kind of creating these onion shells and
+one of the view wrappers that we can
+create is on
+appear so this is uh this is again if we
+go here we have a function that returns
+view so uh this is a special kind of
+view that we can wrap um our vstack in
+uh that gives us functionality uh that
+we can run as the view appears so uh
+it's a very different mechanism we
+haven't covered it yet um it's uh and
+it's designed in a way that we can't
+make multi-threading mistakes which is
+very nice but yeah we haven't covered it
+yet okay any other question
+questions very good questions by the way
+um okay so yeah we don't have quite
+enough time to cover the next thing
+let's see so we have five
+minutes
+um
+see maybe I'll set up I'll set up next
+lecture um so yeah I wanted to talk
+about enums but yeah let's let's maybe
+100% make sure any questions about
+delegation
+um so what what is delegation it's a
+structured way to talk back to our view
+controller we uh want to know as little
+as possible about our delegate um and
+then how do we do that through a
+protocol um our delegate will conform to
+a protocol and then um we only know
+whatever is in that delegation protocol
+and our actual delegate has to conform
+to it um
+so uh actually may maybe one other play
+let's do this then instead uh so we'll
+do a quick example of somewhere where
+Apple does this I think that might be
+the best use use case so that we can
+just solidify this this thing so let's
+create a
+uiit
+app uh and let's call it
+um so we'll we'll see table views a lot
+um later on so table views are pretty
+much lists lists of things and um I'm
+going to do this pretty quickly I don't
+expect you guys to necessarily follow
+this I just want to show you guys that
+uh in a uh a table view is an example of
+U of Delegation and so table views are
+everywhere so let's let's uh take a take
+a look at this so we have we have our
+view here let's find a table view table
+view there we go and uh so I'm just
+going to create those constraints real
+quick I'm going
+to add it to all of the edges okay so we
+have our table view we're going to have
+to have an outlet to
+it okay um what's necessary to be
+uh for us to be able to talk to it um oh
+I guess I slightly MPE that whatever so
+I mentioned that it's going to use
+delegation so table view is going to
+have a delegate property right here so
+let's take a look at that one so there's
+a UI table view
+delegate and if we go there oh so this
+is a um oh no this
+isn't so so these are all properties
+these are all functions that are part of
+the UI table VI delegate so this is
+where I mentioned earlier this
+lecture uh Target action you can kind of
+communicate one thing through delegation
+these are all things the view controller
+can respond to um as the table view
+changes so uh let's go through the
+motions of hooking this up so for I'm
+going to assign myself as the delegate
+here I'm going to do it in viewed load
+so the table view is is a view that I
+have this is the first place where I can
+run some code as uh I have access to
+those view components so let's assign
+I'm going to assign myself as the
+delegate okay what's going to happen
+we're going to have a compile time error
+why I'm assigning myself as the
+delegate so we're not adhering to the
+contract yes so what was the contract
+that we have to adhere to UI table view
+delegate let's do that real
+quick let's add that here okay um so
+actually all of these so this is a
+little bit of a uh behind the scenes
+thing so these say optional uh so that
+means behind theen is objective c so we
+we don't have optional um protocol
+methods uh in Swift we can have we can
+uh we can create default implementations
+uh so this is just a little bit
+different um and we we'll talk about
+that later uh but yeah so uh there's one
+other thing we have to so there's
+delegation but then there's also another
+form of Delegation called a data
+source uh it's pretty much the same
+pattern just with a different name so we
+also have to Mark ourselves ourselves as
+the data source so same thing here we
+have to adhere to this
+protocol and here there are going to be
+a couple of methods that we have to
+implement so we're saying we're adhering
+to this
+protocol let's fix it so these are the
+ones that we have to implement uh let's
+display a couple of strings here um uh
+maybe
+names and then uh these are going to be
+names of our cat
+cats oh and we have very little time but
+let's see uh
+Percy
+Jasper Gio we have three cats all right
+so how many of these uh names do we want
+to uh uh show as however many there are
+and then which one do we want to so we
+have to uh return a cell
+here um um we we can reuse cells but we
+don't have time here right now I just
+want
+to show
+that uh this works and then we can
+set the cells text
+label
+to the uh
+names at the index path
+here oh
+uh index
+path. row okay so this should be able to
+we should be seeing a table view with
+three elements here and so it's 9:45 so
+you're um officially released uh so we
+have a a table view now with three
+components so it uses delegation uh and
+twice once named data source um all
+right thank you guys so much um I'll be
+here for questions if you have't

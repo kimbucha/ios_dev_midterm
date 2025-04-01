@@ -1,0 +1,139 @@
+so I was trying to figure out how
+difficult is it uh to write this simple
+app for multiple
+countries um so different currency sign
+um so in um in
+Germany 100 EUR I would uh and I
+actually don't know if I can get the
+Euro sign here oh actually let's see uh
+symbols
+here we
+go so it would say I think like this um
+it would say it like this uh so first of
+all so in in the US obviously it would
+be like
+this okay so the dollar sign is in front
+the Euro sign is behind and then what's
+going on here so um some countries and
+Germany is not the only one uh use
+commas to separate the fraction from the
+from the main number um so now you you
+don't just have to know what is the
+symbol for that country you now also
+have to know how do they deal with the
+comma or the the sorry the the decimal
+place uh so it's starting to grow in
+complexity uh so formatting things so
+currency
+uh dates uh are the same so like so in
+the US I I'm assuming if I write this as
+a date um so
+uh so what what date is
+this 11th of February okay uh what date
+is
+this oh uh what what dat is
+this second of November yes uh so uh
+some countries do uh their dates their
+day and month differently um so whenever
+you're tempted to and and time too can
+be weird uh units whenever you're
+attempted to write your own code for
+formatting
+um
+currencies um
+dates anything that can be
+complicated uh please don't there are
+tools um for you to for for you to uh
+use uh so yeah how do we how do we do
+this so we we do this in an in an old
+way that you might still see in in a new
+way so um we have something called a
+number
+formatter and then we set
+and here I need the what do I
+set uh number
+style to
+currency and then the
+format can give us a string from and
+then this is here we're seeing how old
+uh this is so if we have the total tip
+we have to say we want it as n as number
+oh uh and
+then this returns an optional which uh I
+actually have
+never oh no actually yeah I've never um
+had this return
+not what I wanted and then we can
+assign this okay all right let's see
+what this does I think I have honored
+that right yep okay
+all right let's type in
+100 calculate and uh so as you can see I
+didn't hard code the dollar sign I
+didn't say use the period for decimal
+place I didn't say give me two decimal
+places um it just does it all uh if I
+now go into my phone setting and I
+change my um my area uh my um so it
+doesn't solve it for if I'm traveling so
+if I'm traveling my phone will likely
+still be in the same uh in the same uh
+area uh sorry in the same what what are
+they called they're called um say again
+uh region yeah so region settings I
+guess region settings this yeah I forget
+maybe maybe that's it but yeah so I'm
+I'm not like I'm not going to change my
+my phone's internal currency if I'm
+traveling but this solves the problem
+for someone in Germany downloading this
+app and it showing the correct uh
+currency here so uh so yeah this is one
+way um we're dealing with something NS
+which means this is objective c so the
+number formatter uh was written multiple
+decades ago likely
+um but yeah you might still see this uh
+more
+modern way to do this and much easier
+to
+um uh yeah much easier so we can say uh
+output oh sorry where's our total
+tip format it and then we can pass in
+the format
+currency um here we would be able to
+type in a currency code if we wanted to
+so you this dollar would give us the
+dollar sign and um the period and two
+decimal places but then again this
+wouldn't quite solve our
+problem uh for our app being downloaded
+in another country so instead and I need
+my notes Here one second we can type
+in
+ah uh so there's the phones
+local which means um these are all of
+the region settings uh so what kind of a
+currency you want to
+display what kind of a
+um uh what symbol to use for temperature
+so that's that's all in there how what
+date format so we want the current one
+of those and then we want
+currency and we want the
+identifier and then so I'm going to do
+something here that I we'll explain a
+little bit
+later uh and then so this is the
+slightly more Modern Way for currency
+it's a little awkward and we're going to
+see this um the same way of formatting
+something uh for the percent in a second
+that is not quite as
+awkward so this also should give us the
+dollar all right $20
+uh all right um I think I owe you guys
+another break uh so maybe let's make
+this one slightly shorter let's come
+back at uh
+920 and then uh

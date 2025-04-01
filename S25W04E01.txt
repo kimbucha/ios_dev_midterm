@@ -1,0 +1,253 @@
+all right let's get
+started um so today we do um a little
+bit of
+review
+then um so we've done a lot of things in
+Swift UI now um so today we'll talk a
+little bit about
+architecture uh and then we will do a
+version of our calculator in U IIT uh
+slightly differently because I want to
+um I don't want to bore you by just
+building the exact same thing um and
+we'll we'll learn a new commun
+communication pattern uh as we're as
+we're doing the UI kit version so um UI
+kit uh tip
+calculator um and then so I guess first
+we'll talk a little bit
+about um
+architecture okay any questions before
+we get
+going cool all right so yeah let's uh
+review real quick what we uh did last
+time so we talked
+about um A New Concept that allowed us
+to use the compiler
+to prevent us making programming
+mistakes uh when we we were dealing with
+conversions from one type to another um
+so who remembers one of the big problems
+that we were able to avoid uh by having
+the compiler help us so what what kind
+of a a programming mistake is the
+compiler helping us what we saw
+yesterday last week with the tip
+calculator so we were getting user put
+and we were converting it to what the
+user
+input so as they're typing um what what
+kind of what what kind of a type are we
+getting as the user typing into the text
+field you say
+again uh
+anything doubles yes and as we're typing
+in so anything and so we were coming
+from a string right so any it could have
+been anything so we had string
+and we want it to go to
+double and then um so yeah in other
+languages so yeah what can go wrong if
+we're going from string to
+double say again tyat type mismatch yeah
+so we if we're typing in so this this is
+not a string this is not a double in um
+in most languages uh
+this would not be a double um this an
+empty string probably wouldn't be a
+double um so yeah there's when we when
+whenever we're going from a from a
+really big set of possible inputs to a
+slightly smaller one um there's a a way
+that that we have to deal with all of
+the stuff that can yeah how do we how do
+we get from all of the strings to just
+the strings that represent valid doubles
+so other
+languages uh what did we see there so
+some if you're doing this conversion
+maybe uh What uh what does Java do so if
+you if you take uh a string and turn it
+into a double and it doesn't work does
+anyone know what Java does I don't
+remember so you can kind of say whatever
+I believe you um what does Java
+do say
+again so I'm hearing
+exception
+great um what does C++ do I don't
+remember 100% so again you can kind of
+say whatever if it sounds right what are
+what are other options that maybe a a
+language uh
+does so we might end up with not a
+number or something like that so if
+we're trying to convert maybe maybe we
+get uh not a
+number um other languages they might not
+alert us at all maybe we end up with
+something undefined maybe nil um
+and then uh and then we're in big
+trouble if we're trying to do math with
+uh any of those so what does Swift have
+um what were we able to how was the the
+compiler able to help us not make these
+mistakes how how would the compiler
+Force us to make sure that we're not
+doing math with the letter A or uh oops
+um or oh I think another language which
+uh takes just the
+Unicode um of uh the the number of the
+Unicode for a character and turns that
+into a value maybe not strings but
+integers so yeah lots of lots of
+potential mistakes but yeah so what what
+does Swift do how does Swift prevent us
+from using inval input to do math with
+does anyone remember if you don't
+remember the names of of things that we
+covered that's also totally fine
+yeah so we create some sort of a
+container that can hold a number or what
+is the other thing it can
+hold nothing yeah so either the number
+or nothing so um and we called this an
+optional so an optional can either hold
+so it can hold
+nothing and I'm going to put that in in
+quotes here what does it actually
+contain then it it contains the it
+contains nil in in Swift or it holds
+something um and in this case if we
+talking about uh an optional
+double uh double it would hold this
+something would be uh would be the
+double uh so yeah Swift is a a um a type
+save language so a value so if if you're
+declaring a a variable or a
+constant um it has to hold something um
+we can't just have a double in there and
+if if something goes wrong put nothing
+in there so that that doesn't work so if
+we say we have a double there's going to
+be a double there uh if we say we have a
+string there's going to be a string
+there and then if we have to if we're
+dealing with uncertainty we have to
+create a new type that resolves this
+uncertainty so this new type uh is
+either of the two nothing uh or it it
+holds something so it's a container so
+that's the the solid type that we're
+dealing with so our uh our variable is
+going to hold this optional container
+and then it's either there's either
+nothing in this container or there's
+something in there um any any questions
+here cool uh and then how did we if we
+wanted to do math with one of those
+those weird container objects what did
+we have to do do so if if you're saying
+we have double containers so double
+optionals so these optionals that hold
+that can hold a double if we wanted to
+do math with those what did we have to
+do yeah so we had to some sort of an if
+check very good um so the the word that
+we used for it was unwrapping so um and
+we're doing that in this in this uh
+fancy if statement uh if we can unwrap
+this optional if if there's something in
+this container then for the duration of
+this if block we can do some math with
+it so um if this is still a little um
+iffy in your in your minds um maybe uh
+maybe it's not quite clear what's the
+difference about uh what's the
+difference between having a container
+that can have nothing in it uh or a
+double or just having the variable hold
+nothing or a double those are all very
+valid questions does anyone have that
+question so um does it make sense that
+we need this container uh and we can't
+just have a variable that uh has nothing
+is nothing or uh double uh so because we
+have this container the uh the compiler
+can know if we checked so um the
+compiler knows we're using this
+container and then we can only do math
+with it if we if we check the Insight so
+the compiler can help us uh with that uh
+with that check and why again do we want
+the compiler to help us who remembers
+that uh so what's the alternative so if
+we uh if we make a mistake uh so but
+when the compiler helps us we can't
+build right so we can't even continue
+programming really uh what's the
+alternative so if the compiler doesn't
+help us what happens
+instead say it again runtime except yeah
+runtime error runtime exception very
+good and so yeah those are errors
+mistakes that we make that would get
+shipped to the user so whenever we can
+have the compiler help us uh not make
+mistakes uh that is really great um and
+so this is a like a really deep
+philosophy that Swift has um so the last
+like year and a half there's been a lot
+of work um being released in the in the
+new Swift uh language so Swift uh just
+changed to Swift 6 think if you're just
+creating a regular Swift project it'll
+still uh use Swift 5.6 uh but uh so you
+can change it to to use Swift 6 uh and
+Swift 6 is all about a new kind of
+checking that the compiler will do uh
+for you which is really nice and uh
+it'll make extra sure that you're uh
+that you're not making uh that you're
+not committing race condition uh
+programming mistakes uh so uh there's
+some like really cool work going on
+there um it makes it makes certain
+things a little bit more Awkward Once
+you turn that on but then um unless
+there's a mistake in the code that uh
+that apple Road or the people that
+created the the Swift language so so
+then we won't make those race condition
+uh mistakes anymore so there uh there's
+a lot of work happening there which is
+good so whenever the compiler can help
+us that's
+amazing all right so yeah optionals
+we'll see them um all throughout the
+semester uh they're going to become a
+really natural thing that you guys are
+going to be working with and the concept
+of this thing that can hold nothing or
+something or maybe three different kinds
+of things um we're going to develop that
+a little bit more there's some some
+really cool features that we can use uh
+that allow us to create our own optional
+type of um of types which is uh which is
+really fun to do um but yeah so we'll
+we'll probably cover that next week
+we'll see how far we get um or we'll
+start covering that next week uh okay
+any other
+questions um the other things that we
+did were mostly just Swift UI things uh
+so we actually built that calculator and
+we um we um yeah so we learned a new
+component view component at picker um
+and then yeah so that's that was last
+week any other
+questions cool okay so then let's do a
+little bit of yeah I'll just uh create a
+new recording for this one since it's
+different

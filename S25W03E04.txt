@@ -1,0 +1,380 @@
+okay so what have we done um we figured
+out that there are
+special uh things that can happen that
+where the compiler says Nope you need
+to prove to me that this was a safe
+operation um we don't quite have enough
+so we'll revisit this next week and then
+likely we will have
+covered 99.9%
+uh
+of anything related to those those
+optionals um we'll revisit so we'll
+actually see how optionals are created
+behind the hood uh under the hood um
+we'll actually be able to create our own
+optionals uh that are not just two
+values but multiple values and um even
+other like not just nothing or a value
+we could have whatever we want very cool
+uh cool uh technology that behind the
+scenes there um but yeah not not this
+week and also probably not next
+week um so yeah optionals allow us to
+make sure that the compiler can help
+us uh when there's something that can be
+unsafe we saw the the number formatter
+here uh and uh let's so let's make uh oh
+yeah one other thing we wanted to do was
+we wanted to be able to change the tip
+so we' see another um we' see another
+um view component for that so first of
+all let's maybe make it so that our app
+can display the tip so let's
+um just
+add a text here just really quickly have
+the uh tip displayed
+let's build that to the simulator real
+quick and we'll run into a familiar
+issue so this is not what a percentage
+should look like
+0.200 Z again the um
+the drive or you might be tempted to
+format this yourself um okay percentage
+can't be that hard uh let's multiply by
+make it so it doesn't display any zeros
+we don't have to do that we can just uh
+so we could again use a number format um
+instead of currency you could say
+percent or percentage I'll just show you
+the the newer thing that is much shorter
+we can just say formatt it and then
+percent it's all we have to do that's
+taken care
+of let's take a look at that so nice we
+now have a a nice percentage there and
+uh let's now do a way that we can uh
+pick a
+percentage and so how do we do this
+let's create a list of percentages
+here
+um so I think we haven't really seen
+arrays yet in in Swift right so
+hopefully everyone is familiar with what
+an array is is um seeing nods uh so in
+in Swift
+arrays H can have one type in them so if
+I'm saying I want an array of
+doubles that is I can do that uh and
+then we can say like we can put all of
+the percentages here maybe a
+0.5 uh for the Germans who who are
+tipping um oh sorry
+0.05 uh at 0.1
+uh
+0.15
+0.2 and 0.25 so maybe we have those as
+our our options so this is an array of
+doubles so I wouldn't be able to put a
+string in here so this is not allowed in
+Swift so if we want uh arrays where
+there's multiple kinds of things in
+there uh we have to jump so there's a
+very dirty way to do it which is just
+saying
+any um but this is a very UNS Swift
+thing to do uh we're not really supposed
+to use any
+anywhere uh in probably two weeks we'll
+we'll see a cool way to mix uh types
+inside arrays um and in in other places
+so uh again a very in a in a type safe
+way that makes it so we the compiler can
+help us uh not make mistakes uh but yeah
+so let's say these are the tip um
+amounts that we want to choose from we
+now have a new view component that we
+can use uh which is called the
+Picker and it's not showing up
+there oh I think because I have the
+canvas
+hidden oh and I'm not on
+views here we go pick up so let's grab
+the Picker and it'll actually replace
+our uh just text that we have here so
+um let's maybe just build this and see
+what the Picker
+does um as a component and then we go
+through uh what we have
+here so the Picker has a way for us to
+indicate that this is something that we
+can click and then here the boil plate
+gave us one and two so we can
+pick uh actually we can't pick right now
+because of the way that it's constructed
+um but yeah so we want this picker
+component uh to
+drive the ability to change our tip
+percentage here so let's let's take a
+let's take a look at what we have here
+so we have our our pick View and so we
+have um a lot going on here so we have
+multiple component uh uh multiple
+parameters uh to me this looks a little
+messy and what I like to do is just
+separate the when there more
+than what what I uh when the line
+becomes cluttered I like to put the
+parameters uh each on On Their Own Line
+it's just personal preference slightly
+easier for me to read um and then we can
+go through them line by line which is
+nice so H
+yeah yes oh extensions on on xcode uh
+they used to be then they took them away
+and I think now it's possible again yes
+yeah
+um yes they came back um so we have we
+have a picker uh and then we have uh a
+section which uh we um
+apologies sorry we have a selection so
+what is the selection whatever we pick
+in this
+picker uh this is what uh what is uh
+being picked so similar to our text
+field whatever we're typing this is
+what's being typed for a picker whatever
+we're picking this is what's uh being
+picked so we we want to be picking um we
+want to be picking doubles so let's make
+our tip
+here also a
+state property that has to be a variable
+and then for our selection
+here and if we go to our
+picker if we go to our picker
+definition the selection is a
+binding uh pick up selection is a
+binding so we can pass in our tip as a
+binding so dollar sign tip and now the
+Picker whatever we we're picking will
+update our state variable our tip State
+variable so for all our calculations for
+everywhere where it's viewed uh it'll
+just magically update uh which is pretty
+lovely and then so yeah for the
+label um so I think we don't actually
+need I think we can do that slightly
+easier let's see um I
+don't label label
+picker ah yes so we can just this is a
+slightly more uh verose way to create
+the Picker you can
+just um maybe like this
+percent and now we can uh we can say
+what we want um displayed there
+so we're going to see another type of
+view here uh the for each
+view which might seem a little bit
+confusing here uh uh we'll introduce it
+right now we don't have that much time
+left here uh but
+um what this does is we can pass in an
+array or some sort of a collection and
+it'll create a view for each of those so
+it's kind of a
+uh a way to represent arrays as as
+individual components so let's pass in
+the percentages here um we have to now
+make sure that um they are identifiable
+by a specific thing I'm we're going to
+wave our hands here uh for for a second
+we'll talk we'll talk more about what
+this means what we're doing here uh
+just um
+one second go uh just just know
+that this way
+um
+we'll uh we'll clarify what this means a
+little bit later uh but yeah so we have
+a we have a view that takes every
+element in our percentages here and
+then we have access to it
+here and now we can uh do something with
+it so in this case uh and then the
+percent will be a
+double there's some funny syntax here
+that we'll go over next week uh and then
+we now can create a view for each of
+these so let's
+do just a text and then uh we'll do our
+formatted percent here so percent.
+formatted and
+as
+uh's
+ah no percent do
+formatted and then I should be able to
+put in
+percent okay let's just make sure that
+this works here real quick and then I'll
+go I'll explain a little bit more at
+what we're doing
+here oh and we don't need this
+one okay so we started with 20% so
+that's correct and now we have all of
+those options that are in our uh
+percentages array nicely formatted the
+uh the way that we would want to read a
+percent because we have percent.
+formatted here so each of the we're
+doing something for each of these
+percentages here so 5% right here 10%
+right here 15% right here 20 and so on
+so uh for each of these percent values
+we are showing a label where we're
+nicely formatting the percent here and
+then if we if we're selecting
+something so this
+updates and since we are passing
+in the um where is it sorry sorry picker
+here we're we're passing in the tip as a
+binding so we now updated this tip uh
+State here so if I go
+25 we now updated uh this tip let's
+prove it let's put in $100 again then
+calculate we have $25 let's go to $5
+5%
+$5 so the Picker again needs a binding
+so we're passing in the parent State the
+parent owns the state passing it in as a
+binding and then uh so here we're
+describing what each of these options
+that we can pick from should look like
+so uh and we can this this we can have
+different views here it can look
+different if we want it to so we have
+full control over well we have control
+over some control over what this looks
+like uh and then yeah so this we've
+we've already seen we're displaying a
+double formatted as percent and then
+whatever is going on here we'll discuss
+next week um any questions here yeah
+if we wanted to update okay let's see so
+as I'm typing okay
+so I'm hitting
+calculate
+um let me see let me think about that
+one for a second is there a different
+way to do
+that uh
+no no we would uh not need to do that um
+actually that's a
+great yeah let's do that real quick uh
+we have most of the tools and we'll see
+one thing that is kind of cool that we
+can uh that we can take from that uh so
+yeah so the question was if we wanted to
+as we're
+typing we don't want to hit the
+calculate update the amount so how would
+do that so there there's a cool way to
+do that um so first of all let's get rid
+of all the stuff
+here that we don't actually
+need and uh let's take a look at what we
+actually have
+here so when I'm hitting this
+button this thing ex executes right so
+somehow I want this to
+execute whenever I'm typing
+so let's and we don't want a button
+anymore so let's uh turn this into a
+function for now um
+calculate uh I
+am and
+display tip okay now we have a function
+let's move all of this in
+there and call that function instead
+let's just make sure everything still
+works
+okay so
+100 calculate very good uh okay so
+now uh we'll do something pretty cool
+so taking something and um moving it
+into a function that's shouldn't be
+surprising to you guys right so that's
+something that you've done a lot of
+times likely um what we can do is is uh
+we can create so so um right now we have
+to update our output
+variable whenever someone is pressing
+the button wouldn't it be great if the
+output just magic magically updated
+whenever we
+are uh updating the meal amount here so
+um let's let's turn this into a magic
+property that just updates itself so
+let's get rid of the
+button uh and we're going to take
+the the function body of this
+function we can remove the the function
+name and instead of having a default
+value assigned here we'll just paste the
+function value so um and then we don't
+have to have an output here we'll just
+return
+okay so what we created just now is
+called a computed property so we don't
+just have properties that we can assign
+and read from we can also have a comput
+a property that we can kind of take from
+multiple things and output it as we can
+pretend this is a property on our on our
+object uh we won't be able to set this
+property um at least not not yet with
+what we know um but so this this
+property is pretty much just a function
+that acts like a like a property which
+is pretty nice like so if if you think
+of a a constant function a constant
+property that you can read from but not
+assigned to um but you don't know where
+this property gets assigned this is what
+we just did so computed property we can
+compute its value based on other things
+does that make sense and if I'm not
+mistaken uh so we can completely get rid
+of the button here
+now if I'm not mistaken we just created
+it what you had suggested
+so
+100 a so um how does this work why does
+this work we still have one state here
+so when does the State
+update whenever I'm typing so whenever
+this
+updates our view will
+refresh and uh the text our label down
+here will read the property output so
+I'm changing the
+amount the view will get redrawn as far
+as we can tell text will read the output
+output will be computed from from from
+what we have here so um so we don't have
+to have something fancy for this one uh
+we can just like so this is very common
+so computed properties and Swift are are
+very in comp uh so great question uh and
+uh we would have seen these probably
+next week um so we'll just see it a week
+earlier any other questions
+cool I think we don't quite have enough
+time to do anything else uh oh maybe one
+one other thing here
+uh oh no we don't have the button
+anymore so um uh we we can't do that
+right now all right so say we'll we'll
+end uh two and a half minutes early
+today I think I went slightly over last
+week so uh thanks for coming

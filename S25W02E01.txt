@@ -1,0 +1,1099 @@
+um and uh so let's bring up the project
+that we uh the projects we did yesterday
+or last
+week um
+and let's take a look at what we did
+that is really
+loud okay and as we are going through
+what uh as we're going through review I
+combine it with like a little uh Pop
+Quiz so we had uh two different we did
+this the same thing twice pretty much so
+we had um we had a project where we did
+everything with UI kit and then we had a
+project where we did everything with
+swift UI so we had UI
+kit Swift
+UI and then we said uh one of them is um
+declarative and then the other one is um
+is uh
+it's uh
+imperative who remembers which one was
+which so uh totally fine if you don't
+remember the names or which one was
+which I'm just curious if anyone
+remembered so one of them was
+declarative and one of them was
+imperative does anyone remember which
+one was which
+yeah very good yeah so this one's
+declarative and I think like
+this okay so what does that mean uh in a
+declarative programming language we just
+describe what we want to happen and it
+kind of just magically happens in an
+imperative programming language uh we
+describe how we want something to happen
+so if we want a view to hide we tell the
+view hey hide uh if we want um if we
+want something to move from here to Here
+We Tell The View hey update your x uh
+coordinates uh or your Y coordinates in
+a declarative programming language we
+have we we have a property that says hey
+this is where it is and then when we
+update this prop property it just m
+magically goes there um a very simple
+simplified explanation um so then let's
+H also so if if the flickering gets uh
+too bad if it's annoying if it if it
+gets really annoying we'll just pack up
+and find another room so um so let me
+know so yeah we have
+our uiit demo we started with that one
+so let's bring that one
+up um so again uh UI kit is uh
+imperative so we describe what should
+happen so we have we have a label right
+here when we press the button this
+function gets called and we tell the
+label hey you have this uh we're telling
+the label hey hide and we're telling the
+label to hide
+um and then yeah so maybe since we're
+here a couple of other things uh so we
+created our view visually here in
+interface Builder um we connected our
+button by control dragging by by control
+dragging this button and then creating
+this
+action um so so that's how we work with
+interface Builder and our our code here
+and then for the label for us to be able
+to affect the label we control draged
+our label and we created this Outlet
+here so we have actions and Outlets
+that's Avey UI kit thing to encounter um
+or in this case to be more more specific
+here an interface Builder thing um with
+which we can build UI kit um
+uis uh all right were there any
+questions
+here this was probably the least uh new
+um so the the language the the the the
+language the pieces that we used from
+the language um probably look pretty
+similar from C++ or um or Java with a
+couple of weirdnesses that we'll unpack
+today the way that we're programming
+looks nothing nothing new here so we're
+we're telling a label to update itself
+uh so so not too many surprises so then
+we did the same thing again this time in
+Swift UI and again Swift UI is a newer
+is is is pretty new it's a maybe by now
+like five or six years old um which is
+very new uh and yeah so here we have uh
+our Swift U view um we have a canvas
+that can display our Swift view uh and
+it takes the code and represents it how
+uh it will uh look in the app so this is
+very different from uiit in uiit we
+have uh we have
+the storyboard file which is pretty much
+a big XML file so you can think of this
+kind of like a a web a website that lays
+out your components um so in the website
+you're you have these XML components
+that are describing um the actual uh
+Swift Code that we have here uh and then
+in
+our um Swift UI app we have the canvas
+that is rendering The View components
+for a swift UI View and uh so there's
+two modes there's a live mode and then
+there's a select mode we're selecting a
+view component uh on our canvas it
+updates it'll highlight the view that we
+uh that we're talking about here same
+with same with the button so if we're
+selecting it here it highlights if we're
+selecting it here it'll highlight there
+um and we have two ways to create to
+modify our our code here our view code
+we could write the code um to modify
+something or we can bring up our our tab
+here on the right so if we have the
+button
+selected uh this should come up it's not
+doing it right now there we go uh so we
+have modifiers uh so we have the view
+modifiers we'll talk a little bit more
+what it means for there to be a a
+modifier on a view um it's not quite as
+straightforward as just the property
+that um affects some change um but yeah
+we we'll do that
+later so yeah we
+have uh here our Swift UI View and how
+are we affecting the the label how are
+we hiding it again we have a button so
+this looks similar so we have which
+looks like something that gets executed
+when we're pressing the button we didn't
+have to control drag we didn't have to
+make any connections between our visual
+representation in our code um by just
+writing the button code or by by just
+dragging the button component on here
+oops um we get this function that
+executes and um so here we are updating
+a property where is this property it's
+not a property on the button so there's
+not a button dot is hdden hidden oh
+sorry there's yeah there's not a
+property on the button there's not a
+property on this on this label that we
+have here here on this on this in Swift
+it's called text in ID it's called label
+so there's not a property on it that
+says is hidden is visible uh so how are
+we doing it in Swift UI again this is a
+declarative programming language we have
+a property uh that is part of our our
+entire screen here um and uh when we
+when we pressing the button we're
+updating the property that's uh that's
+on on our view here
+um and just by updating it our our label
+will hide itself so we have some code
+here that says if this property is true
+we should show the we should show the
+label if it's not true then don't show
+this so we're just describing what
+should what what should be the the
+outcome we're not saying hide yourself
+show yourself we're just saying if this
+is true then show the show then show
+this label so I think to most of you
+this was a very strange thing uh how
+would it do that very natural um uh so
+this was very new to me when I when I
+first worked with swift UI um but we'll
+unpack it um all of the weirdnesses here
+uh that we're seeing um a lot of it we
+will unpack any any questions
+here cool um okay and then so the the
+last thing we did was um we talked about
+how views
+uh refresh themselves um uh in in
+swiftui so we we had the analogy of
+building a house um so in in the more
+traditional way how one would build a
+house if there's a change we would stop
+what we're
+doing uh and look at what we have and
+then make the modifications so the the
+change that we made was maybe we add a
+window so maybe we have all of our walls
+up already so let's let's maybe make a
+little hole in this wall let's add
+another window in um so that's how um
+you're probably used to views updating
+so you're you're not tearing the entire
+house down you're looking at the wall
+that you want to build a window in uh
+you're you're making the hole and you're
+putting it in um so Swift UI has a more
+drastic way of updating
+itself uh so we saw that when we're
+building this house and one of the
+proper we updated we stopped everything
+that we were doing we were tearing the
+entire house down and we were starting
+from scratch so we uh just if if we even
+if we're just updating the color of the
+of the house um we would we would stop
+what we're doing we wouldn't continue if
+we're maybe already uh building our our
+laying our roof tiles we would scrap the
+entire house start from scratch and this
+time with this new color um so that was
+our analogy for how swift UI views
+update themselves how they how they
+render which sounds ridiculous like that
+sounds really really uh ineffective uh
+or not ineffective inefficient does
+anyone remember uh what the benefit of
+this strange way of building a house or
+in this case building a a view updating
+a view what was the benefit of this
+really drastic way of of rendering our
+views yeah something changes in
+completely the
+new uh so yeah that's what we were doing
+that's that was the old way uh of how we
+used to doing it right so so yeah what
+is the
+yeah correct correct very good yes so um
+what we saw with the little game that we
+played uh I had looked at all of the
+requirements and uh it took me not a lot
+of time to to draw but in that time
+someone sneakily made some changes and
+uh when I was finished drawing the house
+and I looked at the requirements again
+it didn't match um so uh we have a
+multi-threaded environment uh in our in
+our phone uh so we have the view uh the
+view thread constantly updates The View
+we have background threads that might be
+uh refreshing things from the from the
+internet that might be fetching
+something uh from a database so we have
+multiple things going on at the same
+time and uh if our view thread looks at
+something that maybe a background threat
+came up with uh so maybe we we're
+supposed to show a list of items and
+we're like looking at the list of items
+and now we're drawing those that list of
+items if it updates uh while we're not
+looking um uh then our view will not be
+the result of of what we wanted to show
+there so we we can have a state where
+maybe not everything looks exactly how
+we wanted to so in Swift UI that is
+impossible um so the second something uh
+changes we'll just scrap it and we'll
+we'll redraw everything from scratch so
+that's how we're supposed to think about
+views updating themselves um and so our
+our phone is a really fast computer um
+so compared to um a desktop computer
+from
+from 20 years ago 15 years ago uh these
+are really powerful computers so it's
+it's negligent the the amount of work
+that we are redoing by scrapping
+everything that we had uh is negligent
+and then uh so I'm also so we supposed
+to think about it like this what's
+actually happening behind the scenes
+there's some really clever uh caching uh
+and uh so behind the scenes this is not
+actually what what happens but that's
+how we're supposed to think about it um
+any other questions
+there and then so one way that this is
+enforced uh is our views uh
+structs uh in in Swift UI if we go back
+back to uiid our our view controllers in
+this case but also our views so our
+label here is a
+view uh so our our views are
+classes um who who remembers the
+difference between structs and classes
+we briefly mentioned it we're going to
+actually go into depth with that today
+um who remembers the difference between
+structs and
+classes
+yeah uh so in Swift they can have
+methods um so uh we we honed in on one
+so this and the implementation of
+structs and classes might so in in Swift
+so what is a difference the difference
+between Swift structs and Swift classes
+that we talked about yes cannot be
+changed yes they they cannot be changed
+um um any any other thoughts why can
+they not be
+changed uh does anyone remember what we
+compared them to uh so there were other
+types that we encounter frequently that
+that we compared them to
+yeah
+anyone say again con so uh structs can
+have constants on them so we gave some
+some other examples so if you're
+thinking of other types that we
+constantly interact with what are some
+other
+types so we we so integers booleans and
+uh and uh doubles for example so those
+are all value types so value types you
+don't expect if you're if you're passing
+them around so if I if I pass if I pass
+the seven uh integer into a function I
+don't expect this function to change the
+inits of my of my seven that I passed in
+there does that make sense like I don't
+expect the actual object that I'm
+passing in there to change um uh if if
+there's a change maybe it gives me a new
+number back or maybe the variable that
+holds the 7 is updated with a new
+instance um so value types uh they are
+uh they are immutable they're not really
+changeable and if we if we were to
+mutate them if we were to change them we
+get a new instance uh so we don't have
+an instance lying around that we're
+making changes to if there's a change we
+get a new instance so that is how this
+mechanism and Swift UI is enforced so we
+have views that are uh that are structs
+we can actually change them uh
+themselves um so if we need a new
+version of this view we'll just get a
+new
+one um all right and don't worry uh so
+we briefly mentioned this we'll go into
+depth uh what this means and we'll go
+over examples yeah so the key differ is
+that are strs are immutable yeah very
+good
+yeah they're mutable uh how come they're
+mutable does anyone know um does anyone
+remember how what's the mechanism there
+there for to be mut for classes to be
+mutable for us to be able to make
+changes to
+classes the state uh yes so the the
+behind the scenes with the ad State um
+there is something uh classy hiding here
+um but yeah so there so class since
+classes are reference types so we have a
+pointer to memory and then uh so yeah we
+have the instance that lives there um
+and we can make changes um to to that
+instance that lives there all right very
+good so I had thrown a lot of um
+material at you guys um uh so we'll
+we'll unpack a lot of that today yeah no
+so questions are great
+State uh State Management what do you
+mean by State Management or like when it
+comes to State uh how it comes to State
+yeah yeah so there is something
+reference typy hidden here um by the
+very end of the the lecture today we
+will know 80% of what's going on here um
+so right now um just have in the back of
+your mind for a struct to be mutable
+there has to be something there uh well
+so I mean since a struct is
+immutable but we want to affect
+something that is inside the so we we
+Chang Ching a property right so we
+wouldn't be able to change a property on
+an immutable object so there has to be
+something tricky here and the the
+trickiness um the mechanisms here
+involve a reference type so we'll we'll
+uh see this later um so uh 80 80% of all
+the mystery of state will be um revealed
+by the end of this of this lecture very
+good so uh please questions if you have
+questions uh they're amazing so don't
+apologize any other
+questions cool so we'll do we we'll
+cover we'll cover uh structs and classes
+in a second
+um uh so yeah let me give you a a quick
+overview of what we're going to do so we
+are going
+to let me hide this thing there we go so
+yeah we had our
+review um so we're going to talk
+about it's very windy we're going to
+talk about something that's kind of the
+that's been a little bit of an elephant
+in the room especially uh in UI kit so
+there's some really weird stuff uh in
+the syntax that we're seeing here so to
+un uncover that we're going to talk
+about uh functions
+oh and then we'll cover uh
+so
+uh
+structs and
+classes uh so that that's our agenda for
+today um and then if we have a little
+bit of time um there's a little app that
+we can build with all of our knowledge
+but we'll see we'll see how how far we
+get all
+right um so um functions let's let's
+take a look at what we have here so
+there's some some there's some weird
+stuff um hiding here so
+um I think we we had mentioned what this
+at uh represents so so at IB so IB
+stands for interface Builder and then we
+have an outlet and then we have an at IB
+action we had mentioned last uh last
+week that it has to do with these
+special kind of connections from our
+view uh our um interface Builder view to
+our code so uh we can kind of we can
+ignore this so we kind of covered that
+um so
+uh let's take a look at at this function
+here so um we have the funk keyword or
+with the the funk yeah the funk keyword
+we have a function name we have a
+parameter name and then we have a type
+but we have this underscore so that's a
+little weird uh what's this underscore
+uh let's see if we can look at some
+other let's let's collect let's collect
+some weird weirdnesses about functions
+that we that we're finding
+so so we had one thing that we had here
+was uh so we have our parameter list and
+then we had an underscore and then a
+parameter name and a t type name so here
+we had underscore so this was this was
+strange and then we had
+a parameter
+name
+type so so this thing
+here is strange okay first first thing
+that we encountered that was maybe a
+little bit weird all right so let's look
+around a little bit more if we can see
+some other functions and some other
+weirdnesses um so last week we had only
+looked at this view controller file uh
+and the main file so main so vew
+controller uh the vew controller file is
+a swift file so if we go there so
+viewcontroller.swift the main file here
+is a storyboard file so it's Main oh not
+new sh
+finder uh so this one is a DOT
+storyboard file so we we had looked at
+those what are the other things that we
+that we have here so we have the app
+delegate so we haven't talked about the
+app delegate yet uh the app delegate is
+our uh is the operating systems window
+to us and our way to communicate back uh
+to to the operating system so um in and
+and this is in in uiit so we have a
+slightly different mechanism uh in Swift
+UI so let's take a look at what we have
+here so there's some there's some uh
+additional weird things that we can take
+a look at here I don't think yeah so we
+have a really long we have really long
+function names so this is
+probably uh much longer than what you're
+used to yeah let's let's show the entire
+beauty of these function names so this
+is one function name uh or I guess a
+function signature so this probably
+looks slightly different from from what
+you're used to uh in other languages um
+so let's let's take a look at this one
+first here so uh how would I even name
+this function so this function is called
+application did finish launching with
+options so that's the name of this
+function so in another language maybe
+like Java this would be the function's
+name
+so that would be the function's name and
+then part of the function signature are
+the parameters and uh their the
+parameter names and their type so here
+we have how many parameters do we have
+does anyone want to take a
+guess I'm hearing two everyone agreeing
+with that so we have application which
+is a parameter and the type so maybe we
+would have that and then uh we have
+parameters launch options so this is
+these are the par this is the parameter
+here that we have and then this function
+returns something um which we um denote
+with this Arrow what does this one
+return a Boolean yeah very good
+so this would be very likely the
+function signature of this function in
+another language so application did
+finish launching with options and then
+we have an application and then we have
+launch options so those are the the the
+parameters and parameter names Yeah
+question uh we we'll see we'll see in a
+second um okay so this is maybe weird um
+so
+um uh let before we get into um why this
+is so different uh let me just give you
+a brief um
+some some brief information about what
+this function does so this is our first
+place the first time in in the runtime
+of our app where we can execute some
+code so this gets CAU once when the
+operating system has launched us and so
+the user clicked on the button to to
+open the app this function gets called
+um just once and then here we can we can
+execute some code whatever we want to
+set up and then if it returns true we
+the appc application will continue
+launching so this is kind of the you
+will likely interact with this function
+most uh when you're working with your
+IIT because maybe your tracking will get
+initialized here maybe you have a
+database that gets initialized um so
+lots of things that might get
+initialized you would you would do uh in
+this function all right so now your
+question was what's the benefit of
+things being strewn about out here so
+let's let's first
+um let's experiment let's experiment a
+little bit with this function here so um
+we we have we don't really have a a way
+to call this right now so since it's in
+our in our app delegate um let's open up
+a little place where we can just play
+around with code so if we go to file new
+playground so we've already done new
+projects now we're going to create a new
+playground
+we get um something that looks much
+simpler than what we have here so um we
+don't have an entire app app harness uh
+we have yeah let's make this much
+larger we
+have some code we have uh some lines on
+the left here and we have a little play
+button and then we have um some space
+here that we'll see what it does in a
+second so this is a playground so if
+you're just playing around with a with
+some Concepts maybe creating an
+algorithm or we're trying to um play
+around with um just a new thing that we
+we don't know how it works yet
+playgrounds are really great because you
+can just in isolation um interact with
+something the other cool thing in
+playgrounds is you don't have to execute
+the entire thing uh you can just click
+in the margins here um that little play
+play button and it'll execute until it
+uh reaches that point so I just click
+there we have the little spinner um so
+by default playground will um use uh um
+an iOS simulator in the in the
+background this is why it takes a little
+bit longer than um you might expect the
+first time that you're doing it so it'll
+just boot up an instance for this to to
+emulate um the environment that we're in
+little trick here if you're going to do
+stuff that's not UI kit related so here
+it now finished executing we have
+something in the margins if you don't
+want to wait for this uh it goes a
+little bit quicker if instead of
+importing UI kit so we could import
+Swift UI for example and then uh we can
+bring up um the options and platform we
+can switch to Mac OS so it doesn't work
+with UI kit it only works with swift UI
+or you don't even have to have um a UI
+environment uh so Foundation has a lot
+of of the uh functions and objects that
+we are interested in using so if you
+either just import Foundation or you or
+Swift UI you can switch it to Mac OS and
+then it'll go a little bit faster so
+yeah clicking in the clicking in the
+margins will build your app and and will
+run uh whatever is here and uh what's
+what's very nice is um in the Mar in the
+gutter here um whatever the state of an
+evaluated Vari is it'll just show it
+here so um it works also with things
+that you might not expect so for example
+if I have a color here uh we have to
+then input Swift UI sorry yeah swiftui
+so maybe want a red
+color and if I click in the margins we
+will
+um taking a little here oh oh so I guess
+for so
+for I think for UI K it
+as show it shows as
+a for uiid it should show us an actual
+red
+color
+um but yeah so whatever is in those
+um
+uh whatever is in whatever is in our
+variables we will um here we go it shows
+us a little red dot and the makeup of
+that color it shows us uh what's what
+what's inside the variable so very nice
+if you're trying to see how something
+works um you don't have to Splatter
+something with print statements
+yeah uh file new playground and you can
+save this uh so let's say you're
+experimenting with a new thing you can
+save these playgrounds and then uh have
+a little list of uh like little things
+that you were learning um which is very
+neat all right so playground let's play
+around
+with um function signatures and answer
+this question what's the benefit
+of uh not just doing this and maybe
+doing something else
+um all right so let's come up with a um
+let's come up with uh something uh that
+where where that might make um where
+it's a little bit easier where we have
+types that we uh control so um let's
+come up with a
+function uh and um
+uh let's let's uh let's
+call let's call this function
+divide okay and we'll do it the same way
+that we're maybe used to creating
+functions uh in another language and
+then uh we'll we see the benefits of of
+doing it the the Swift way so we we can
+still mostly mimic um how functions are
+written in other languages um but it's
+not the Swifty way so if we have a
+divide function we would have have uh
+two parameters maybe value
+one or value a let's say it's a double
+and then value B which is a double and
+then maybe we have it return something
+so it'll return a double um all right so
+what I would expect and then so let's
+just do the division
+here
+okay um and I guess we can
+return that so how would I how would I
+call this so if let's say we have a
+result um and then I I'll call our
+divide
+function and what I would want to be
+able to do right now I want to pass in
+four and maybe two so that's how you
+would be used to it from other languages
+I'm assuming so we get a compile time
+error uh if we're trying to do it this
+way um uh so again compile time errors
+are very nice the compilers helping us
+find a mistake that we made here we
+actually made a syntax uh error so we we
+forgot something so we uh we're missing
+argument uh we missing argument labels
+so um I I really wanted to read like
+this right now though because that's how
+you used to it for maybe other languages
+so how do we make it how do we make this
+divide function behave like another
+language so here we see the
+underscore so if we add the underscore
+so we saw that we saw that uh here right
+here we saw it this right here so if we
+add the
+underscore all of the the errors went
+away I can click here execute and we
+have the result
+too so what does the underscore do um
+the underscore says there should be
+something here but we we don't want it
+we want to ignore it and this is true
+for the unders wherever you see the
+underscore um in um uh in place of it'll
+be in place of something so you can if
+something returns something you don't
+want it uh to you don't want to interact
+with it uh you can use the underscore to
+to have it not matter uh so underscore
+means there's something here we we
+choose to ignore it so what happens
+let's let's remove the underscore
+again and we're going to have the
+compiler Now help
+us um Rectify
+how um Rectify our mistake here so what
+is our syntax error that we have here so
+we're missing argument labels so if I
+click the red there's a fix that uh the
+compiler is proposing for us and it
+added what it called argument labels so
+here we now the way that we're
+calling this function so this this
+function signature looks like probably
+what you're used to in other languages
+the way we would call this function
+signature on Swift would be divide value
+a value B so so far um uh so so so far
+that maybe seems strange um can you
+think of uh we're going to unpack this a
+little bit more can you think of a
+benefit of uh having of writing it like
+this
+versus uh this can you can you can
+anyone think of a benefit
+um we're not
+really uh showcasing this benefit yet um
+but um so yeah can anyone think of a
+benefit yeah we can
+specific yes we can you said you we can
+track them and we can also describe them
+right so um in a Divi in a division it's
+very important that we don't mix up the
+parameters right so they're both they're
+both
+doubles so um we're
+forgetting uh which which way we had
+programmed this function um we we
+wouldn't know um uh we wouldn't uh we
+wouldn't know yeah but just by looking
+at this it's maybe not 100% clear what
+it does so let's let's make use of this
+uh so I think the I'm I'm digging in my
+math uh um words vocabulary here I think
+that so the thing that we're devising by
+is the the divisor right and then the
+numerator and divisor is that right um
+so let's let's name them so
+divisor and
+numerator okay that those are correct
+right I think yeah um okay so now we
+have the numerator and the
+diviser and so now our the compiler will
+help us again here let's comment this
+out the compiler will help us so now it
+says incorrect argument labels
+and now we have divide numerator divisor
+so if I did
+this um maybe it's not quite screaming
+at you that there's something terrible
+happening uh but
+here since we have the argument label
+for the second parameter that we have uh
+so this should feel very cringey like
+this should be like chalk on your uh
+chalk on uh sorry not chalk fingernails
+on a chalkboard so um we're dividing by
+zero so we now have a a visual way
+of we have a way of
+um okay well this keeps going find a new
+room so yeah we have the parameter names
+they're helping us now
+um not make the mistake of passing in
+the wrong uh the wrong type type well
+not the wrong type the wrong argument
+the wrong argument okay so um so I think
+maybe this there's a a start to
+answering why are why is there stuff in
+between so the argument labels are part
+of the of the function signature and it
+helps us um figure out which parameters
+which so I would say if I had to
+translate what I did
+here exactly so maybe it would be like
+this divide
+numerator by div divisor so I think this
+would be a good translation of this into
+another language um so you could you
+could have something like this divide
+numerator by divisor now it's a little
+bit more clear what you're doing here
+but you would still have to go back and
+forth like you have to like okay so
+which one's the numerator okay so the
+first parameter second one is the second
+one if you have three or four parameters
+this this gets more difficult to to pass
+so um why is there stuff in between one
+reason um so that we have these argument
+labels that help us figure out that
+we're making mistakes if we're passing
+in uh something wrong um okay
+so I I find this reads a little bit uh
+nicer divide numerator by divisor so I
+like I like this part a little bit
+better but then I don't like this the
+just the list of arguments so how could
+we make
+and here I like that the the parameter
+labels are very clear so how can we
+combine the two um how could I make take
+the niceties of this and the niceties of
+this and and marry them together so
+wouldn't it be nice if I could say
+divide
+numerator uh by maybe like maybe like
+this by divisor um it's a little bit
+verbose but um so we we we we'll work on
+this a little bit so now this would be
+nice this would be very nice to read
+divide numerator by divisor that's a
+little bit more like an English sentence
+uh and we would have the the the actual
+arguments sprinkled in there we now have
+the incorrect argument label um compile
+time error again so our argument labels
+don't match what we're do doing here
+because we we now are saying by divisor
+which is not really a good uh variable
+name so how could we fix this we could
+change
+this um argument to by divisor we could
+change it here now um I feel like this
+reads very nicely divide numerator by
+divisor but now we get into some trouble
+here so numer so return numerator
+numerator by divisor that reads really
+awful so how could we how could this be
+fixed how could we still have the nice
+english- like sentence in a function
+and not have awful uh inner parameter
+names so this is where inner and outer
+parameter names um come um come into
+play so we can just add
+another name so here we have by diviser
+and I can just say
+divisor and the syntax error goes away
+oh so um this syntax error doesn't
+appear again and now we have a a syntax
+error here so what have we done we now
+have a function
+divide so if I were to read this
+function um the parts that are the parts
+of the function that are part of the
+function signature this function
+function's name is divide numerator by
+divisor that's the uh the name of this
+function and then on the inside I still
+have very nice parameter names I have my
+numerator and I have my uh my diviser um
+so this might look a little bit
+unfamiliar
+uh strange looking to have these two
+names here but you'll see this in Swift
+when it makes sense that you have um we
+have if it reads a little bit better to
+have an outer parameter name and an
+inner parameter name you have that
+option to do it um and we could we could
+make this maybe a little bit nicer to
+read so uh I would argue maybe the
+nicest uh way to write this would be
+divide
+four by by Z wouldn't this be a very
+nice way to write this function divide 4
+by Z that's like read like a sentence um
+sorry uh read c a sentence um there's a
+hint at what we're doing here so we're
+dividing the four by something else so
+we have uh a hint that we probably
+shouldn't put in zero here uh so so we
+have the option of naming all of the
+parameters uh and give them even two
+names
+but for this to work so this one we can
+fix so we have divide numerator by
+divisor so this this is not correct and
+you guys should be able to fix the first
+parameter name how do we fix that
+one underscore very good so uh and this
+is where it all comes together so in
+Swift
+each each parameter has uh an outer
+parameter name and an inner parameter
+name and there's a couple of rules when
+we need to provide both uh when we have
+to be specific uh that we don't want one
+of them named uh but uh so in this case
+so the one of the rules is um uh yeah so
+if you don't want an outer parameter
+name uh you can use the underscore to
+emit it and then and then we can U make
+it read like an English sentence divide
+four by z um so yeah UND score
+means uh we don't have an we have an
+inner parameter name but no outer
+parameter name and then um we can
+provide two parameter names if we don't
+want two parameter names um we don't
+have to so um
+maybe so if if both the outer parameter
+name and the inner parameter name are
+the same we don't have to specify both
+so uh if you want to
+have it um read uh if you want it to
+have it look like the function signature
+of like an another language you can do
+that it might just read uh slightly
+awkward so divide for divisor doesn't
+read quite as nicely so I would say here
+it's pretty nice to have that outer
+parameter name any questions
+here okay um so yeah to fully answer
+your question question why is this stuff
+in between because it helps us ident so
+one it helps us identify what we're
+passing in and then um it can also Aid
+in um in reading it having it be
+slightly nicer to read having it m um
+imitate an English sentence so let's go
+back and see how well Apple did with uh
+this one here so um so this one was was
+called application did finish launching
+with options so that was the the
+function name if I were to call this
+this is what it would
+uh um yeah let's comment this out so we
+don't confuse the
+compiler um here we go
+uh okay so this is how we would call it
+uh and maybe um this application is
+called U
+demo so I'm pretending that this is a
+parameter that we have somewhere or a
+variable that we've defin somewhere so
+application uiid demo did finish
+launching with options and then the
+options we're passing in so Read's
+pretty nice um awful to read when you're
+just reading the the function signature
+here but it does read quite nicely
+here um I would argue modern Apple code
+uh wouldn't do this anymore so the
+reason why this is so long and so kind
+of clunky and awkward um so the app
+delegate uh so so a lot of this uh was
+written in Objective C and if you if you
+see Objective C code it kind of overdoes
+the really long function
+really verose um some of it uh some of
+it doesn't read very nicely uh so
+whenever something looks kind of awkward
+feels a little clunky it is likely um it
+is likely a a window into Objective C so
+um the UI app delegate
+here um is an NS protocol whenever you
+see NS um I'm not even sure what it
+stands for um so NS is a as a good uh
+indication that you're working with uh
+with Objective C um well you're inter
+interoperating with uh Objective C all
+right question
+yes which
+trade-off oh um I mean so I think
+there's so there's some automatic stuff
+happening of just translating so if you
+look at Objective C code in Objective C
+it kind of makes for the rules of
+objective c it kind of makes sense why
+it is like that but then just the Swift
+swif ification of that kind often looks
+a little bit awkward and then I guess
+there's also a little I think a little
+philosophies shift so I think it used to
+be I think uh so Objective C that came
+out can can you guys maybe close the
+door is that well maybe they're they're
+walking
+by um I I'll wait till they're
+gone um so yeah Objective C um if I'm if
+I'm getting my history correct there was
+kind of the so it's kind of it's It's
+not a really modern language but it's um
+so I think it's maybe by now like 40
+years old maybe um it kind of came up uh
+at this time where we started having
+larger screen screens and like we finer
+pixels so you finally had a way to like
+display more stuff on the screen and I
+think the philosophy there was and I
+mean don't quite quote me on this but I
+think that's kind of what happened here
+is like oh we have all this space uh so
+let's uh make the philosophy was let's
+make this language feel like English so
+that was uh if I'm getting my history
+right one of the goals for objective c
+anyways any other questions here uh so
+yeah we we have uh kind of all the uh
+rules the like enforced rules and and
+the the mechanics we now know uh so we
+have two par names an outer one and an
+inner one we don't need both of them if
+they would be the same actually the
+compiler would complain if we have the
+outer parameter name and the inner
+parameter name the same so we get a
+warning so this is not a compile time
+error it just says extrus um duplicate
+parameter name so it already has an
+argument label so it's saying hey you
+don't need both of these so if they the
+outer and Par outer and inner parameter
+name are the same you don't need two
+if
+you uh have an outer parameter name uh
+that you would like to specify you you
+may and then you have these two
+parameter names if your function should
+have no parameter name you can use the
+underscore and so these are the next
+things are kind of guidelines they're
+not rules so the compiler won't tell you
+to not do it um these are just kind of
+the the Swift language
+feel it should feel like Swift rules uh
+and so and those are you're not so this
+this you're not supposed to do you're
+not supposed to have more than one
+unnamed uh um more than one parameter
+without um parameter names without
+outter parameter names so you're not
+supposed to have more than one um if you
+have an unnamed parameter name it should
+be clear from the context uh so let's
+say maybe we have a function uh
+Square I feel like this is pretty clear
+from the context of what's going on here
+we're going to square this number so um
+this would be less good I think Square
+value I think this reads less nicely so
+I would say here it is advised advisable
+to not have a a parameter name uh so
+yeah that's one of one of the um
+guidelines um and and uh what what were
+other ones
+um uh yeah I think those I think that's
+you're not supposed to have multiple
+unnamed ones I think that that was kind
+of the only one uh all right any
+questions
+here cool okay so um it's been an hour
+I'll give you guys a 10-minute break and
+then when we come back uh we'll start uh
+tackling structs classes what what are
+they why do we need both
+um why is UI kid
+using classes uh Swift UI using structs
+will unpack all of that so let's come
+back at uh 808
