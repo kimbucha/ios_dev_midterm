@@ -50,9 +50,11 @@ This comprehensive review covers the core concepts from the first half of the iO
    - To-Do List app
    - Key implementation details
 
+Additionaly there are two sample midterm questions with answer keys to test your knowledge.
+
 ## How to Use This Review
 
 1. Start by reviewing each section in order, ensuring you understand the concepts before moving on
 2. Practice implementing the key concepts in small example projects
 3. Review the example projects to understand how these concepts work together
-4. Test your understanding with the provided review questions in each section 
+4. Test your understanding with the provided review questions in each section and the two sample midterms.
