@@ -175,6 +175,7 @@ This document contains sample questions covering all topics from weeks 1-7 of th
     - D) To prevent access to self's properties
 
 40. **Short Answer**: Rewrite the following anonymous function with the most concise Swift syntax: 
+    
     ```swift
     array.filter({ (number: Int) -> Bool in
         return number % 2 == 0
@@ -245,18 +246,18 @@ This document contains sample questions covering all topics from weeks 1-7 of th
 | 12 | Optionals represent values that might be absent (nil). They prevent crashes by forcing explicit unwrapping or safe handling of potentially missing values. |
 | 13 | True |
 | 14 | B) Assigns the value of name to displayName, or "Anonymous" if name is nil |
-| 15 | ```swift 
+| 15 | ```swift
 if let unwrapped = optional { 
-    use unwrapped 
+    // Use unwrapped value
 } else { 
-    handle nil case 
-} 
+    // Handle nil case 
+}
 
 guard let unwrapped = optional else { 
-    handle nil case
+    // Handle nil case
     return 
 }
-use unwrapped
+// Use unwrapped value
 ``` |
 | 16 | B) MVC (Model-View-Controller) |
 | 17 | Keeping Model and View separate creates better separation of concerns, improves testability, allows components to evolve independently, and enables reuse across different interfaces. |
@@ -272,16 +273,46 @@ use unwrapped
 | 27 | 1) Protocol: defines methods the delegate must implement. 2) Delegator: object that sends messages to its delegate. 3) Delegate: object that implements the protocol and receives messages. |
 | 28 | False (only if they have optional methods that require @objc) |
 | 29 | C) UIButton |
-| 30 | Define a protocol, create a weak delegate property in the child VC, implement the protocol in the parent VC, set the delegate when presenting the child, and call delegate methods when needed. |
+| 30 | ```swift
+// 1. Define the protocol
+protocol ColorSelectedDelegate: AnyObject {
+    func didSelectColor(_ color: UIColor)
+}
+
+// 2. Create the child view controller with a delegate property
+class ColorPickerViewController: UIViewController {
+    weak var delegate: ColorSelectedDelegate?
+    
+    func colorButtonTapped(_ sender: UIButton) {
+        // When a color is selected, notify the delegate
+        delegate?.didSelectColor(sender.backgroundColor ?? .white)
+        dismiss(animated: true)
+    }
+}
+
+// 3. Implement the protocol in the parent view controller
+class ParentViewController: UIViewController, ColorSelectedDelegate {
+    func didSelectColor(_ color: UIColor) {
+        // Handle the selected color
+        view.backgroundColor = color
+    }
+    
+    func showColorPicker() {
+        let colorPicker = ColorPickerViewController()
+        colorPicker.delegate = self
+        present(colorPicker, animated: true)
+    }
+}
+``` |
 | 31 | C) Enums can have stored properties |
 | 32 | Raw values are fixed values of the same type for all cases, defined at compile time. Associated values are dynamic values of potentially different types attached to individual cases at runtime. |
 | 33 | False |
 | 34 | C) Enables recursive enumeration definitions |
 | 35 | ```swift
-enum PaymentMethod { 
+enum PaymentMethod {
     case cash
     case creditCard(number: String)
-    case bankTransfer(accountNumber: String, routingNumber: String) 
+    case bankTransfer(accountNumber: String, routingNumber: String)
 }
 ``` |
 | 36 | B) It's stored for execution after the function returns |
