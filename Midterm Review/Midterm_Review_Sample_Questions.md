@@ -230,23 +230,39 @@ This document contains sample questions covering all topics from weeks 1-7 of th
 
 ## Answer Key
 
-| Q# | Answer |
-|----|--------|
-| 1  | D) It cannot open the project |
-| 2  | The Organization Identifier is a unique string (typically a reverse domain name) that identifies you or your organization. Combined with the product name, it creates a unique bundle identifier for your app. |
-| 3  | False |
-| 4  | B) Multiplatform App |
-| 5  | Simulators run on your Mac, are faster to deploy to, but can't test hardware-specific features like camera or accelerometer. Physical devices provide real-world testing but require developer accounts and provisioning. |
-| 6  | B) Swift UI |
-| 7  | UI Kit uses a class-based approach with UIViewController where UI is separate and connected with outlets/actions. Swift UI uses structs conforming to View protocol with a body property that defines the UI declaratively. |
-| 8  | True |
-| 9  | A) Using outlets and actions |
-| 10 | In Swift UI: Use @State variable and conditional view rendering. In UI Kit: Create IBOutlet to the label and IBAction for the button, toggle isHidden property. |
-| 11 | C) `let` declares constants, `var` declares variables |
-| 12 | Optionals represent values that might be absent (nil). They prevent crashes by forcing explicit unwrapping or safe handling of potentially missing values. |
-| 13 | True |
-| 14 | B) Assigns the value of name to displayName, or "Anonymous" if name is nil |
-| 15 | ```swift
+### Xcode and Development Environment
+**1.** D) It cannot open the project
+
+**2.** The Organization Identifier is a unique string (typically a reverse domain name) that identifies you or your organization. Combined with the product name, it creates a unique bundle identifier for your app.
+
+**3.** False
+
+**4.** B) Multiplatform App
+
+**5.** Simulators run on your Mac, are faster to deploy to, but can't test hardware-specific features like camera or accelerometer. Physical devices provide real-world testing but require developer accounts and provisioning.
+
+### Swift UI vs UI Kit
+**6.** B) Swift UI
+
+**7.** UI Kit uses a class-based approach with UIViewController where UI is separate and connected with outlets/actions. Swift UI uses structs conforming to View protocol with a body property that defines the UI declaratively.
+
+**8.** True
+
+**9.** A) Using outlets and actions
+
+**10.** In Swift UI: Use @State variable and conditional view rendering. In UI Kit: Create IBOutlet to the label and IBAction for the button, toggle isHidden property.
+
+### Swift Language Basics
+**11.** C) `let` declares constants, `var` declares variables
+
+**12.** Optionals represent values that might be absent (nil). They prevent crashes by forcing explicit unwrapping or safe handling of potentially missing values.
+
+**13.** True
+
+**14.** B) Assigns the value of name to displayName, or "Anonymous" if name is nil
+
+**15.** 
+```swift
 if let unwrapped = optional { 
     // Use unwrapped value
 } else { 
@@ -258,22 +274,41 @@ guard let unwrapped = optional else {
     return 
 }
 // Use unwrapped value
-``` |
-| 16 | B) MVC (Model-View-Controller) |
-| 17 | Keeping Model and View separate creates better separation of concerns, improves testability, allows components to evolve independently, and enables reuse across different interfaces. |
-| 18 | True |
-| 19 | D) ViewModel |
-| 20 | In UI Kit: Manually implemented using closures, delegation, or KVO. In Swift UI: Automatic with ObservableObject, @Published properties, and property wrappers like @ObservedObject. |
-| 21 | B) HStack |
-| 22 | Auto Layout in UI Kit uses constraints to define relationships between views. Swift UI uses a declarative approach with stacks (VStack, HStack, ZStack) and modifiers. |
-| 23 | True |
-| 24 | B) @Binding |
-| 25 | Create a Form container with Sections for organization. Use TextField for text input, Toggle for boolean values, and add a Button for submission, all connected to @State variables. |
-| 26 | B) To avoid retain cycles and memory leaks |
-| 27 | 1) Protocol: defines methods the delegate must implement. 2) Delegator: object that sends messages to its delegate. 3) Delegate: object that implements the protocol and receives messages. |
-| 28 | False (only if they have optional methods that require @objc) |
-| 29 | C) UIButton |
-| 30 | ```swift
+```
+
+### App Architecture
+**16.** B) MVC (Model-View-Controller)
+
+**17.** Keeping Model and View separate creates better separation of concerns, improves testability, allows components to evolve independently, and enables reuse across different interfaces.
+
+**18.** True
+
+**19.** D) ViewModel
+
+**20.** In UI Kit: Manually implemented using closures, delegation, or KVO. In Swift UI: Automatic with ObservableObject, @Published properties, and property wrappers like @ObservedObject.
+
+### UI Components and Layout
+**21.** B) HStack
+
+**22.** Auto Layout in UI Kit uses constraints to define relationships between views. Swift UI uses a declarative approach with stacks (VStack, HStack, ZStack) and modifiers.
+
+**23.** True
+
+**24.** B) @Binding
+
+**25.** Create a Form container with Sections for organization. Use TextField for text input, Toggle for boolean values, and add a Button for submission, all connected to @State variables.
+
+### Delegation Pattern
+**26.** B) To avoid retain cycles and memory leaks
+
+**27.** 1) Protocol: defines methods the delegate must implement. 2) Delegator: object that sends messages to its delegate. 3) Delegate: object that implements the protocol and receives messages.
+
+**28.** False (only if they have optional methods that require @objc)
+
+**29.** C) UIButton
+
+**30.** 
+```swift
 // 1. Define the protocol
 protocol ColorSelectedDelegate: AnyObject {
     func didSelectColor(_ color: UIColor)
@@ -303,32 +338,58 @@ class ParentViewController: UIViewController, ColorSelectedDelegate {
         present(colorPicker, animated: true)
     }
 }
-``` |
-| 31 | C) Enums can have stored properties |
-| 32 | Raw values are fixed values of the same type for all cases, defined at compile time. Associated values are dynamic values of potentially different types attached to individual cases at runtime. |
-| 33 | False |
-| 34 | C) Enables recursive enumeration definitions |
-| 35 | ```swift
+```
+
+### Enumerations
+**31.** C) Enums can have stored properties
+
+**32.** Raw values are fixed values of the same type for all cases, defined at compile time. Associated values are dynamic values of potentially different types attached to individual cases at runtime.
+
+**33.** False
+
+**34.** C) Enables recursive enumeration definitions
+
+**35.** 
+```swift
 enum PaymentMethod {
     case cash
     case creditCard(number: String)
     case bankTransfer(accountNumber: String, routingNumber: String)
 }
-``` |
-| 36 | B) It's stored for execution after the function returns |
-| 37 | Closures capture and store references to variables from surrounding context. This can create strong reference cycles if self is captured strongly in a closure that's also held by self. |
-| 38 | True |
-| 39 | B) To break potential retain cycles |
-| 40 | ```swift
+```
+
+### Functions and Closures
+**36.** B) It's stored for execution after the function returns
+
+**37.** Closures capture and store references to variables from surrounding context. This can create strong reference cycles if self is captured strongly in a closure that's also held by self.
+
+**38.** True
+
+**39.** B) To break potential retain cycles
+
+**40.** 
+```swift
 array.filter { $0 % 2 == 0 }
-``` |
-| 41 | A) UISegmentedControl |
-| 42 | In Swift UI: Update a @State or @Published boolean property on the task model and use that in conditional styling. In UI Kit: Update a property in the data model when a cell is tapped, then reload that cell to reflect the new state. |
-| 43 | False |
-| 44 | B) ObservableObject and @Published properties |
-| 45 | Model: TipCalculator struct with business logic. View: Storyboard UI elements (labels, text field, etc.). Controller: TipCalculatorViewController connecting user input to model calculations and updating the view. |
-| 46 | C) To handle early returns and improve code readability |
-| 47 | Property wrappers add behavior to properties. Examples: @State (manages mutable state in views), @Binding (creates two-way connection), @ObservedObject (observes external objects), @Environment (accesses shared values). |
-| 48 | True |
-| 49 | C) compactMap |
-| 50 | Type inference allows Swift to automatically determine variable types from their initialization values, reducing explicit type annotations and making code more concise while maintaining type safety. | 
+```
+
+### Example Projects
+**41.** A) UISegmentedControl
+
+**42.** In Swift UI: Update a @State or @Published boolean property on the task model and use that in conditional styling. In UI Kit: Update a property in the data model when a cell is tapped, then reload that cell to reflect the new state.
+
+**43.** False
+
+**44.** B) ObservableObject and @Published properties
+
+**45.** Model: TipCalculator struct with business logic. View: Storyboard UI elements (labels, text field, etc.). Controller: TipCalculatorViewController connecting user input to model calculations and updating the view.
+
+### Swift Features and Best Practices
+**46.** C) To handle early returns and improve code readability
+
+**47.** Property wrappers add behavior to properties. Examples: @State (manages mutable state in views), @Binding (creates two-way connection), @ObservedObject (observes external objects), @Environment (accesses shared values).
+
+**48.** True
+
+**49.** C) compactMap
+
+**50.** Type inference allows Swift to automatically determine variable types from their initialization values, reducing explicit type annotations and making code more concise while maintaining type safety. 
