@@ -1,6 +1,6 @@
 # iOS Development Midterm Review
 
-This comprehensive review covers the core concepts from the first half of the iOS development course (Weeks 1-7). Use this guide to prepare for your midterm exam and to reinforce your understanding of the fundamental iOS development concepts.
+This comprehensive review covers the core concepts from the first half of the iOS development course (Weeks 1-7). Use this guide to prepare for your midterm exam and to reinforce your understanding of the fundamental iOS development concepts. Beware of hallucinations
 
 ## Table of Contents
 
