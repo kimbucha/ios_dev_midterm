@@ -238,7 +238,8 @@ C) XML
 
 ### Swift UI vs UI Kit
 **6. Explain the core difference between imperative and declarative UI programming paradigms, giving an example related to hiding a label.**  
-Imperative: You command the UI step-by-step (e.g., "label, set your isHidden property to true"). Declarative: You declare the desired state, and the framework updates the UI to match (e.g., "if showLabel is false, the label isn't part of the view").
+Imperative: You command the UI step-by-step (e.g., "label, set your isHidden property to true").  
+Declarative: You declare the desired state, and the framework updates the UI to match (e.g., "if showLabel is false, the label isn't part of the view").
 
 **7. In Swift UI, the Canvas preview directly modifies the underlying Storyboard file.**  
 False (*The Canvas renders Swift UI code; Storyboards are separate XML files edited via Interface Builder for UI Kit.*)
@@ -270,7 +271,9 @@ B) Inline initialization happens for all instances; init() can vary based on par
 
 ### App Architecture
 **16. What are the three main components of the MVC (Model-View-Controller) pattern, and what is the primary responsibility of each?**  
-Model: Holds the application data and business logic. View: Displays the data to the user and presents the UI. Controller: Mediates between Model and View, handling user input and updating the Model/View.
+Model: Holds the application data and business logic.  
+View: Displays the data to the user and presents the UI.  
+Controller: Mediates between Model and View, handling user input and updating the Model/View.
 
 **17. In a strict MVC implementation, the Model should directly update the View when its data changes.**  
 False (*Communication should go through the Controller.*)
@@ -279,7 +282,9 @@ False (*Communication should go through the Controller.*)
 C) MVVM
 
 **19. Why is separating components (like Model, View, Controller/ViewModel) beneficial in software architecture? Name two benefits.**  
-1) Improved Maintainability/Readability: Code is organized logically. 2) Increased Reusability: Components (especially Model, sometimes View) can be reused elsewhere. 3) Easier Testability: Components can be tested in isolation.
+1) Improved Maintainability/Readability: Code is organized logically.  
+2) Increased Reusability: Components (especially Model, sometimes View) can be reused elsewhere.  
+3) Easier Testability: Components can be tested in isolation.
 
 **20. In the context of MVC for UI Kit, where does the `UIViewController` subclass typically fit?**  
 C) Controller
@@ -350,7 +355,8 @@ C) Retain cycles
 
 ### Example Projects
 **41. In the simple UI Kit toggle app, what was the role of the `IBAction` and the `IBOutlet`?**  
-`IBAction`: A method linked to a UI event (like a button tap) triggered from Interface Builder. `IBOutlet`: A property linked to a UI element in Interface Builder, allowing the code to reference and modify that element.
+`IBAction`: A method linked to a UI event (like a button tap) triggered from Interface Builder.  
+`IBOutlet`: A property linked to a UI element in Interface Builder, allowing the code to reference and modify that element.
 
 **42. In the Swift UI Tip Calculator, how was the `TextField`'s input connected to a variable in the view?**  
 B) Using `@State` and `@Binding` (implicitly via `TextField(value: $amount, ...)` syntax)

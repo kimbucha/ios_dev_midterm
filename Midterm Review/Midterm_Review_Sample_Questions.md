@@ -277,12 +277,14 @@ B) Assigns the value of name to displayName, or "Anonymous" if name is nil
 
 **15. Write Swift code to safely unwrap an optional value using both if-let binding and guard-let statements.**  
 ```swift
+// Using if-let binding
 if let unwrapped = optional { 
     // Use unwrapped value
 } else { 
     // Handle nil case 
 }
 
+// Using guard-let statement
 guard let unwrapped = optional else { 
     // Handle nil case
     return 
@@ -304,7 +306,8 @@ True
 D) ViewModel
 
 **20. Compare how data binding works in MVVM implementations for UI Kit versus Swift UI.**  
-In UI Kit: Manually implemented using closures, delegation, or KVO. In Swift UI: Automatic with ObservableObject, @Published properties, and property wrappers like @ObservedObject.
+In UI Kit: Manually implemented using closures, delegation, or KVO.  
+In Swift UI: Automatic with ObservableObject, @Published properties, and property wrappers like @ObservedObject.
 
 ### UI Components and Layout
 **21. In Swift UI, which stack arranges its children horizontally?**  
@@ -327,7 +330,9 @@ Create a Form container with Sections for organization. Use TextField for text i
 B) To avoid retain cycles and memory leaks
 
 **27. Explain the three key components of the delegation pattern and their roles.**  
-1) Protocol: defines methods the delegate must implement. 2) Delegator: object that sends messages to its delegate. 3) Delegate: object that implements the protocol and receives messages.
+1) Protocol: defines methods the delegate must implement.  
+2) Delegator: object that sends messages to its delegate.  
+3) Delegate: object that implements the protocol and receives messages.
 
 **28. In Swift, delegate protocols must always inherit from AnyObject.**  
 False (only if they have optional methods that require @objc)
@@ -373,7 +378,8 @@ class ParentViewController: UIViewController, ColorSelectedDelegate {
 C) Enums can have stored properties
 
 **32. Explain the difference between raw values and associated values in Swift enumerations.**  
-Raw values are fixed values of the same type for all cases, defined at compile time. Associated values are dynamic values of potentially different types attached to individual cases at runtime.
+Raw values are fixed values of the same type for all cases, defined at compile time.  
+Associated values are dynamic values of potentially different types attached to individual cases at runtime.
 
 **33. Swift enums with associated values can automatically conform to the CaseIterable protocol.**  
 False
@@ -413,7 +419,8 @@ array.filter { $0 % 2 == 0 }
 A) UISegmentedControl
 
 **42. Describe how you would implement the To-Do List app's item completion toggling functionality in both Swift UI and UI Kit.**  
-In Swift UI: Update a @State or @Published boolean property on the task model and use that in conditional styling. In UI Kit: Update a property in the data model when a cell is tapped, then reload that cell to reflect the new state.
+In Swift UI: Update a @State or @Published boolean property on the task model and use that in conditional styling.  
+In UI Kit: Update a property in the data model when a cell is tapped, then reload that cell to reflect the new state.
 
 **43. In the Swift UI To-Do List app implementation, each view directly updates the data model when a change occurs.**  
 False
@@ -422,14 +429,20 @@ False
 B) ObservableObject and @Published properties
 
 **45. Describe how the MVC architecture manifests in the UI Kit tip calculator project, identifying each component's responsibility.**  
-Model: TipCalculator struct with business logic. View: Storyboard UI elements (labels, text field, etc.). Controller: TipCalculatorViewController connecting user input to model calculations and updating the view.
+Model: TipCalculator struct with business logic.  
+View: Storyboard UI elements (labels, text field, etc.).  
+Controller: TipCalculatorViewController connecting user input to model calculations and updating the view.
 
 ### Swift Features and Best Practices
 **46. What is the primary purpose of using a guard statement in Swift?**  
 C) To handle early returns and improve code readability
 
 **47. Explain what property wrappers are in Swift and give at least two examples of built-in property wrappers used in Swift UI.**  
-Property wrappers add behavior to properties. Examples: @State (manages mutable state in views), @Binding (creates two-way connection), @ObservedObject (observes external objects), @Environment (accesses shared values).
+Property wrappers add behavior to properties. Examples:  
+- @State (manages mutable state in views)  
+- @Binding (creates two-way connection)  
+- @ObservedObject (observes external objects)  
+- @Environment (accesses shared values)
 
 **48. In Swift, it's generally preferred to use `let` (constants) over `var` (variables) when the value doesn't need to change.**  
 True
