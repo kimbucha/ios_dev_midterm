@@ -231,37 +231,51 @@ This document contains sample questions covering all topics from weeks 1-7 of th
 ## Answer Key
 
 ### Xcode and Development Environment
-**1.** D) It cannot open the project
+**1. What happens when you try to open a project created with a newer version of Xcode in an older version?**  
+D) It cannot open the project
 
-**2.** The Organization Identifier is a unique string (typically a reverse domain name) that identifies you or your organization. Combined with the product name, it creates a unique bundle identifier for your app.
+**2. Explain the purpose of the Organization Identifier when creating a new Xcode project.**  
+The Organization Identifier is a unique string (typically a reverse domain name) that identifies you or your organization. Combined with the product name, it creates a unique bundle identifier for your app.
 
-**3.** False
+**3. When working in a team, it's recommended that all team members use different versions of Xcode to ensure compatibility across all Apple devices.**  
+False
 
-**4.** B) Multiplatform App
+**4. Which of the following project templates allows you to target multiple Apple platforms with a single codebase?**  
+B) Multiplatform App
 
-**5.** Simulators run on your Mac, are faster to deploy to, but can't test hardware-specific features like camera or accelerometer. Physical devices provide real-world testing but require developer accounts and provisioning.
+**5. What is the difference between the simulator and running your app on a physical device?**  
+Simulators run on your Mac, are faster to deploy to, but can't test hardware-specific features like camera or accelerometer. Physical devices provide real-world testing but require developer accounts and provisioning.
 
 ### Swift UI vs UI Kit
-**6.** B) Swift UI
+**6. Which framework uses a declarative syntax for building user interfaces?**  
+B) Swift UI
 
-**7.** UI Kit uses a class-based approach with UIViewController where UI is separate and connected with outlets/actions. Swift UI uses structs conforming to View protocol with a body property that defines the UI declaratively.
+**7. Compare and contrast the basic structure of a UI Kit view controller and a Swift UI view.**  
+UI Kit uses a class-based approach with UIViewController where UI is separate and connected with outlets/actions. Swift UI uses structs conforming to View protocol with a body property that defines the UI declaratively.
 
-**8.** True
+**8. Swift UI requires iOS 13 or later, while UI Kit works on earlier iOS versions.**  
+True
 
-**9.** A) Using outlets and actions
+**9. In UI Kit, how do you connect UI elements from Interface Builder to your code?**  
+A) Using outlets and actions
 
-**10.** In Swift UI: Use @State variable and conditional view rendering. In UI Kit: Create IBOutlet to the label and IBAction for the button, toggle isHidden property.
+**10. Explain how you would implement a button that toggles the visibility of a text label in both Swift UI and UI Kit.**  
+In Swift UI: Use @State variable and conditional view rendering. In UI Kit: Create IBOutlet to the label and IBAction for the button, toggle isHidden property.
 
 ### Swift Language Basics
-**11.** C) `let` declares constants, `var` declares variables
+**11. What is the difference between `let` and `var` in Swift?**  
+C) `let` declares constants, `var` declares variables
 
-**12.** Optionals represent values that might be absent (nil). They prevent crashes by forcing explicit unwrapping or safe handling of potentially missing values.
+**12. Explain what optional values are in Swift and why they are useful.**  
+Optionals represent values that might be absent (nil). They prevent crashes by forcing explicit unwrapping or safe handling of potentially missing values.
 
-**13.** True
+**13. In Swift, arrays and dictionaries are value types, not reference types.**  
+True
 
-**14.** B) Assigns the value of name to displayName, or "Anonymous" if name is nil
+**14. What does the following code do? `let displayName = name ?? "Anonymous"`**  
+B) Assigns the value of name to displayName, or "Anonymous" if name is nil
 
-**15.** 
+**15. Write Swift code to safely unwrap an optional value using both if-let binding and guard-let statements.**  
 ```swift
 if let unwrapped = optional { 
     // Use unwrapped value
@@ -277,37 +291,51 @@ guard let unwrapped = optional else {
 ```
 
 ### App Architecture
-**16.** B) MVC (Model-View-Controller)
+**16. Which architectural pattern is built into UI Kit by default?**  
+B) MVC (Model-View-Controller)
 
-**17.** Keeping Model and View separate creates better separation of concerns, improves testability, allows components to evolve independently, and enables reuse across different interfaces.
+**17. Explain why the Model and View components should not communicate directly in the MVC pattern.**  
+Keeping Model and View separate creates better separation of concerns, improves testability, allows components to evolve independently, and enables reuse across different interfaces.
 
-**18.** True
+**18. Swift UI naturally encourages an MVVM architecture pattern due to its reactive and declarative nature.**  
+True
 
-**19.** D) ViewModel
+**19. In MVVM, which component is responsible for transforming Model data into a format that can be displayed by the View?**  
+D) ViewModel
 
-**20.** In UI Kit: Manually implemented using closures, delegation, or KVO. In Swift UI: Automatic with ObservableObject, @Published properties, and property wrappers like @ObservedObject.
+**20. Compare how data binding works in MVVM implementations for UI Kit versus Swift UI.**  
+In UI Kit: Manually implemented using closures, delegation, or KVO. In Swift UI: Automatic with ObservableObject, @Published properties, and property wrappers like @ObservedObject.
 
 ### UI Components and Layout
-**21.** B) HStack
+**21. In Swift UI, which stack arranges its children horizontally?**  
+B) HStack
 
-**22.** Auto Layout in UI Kit uses constraints to define relationships between views. Swift UI uses a declarative approach with stacks (VStack, HStack, ZStack) and modifiers.
+**22. Explain how Auto Layout works in UI Kit and how it differs from the layout system in Swift UI.**  
+Auto Layout in UI Kit uses constraints to define relationships between views. Swift UI uses a declarative approach with stacks (VStack, HStack, ZStack) and modifiers.
 
-**23.** True
+**23. In Swift UI, a List component is roughly equivalent to a UITableView in UI Kit.**  
+True
 
-**24.** B) @Binding
+**24. What property wrapper is used to create two-way bindings in Swift UI text fields?**  
+B) @Binding
 
-**25.** Create a Form container with Sections for organization. Use TextField for text input, Toggle for boolean values, and add a Button for submission, all connected to @State variables.
+**25. Describe how you would create a form with multiple input fields and a submit button in Swift UI.**  
+Create a Form container with Sections for organization. Use TextField for text input, Toggle for boolean values, and add a Button for submission, all connected to @State variables.
 
 ### Delegation Pattern
-**26.** B) To avoid retain cycles and memory leaks
+**26. What is a key reason for using the weak reference for delegates?**  
+B) To avoid retain cycles and memory leaks
 
-**27.** 1) Protocol: defines methods the delegate must implement. 2) Delegator: object that sends messages to its delegate. 3) Delegate: object that implements the protocol and receives messages.
+**27. Explain the three key components of the delegation pattern and their roles.**  
+1) Protocol: defines methods the delegate must implement. 2) Delegator: object that sends messages to its delegate. 3) Delegate: object that implements the protocol and receives messages.
 
-**28.** False (only if they have optional methods that require @objc)
+**28. In Swift, delegate protocols must always inherit from AnyObject.**  
+False (only if they have optional methods that require @objc)
 
-**29.** C) UIButton
+**29. Which of the following UI Kit components does NOT use delegation?**  
+C) UIButton
 
-**30.** 
+**30. Write code to define a custom delegation pattern for passing data back from a child view controller to its parent.**  
 ```swift
 // 1. Define the protocol
 protocol ColorSelectedDelegate: AnyObject {
@@ -341,15 +369,19 @@ class ParentViewController: UIViewController, ColorSelectedDelegate {
 ```
 
 ### Enumerations
-**31.** C) Enums can have stored properties
+**31. Which statement about Swift enums is false?**  
+C) Enums can have stored properties
 
-**32.** Raw values are fixed values of the same type for all cases, defined at compile time. Associated values are dynamic values of potentially different types attached to individual cases at runtime.
+**32. Explain the difference between raw values and associated values in Swift enumerations.**  
+Raw values are fixed values of the same type for all cases, defined at compile time. Associated values are dynamic values of potentially different types attached to individual cases at runtime.
 
-**33.** False
+**33. Swift enums with associated values can automatically conform to the CaseIterable protocol.**  
+False
 
-**34.** C) Enables recursive enumeration definitions
+**34. What does the `indirect` keyword allow in Swift enumerations?**  
+C) Enables recursive enumeration definitions
 
-**35.** 
+**35. Write a Swift enum to represent different payment methods (cash, credit card with number, and bank transfer with account details).**  
 ```swift
 enum PaymentMethod {
     case cash
@@ -359,37 +391,51 @@ enum PaymentMethod {
 ```
 
 ### Functions and Closures
-**36.** B) It's stored for execution after the function returns
+**36. What makes a closure "escaping" in Swift?**  
+B) It's stored for execution after the function returns
 
-**37.** Closures capture and store references to variables from surrounding context. This can create strong reference cycles if self is captured strongly in a closure that's also held by self.
+**37. Explain how capturing values works in closures and potential memory considerations.**  
+Closures capture and store references to variables from surrounding context. This can create strong reference cycles if self is captured strongly in a closure that's also held by self.
 
-**38.** True
+**38. In Swift, functions are first-class citizens, meaning they can be assigned to variables, passed as arguments, and returned from other functions.**  
+True
 
-**39.** B) To break potential retain cycles
+**39. What is the purpose of the `[weak self]` syntax in a closure?**  
+B) To break potential retain cycles
 
-**40.** 
+**40. Rewrite the following anonymous function with the most concise Swift syntax:**  
 ```swift
 array.filter { $0 % 2 == 0 }
 ```
 
 ### Example Projects
-**41.** A) UISegmentedControl
+**41. In the Tip Calculator example, which UI component would you use to let users select from predefined tip percentages in UI Kit?**  
+A) UISegmentedControl
 
-**42.** In Swift UI: Update a @State or @Published boolean property on the task model and use that in conditional styling. In UI Kit: Update a property in the data model when a cell is tapped, then reload that cell to reflect the new state.
+**42. Describe how you would implement the To-Do List app's item completion toggling functionality in both Swift UI and UI Kit.**  
+In Swift UI: Update a @State or @Published boolean property on the task model and use that in conditional styling. In UI Kit: Update a property in the data model when a cell is tapped, then reload that cell to reflect the new state.
 
-**43.** False
+**43. In the Swift UI To-Do List app implementation, each view directly updates the data model when a change occurs.**  
+False
 
-**44.** B) ObservableObject and @Published properties
+**44. Which feature of Swift UI makes it easier to update the UI when a task is marked as completed in the To-Do app?**  
+B) ObservableObject and @Published properties
 
-**45.** Model: TipCalculator struct with business logic. View: Storyboard UI elements (labels, text field, etc.). Controller: TipCalculatorViewController connecting user input to model calculations and updating the view.
+**45. Describe how the MVC architecture manifests in the UI Kit tip calculator project, identifying each component's responsibility.**  
+Model: TipCalculator struct with business logic. View: Storyboard UI elements (labels, text field, etc.). Controller: TipCalculatorViewController connecting user input to model calculations and updating the view.
 
 ### Swift Features and Best Practices
-**46.** C) To handle early returns and improve code readability
+**46. What is the primary purpose of using a guard statement in Swift?**  
+C) To handle early returns and improve code readability
 
-**47.** Property wrappers add behavior to properties. Examples: @State (manages mutable state in views), @Binding (creates two-way connection), @ObservedObject (observes external objects), @Environment (accesses shared values).
+**47. Explain what property wrappers are in Swift and give at least two examples of built-in property wrappers used in Swift UI.**  
+Property wrappers add behavior to properties. Examples: @State (manages mutable state in views), @Binding (creates two-way connection), @ObservedObject (observes external objects), @Environment (accesses shared values).
 
-**48.** True
+**48. In Swift, it's generally preferred to use `let` (constants) over `var` (variables) when the value doesn't need to change.**  
+True
 
-**49.** C) compactMap
+**49. Which higher-order function would you use to convert an array of strings to an array of integers, removing any values that couldn't be converted?**  
+C) compactMap
 
-**50.** Type inference allows Swift to automatically determine variable types from their initialization values, reducing explicit type annotations and making code more concise while maintaining type safety. 
+**50. Describe the concept of type inference in Swift and how it helps write more concise code.**  
+Type inference allows Swift to automatically determine variable types from their initialization values, reducing explicit type annotations and making code more concise while maintaining type safety. 
